@@ -51,7 +51,7 @@ const services = [
 
 const Services = () => (
   <div>
-    <section className="py-20 md:py-28 bg-card">
+    <section className="py-20 md:py-28">
       <div className="container max-w-3xl text-center">
         <FadeIn>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">

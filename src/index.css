@@ -58,9 +58,20 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    background-color: #f6f2ea;
+    background-image:
+      linear-gradient(to right, hsla(var(--primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, hsla(var(--primary) / 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-attachment: fixed;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
   }
 }
@@ -72,7 +83,7 @@
   background: hsl(var(--beige));
   padding: 0.1em 0.4em;
   transform: rotate(-1deg);
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.08);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .tape-label::before {
