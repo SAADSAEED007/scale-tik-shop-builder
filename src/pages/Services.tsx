@@ -102,7 +102,7 @@ const Services = () => (
       </div>
     </section>
 
-    <section className="py-16 bg-secondary/30 text-center">
+    <section className="py-16 text-center">
       <div className="container">
         <FadeIn>
           <p className="text-lg font-semibold">Custom packages based on monthly volume and goals.</p>
