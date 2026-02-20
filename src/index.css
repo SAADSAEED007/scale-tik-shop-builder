@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 48 20% 97%;
+    --background: 0 0% 100%;
     --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
@@ -38,7 +38,7 @@
 
     --beige: 37 18% 81%;
     --beige-dark: 34 19% 73%;
-    --off-white: 48 20% 97%;
+    --off-white: 0 0% 100%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -58,7 +58,7 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
-    background-color: #f6f2ea;
+    background-color: #ffffff;
     background-image:
       linear-gradient(to right, hsla(var(--primary) / 0.05) 1px, transparent 1px),
       linear-gradient(to bottom, hsla(var(--primary) / 0.05) 1px, transparent 1px);
