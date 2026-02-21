@@ -19,7 +19,8 @@ const Header = () => {
   const location = useLocation();
 
   const handleNavClick = (e: React.MouseEvent, path: string) => {
-    if (path === "/" && location.pathname === "/") {
+    // If clicking Home while on Home, or clicking a page link while already on that page
+    if ((path === "/" && location.pathname === "/") || (path === location.pathname)) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
       setOpen(false);
