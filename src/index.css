@@ -59,6 +59,11 @@
   body {
     @apply bg-background text-foreground font-body antialiased;
     background-color: #ffffff;
+    background-image:
+      linear-gradient(to right, hsla(var(--primary) / 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, hsla(var(--primary) / 0.08) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-attachment: fixed;
   }
 
   h1,

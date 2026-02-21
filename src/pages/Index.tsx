@@ -5,7 +5,6 @@ import FadeIn from "@/components/FadeIn";
 import { ArrowRight, Zap, BarChart3, Users, Target, Play, TrendingUp } from "lucide-react";
 import { useState } from "react";
 import ServicesShowcase from "@/components/ServicesShowcase";
-import heroBg from "@/assets/hero_backgrnd.png";
 
 const steps = [
   { num: "01", title: "Audit + Plan", desc: "We analyze your brand, category, and competition to build a roadmap." },
@@ -33,18 +32,6 @@ const Index = () => {
     <div>
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-32 md:pb-32 relative overflow-hidden">
-        {/* Background Image Layer */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none opacity-[0.65]"
-          style={{
-            backgroundImage: `url(${heroBg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'brightness(0.85) contrast(1.05)',
-          }}
-        />
-        {/* Soft Dark Overlay for premium SaaS look */}
-        <div className="absolute inset-0 z-[5] pointer-events-none bg-black/25" />
         <div className="container max-w-4xl text-center relative z-10">
           <FadeIn>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05]">
@@ -52,7 +39,7 @@ const Index = () => {
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="mt-6 text-lg md:text-xl text-white max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               We help brands grow revenue on TikTok Shop through UGC, affiliate seeding, ads, live strategy, and performance creative that converts.
             </p>
           </FadeIn>
