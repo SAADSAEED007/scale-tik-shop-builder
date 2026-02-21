@@ -48,7 +48,7 @@ const CaseStudies = () => {
 
   return (
     <div>
-      <section className="py-20 md:py-28 bg-card">
+      <section className="pt-36 pb-20 md:py-28 bg-card">
         <div className="container max-w-3xl text-center">
           <FadeIn>
             <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
@@ -66,11 +66,10 @@ const CaseStudies = () => {
               <button
                 key={f}
                 onClick={() => setActive(f)}
-                className={`px-4 py-1.5 text-sm font-medium rounded-full border transition-colors ${
-                  active === f
+                className={`px-4 py-1.5 text-sm font-medium rounded-full border transition-colors ${active === f
                     ? "bg-primary text-primary-foreground border-primary"
                     : "bg-card text-muted-foreground border-border hover:border-foreground/30"
-                }`}
+                  }`}
               >
                 {f}
               </button>

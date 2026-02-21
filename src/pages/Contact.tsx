@@ -17,7 +17,7 @@ const Contact = () => {
 
   return (
     <div>
-      <section className="py-20 md:py-28 bg-card">
+      <section className="pt-36 pb-20 md:py-28 bg-card">
         <div className="container max-w-2xl text-center">
           <FadeIn>
             <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">

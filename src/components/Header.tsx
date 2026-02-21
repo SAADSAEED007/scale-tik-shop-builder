@@ -74,14 +74,14 @@ const Header = () => {
             onClick={(e) => handleNavClick(e, "/")}
             className="flex items-center gap-3 group transition-all duration-300 active:scale-95 shrink-0"
           >
-            <div className="relative h-9 w-9 md:h-12 md:w-12 overflow-hidden rounded-2xl bg-secondary/15 flex items-center justify-center border border-border/10 group-hover:bg-secondary/25 transition-colors">
-              <img src={logo} alt="TikShop Scale" className="h-6 w-6 md:h-8 md:w-8 object-contain" />
+            <div className="relative h-11 w-11 md:h-16 md:w-16 overflow-hidden rounded-2xl bg-secondary/10 flex items-center justify-center border border-border/5 group-hover:bg-secondary/20 transition-all duration-500">
+              <img src={logo} alt="TikShop Scale" className="h-8 w-8 md:h-12 md:w-12 object-contain filter drop-shadow-sm" />
             </div>
             <div className="flex flex-col -space-y-1">
-              <span className="font-heading font-black text-lg md:text-xl tracking-tighter text-foreground whitespace-nowrap leading-none">
+              <span className="font-heading font-black text-xl md:text-2xl tracking-tighter text-foreground whitespace-nowrap leading-none">
                 TikShop
               </span>
-              <span className="font-heading font-bold text-[0.65rem] md:text-[0.75rem] uppercase tracking-[0.2em] text-primary/40 group-hover:text-primary transition-all duration-500">
+              <span className="font-heading font-bold text-[0.75rem] md:text-[0.85rem] uppercase tracking-[0.2em] text-primary/40 group-hover:text-primary transition-all duration-500">
                 Scale
               </span>
             </div>

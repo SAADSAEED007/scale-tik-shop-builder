@@ -32,16 +32,19 @@ const Index = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
+      <section className="pt-32 pb-20 md:pt-32 md:pb-32 relative overflow-hidden">
         {/* Background Image Layer */}
         <div
-          className="absolute inset-0 z-0 pointer-events-none opacity-[0.12] mix-blend-luminosity"
+          className="absolute inset-0 z-0 pointer-events-none opacity-[0.65]"
           style={{
             backgroundImage: `url(${heroBg})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            filter: 'brightness(1.1) contrast(1.05)',
           }}
         />
+        {/* Subtle Overlay for readability */}
+        <div className="absolute inset-0 z-[5] pointer-events-none bg-white/40" />
         <div className="container max-w-4xl text-center relative z-10">
           <FadeIn>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05]">
@@ -152,7 +155,7 @@ const Index = () => {
 
                   {/* Card wrapper */}
                   <div className="w-full md:w-[45%] pl-20 md:pl-0">
-                    <FadeIn direction={i % 2 === 0 ? 'left' : 'right'}>
+                    <FadeIn>
                       <div className="group p-8 md:p-10 rounded-[2.5rem] border border-border/50 bg-background/60 backdrop-blur-md shadow-sm hover:shadow-2xl hover:border-primary/20 transition-all duration-500 relative">
                         {/* Subtle background icon */}
                         <div className="absolute top-8 right-8 text-primary/5 transition-colors group-hover:text-primary/10">
