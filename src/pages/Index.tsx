@@ -5,6 +5,7 @@ import FadeIn from "@/components/FadeIn";
 import { ArrowRight, Zap, BarChart3, Users, Target, Play, TrendingUp } from "lucide-react";
 import { useState } from "react";
 import ServicesShowcase from "@/components/ServicesShowcase";
+import heroBg from "@/assets/hero_backgrnd.png";
 
 const steps = [
   { num: "01", title: "Audit + Plan", desc: "We analyze your brand, category, and competition to build a roadmap." },
@@ -31,8 +32,17 @@ const Index = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="py-20 md:py-32">
-        <div className="container max-w-4xl text-center">
+      <section className="py-20 md:py-32 relative overflow-hidden">
+        {/* Background Image Layer */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none opacity-[0.12] mix-blend-luminosity"
+          style={{
+            backgroundImage: `url(${heroBg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="container max-w-4xl text-center relative z-10">
           <FadeIn>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05]">
               Scale your <TapeLabel>TikTok Shop</TapeLabel> with creators, ads, and conversion‑first content.

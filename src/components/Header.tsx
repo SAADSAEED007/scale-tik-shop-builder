@@ -6,7 +6,7 @@ import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "Home", path: "/" },
-  { label: "Services", path: "/#services" },
+  { label: "Services", path: "/services" },
   { label: "About", path: "/#about" },
   { label: "Case Studies", path: "/case-studies" },
 ];
@@ -23,12 +23,12 @@ const Header = () => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
       setOpen(false);
-    } else if ((path === "/#services" || path === "/#about") && location.pathname === "/") {
+    } else if (path.startsWith("/#") && location.pathname === "/") {
       e.preventDefault();
       const id = path.split("#")[1];
       const el = document.getElementById(id);
       if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        el.scrollIntoView({ behavior: "smooth" });
         setOpen(false);
       }
     }
@@ -138,9 +138,7 @@ const Header = () => {
                 to={item.path}
                 onClick={(e) => {
                   handleNavClick(e, item.path);
-                  if (item.path !== "/#services" || location.pathname !== "/") {
-                    setOpen(false);
-                  }
+                  setOpen(false);
                 }}
                 className={`flex items-center justify-between px-6 py-4 rounded-[1.5rem] text-lg font-extrabold transition-all ${location.pathname === item.path
                   ? "bg-primary text-primary-foreground shadow-xl translate-x-1"
