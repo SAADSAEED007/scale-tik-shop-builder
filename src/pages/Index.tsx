@@ -40,11 +40,11 @@ const Index = () => {
             backgroundImage: `url(${heroBg})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            filter: 'brightness(1.1) contrast(1.05)',
+            filter: 'brightness(0.85) contrast(1.05)',
           }}
         />
-        {/* Subtle Overlay for readability */}
-        <div className="absolute inset-0 z-[5] pointer-events-none bg-white/40" />
+        {/* Soft Dark Overlay for premium SaaS look */}
+        <div className="absolute inset-0 z-[5] pointer-events-none bg-black/25" />
         <div className="container max-w-4xl text-center relative z-10">
           <FadeIn>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05]">
@@ -52,7 +52,7 @@ const Index = () => {
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-lg md:text-xl text-white max-w-2xl mx-auto leading-relaxed">
               We help brands grow revenue on TikTok Shop through UGC, affiliate seeding, ads, live strategy, and performance creative that converts.
             </p>
           </FadeIn>
