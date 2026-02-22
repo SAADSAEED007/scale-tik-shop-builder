@@ -5,6 +5,8 @@ import FadeIn from "@/components/FadeIn";
 import { ArrowRight, Zap, BarChart3, Users, Target, Play, TrendingUp } from "lucide-react";
 import { useState } from "react";
 import ServicesShowcase from "@/components/ServicesShowcase";
+import Hero from "@/components/Hero";
+
 
 const steps = [
   { num: "01", title: "Audit + Plan", desc: "We analyze your brand, category, and competition to build a roadmap." },
@@ -30,58 +32,10 @@ const Index = () => {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-32 md:pb-32 relative overflow-hidden">
-        <div className="container max-w-4xl text-center relative z-10">
-          <FadeIn>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05]">
-              Scale your <TapeLabel>TikTok Shop</TapeLabel> with creators, ads, and conversion‑first content.
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              We help brands grow revenue on TikTok Shop through UGC, affiliate seeding, ads, live strategy, and performance creative that converts.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/contact">
-                <Button variant="hero" size="lg" className="gap-2">
-                  Book a Free Audit <ArrowRight size={16} />
-                </Button>
-              </Link>
-              <Link to="/case-studies">
-                <Button variant="hero-secondary" size="lg">See Case Studies</Button>
-              </Link>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              {["UGC + Affiliate Engine", "TikTok Shop Ops + Creative", "Performance Testing Weekly"].map((chip) => (
-                <span key={chip} className="px-4 py-1.5 text-xs font-medium rounded-full border border-border bg-muted tracking-tight">
-                  {chip}
-                </span>
-              ))}
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Social proof */}
-      <section className="py-12 border-y border-border">
-        <div className="container">
-          <p className="text-center text-sm font-medium text-muted-foreground tracking-widest uppercase mb-6">
-            Trusted by growth‑minded brands
-          </p>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-30">
-            {["Brand A", "Brand B", "Brand C", "Brand D", "Brand E"].map((b) => (
-              <span key={b} className="text-lg font-bold tracking-tight">{b}</span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Services Showcase */}
+
       <section id="services" className="pt-16 md:pt-20 overflow-hidden">
         <div className="container mb-8 md:mb-12">
           <FadeIn>
