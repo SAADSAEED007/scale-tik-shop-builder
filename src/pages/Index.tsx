@@ -35,23 +35,7 @@ const Index = () => {
     <div>
       <Hero />
 
-      {/* Infographic Section */}
-      <section className="pt-0 pb-12 md:pb-20 lg:-mt-20">
-        <div className="container max-w-[1240px] mx-auto px-4">
-          <FadeIn>
-            <div className="flex justify-center items-center">
-              <img
-                src={carrerImage}
-                alt="TikShop Scale Process Infographic"
-                className="w-full h-auto object-contain max-w-[1100px] mx-auto"
-              />
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* Services Showcase */}
-
       <section id="services" className="pt-8 md:pt-12 overflow-hidden">
         <div className="container mb-8 md:mb-12">
           <FadeIn>
@@ -64,6 +48,21 @@ const Index = () => {
           </FadeIn>
         </div>
         <ServicesShowcase />
+      </section>
+
+      {/* Infographic Section */}
+      <section className="pt-0 pb-12 md:pb-20">
+        <div className="container max-w-[1240px] mx-auto px-4">
+          <FadeIn>
+            <div className="flex justify-center items-center">
+              <img
+                src={carrerImage}
+                alt="TikShop Scale Process Infographic"
+                className="w-full h-auto object-contain max-w-[1100px] mx-auto"
+              />
+            </div>
+          </FadeIn>
+        </div>
       </section>
 
       {/* How it works */}
@@ -106,7 +105,7 @@ const Index = () => {
                     }`}
                 >
                   {/* Timeline Indicator on the line */}
-                  <div className="absolute left-8 md:left-1/2 w-10 h-10 rounded-full bg-background border-2 border-primary/40 flex items-center justify-center -translate-x-1/2 z-20 shadow-lg">
+                  <div className="absolute left-8 md:left-1/2 w-10 h-10 rounded-full bg-background border-2 border-primary/40 flex items-center justify-center -translate-x-1/2 z-20 shadow-lg" >
                     <span className="text-[10px] font-black text-primary">{s.num}</span>
                   </div>
 
