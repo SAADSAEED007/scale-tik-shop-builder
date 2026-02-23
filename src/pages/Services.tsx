@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import TapeLabel from "@/components/TapeLabel";
 import FadeIn from "@/components/FadeIn";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Zap, Users, Play, Target, TrendingUp, BarChart3 } from "lucide-react";
 
 const services = [
   {
@@ -11,6 +11,7 @@ const services = [
     bullets: ["Full shop setup or audit", "Product listing optimization", "Category & pricing strategy", "Conversion rate improvements"],
     who: "Brands launching on TikTok Shop or underperforming in GMV.",
     timeline: "2–4 weeks",
+    icon: Zap,
   },
   {
     title: "Creator Seeding + Affiliate Program",
@@ -18,6 +19,7 @@ const services = [
     bullets: ["Creator identification & vetting", "Outreach & negotiation", "Affiliate program management", "Performance tracking & optimization"],
     who: "Brands ready to scale creator-driven sales.",
     timeline: "Ongoing, results in 4–6 weeks",
+    icon: Users,
   },
   {
     title: "UGC Production + Creative Direction",
@@ -25,6 +27,7 @@ const services = [
     bullets: ["Creative strategy & briefs", "Creator matching & management", "Video editing & iteration", "Hook testing frameworks"],
     who: "Brands needing high-volume, high-converting content.",
     timeline: "Ongoing, first batch in 2 weeks",
+    icon: Play,
   },
   {
     title: "Spark Ads + Performance Creative Testing",
@@ -32,6 +35,7 @@ const services = [
     bullets: ["Campaign setup & structure", "Weekly creative testing", "Audience & bid optimization", "Detailed performance reporting"],
     who: "Brands investing $5K+/mo in TikTok ads.",
     timeline: "Ongoing with weekly optimizations",
+    icon: Target,
   },
   {
     title: "Live Shopping Strategy",
@@ -39,6 +43,7 @@ const services = [
     bullets: ["Live strategy development", "Host recruitment & training", "Engagement & conversion tactics", "Post-live analysis"],
     who: "Brands ready to leverage live commerce.",
     timeline: "Setup in 2–3 weeks, ongoing shows",
+    icon: TrendingUp,
   },
   {
     title: "Shop Operations + Reporting",
@@ -46,6 +51,7 @@ const services = [
     bullets: ["Inventory & fulfillment coordination", "Order management support", "Real-time performance dashboards", "Monthly strategy reviews"],
     who: "Brands scaling beyond $50K/mo on TikTok Shop.",
     timeline: "Ongoing",
+    icon: BarChart3,
   },
 ];
 
@@ -69,6 +75,9 @@ const Services = () => (
         {services.map((s, i) => (
           <FadeIn key={s.title} delay={0.05}>
             <div className="border border-border rounded-lg p-8 md:p-10 bg-card">
+              <div className="w-12 h-12 rounded-xl bg-[#F5EDE3] border border-[#E6D5C3] flex items-center justify-center text-neutral-900 mb-6">
+                <s.icon size={24} strokeWidth={1.5} />
+              </div>
               <h2 className="text-2xl md:text-3xl font-black tracking-tight mb-3">{s.title}</h2>
               <p className="text-muted-foreground mb-6">{s.desc}</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">

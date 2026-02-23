@@ -6,6 +6,7 @@ import { ArrowRight, Zap, BarChart3, Users, Target, Play, TrendingUp } from "luc
 import { useState } from "react";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import Hero from "@/components/Hero";
+import carrerImage from "@/assets/carrer.png";
 
 
 const steps = [
@@ -34,9 +35,24 @@ const Index = () => {
     <div>
       <Hero />
 
+      {/* Infographic Section */}
+      <section className="pt-0 pb-12 md:pb-20 lg:-mt-20">
+        <div className="container max-w-[1240px] mx-auto px-4">
+          <FadeIn>
+            <div className="flex justify-center items-center">
+              <img
+                src={carrerImage}
+                alt="TikShop Scale Process Infographic"
+                className="w-full h-auto object-contain max-w-[1100px] mx-auto"
+              />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Services Showcase */}
 
-      <section id="services" className="pt-16 md:pt-20 overflow-hidden">
+      <section id="services" className="pt-8 md:pt-12 overflow-hidden">
         <div className="container mb-8 md:mb-12">
           <FadeIn>
             <h2 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter text-center mb-4 leading-none">

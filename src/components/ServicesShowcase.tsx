@@ -153,8 +153,8 @@ const ServicesShowcase = () => {
                                 transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
                                 className="flex flex-col items-center gap-6 md:gap-10"
                             >
-                                <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-primary/5 flex items-center justify-center text-primary ring-1 ring-primary/10">
-                                    {React.createElement(services[activeSlide].icon, { size: 36, strokeWidth: 1.5 })}
+                                <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-[#F5EDE3] flex items-center justify-center text-neutral-900 border border-[#E6D5C3]">
+                                    {React.createElement(services[activeSlide].icon, { size: 40, strokeWidth: 1.25 })}
                                 </div>
 
                                 <div className="space-y-4">

@@ -86,14 +86,14 @@ const Hero = () => {
 
                             <div className="relative flex items-center justify-center">
                                 {/* Service Pills - Floating Left */}
-                                <div className="hidden xl:flex flex-col gap-20 absolute -left-[100px] z-30 pointer-events-none">
-                                    <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full border border-neutral-100 shadow-sm text-[15px] font-bold text-neutral-500 translate-x-16 animate-float-slow">
+                                <div className="flex flex-col gap-8 md:gap-20 absolute -left-8 md:-left-[100px] z-30 pointer-events-none scale-[0.6] md:scale-100 origin-right md:origin-center">
+                                    <div className="bg-white/95 backdrop-blur-md px-4 md:px-6 py-2 md:py-3 rounded-full border border-neutral-100 shadow-sm text-[12px] md:text-[15px] font-bold text-neutral-500 translate-x-16 animate-float-slow">
                                         UGC Engine
                                     </div>
-                                    <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full border border-neutral-100 shadow-sm text-[15px] font-bold text-neutral-500 translate-x-4 animate-float-delayed">
+                                    <div className="bg-white/95 backdrop-blur-md px-4 md:px-6 py-2 md:py-3 rounded-full border border-neutral-100 shadow-sm text-[12px] md:text-[15px] font-bold text-neutral-500 translate-x-4 animate-float-delayed">
                                         Affiliate Seeding
                                     </div>
-                                    <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full border border-neutral-100 shadow-sm text-[15px] font-bold text-neutral-500 translate-x-12 animate-float">
+                                    <div className="bg-white/95 backdrop-blur-md px-4 md:px-6 py-2 md:py-3 rounded-full border border-neutral-100 shadow-sm text-[12px] md:text-[15px] font-bold text-neutral-500 translate-x-12 animate-float">
                                         Paid Scaling
                                     </div>
                                 </div>
