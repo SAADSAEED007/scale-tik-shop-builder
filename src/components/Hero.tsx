@@ -18,8 +18,8 @@ const Hero = () => {
                                 <span className="text-xl md:text-[22px] font-semibold tracking-tight text-neutral-800 mb-4">Scale Your</span>
 
                                 <div className="mb-6 w-fit">
-                                    <h1 className="text-5xl sm:text-6xl md:text-[88px] font-black tracking-tighter leading-[0.95] text-neutral-900 flex flex-wrap items-center gap-x-4">
-                                        <TapeLabel className="inline-block px-4 py-1 rotate-[-2deg] bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500">
+                                    <h1 className="text-5xl sm:text-6xl md:text-[88px] font-black tracking-tighter leading-[0.95] text-neutral-900 flex flex-wrap items-center">
+                                        <TapeLabel className="inline-block px-4 py-1 rotate-[-2deg] origin-left bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500">
                                             TikTok Shop
                                         </TapeLabel>
                                     </h1>
@@ -79,21 +79,21 @@ const Hero = () => {
                     </div>
 
                     {/* Right Side Visual */}
-                    <div className="relative flex items-center justify-center lg:justify-end py-12 lg:py-0 lg:pr-12">
+                    <div className="relative flex items-center justify-center lg:justify-end py-12 lg:py-0 lg:pr-32">
                         <FadeIn delay={0.2} className="relative w-full max-w-[450px] lg:max-w-none flex items-center justify-center lg:justify-end">
                             {/* Animated background glow */}
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] pointer-events-none -z-1 opacity-40 bg-[radial-gradient(circle,_rgba(0,0,0,0.04)_0%,_transparent_70%)]" />
 
                             <div className="relative flex items-center justify-center">
                                 {/* Service Pills - Floating Left */}
-                                <div className="hidden xl:flex flex-col gap-20 absolute -left-[110px] z-30 pointer-events-none">
-                                    <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full border border-neutral-100 shadow-sm text-[15px] font-bold text-neutral-500 translate-x-12 animate-float-slow">
+                                <div className="hidden xl:flex flex-col gap-20 absolute -left-[100px] z-30 pointer-events-none">
+                                    <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full border border-neutral-100 shadow-sm text-[15px] font-bold text-neutral-500 translate-x-16 animate-float-slow">
                                         UGC Engine
                                     </div>
-                                    <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full border border-neutral-100 shadow-sm text-[15px] font-bold text-neutral-500 -translate-x-4 animate-float-delayed">
+                                    <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full border border-neutral-100 shadow-sm text-[15px] font-bold text-neutral-500 translate-x-4 animate-float-delayed">
                                         Affiliate Seeding
                                     </div>
-                                    <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full border border-neutral-100 shadow-sm text-[15px] font-bold text-neutral-500 translate-x-8 animate-float">
+                                    <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full border border-neutral-100 shadow-sm text-[15px] font-bold text-neutral-500 translate-x-12 animate-float">
                                         Paid Scaling
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@ const Hero = () => {
                                 </div>
 
                                 {/* Performance Cards - Floating Right */}
-                                <div className="absolute -right-8 sm:-right-12 md:-right-24 h-full flex flex-col justify-center gap-16 sm:gap-28 z-30 scale-75 sm:scale-90 md:scale-100">
+                                <div className="absolute -right-12 sm:-right-16 md:-right-40 h-full flex flex-col justify-center gap-16 sm:gap-28 z-30 scale-75 sm:scale-90 md:scale-100">
                                     {/* +132% Revenue Growth */}
                                     <div className="bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/50 shadow-xl min-w-[170px] sm:min-w-[210px] transform hover:scale-105 transition-transform animate-float-delayed -translate-y-4">
                                         <p className="text-emerald-500 font-extrabold text-2xl sm:text-3xl mb-1">+132%</p>
