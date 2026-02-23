@@ -79,8 +79,8 @@ const Hero = () => {
                     </div>
 
                     {/* Right Side Visual */}
-                    <div className="relative flex justify-center lg:justify-center items-center py-12 lg:py-0 lg:pl-10 lg:pr-20">
-                        <FadeIn delay={0.2} className="relative w-full max-w-[500px] md:max-w-none flex justify-center lg:justify-center">
+                    <div className="relative flex items-center justify-center lg:justify-end py-12 lg:py-0 lg:pr-12">
+                        <FadeIn delay={0.2} className="relative w-full max-w-[450px] lg:max-w-none flex items-center justify-center lg:justify-end">
                             {/* Animated background glow */}
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] pointer-events-none -z-1 opacity-40 bg-[radial-gradient(circle,_rgba(0,0,0,0.04)_0%,_transparent_70%)]" />
 
@@ -99,11 +99,11 @@ const Hero = () => {
                                 </div>
 
                                 {/* Main Mobile Asset - Floating Image */}
-                                <div className="relative z-20 transform rotate-[-4deg] sm:rotate-[-6deg] w-[85%] sm:w-[320px] md:w-[340px] transition-all">
+                                <div className="relative z-20 transform rotate-[-4deg] sm:rotate-[-6deg] w-[280px] sm:w-[320px] md:w-[340px] transition-all flex items-center justify-center">
                                     <img
                                         src={mobilePhone}
                                         alt="TikTok Shop Growth Mockup"
-                                        className="w-full h-auto block drop-shadow-[0_50px_100px_rgba(0,0,0,0.25)]"
+                                        className="w-full h-auto block drop-shadow-[0_50px_100px_rgba(0,0,0,0.25)] object-contain"
                                     />
                                 </div>
 
