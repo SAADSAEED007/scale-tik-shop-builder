@@ -51,7 +51,7 @@ const Index = () => {
       </section>
 
       {/* Infographic Section */}
-      <section className="pt-0 pb-12 md:pb-20">
+      <section className="pt-16 md:pt-24 pb-0">
         <div className="container max-w-[1240px] mx-auto px-4">
           <FadeIn>
             <div className="flex justify-center items-center">
@@ -66,7 +66,7 @@ const Index = () => {
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="py-20 md:py-32 overflow-hidden relative">
+      <section id="how-it-works" className="pt-8 md:pt-12 pb-20 md:pb-32 overflow-hidden relative">
         <div className="container max-w-5xl">
           <FadeIn>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-24">
