@@ -70,7 +70,7 @@ const Services = () => (
       </div>
     </section>
 
-    <section className="py-16 md:py-24">
+    <section className="pt-[180px] md:pt-[240px] pb-20 md:pb-28 bg-card">
       <div className="container max-w-4xl space-y-16">
         {services.map((s, i) => (
           <FadeIn key={s.title} delay={0.05}>

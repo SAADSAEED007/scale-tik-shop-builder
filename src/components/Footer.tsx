@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
-import logo from "@/assets/logo.png";
+import footerLogo from "@/assets/footer_logo.png";
 
 const Footer = () => (
   <footer className="border-t border-border bg-primary text-primary-foreground">
@@ -9,8 +9,8 @@ const Footer = () => (
         {/* Branding Section */}
         <div className="flex flex-col gap-6">
           <Link to="/" className="flex items-center gap-3 group transition-all duration-300 active:scale-95 w-fit">
-            <div className="relative h-10 w-10 md:h-12 md:w-12 overflow-hidden rounded-xl bg-primary-foreground/10 flex items-center justify-center border border-primary-foreground/5 group-hover:bg-primary-foreground/20 transition-all duration-500">
-              <img src={logo} alt="TikShop Scale" className="h-7 w-7 md:h-8 md:w-8 object-contain" />
+            <div className="relative h-12 w-12 md:h-20 md:w-20 flex items-center justify-center transition-all duration-500">
+              <img src={footerLogo} alt="TikShop Scale" className="h-full w-full object-contain" />
             </div>
             <div className="flex flex-col -space-y-1">
               <span className="font-heading font-black text-xl md:text-2xl tracking-tighter text-primary-foreground whitespace-nowrap leading-none">

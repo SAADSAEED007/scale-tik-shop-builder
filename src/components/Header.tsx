@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import navLogo from "@/assets/nav_logo.png";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -74,8 +74,12 @@ const Header = () => {
             onClick={(e) => handleNavClick(e, "/")}
             className="flex items-center gap-3 group transition-all duration-300 active:scale-95 shrink-0"
           >
-            <div className="relative h-11 w-11 md:h-16 md:w-16 overflow-hidden rounded-2xl bg-secondary/10 flex items-center justify-center border border-border/5 group-hover:bg-secondary/20 transition-all duration-500">
-              <img src={logo} alt="TikShop Scale" className="h-8 w-8 md:h-12 md:w-12 object-contain filter drop-shadow-sm" />
+            <div className="relative h-12 w-12 md:h-16 md:w-16 flex items-center justify-center transition-all duration-500">
+              <img
+                src={navLogo}
+                alt="TikShop Scale"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 object-contain filter drop-shadow-sm max-w-none"
+              />
             </div>
             <div className="flex flex-col -space-y-1">
               <span className="font-heading font-black text-xl md:text-2xl tracking-tighter text-foreground whitespace-nowrap leading-none">

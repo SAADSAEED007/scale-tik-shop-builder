@@ -51,9 +51,14 @@ const Index = () => {
       </section>
 
       {/* Infographic Section */}
-      <section className="pt-16 md:pt-24 pb-0">
+      <section className="pt-24 md:pt-32 pb-0">
         <div className="container max-w-[1240px] mx-auto px-4">
           <FadeIn>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-12 md:mb-16">
+              Our TikTok Shop <TapeLabel>Growth Framework</TapeLabel>
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.2}>
             <div className="flex justify-center items-center">
               <img
                 src={carrerImage}
