@@ -5,9 +5,9 @@ import { Menu, X } from "lucide-react";
 import navLogo from "@/assets/nav_logo.png";
 
 const navItems = [
-  { label: "Home", path: "/" },
   { label: "Services", path: "/services" },
   { label: "About", path: "/#about" },
+  { label: "Careers", path: "/careers" },
   { label: "Case Studies", path: "/case-studies" },
 ];
 
@@ -74,11 +74,11 @@ const Header = () => {
             onClick={(e) => handleNavClick(e, "/")}
             className="flex items-center gap-3 group transition-all duration-300 active:scale-95 shrink-0"
           >
-            <div className="relative h-12 w-12 md:h-16 md:w-16 flex items-center justify-center transition-all duration-500">
+            <div className="relative h-14 w-14 md:h-20 md:w-20 flex items-center justify-center transition-all duration-500">
               <img
                 src={navLogo}
                 alt="TikShop Scale"
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 object-contain filter drop-shadow-sm max-w-none"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-20 w-20 md:h-36 md:w-36 object-contain filter drop-shadow-sm max-w-none"
               />
             </div>
             <div className="flex flex-col -space-y-1">

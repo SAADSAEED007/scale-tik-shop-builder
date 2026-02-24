@@ -57,7 +57,7 @@ const services = [
 
 const Services = () => (
   <div>
-    <section className="pt-36 pb-20 md:py-28">
+    <section className="pt-52 pb-16 md:pt-64 md:pb-24">
       <div className="container max-w-3xl text-center">
         <FadeIn>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">

@@ -131,3 +131,21 @@
 .animate-float-slow {
   animation: float 5s ease-in-out infinite;
 }
+
+/* Service Ticker Animation */
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  animation: ticker 30s linear infinite;
+}
+
+.pause-hover:hover .animate-ticker {
+  animation-play-state: paused;
+}

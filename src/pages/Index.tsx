@@ -6,7 +6,11 @@ import { ArrowRight, Zap, BarChart3, Users, Target, Play, TrendingUp } from "luc
 import { useState } from "react";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import Hero from "@/components/Hero";
+import ServiceTicker from "@/components/ServiceTicker";
+import FAQ from "@/components/FAQ";
 import carrerImage from "@/assets/carrer.png";
+import fiveStarIcon from "@/assets/five-star-rating-icon.svg";
+import { Star } from "lucide-react";
 
 
 const steps = [
@@ -23,9 +27,27 @@ const caseStudies = [
 ];
 
 const testimonials = [
-  { quote: "Scale Tik Shop turned our TikTok from a side channel into our #1 revenue driver.", author: "DTC Brand Founder" },
-  { quote: "They move fast, test everything, and the results speak for themselves.", author: "Ecommerce VP" },
-  { quote: "Our creator affiliate program went from 0 to 200+ in 8 weeks.", author: "Brand Manager" },
+  {
+    quote: "We went from $800/month to $23K in 60 days. The creator strategy and affiliate setup were game-changing. TikShopScale knows this platform better than anyone.",
+    author: "Marcus T.",
+    role: "DTC Skincare Brand, LA",
+    badge: "+$22K/mo",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus&backgroundColor=ffdfbf"
+  },
+  {
+    quote: "We were on Meta with 2x ROAS. TikTok with their system hit 6.8x in week three. The paid ads plus affiliate combo is genuinely unreal.",
+    author: "Cathy N.",
+    role: "Beauty Brand Founder",
+    badge: "6.8x ROAS",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya&backgroundColor=ffdfbf"
+  },
+  {
+    quote: "I'd been on TikTok Shop for months with no traction. Within 6 weeks of working with them, our shop hit $47K/month. The setup and creator strategy made all the difference.",
+    author: "Derek W.",
+    role: "eCommerce Operator",
+    badge: "$47K/mo in 6 wks",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Derek&backgroundColor=ffdfbf"
+  }
 ];
 
 const Index = () => {
@@ -34,10 +56,11 @@ const Index = () => {
   return (
     <div>
       <Hero />
+      <ServiceTicker />
 
       {/* Services Showcase */}
-      <section id="services" className="pt-8 md:pt-12 overflow-hidden">
-        <div className="container mb-8 md:mb-12">
+      <section id="services" className="pt-12 md:pt-16 overflow-hidden">
+        <div className="container mb-6 md:mb-8">
           <FadeIn>
             <h2 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter text-center mb-4 leading-none">
               What we <TapeLabel>do</TapeLabel>
@@ -51,10 +74,10 @@ const Index = () => {
       </section>
 
       {/* Infographic Section */}
-      <section className="pt-24 md:pt-32 pb-0">
+      <section className="pt-12 md:pt-16 pb-0">
         <div className="container max-w-[1240px] mx-auto px-4">
           <FadeIn>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-10 md:mb-12">
               Our TikTok Shop <TapeLabel>Growth Framework</TapeLabel>
             </h2>
           </FadeIn>
@@ -71,10 +94,10 @@ const Index = () => {
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="pt-8 md:pt-12 pb-20 md:pb-32 overflow-hidden relative">
+      <section id="how-it-works" className="pt-2 md:pt-4 pb-0 overflow-hidden relative">
         <div className="container max-w-5xl">
           <FadeIn>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-24">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-8 md:mb-12">
               How it <TapeLabel>works</TapeLabel>
             </h2>
           </FadeIn>
@@ -148,10 +171,10 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 md:py-28">
+      <section id="about" className="pt-12 md:pt-16 pb-0">
         <div className="container">
           <FadeIn>
-            <h2 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter text-center mb-16 leading-none">
+            <h2 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter text-center mb-12 leading-none">
               About <TapeLabel>TikShop Scale</TapeLabel>
             </h2>
           </FadeIn>
@@ -188,18 +211,27 @@ const Index = () => {
       </section>
 
       {/* Case studies preview */}
-      <section className="py-20 md:py-28">
+      <section className="pt-12 md:pt-16 pb-0">
         <div className="container">
           <FadeIn>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-center mb-12">
-              <TapeLabel>Results</TapeLabel> that speak
-            </h2>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-4">
+                <TapeLabel>Results</TapeLabel> that speak
+              </h2>
+              <div className="max-w-2xl mx-auto">
+                <h3 className="text-lg md:text-xl font-bold tracking-tight mb-2">
+                  The numbers <TapeLabel>say it all</TapeLabel>
+                </h3>
+                <p className="text-neutral-400 text-sm md:text-lg font-medium mt-2">
+                  Across every brand we work with, results compound. Here&apos;s what our clients see on average.
+                </p>
+              </div>
+            </div>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {caseStudies.map((cs, i) => (
-              <FadeIn key={cs.title} delay={i * 0.05}>
-                <Link to="/case-studies" className="block p-6 rounded-2xl border border-border bg-card hover:shadow-xl transition-all hover:-translate-y-1">
-                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-secondary text-primary">{cs.tag}</span>
+              <FadeIn key={cs.title} delay={i * 0.05} className="h-full">
+                <Link to="/case-studies" className="flex flex-col h-full p-6 rounded-2xl border border-border bg-card hover:shadow-xl transition-all hover:-translate-y-1">
                   <h3 className="text-2xl md:text-3xl font-black mt-4 mb-1">{cs.metric}</h3>
                   <p className="font-bold text-sm">{cs.title}</p>
                   <p className="text-sm text-muted-foreground mt-1">{cs.sub}</p>
@@ -211,7 +243,7 @@ const Index = () => {
       </section>
 
       {/* Lead magnet */}
-      <section className="py-16 md:py-20">
+      <section className="pt-12 md:pt-16 pb-0">
         <div className="container max-w-2xl">
           <FadeIn>
             <div className="p-8 md:p-12 rounded-[2.5rem] text-center bg-secondary/30 border border-border/50 relative overflow-hidden">
@@ -238,33 +270,61 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 md:py-28">
-        <div className="container max-w-4xl">
+      <section className="pt-12 md:pt-16 pb-0 overflow-hidden">
+        <div className="container px-4 md:px-6">
           <FadeIn>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-center mb-12">
-              What brands <TapeLabel>say</TapeLabel>
-            </h2>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
+                What brands <TapeLabel>say</TapeLabel>
+              </h2>
+              <p className="text-neutral-500 text-xl md:text-3xl font-bold">Real brands. Real results.</p>
+            </div>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <div className="p-8 rounded-3xl border border-border/50 bg-background shadow-sm hover:shadow-md transition-shadow">
-                  <p className="text-sm md:text-base leading-relaxed mb-6 italic text-foreground/80">"{t.quote}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center font-bold text-[10px] text-primary">
-                      {t.author.charAt(0)}
+
+          <div className="max-w-[1240px] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {testimonials.map((t, i) => (
+                <FadeIn key={i} delay={i * 0.1}>
+                  <div className="p-8 md:p-10 rounded-[2rem] bg-white border border-neutral-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] flex flex-col h-full relative overflow-hidden group hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] transition-all duration-500">
+                    {/* Top Row: Stars and Badge */}
+                    <div className="flex items-center justify-between mb-8">
+                      <div className="flex gap-1">
+                        {[...Array(5)].map((_, starIndex) => (
+                          <Star key={starIndex} size={16} fill="#f59e0b" stroke="none" />
+                        ))}
+                      </div>
+                      <div className="bg-black px-4 py-1.5 rounded-full text-[12px] font-black text-white">
+                        {t.badge}
+                      </div>
                     </div>
-                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">{t.author}</p>
+
+                    {/* Quote */}
+                    <p className="text-[17px] md:text-[19px] leading-[1.6] text-neutral-500/90 font-medium mb-12">
+                      "{t.quote}"
+                    </p>
+
+                    {/* Footer: Info (Initial + Names/Roles) */}
+                    <div className="mt-auto flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center font-bold text-sm text-white shrink-0">
+                        {t.author.charAt(0)}
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="font-bold text-[16px] text-neutral-900 leading-tight">{t.author}</span>
+                        <span className="text-[13px] font-medium text-neutral-400 mt-0.5">{t.role}</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </FadeIn>
-            ))}
+                </FadeIn>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
+      <FAQ />
+
       {/* Final CTA */}
-      <section className="py-20 md:py-32 bg-primary text-primary-foreground text-center relative overflow-hidden">
+      <section className="pt-12 md:pt-16 pb-16 md:pb-24 bg-primary text-primary-foreground text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-foreground/5 to-transparent opacity-50" />
         <div className="container max-w-3xl relative z-10">
           <FadeIn>

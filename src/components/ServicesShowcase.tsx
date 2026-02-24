@@ -49,7 +49,6 @@ const ServicesShowcase = () => {
         const vh = window.innerHeight;
 
         // TRIGGER LOCK EARLY: If top is approaching center or overlap is significant
-        // 0.4 vh means we start intercepting BEFORE it's fully centered to catch fast scrolls
         const isLockableEntry = rect.top < vh * 0.4 && rect.bottom > vh * 0.6;
 
         if (isLockableEntry) {
@@ -110,6 +109,54 @@ const ServicesShowcase = () => {
         }
     }, []);
 
+    // Touch Handling for Mobile Swipe
+    const touchCoord = useRef({ x: 0, y: 0 });
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        touchCoord.current = {
+            x: e.touches[0].clientX,
+            y: e.touches[0].clientY
+        };
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent) => {
+        const deltaX = touchCoord.current.x - e.changedTouches[0].clientX;
+        const deltaY = touchCoord.current.y - e.changedTouches[0].clientY;
+
+        // Determine if it was a horizontal or vertical swipe
+        if (Math.abs(deltaX) > 50 || Math.abs(deltaY) > 50) {
+            if (isTransitioning.current) return;
+
+            const isHorizontal = Math.abs(deltaX) > Math.abs(deltaY);
+            const direction = isHorizontal ? (deltaX > 0 ? 1 : -1) : (deltaY > 0 ? 1 : -1);
+
+            // For vertical swipe, check if we are in the lock zone
+            if (!isHorizontal) {
+                const rect = containerRef.current?.getBoundingClientRect();
+                const vh = window.innerHeight;
+                if (rect && (rect.top > vh * 0.2 || rect.bottom < vh * 0.8)) {
+                    // If not centered enough, let regular scroll happen
+                    return;
+                }
+
+                // If it's the last slide and they swipe down, let them scroll out
+                if (direction === 1 && activeSlide === services.length - 1) return;
+                // If it's the first slide and they swipe up, let them scroll out
+                if (direction === -1 && activeSlide === 0) return;
+            }
+
+            isTransitioning.current = true;
+            setActiveSlide(prev => {
+                const next = prev + direction;
+                return Math.max(0, Math.min(services.length - 1, next));
+            });
+
+            setTimeout(() => {
+                isTransitioning.current = false;
+            }, 400);
+        }
+    };
+
     useEffect(() => {
         const section = containerRef.current;
         if (section) {
@@ -124,6 +171,8 @@ const ServicesShowcase = () => {
     return (
         <section
             ref={containerRef}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
             className="relative h-screen w-full flex items-center justify-center bg-background overflow-hidden"
         >
             <div className="w-full max-w-5xl relative px-4">

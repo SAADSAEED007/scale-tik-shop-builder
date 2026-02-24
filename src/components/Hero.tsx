@@ -7,7 +7,7 @@ import mobilePhone from "@/assets/mobile.png";
 
 const Hero = () => {
     return (
-        <section className="relative pt-[120px] pb-[60px] md:pb-[100px] overflow-hidden">
+        <section className="relative pt-[145px] pb-[30px] md:pb-[50px] overflow-hidden">
             <div className="container max-w-[1240px] mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
 
@@ -43,38 +43,34 @@ const Hero = () => {
                         </FadeIn>
 
                         <div className="mt-10 flex flex-col items-start gap-8">
-                            <FadeIn delay={0.2}>
-                                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                                    <Link to="/contact" className="w-full sm:w-auto">
-                                        <Button
-                                            className="w-full sm:w-auto bg-black text-white hover:bg-black/90 rounded-[14px] px-[32px] py-[18px] h-[64px] text-lg font-bold transition-all shadow-xl hover:shadow-black/20 group"
-                                        >
-                                            Book Free Growth Audit <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
-                                        </Button>
-                                    </Link>
-                                    <Link to="/case-studies" className="w-full sm:w-auto">
-                                        <Button
-                                            variant="outline"
-                                            className="w-full sm:w-auto bg-white border-neutral-200 text-neutral-900 hover:bg-neutral-50 rounded-[14px] px-[32px] py-[18px] h-[64px] text-lg font-bold transition-all border-[1.5px]"
-                                        >
-                                            View Case Studies
-                                        </Button>
-                                    </Link>
-                                </div>
-                            </FadeIn>
+                            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                                <Link to="/contact" className="w-full sm:w-auto">
+                                    <Button
+                                        className="w-full sm:w-auto bg-black text-white hover:bg-black/90 rounded-[14px] px-[32px] py-[18px] h-[64px] text-lg font-bold transition-all shadow-xl hover:shadow-black/20 group"
+                                    >
+                                        Book Free Growth Audit <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
+                                    </Button>
+                                </Link>
+                                <Link to="/case-studies" className="w-full sm:w-auto">
+                                    <Button
+                                        variant="outline"
+                                        className="w-full sm:w-auto bg-white border-neutral-200 text-neutral-900 hover:bg-neutral-50 rounded-[14px] px-[32px] py-[18px] h-[64px] text-lg font-bold transition-all border-[1.5px]"
+                                    >
+                                        View Case Studies
+                                    </Button>
+                                </Link>
+                            </div>
 
-                            <FadeIn delay={0.3}>
-                                <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-1 text-[#f59e0b]">
-                                        {[...Array(5)].map((_, i) => (
-                                            <Star key={i} size={20} fill="currentColor" stroke="none" />
-                                        ))}
-                                    </div>
-                                    <p className="text-[14px] font-bold text-neutral-500 tracking-tight">
-                                        Trusted by 40+ DTC Brands Scaling on TikTok
-                                    </p>
+                            <div className="flex flex-col gap-2">
+                                <div className="flex items-center gap-1 text-[#f59e0b]">
+                                    {[...Array(5)].map((_, i) => (
+                                        <Star key={i} size={20} fill="currentColor" stroke="none" />
+                                    ))}
                                 </div>
-                            </FadeIn>
+                                <p className="text-[14px] font-bold text-neutral-500 tracking-tight">
+                                    Trusted by 80+ DTC Brands Scaling on TikTok
+                                </p>
+                            </div>
                         </div>
                     </div>
 

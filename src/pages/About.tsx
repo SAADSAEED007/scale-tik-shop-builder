@@ -20,7 +20,7 @@ const team = [
 
 const About = () => (
   <div>
-    <section className="py-20 md:py-28 bg-card">
+    <section className="pt-52 pb-16 md:pt-64 md:pb-24 bg-card">
       <div className="container max-w-3xl text-center">
         <FadeIn>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
