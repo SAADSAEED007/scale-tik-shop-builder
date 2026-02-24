@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, X } from "lucide-react";
 import footerLogo from "@/assets/footer_logo.png";
+import clutchLogo from "@/assets/clutch_brand logo.png";
+import tiktokLogo from "@/assets/tiktokshop_brand logo.png";
+import trustpilotLogo from "@/assets/trustpilot_brand logo.png";
 
 const Footer = () => (
   <footer className="border-t border-border bg-[#F5EDE3] text-foreground">
@@ -62,8 +65,32 @@ const Footer = () => (
           <a href="mailto:info@tikshopscale.com" className="text-sm font-bold text-foreground hover:text-primary transition-colors w-fit pt-2">
             info@tikshopscale.com
           </a>
+
+          {/* Brand Logos */}
+          <div className="flex flex-nowrap items-center gap-4 md:gap-5 pt-8">
+            <img
+              src={tiktokLogo}
+              alt="TikTok Shop Partner"
+              className="h-10 md:h-12 w-auto hover:scale-105 transition-all duration-500 object-contain flex-shrink-0"
+              loading="lazy"
+            />
+            <img
+              src={clutchLogo}
+              alt="Clutch"
+              className="h-12 md:h-16 w-auto hover:scale-105 transition-all duration-500 object-contain flex-shrink-0"
+              loading="lazy"
+            />
+            <img
+              src={trustpilotLogo}
+              alt="Trustpilot"
+              className="h-10 md:h-12 w-auto hover:scale-105 transition-all duration-500 object-contain flex-shrink-0"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
+
+
 
       <div className="mt-12 pt-6 border-t border-border/50 text-[10px] md:text-xs font-medium uppercase tracking-[0.2em] flex flex-col md:flex-row justify-between items-center gap-4">
         <span className="text-foreground">© 2023-2026 Scale Tik Shop. All rights reserved.</span>
