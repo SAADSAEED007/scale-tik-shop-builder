@@ -1,16 +1,64 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap, Users, Play, Target, TrendingUp, BarChart3, ArrowRight } from "lucide-react";
+import { Zap, Users, Play, BarChart3, ArrowRight, Map, Shield, Star, Video, Layout } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const services = [
-    { title: "TikTok Shop Setup + Optimization", desc: "Full store build, product listings, and conversion-optimized pages. We ensure your shop is set up for success from day one.", icon: Zap },
-    { title: "Creator Seeding + Affiliate Program", desc: "Find, vet, and manage creators who actually drive revenue. Our proprietary vetting process ensures you only partner with creators who deliver ROI.", icon: Users },
-    { title: "UGC Production + Creative Direction", desc: "Scroll-stopping content engineered to sell, not just entertain. We handle the entire creative process from brief to final edit.", icon: Play },
-    { title: "Spark Ads + Performance Testing", desc: "Data-driven ad campaigns with weekly creative testing cycles. We run experiments to find winning creative.", icon: Target },
-    { title: "Live Shopping Strategy", desc: "Live selling playbooks, hosts, and engagement that converts. Leverage the power of real-time interaction to drive massive spikes.", icon: TrendingUp },
-    { title: "Shop Ops + Reporting", desc: "Inventory, fulfillment support, and real-time performance dashboards. We handle the operational heavy lifting.", icon: BarChart3 },
+    {
+        title: "Launch Strategy",
+        desc: "We build your 30–60 day launch roadmap before you spend a dollar — offer positioning, creator seeding, content plan, and paid strategy all aligned.",
+        icon: Map,
+        cta: "Book a Free Strategy Call"
+    },
+    {
+        title: "TikTok Shop Setup + Optimization",
+        desc: "We audit every inch of your shop and fix what's silently killing your conversion rate — bad titles, wrong categories, weak images, and weak pricing.",
+        icon: Zap,
+        cta: "Book a Free Shop Audit"
+    },
+    {
+        title: "Compliance + Risk Management",
+        desc: "One policy violation can freeze your shop overnight. We audit your shop before TikTok does to prevent suspended listings or payouts.",
+        icon: Shield,
+        cta: "Get a Free Compliance Check"
+    },
+    {
+        title: "Creator Seeding + Affiliate Program",
+        desc: "Find creators in your niche, send them your product, brief them on what to say, and build an affiliate engine that grows month after month.",
+        icon: Users,
+        cta: "Start with creators already primed to sell"
+    },
+    {
+        title: "Creator Management + Retention",
+        desc: "We manage your top performers so they stay loyal, stay motivated, and keep selling. That's where the compounding happens.",
+        icon: Star,
+        cta: "Get a Free Creator Audit"
+    },
+    {
+        title: "UGC Production + Creative Direction",
+        desc: "The reason most TikTok content doesn't sell is the brief. We handle hook-first scripts, briefs, filming guidance, editing, and weekly A/B testing.",
+        icon: Video,
+        cta: "Creative built to convert, not just look"
+    },
+    {
+        title: "Spark Ads + Paid Media Management",
+        desc: "We take your best-performing organic content and scale it with a paid strategy built specifically for TikTok's native ad ecosystem.",
+        icon: BarChart3,
+        cta: "Get a Free Ad Audit"
+    },
+    {
+        title: "Live Shopping Strategy + Execution",
+        desc: "Live selling is TikTok Shop's highest-converting format. We design the full experience: scripting, host sourcing, training, and promotional mechanics.",
+        icon: Play,
+        cta: "Book a Free Live Strategy Call"
+    },
+    {
+        title: "Shop Operations + Reporting",
+        desc: "We handle backend management (inventory/catalog) and give you clear weekly visibility into GMV, profit, CVR, and exactly where to focus next.",
+        icon: Layout,
+        cta: "Get a Free Margin Audit"
+    },
 ];
 
 const ServicesShowcase = () => {
@@ -177,8 +225,8 @@ const ServicesShowcase = () => {
         >
             <div className="w-full max-w-5xl relative px-4">
 
-                {/* Main Content Card - Identical design preserved */}
-                <div className="relative w-full h-[550px] md:h-[600px] bg-card/70 backdrop-blur-2xl rounded-[3rem] md:rounded-[4rem] border border-border/40 shadow-2xl flex items-center justify-center p-6 md:p-12 overflow-hidden">
+                {/* Main Content Card - Optimized for mobile responsiveness */}
+                <div className="relative w-full h-[520px] md:h-[600px] bg-card/70 backdrop-blur-2xl rounded-[2.5rem] md:rounded-[4rem] border border-border/40 shadow-2xl flex items-center justify-center p-5 md:p-12 overflow-hidden">
 
                     {/* Progress Indicators */}
                     <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 flex flex-col gap-4 hidden sm:flex z-50">
@@ -192,7 +240,7 @@ const ServicesShowcase = () => {
                     </div>
 
                     {/* Text Content */}
-                    <div className="w-full max-w-2xl px-4 text-center">
+                    <div className="w-full max-w-2xl px-2 text-center">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeSlide}
@@ -200,29 +248,29 @@ const ServicesShowcase = () => {
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 1.02, y: -30 }}
                                 transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
-                                className="flex flex-col items-center gap-6 md:gap-10"
+                                className="flex flex-col items-center gap-4 md:gap-10"
                             >
-                                <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-[#F5EDE3] flex items-center justify-center text-neutral-900 border border-[#E6D5C3]">
-                                    {React.createElement(services[activeSlide].icon, { size: 40, strokeWidth: 1.25 })}
+                                <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-[#F5EDE3] flex items-center justify-center text-neutral-900 border border-[#E6D5C3]">
+                                    {React.createElement(services[activeSlide].icon, { size: 32, className: "md:w-10 md:h-10", strokeWidth: 1.25 })}
                                 </div>
 
-                                <div className="space-y-4">
-                                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary/30">
+                                <div className="space-y-3 md:space-y-4">
+                                    <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] text-primary/30">
                                         Step 0{activeSlide + 1}
                                     </span>
-                                    <h3 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-none text-foreground">
+                                    <h3 className="text-2xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-none text-foreground">
                                         {services[activeSlide].title}
                                     </h3>
-                                    <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto font-medium">
+                                    <p className="text-xs md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto font-medium px-2">
                                         {services[activeSlide].desc}
                                     </p>
                                 </div>
 
                                 <div className="pt-2">
                                     <Link to="/contact">
-                                        <Button variant="hero" size="lg" className="rounded-full px-10 h-14 md:h-16 text-sm md:text-base font-bold shadow-xl active:scale-95 transition-all gap-2">
-                                            Get Your Audit
-                                            <ArrowRight size={20} />
+                                        <Button variant="hero" size="lg" className="rounded-full px-8 md:px-10 h-11 md:h-16 text-[13px] md:text-base font-bold shadow-xl active:scale-95 transition-all gap-2">
+                                            {services[activeSlide].cta}
+                                            <ArrowRight size={18} className="md:w-5 md:h-5" />
                                         </Button>
                                     </Link>
                                 </div>
@@ -230,11 +278,11 @@ const ServicesShowcase = () => {
                         </AnimatePresence>
                     </div>
 
-                    <div className="absolute top-8 right-8 md:top-12 md:right-12 text-sm font-black tracking-widest text-primary/10 select-none">
+                    <div className="absolute top-6 right-6 md:top-12 md:right-12 text-[10px] md:text-sm font-black tracking-widest text-primary/10 select-none">
                         0{activeSlide + 1} / 0{services.length}
                     </div>
 
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 sm:hidden">
+                    <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 sm:hidden">
                         {services.map((_, i) => (
                             <div key={i} className={`h-1 rounded-full transition-all duration-500 ${activeSlide === i ? "w-6 bg-primary" : "w-1.5 bg-border/40"}`} />
                         ))}

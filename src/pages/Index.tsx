@@ -10,6 +10,7 @@ import Hero from "@/components/Hero";
 import ServiceTicker from "@/components/ServiceTicker";
 import FAQ from "@/components/FAQ";
 import carrerImage from "@/assets/carrer.png";
+import navLogo from "@/assets/nav_logo.png";
 import fiveStarIcon from "@/assets/five-star-rating-icon.svg";
 import { Star } from "lucide-react";
 
@@ -268,22 +269,65 @@ const Index = () => {
             <div className="p-8 md:p-12 rounded-[2.5rem] bg-slate-50/50 border border-slate-100 backdrop-blur-sm shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)]">
               <div className="grid grid-cols-2 lg:grid-cols-5 gap-y-12 gap-x-8">
                 {[
-                  { value: 1.4, prefix: "$", suffix: "M+", label: "Revenue Managed", color: "from-orange-500 to-rose-500", decimals: 1 },
-                  { value: 110, prefix: "", suffix: "+", label: "Brands Served", color: "from-indigo-600 to-purple-600", decimals: 0 },
-                  { value: 91, prefix: "", suffix: "%", label: "Client Retention", color: "from-rose-500 to-fuchsia-600", decimals: 0 },
-                  { value: 72, prefix: "", suffix: "hr", label: "Launch Time", color: "from-blue-600 to-indigo-600", decimals: 0 },
-                  { value: 7, prefix: "3–", suffix: "x", label: "Average Growth", color: "from-purple-600 to-pink-600", decimals: 0 },
+                  {
+                    value: 34.2,
+                    prefix: "$",
+                    suffix: "M+",
+                    label: "GMV Managed",
+                    icon: <img src={navLogo} className="h-10 md:h-12 w-auto object-contain" />,
+                    color: "from-orange-500 to-rose-500",
+                    decimals: 1
+                  },
+                  {
+                    value: 275,
+                    prefix: "",
+                    suffix: "+",
+                    label: "Brands Served",
+                    icon: <span className="text-2xl md:text-3xl">🛍️</span>,
+                    color: "from-indigo-600 to-purple-600",
+                    decimals: 0
+                  },
+                  {
+                    value: 91,
+                    prefix: "",
+                    suffix: "%",
+                    label: "Client Retention",
+                    icon: <img src={fiveStarIcon} className="h-4 md:h-5 w-auto object-contain" />,
+                    color: "from-rose-500 to-fuchsia-600",
+                    decimals: 0
+                  },
+                  {
+                    value: 72,
+                    prefix: "",
+                    suffix: "hr",
+                    label: "Affiliate Campaign Launch Time",
+                    icon: <span className="text-2xl md:text-3xl">🚀</span>,
+                    color: "from-blue-600 to-indigo-600",
+                    decimals: 0
+                  },
+                  {
+                    value: 7,
+                    prefix: "3–",
+                    suffix: "x",
+                    label: "Average GMV Growth in 90 days",
+                    icon: <span className="text-2xl md:text-3xl">📈</span>,
+                    color: "from-purple-600 to-pink-600",
+                    decimals: 0
+                  },
                 ].map((stat, i) => (
                   <div key={i} className="flex flex-col items-center text-center group">
-                    <span className="text-3xl md:text-4xl font-black tracking-tighter text-slate-900 mb-1">
+                    <div className="h-16 flex items-center justify-center mb-1">
+                      {stat.icon}
+                    </div>
+                    <span className="text-2xl md:text-3xl font-heading font-black tracking-tighter text-slate-900 mb-1">
                       {stat.prefix}
                       <Counter value={stat.value} decimals={stat.decimals} />
                       {stat.suffix}
                     </span>
-                    <p className="text-xs md:text-[13px] font-bold text-slate-400 uppercase tracking-wide mb-6">
+                    <p className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest leading-tight h-8 flex items-center">
                       {stat.label}
                     </p>
-                    <div className="w-full h-[3px] bg-slate-100 rounded-full relative overflow-hidden">
+                    <div className="w-full h-[3px] bg-slate-100 rounded-full mt-4 relative overflow-hidden">
                       <div
                         className={`absolute inset-y-0 left-0 w-3/4 rounded-full bg-gradient-to-r ${stat.color} transition-all duration-1000 ease-out`}
                         style={{ width: i % 2 === 0 ? '65%' : '85%' }}
@@ -309,19 +353,19 @@ const Index = () => {
             {[
               {
                 title: "Our Legacy",
-                desc: "A performance-first agency built specifically for TikTok commerce. We combine creator strategy and shop operations to drive real revenue.",
+                desc: "We started this because too many good brands were guessing their way through TikTok Shop. Before this was an agency, it was us in the trenches. Running accounts. Testing creatives. Losing money. Learning fast. Figuring out what actually works. That operator mindset is still how we build today.",
               },
               {
                 title: "Our Mission",
-                desc: "TikTok moves fast, so we move faster. Every hook and strategy gets tested—ensuring data drives every scaling decision we make.",
+                desc: "Take the guesswork out of growth. TikTok changes quickly, so we test constantly, move fast, and let data guide decisions. No vanity metrics. No fluff. Just real revenue and sustainable scaling.",
               },
               {
                 title: "Our Team",
-                desc: "Growth specialists, content directors, and ad leads. A collective of experts dedicated to mastering the TikTok Shop ecosystem.",
+                desc: "We are specialists, not generalists. Growth leads, creative strategists, affiliate managers, paid media operators. Everyone works inside the TikTok Shop every day. It is not a side service. It is what we do.",
               },
               {
                 title: "Our Promise",
-                desc: "Vanity metrics are noise. We optimize for GMV, ROAS, and actual revenue—your profit is our only true KPI.",
+                desc: "We care about profit, not optics. If something is not working, we fix it. If TikTok Shop is not the right move for you, we will say that too. Simple focus: build something that actually scales.",
               },
             ].map((card, i) => (
               <FadeIn key={card.title} delay={i * 0.1}>
@@ -418,13 +462,13 @@ const Index = () => {
                 <FadeIn key={i} delay={i * 0.1}>
                   <div className="p-8 md:p-10 rounded-[2rem] bg-white border border-neutral-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] flex flex-col h-full relative overflow-hidden group hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] transition-all duration-500">
                     {/* Top Row: Stars and Badge */}
-                    <div className="flex items-center justify-between mb-8 -mr-1 md:-mr-2">
-                      <div className="flex gap-1">
+                    <div className="flex items-center justify-between gap-4 mb-8">
+                      <div className="flex gap-1 shrink-0">
                         {[...Array(5)].map((_, starIndex) => (
                           <Star key={starIndex} size={16} fill="#f59e0b" stroke="none" />
                         ))}
                       </div>
-                      <div className="bg-black px-4 py-1.5 rounded-full text-[12px] font-black text-white shrink-0">
+                      <div className="bg-black px-4 py-1.5 rounded-full text-[12px] font-black text-white whitespace-nowrap">
                         {t.badge}
                       </div>
                     </div>
@@ -436,9 +480,6 @@ const Index = () => {
 
                     {/* Footer: Info (Initial + Names/Roles) */}
                     <div className="mt-auto flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center font-bold text-sm text-white shrink-0">
-                        {t.author.charAt(0)}
-                      </div>
                       <div className="flex flex-col">
                         <span className="font-bold text-[16px] text-neutral-900 leading-tight">{t.author}</span>
                         <span className="text-[13px] font-medium text-neutral-400 mt-0.5">{t.role}</span>
@@ -463,7 +504,7 @@ const Index = () => {
             <p className="text-primary-foreground/70 mb-10 text-lg md:text-xl">Let's map the fastest, most efficient path to TikTok Shop dominance.</p>
             <Link to="/contact" className="w-full sm:w-auto">
               <button className="bg-black text-white hover:bg-[#2E2E2E] px-10 py-4 rounded-[10px] font-[700] text-[16px] transition-all duration-300 hover:-translate-y-1 shadow-2xl flex items-center justify-center gap-3 w-full sm:w-auto mx-auto">
-                Book a Free Audit <ArrowRight size={20} />
+                Book a Free Audit Call <ArrowRight size={20} />
               </button>
             </Link>
           </FadeIn>

@@ -70,13 +70,13 @@ const Creators = () => {
 
                         <div className="w-full max-w-[600px] bg-[rgba(0,0,0,0.03)] border border-[#E5E5E2] rounded-[16px] p-[4px] mb-[44px] flex flex-col md:flex-row shadow-sm mx-auto">
                             <div className="flex-1 py-[18px] px-5 flex flex-col items-center">
-                                <span className="font-syne font-[800] text-[26px] text-[#D4B483]">890+</span>
+                                <span className="font-syne font-[800] text-[26px] text-[#D4B483]">275+</span>
                                 <span className="text-[11.5px] text-[#9A9A9A] font-[600] uppercase">Brand Partners</span>
                             </div>
                             <div className="hidden md:block w-[1px] bg-[#E5E5E2] my-4" />
                             <div className="md:hidden h-[1px] bg-[#E5E5E2] mx-8" />
                             <div className="flex-1 py-[18px] px-5 flex flex-col items-center">
-                                <span className="font-syne font-[800] text-[26px] text-[#D4B483]">$2.4M+</span>
+                                <span className="font-syne font-[800] text-[26px] text-[#D4B483]">$34.2M+</span>
                                 <span className="text-[11.5px] text-[#9A9A9A] font-[600] uppercase">GMV Generated</span>
                             </div>
                             <div className="hidden md:block w-[1px] bg-[#E5E5E2] my-4" />

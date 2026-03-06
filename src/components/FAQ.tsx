@@ -57,7 +57,7 @@ const faqs = [
 
 const FAQ = () => {
     return (
-        <section id="faq" className="pt-12 md:pt-16 pb-0 relative overflow-hidden">
+        <section id="faq" className="pt-12 md:pt-16 pb-24 md:pb-40 relative overflow-hidden">
             <div className="container max-w-3xl mx-auto px-4">
                 {/* Header Section */}
                 <div className="text-center mb-10 md:mb-12">

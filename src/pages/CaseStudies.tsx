@@ -315,7 +315,7 @@ const CaseStudies = () => {
                       Get Results Like This <ArrowRight size={20} className="ml-2" />
                     </Button>
                   </Link>
-                  <span className="text-sm font-bold text-[#9A9A9A] uppercase tracking-widest">Free 20-min call — no commitment required</span>
+                  <span className="text-sm font-bold text-[#9A9A9A] uppercase tracking-widest">Free Audit call — no commitment required</span>
                 </div>
               </div>
             </div>
@@ -466,13 +466,13 @@ const CaseStudies = () => {
                     We'll tell you <TapeLabel className="inline-block px-3 py-0.5 bg-[#F5EDE3] text-black shadow-sm transform rotate-[1deg]">what's possible.</TapeLabel>
                   </h3>
                   <p className="text-white/50 text-lg md:text-xl font-medium mb-12 max-w-xl mx-auto leading-relaxed">
-                    Book a free 20-minute call. We'll look at your brand, ask the right questions, and give you an honest view of what TikTok Shop can do for you — no pitch, no pressure.
+                    Book a Free Audit Call. We'll look at your brand, ask the right questions, and give you an honest view of what TikTok Shop can do for you — no pitch, no pressure.
                   </p>
 
                   <div className="flex flex-col items-center gap-6 hero-buttons">
                     <Link to="/contact" className="w-full sm:w-auto">
                       <Button className="w-full bg-[#F5EDE3] text-black hover:bg-white rounded-full px-10 py-8 text-xl font-black transition-all hover:scale-105 shadow-xl">
-                        Book a Free 20-Min Call <ArrowRight size={24} className="ml-2" />
+                        Book a Free Audit Call <ArrowRight size={24} className="ml-2" />
                       </Button>
                     </Link>
                     <Link to="/services" className="text-white/50 hover:text-white text-sm font-bold transition-colors">

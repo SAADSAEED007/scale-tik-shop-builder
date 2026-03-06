@@ -7,7 +7,7 @@ import TapeLabel from "@/components/TapeLabel";
 
 const About = () => {
   return (
-    <div className="bg-[#F7F7F5] font-manrope text-[#0D0D0D] overflow-x-hidden">
+    <div className="bg-[#F7F7F5] font-body text-[#0D0D0D] overflow-x-hidden">
       <style>
         {`
                 @keyframes FadeUp {
@@ -44,7 +44,7 @@ const About = () => {
         <div className="max-w-[1060px] mx-auto flex flex-col items-center text-center relative z-10">
           <FadeIn delay={0}>
             <div className="inline-block px-5 py-2.5 rounded-full bg-black/5 backdrop-blur-md border border-neutral-200/50 mb-10 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
-              <span className="font-syne text-[12px] md:text-[14px] font-black tracking-[0.1em] text-black uppercase block">
+              <span className="font-heading text-[12px] md:text-[14px] font-black tracking-[0.1em] text-black uppercase block">
                 WHO WE ARE
               </span>
             </div>
@@ -67,7 +67,7 @@ const About = () => {
 
           <FadeIn delay={0.18}>
             <div className="flex flex-wrap items-center justify-center gap-[10px] mb-20">
-              {["TikTok Shop only", "Full team. Real specialists.", "No lock-in contracts"].map((text) => (
+              {["TikTok Shop only", "Full team. Real specialists.", "Results earn retention"].map((text) => (
                 <span key={text} className="bg-[#F7F7F5] border border-[#E5E5E2] px-[14px] py-[6px] rounded-full text-[12.5px] font-[600] text-[#2E2E2E] inline-flex items-center gap-[7px]">
                   <span className="w-[7px] h-[7px] rounded-full bg-[#D4B483]"></span>
                   {text}
@@ -79,19 +79,19 @@ const About = () => {
           {/* STATS GRID - Middle Layout */}
           <FadeIn delay={0.24} className="grid grid-cols-2 md:grid-cols-4 gap-[12px] w-full max-w-[900px]">
             <div className="bg-[#F7F7F5] border border-[#E5E5E2] rounded-[16px] p-[24px_20px] transition-transform duration-300 hover:-translate-y-1">
-              <div className="font-syne font-[800] text-[36px] text-[#0D0D0D] leading-none mb-[6px]">$2.4M+</div>
+              <div className="font-heading font-[800] text-[36px] text-[#0D0D0D] leading-none mb-[6px]">$34.2M+</div>
               <div className="text-[12.5px] font-[600] leading-[1.4] text-[#9A9A9A]">Client GMV generated</div>
             </div>
             <div className="bg-[#F7F7F5] border border-[#E5E5E2] rounded-[16px] p-[24px_20px] transition-transform duration-300 hover:-translate-y-1">
-              <div className="font-syne font-[800] text-[36px] text-[#0D0D0D] leading-none mb-[6px]">890+</div>
+              <div className="font-heading font-[800] text-[36px] text-[#0D0D0D] leading-none mb-[6px]">275+</div>
               <div className="text-[12.5px] font-[600] leading-[1.4] text-[#9A9A9A]">Brands we've worked with</div>
             </div>
             <div className="bg-[#F7F7F5] border border-[#E5E5E2] rounded-[16px] p-[24px_20px] transition-transform duration-300 hover:-translate-y-1">
-              <div className="font-syne font-[800] text-[36px] text-[#0D0D0D] leading-none mb-[6px]">60d</div>
+              <div className="font-heading font-[800] text-[36px] text-[#0D0D0D] leading-none mb-[6px]">60d</div>
               <div className="text-[12.5px] font-[600] leading-[1.4] text-[#9A9A9A]">Average time to real results</div>
             </div>
             <div className="bg-[#F7F7F5] border border-[#E5E5E2] rounded-[16px] p-[24px_20px] transition-transform duration-300 hover:-translate-y-1">
-              <div className="font-syne font-[800] text-[36px] text-[#0D0D0D] leading-none mb-[6px]">1</div>
+              <div className="font-heading font-[800] text-[36px] text-[#0D0D0D] leading-none mb-[6px]">1</div>
               <div className="text-[12.5px] font-[600] leading-[1.4] text-[#9A9A9A]">Platform. Total focus. Always.</div>
             </div>
           </FadeIn>
@@ -179,7 +179,7 @@ const About = () => {
               },
               {
                 label: "WHERE WE ARE NOW",
-                title: "890+ brands. $2.4M+ GMV. Still learning.",
+                title: "275+ brands. $34.2M+ GMV. Still learning.",
                 text: "We've scaled brands from zero to $100K/mo. But the platform keeps evolving — and so do we. That curiosity is what keeps our results ahead of the market."
               }
             ].map((card, i) => (
@@ -508,15 +508,15 @@ const About = () => {
               </p>
               <div className="flex flex-wrap gap-5">
                 <div className="bg-white border border-[#E5E5E2] rounded-[12px] p-4 min-w-[120px]">
-                  <div className="font-syne font-[800] text-2xl text-black leading-none mb-1">$2.4M+</div>
+                  <div className="font-heading font-[800] text-2xl text-black leading-none mb-1">$34.2M+</div>
                   <div className="text-[12px] text-[#9A9A9A]">GMV Generated</div>
                 </div>
                 <div className="bg-white border border-[#E5E5E2] rounded-[12px] p-4 min-w-[120px]">
-                  <div className="font-syne font-[800] text-2xl text-black leading-none mb-1">890+</div>
+                  <div className="font-heading font-[800] text-2xl text-black leading-none mb-1">275+</div>
                   <div className="text-[12px] text-[#9A9A9A]">Brands Scaled</div>
                 </div>
                 <div className="bg-[#F7F7F5] border border-[#E5E5E2] rounded-[12px] p-4 min-w-[120px]">
-                  <div className="font-syne font-[800] text-2xl text-[#0D0D0D] leading-none mb-1">1</div>
+                  <div className="font-heading font-[800] text-2xl text-[#0D0D0D] leading-none mb-1">1</div>
                   <div className="text-[12px] text-[#9A9A9A]">Platform. Always.</div>
                 </div>
               </div>
@@ -556,25 +556,25 @@ const About = () => {
       <section id="contact" className="cta-section relative bg-[#0D0D0D] pt-[100px] pb-[100px] px-8 text-center overflow-hidden">
         <div className="relative z-10">
           <FadeIn>
-            <span className="font-syne font-[700] text-[11.5px] text-[#F5EDE3] tracking-[3px] uppercase block mb-[10px]">
+            <span className="font-heading font-[700] text-[11.5px] text-[#F5EDE3] tracking-[3px] uppercase block mb-[10px]">
               SOUND LIKE THE RIGHT FIT?
             </span>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h2 className="font-syne font-[800] text-[clamp(30px,5vw,54px)] text-white leading-[1.08] mb-[16px]">
+            <h2 className="font-heading font-[800] text-[clamp(30px,5vw,54px)] text-white leading-[1.08] mb-[16px]">
               Let's have an honest conversation about <TapeLabel className="inline-block px-3 py-1 mt-2 rotate-[-1.5deg] origin-left bg-[#F5EDE3] text-[#0D0D0D] mx-1 transition-transform duration-500 hover:rotate-0">your brand.</TapeLabel>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-[17px] text-[rgba(255,255,255,0.45)] max-w-[480px] mx-auto mb-[40px]">
-              No pitch deck. No hard sell. Book a free 20-minute call and we'll tell you exactly what we think — including if TikTok Shop isn't the right move for you right now.
+              No pitch deck. No hard sell. Book a Free Audit Call and we'll tell you exactly what we think — including if TikTok Shop isn't the right move for you right now.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link to="/contact">
                 <button className="bg-[#0D0D0D] hover:bg-[#2E2E2E] text-white px-10 py-4 rounded-[10px] font-[700] text-[16px] transition-all duration-300 hover:-translate-y-1">
-                  Book a Free 20-Min Call →
+                  Book a Free Audit Call →
                 </button>
               </Link>
               <Link to="/case-studies" className="text-[rgba(255,255,255,0.45)] text-[15px] px-6 py-4 hover:text-white transition-colors duration-300">

@@ -6,11 +6,10 @@ import navLogo from "@/assets/nav_logo.png";
 
 const navItems = [
   { label: "Services", path: "/services" },
+  { label: "Who We Are", path: "/about" },
   { label: "Why Us", path: "/why-us" },
   { label: "Careers", path: "/careers" },
   { label: "Case Studies", path: "/case-studies" },
-  { label: "Testimonials", path: "/testimonials" },
-  { label: "Who We Are", path: "/about" },
 ];
 
 const Header = () => {

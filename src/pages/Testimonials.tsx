@@ -9,7 +9,7 @@ import { Play, ArrowRight, Video as VideoIcon, Search } from "lucide-react";
 
 const Testimonials = () => {
     return (
-        <div className="bg-[#F7F7F5] min-h-screen font-manrope text-[#0D0D0D]">
+        <div className="bg-[#F7F7F5] min-h-screen font-body text-[#0D0D0D]">
             <style>
                 {`
                 @keyframes pulse {
@@ -98,18 +98,18 @@ const Testimonials = () => {
                 <div className="relative z-10 max-w-[1020px] mx-auto">
                     <FadeIn delay={0}>
                         <div className="inline-block px-5 py-2.5 rounded-full bg-black/5 backdrop-blur-md border border-neutral-200/50 mb-10 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
-                            <span className="font-syne text-[12px] md:text-[14px] font-black tracking-[0.1em] text-black uppercase block">
+                            <span className="font-heading text-[12px] md:text-[14px] font-black tracking-[0.1em] text-black uppercase block">
                                 CLIENT TESTIMONIALS
                             </span>
                         </div>
                     </FadeIn>
                     <FadeIn delay={0.1}>
-                        <h1 className="font-syne font-[800] text-[clamp(38px,6vw,72px)] text-black leading-[1.04] mb-4 tracking-[-1px]">
+                        <h1 className="font-heading font-[800] text-[clamp(38px,6vw,72px)] text-black leading-[1.04] mb-4 tracking-[-1px]">
                             Don't take our <TapeLabel className="inline-block px-4 py-1 rotate-[-2deg] origin-left bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500 text-black">word for it.</TapeLabel>
                         </h1>
                     </FadeIn>
                     <FadeIn delay={0.2}>
-                        <p className="font-manrope text-[clamp(15px,2vw,18px)] text-neutral-500 font-medium leading-relaxed max-w-[480px] mx-auto mb-10">
+                        <p className="font-body text-[clamp(15px,2vw,18px)] text-neutral-500 font-medium leading-relaxed max-w-[480px] mx-auto mb-10">
                             Real brands. Real faces. Real results — in their own words. No scripts, no actors, no made-up quotes.
                         </p>
                     </FadeIn>
@@ -157,7 +157,7 @@ const Testimonials = () => {
                         <div className="bg-white border border-[#E5E5E2] rounded-[22px] overflow-hidden shadow-[0_4px_40px_rgba(0,0,0,0.08)] mb-16 grid grid-cols-1 md:grid-cols-2 featured-testimonial-card">
                             {/* LEFT — Video side */}
                             <div className="bg-[#0D0D0D] relative min-h-[360px] flex items-center justify-center video-side">
-                                <div className="absolute top-4 left-4 bg-[#F5EDE3] text-[#3D2800] font-syne text-[18px] font-[800] px-4 py-2 rounded-[10px] z-10 shadow-sm">
+                                <div className="absolute top-4 left-4 bg-[#F5EDE3] text-[#3D2800] font-heading text-[18px] font-[800] px-4 py-2 rounded-[10px] z-10 shadow-sm">
                                     +$22K/mo
                                 </div>
                                 <div className="flex flex-col items-center gap-[14px]">
@@ -190,21 +190,21 @@ const Testimonials = () => {
                                         👩
                                     </div>
                                     <div>
-                                        <div className="font-syne font-[800] text-[15px] text-black">Sarah K.</div>
+                                        <div className="font-heading font-[800] text-[15px] text-black">Sarah K.</div>
                                         <div className="text-[12.5px] text-[#9A9A9A] font-medium">Beauty Accessories Brand · Los Angeles</div>
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 featured-results-grid results-stats-grid">
                                     <div className="bg-[#F5EDE3] border border-[#E5E5E2] rounded-[10px] p-[14px_10px] text-center flex flex-col items-center justify-center">
-                                        <div className="font-syne font-[800] text-[20px] text-[#16A34A] leading-none mb-[3px]">+2,775%</div>
+                                        <div className="font-heading font-[800] text-[20px] text-[#16A34A] leading-none mb-[3px]">+2,775%</div>
                                         <div className="text-[11px] text-[#9A9A9A] font-[600] leading-[1.3]">GMV Growth</div>
                                     </div>
                                     <div className="bg-[#F5EDE3] border border-[#E5E5E2] rounded-[10px] p-[14px_10px] text-center flex flex-col items-center justify-center">
-                                        <div className="font-syne font-[800] text-[20px] text-black leading-none mb-[3px]">60d</div>
+                                        <div className="font-heading font-[800] text-[20px] text-black leading-none mb-[3px]">60d</div>
                                         <div className="text-[11px] text-[#9A9A9A] font-[600] leading-[1.3]">Time to Result</div>
                                     </div>
                                     <div className="bg-[#F5EDE3] border border-[#E5E5E2] rounded-[10px] p-[14px_10px] text-center flex flex-col items-center justify-center">
-                                        <div className="font-syne font-[800] text-[20px] text-[#16A34A] leading-none mb-[3px]">6.4x</div>
+                                        <div className="font-heading font-[800] text-[20px] text-[#16A34A] leading-none mb-[3px]">6.4x</div>
                                         <div className="text-[11px] text-[#9A9A9A] font-[600] leading-[1.3]">ROAS</div>
                                     </div>
                                 </div>
@@ -268,7 +268,7 @@ const Testimonials = () => {
                                             <div className="text-[12px] font-[600] text-white/40">Add client video</div>
                                             {/* SWAP: Replace with iframe or video element */}
                                         </div>
-                                        <div className="absolute top-3 left-3 bg-[#F5EDE3] text-[#3D2800] font-syne text-[15px] font-[800] px-3 py-1.5 rounded-[8px] shadow-sm">
+                                        <div className="absolute top-3 left-3 bg-[#F5EDE3] text-[#3D2800] font-heading text-[15px] font-[800] px-3 py-1.5 rounded-[8px] shadow-sm">
                                             {card.result}
                                         </div>
                                         <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white/70 text-[11px] font-[600] px-2.5 py-1 rounded-full">
@@ -284,7 +284,7 @@ const Testimonials = () => {
                                                 {card.avatar}
                                             </div>
                                             <div>
-                                                <div className="font-syne font-[800] text-[13.5px] text-black">{card.name}</div>
+                                                <div className="font-heading font-[800] text-[13.5px] text-black">{card.name}</div>
                                                 <div className="text-[11.5px] text-[#9A9A9A] font-medium">{card.role}</div>
                                             </div>
                                         </div>
@@ -333,7 +333,7 @@ const Testimonials = () => {
                                             {q.initial}
                                         </div>
                                         <div className="text-[12.5px] font-[700] text-black/60">{q.name}</div>
-                                        <div className="bg-black text-white text-[11px] font-[800] px-[9px] py-[2px] rounded-full ml-1.5 font-syne shadow-md">
+                                        <div className="bg-black text-white text-[11px] font-[800] px-[9px] py-[2px] rounded-full ml-1.5 font-heading shadow-md">
                                             {q.result}
                                         </div>
                                     </div>
@@ -353,7 +353,7 @@ const Testimonials = () => {
                     <FadeIn>
                         <div className="bg-white border border-[#E5E5E2] rounded-[20px] p-12 md:p-[48px_44px] mb-14 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center share-story-card">
                             <div>
-                                <h3 className="font-syne font-[800] text-[26px] text-black leading-[1.2] mb-2.5">
+                                <h3 className="font-heading font-[800] text-[26px] text-black leading-[1.2] mb-2.5">
                                     Share your story. Help other brands decide.
                                 </h3>
                                 <p className="text-[15px] text-[#5C5C5C] leading-[1.7] font-medium">
@@ -367,7 +367,7 @@ const Testimonials = () => {
                                     { h: "Send it to hello@tikshopscale.com", p: "We'll edit, caption, and feature it on this page with your results." }
                                 ].map((step, idx) => (
                                     <div key={idx} className="bg-[#F7F7F5] border border-[#E5E5E2] rounded-[12px] p-[16px_18px] flex items-start gap-[13px]">
-                                        <div className="w-[28px] h-[28px] rounded-full bg-[#F5EDE3] flex items-center justify-center font-syne text-[13px] font-[800] text-black shrink-0 border border-[#E5E5E2]">
+                                        <div className="w-[28px] h-[28px] rounded-full bg-[#F5EDE3] flex items-center justify-center font-heading text-[13px] font-[800] text-black shrink-0 border border-[#E5E5E2]">
                                             {idx + 1}
                                         </div>
                                         <div>
@@ -387,7 +387,7 @@ const Testimonials = () => {
                                 <span className="text-[#F5EDE3] font-[700] text-[11px] uppercase tracking-[3px] mb-[14px] block">
                                     READY TO BE NEXT?
                                 </span>
-                                <h2 className="font-syne font-[800] text-[clamp(26px,4vw,44px)] text-white leading-[1.1] mb-3">
+                                <h2 className="font-heading font-[800] text-[clamp(26px,4vw,44px)] text-white leading-[1.1] mb-3">
                                     Your results could be <TapeLabel className="inline-block px-4 py-1 rotate-[1.5deg] bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500 text-black">on this page.</TapeLabel>
                                 </h2>
                                 <p className="text-[15px] text-white/45 max-w-[420px] mx-auto mb-8 font-medium">

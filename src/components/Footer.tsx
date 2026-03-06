@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Mail, Phone, ArrowUp } from "lucide-react";
-import footerLogo from "@/assets/footer_logo.png";
+import navLogo from "@/assets/nav_logo.png";
 import tiktokShopLogo from "@/assets/tiktokshop_brand logo.png";
 
 // X SVG component for reusable parts
@@ -58,7 +58,7 @@ const Footer = () => {
               className="flex items-center gap-[12px] mb-[20px] group transition-all duration-300 active:scale-95"
             >
               <div className="relative h-16 w-16 flex items-center justify-center transition-all duration-500">
-                <img src={footerLogo} alt="TikShop Scale" className="h-[64px] w-auto object-contain" />
+                <img src={navLogo} alt="TikShop Scale" className="h-[64px] w-auto object-contain" />
               </div>
               <div className="flex flex-col -space-y-1">
                 <span className="font-syne font-[800] text-[20px] tracking-[-0.3px] text-[#1A1A1A] leading-none">
@@ -95,27 +95,32 @@ const Footer = () => {
             </div>
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap justify-center md:justify-start gap-[8px]">
+            <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 mt-6 md:mt-4">
               {/* Badge 1 — TikTok Shop Partner */}
-              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-[8px] px-[12px] py-[6px] h-[40px] flex items-center shadow-[0_1px_4px_rgba(0,0,0,0.05)] whitespace-nowrap">
-                <img src={tiktokShopLogo} alt="TikTok Shop Partner" className="h-full w-auto object-contain" />
+              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-lg px-3 h-9 md:h-11 flex items-center justify-center shadow-sm whitespace-nowrap overflow-hidden max-w-fit">
+                <img
+                  src={tiktokShopLogo}
+                  alt="TikTok Shop Partner"
+                  className="h-[16px] md:h-[20px] w-auto object-contain block shrink-0"
+                  style={{ maxHeight: '100%', maxWidth: '120px' }}
+                />
               </div>
               {/* Badge 2 — Clutch Verified */}
-              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-[8px] padding-[7px_13px] px-[13px] py-[7px] text-[12px] font-[700] color-[#1A1A1A] text-[#1A1A1A] inline-flex items-center gap-[7px] shadow-[0_1px_4px_rgba(0,0,0,0.05)] whitespace-nowrap">
-                <div className="w-[14px] h-[14px] rounded-full bg-[#FF3D2E]" />
-                Clutch Verified
+              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-lg px-3 h-9 md:h-11 text-[11px] md:text-[13px] font-bold text-[#1A1A1A] inline-flex items-center gap-1.5 shadow-sm whitespace-nowrap max-w-fit">
+                <div className="w-3 h-3 md:w-3.5 md:h-3.5 rounded-full bg-[#FF3D2E] shrink-0" />
+                <span>Clutch Verified</span>
               </div>
               {/* Badge 3 — Trustpilot */}
-              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-[8px] padding-[7px_13px] px-[13px] py-[7px] text-[12px] font-[700] color-[#1A1A1A] text-[#1A1A1A] inline-flex items-center gap-[7px] shadow-[0_1px_4px_rgba(0,0,0,0.05)] whitespace-nowrap">
-                <div className="bg-[#00B67A] p-0.5 flex items-center justify-center rounded-[2px]">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
+              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-lg px-3 h-9 md:h-11 text-[11px] md:text-[13px] font-bold text-[#1A1A1A] inline-flex items-center gap-1.5 shadow-sm whitespace-nowrap max-w-fit">
+                <div className="bg-[#00B67A] p-0.5 flex items-center justify-center rounded-[2px] h-3.5 w-3.5 md:h-[18px] md:w-[18px] shrink-0">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="white">
                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                   </svg>
                 </div>
-                Trustpilot
-                <div className="flex gap-0.5 ml-1">
+                <span>Trustpilot</span>
+                <div className="hidden sm:flex gap-0.5 ml-1">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <div key={i} className="w-[14px] h-[14px] bg-[#00B67A] rounded-[2px] flex items-center justify-center text-white text-[9px]">★</div>
+                    <div key={i} className="w-3 h-3 md:w-3.5 md:h-3.5 bg-[#00B67A] rounded-[2px] flex items-center justify-center text-white text-[8px] md:text-[9px]">★</div>
                   ))}
                 </div>
               </div>
@@ -127,9 +132,9 @@ const Footer = () => {
             <h4 className="text-[10px] font-[700] uppercase tracking-[3px] text-[#9A9080] mb-[20px]">NAVIGATION</h4>
             <nav className="flex flex-col gap-[11px] items-center md:items-start text-[14px] font-[500] text-[#3D3830]">
               <Link to="/services" className="nav-link hover:text-[#1A1A1A]">Services</Link>
-              <Link to="/" className="nav-link hover:text-[#1A1A1A]">Why Us</Link>
               <Link to="/about" className="nav-link hover:text-[#1A1A1A]">Who We Are</Link>
-              <a href="#" className="nav-link hover:text-[#1A1A1A]">Careers</a>
+              <Link to="/why-us" className="nav-link hover:text-[#1A1A1A]">Why Us</Link>
+              <Link to="/careers" className="nav-link hover:text-[#1A1A1A]">Careers</Link>
               <Link to="/case-studies" className="nav-link hover:text-[#1A1A1A]">Case Studies</Link>
               <Link to="/testimonials" className="nav-link hover:text-[#1A1A1A]">Testimonials</Link>
               <Link to="/creators" className="nav-link hover:text-[#1A1A1A]">Join Our Creator Network</Link>
@@ -179,8 +184,8 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-[22px] justify-center md:justify-center">
-            <a href="#" className="text-[12px] font-[600] text-[#9A9080] uppercase tracking-[0.5px] hover:text-[#1A1A1A] transition-colors">Privacy</a>
-            <a href="#" className="text-[12px] font-[600] text-[#9A9080] uppercase tracking-[0.5px] hover:text-[#1A1A1A] transition-colors">Terms</a>
+            <Link to="/privacy" className="text-[12px] font-[600] text-[#9A9080] uppercase tracking-[0.5px] hover:text-[#1A1A1A] transition-colors">Privacy</Link>
+            <Link to="/terms-of-service" className="text-[12px] font-[600] text-[#9A9080] uppercase tracking-[0.5px] hover:text-[#1A1A1A] transition-colors">Terms</Link>
           </div>
 
           <button

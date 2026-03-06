@@ -7,6 +7,8 @@ import { Check, X, Minus, Zap, Target, Users, Layout } from "lucide-react";
 import TapeLabel from "@/components/TapeLabel";
 import ServiceTicker from "@/components/ServiceTicker";
 
+import navLogo from "@/assets/nav_logo.png";
+
 interface StatusIconProps {
     type: "full" | "partial" | "none";
 }
@@ -68,7 +70,7 @@ const SectionHeader = ({ title }: { title: string }) => (
 const WhyUs = () => {
     const tickerItems = [
         "Compliance", "Shop Operations", "Launch Strategy",
-        "Creator Seeding", "$2.4M+ GMV", "Spark Ads", "890+ Brands",
+        "Creator Seeding", "$34.2M+ GMV", "Spark Ads", "275+ Brands",
         "Live Shopping", "6.4x ROAS", "Affiliate Growth", "60 Day Results",
         "Shop Optimization", "No Lock-In"
     ];
@@ -125,8 +127,12 @@ const WhyUs = () => {
                                                         ★ BEST CHOICE
                                                     </div>
                                                     <div className="flex flex-col gap-4 items-center">
-                                                        <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center text-white">
-                                                            <Zap size={24} fill="white" />
+                                                        <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center text-white overflow-hidden relative">
+                                                            <img
+                                                                src={navLogo}
+                                                                alt="TikShop Scale Logo"
+                                                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 max-w-none object-contain invert"
+                                                            />
                                                         </div>
                                                         <div className="flex flex-col gap-1">
                                                             <span className="text-xl font-black tracking-tight">TikShop Scale</span>

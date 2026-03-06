@@ -21,7 +21,7 @@ const Landing = () => {
 
     const tickerItems = [
         "Compliance", "Shop Operations", "Launch Strategy",
-        "Creator Seeding", "$2.4M+ GMV", "Spark Ads", "890+ Brands",
+        "Creator Seeding", "$34.2M+ GMV", "Spark Ads", "275+ Brands",
         "Live Shopping", "6.4x ROAS", "Affiliate Growth", "60 Day Results",
         "Shop Optimization", "No Lock-In"
     ];
@@ -101,12 +101,12 @@ const Landing = () => {
                         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-[11px] font-bold text-[#5C5C5C] uppercase tracking-widest">
                             <div className="flex items-center gap-2">
                                 <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
-                                <span>$2.4M+ GMV Generated</span>
+                                <span>$34.2M+ GMV Generated</span>
                             </div>
                             <div className="w-px h-4 bg-[#E5E5E2] hidden sm:block" />
                             <div className="flex items-center gap-2">
                                 <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
-                                <span>890+ Brands Scaled</span>
+                                <span>275+ Brands Scaled</span>
                             </div>
                             <div className="w-px h-4 bg-[#E5E5E2] hidden sm:block" />
                             <div className="flex items-center gap-2">
@@ -329,8 +329,8 @@ const Landing = () => {
 
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                             {[
-                                { val: "$2.4M+", label: "Total GMV generated for clients", gold: true },
-                                { val: "890+", label: "Brands scaled on TikTok Shop" },
+                                { val: "$34.2M+", label: "Total GMV generated for clients", gold: true },
+                                { val: "275+", label: "Brands scaled on TikTok Shop" },
                                 { val: "6.4x", label: "Average ROAS on paid campaigns" },
                                 { val: "60d", label: "Average time to meaningful results" }
                             ].map((stat, i) => (
@@ -338,7 +338,7 @@ const Landing = () => {
                                     key={i}
                                     className={`border border-white/5 rounded-[16px] p-8 flex flex-col items-center justify-center text-center transition-all ${stat.gold ? 'bg-[#F5EDE3]' : 'bg-[#181818]'}`}
                                 >
-                                    <div className={`text-3xl md:text-[48px] font-black font-heading leading-none mb-3 tracking-tighter ${stat.gold ? 'text-[#0D0D0D]' : 'text-white'}`}>
+                                    <div className={`text-2xl md:text-[42px] font-black font-heading leading-none mb-3 tracking-tighter ${stat.gold ? 'text-[#0D0D0D]' : 'text-white'}`}>
                                         {stat.val}
                                     </div>
                                     <div className={`text-[12.5px] font-bold uppercase tracking-widest leading-tight ${stat.gold ? 'text-[#0D0D0D]/65' : 'text-white/40'}`}>

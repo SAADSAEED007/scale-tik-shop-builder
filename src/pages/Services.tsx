@@ -22,11 +22,27 @@ import {
 
 const Services = () => {
   const [activePhase, setActivePhase] = useState(1);
+  const [showSidebar, setShowSidebar] = useState(false);
   const phaseRefs = {
     1: useRef<HTMLElement>(null),
     2: useRef<HTMLElement>(null),
     3: useRef<HTMLElement>(null),
   };
+
+  useEffect(() => {
+    // Show/hide sidebar based on scroll
+    const handleScrollVisibility = () => {
+      // Show sidebar after hero (roughly 500px)
+      if (window.scrollY > 450) {
+        setShowSidebar(true);
+      } else {
+        setShowSidebar(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollVisibility);
+    return () => window.removeEventListener("scroll", handleScrollVisibility);
+  }, []);
 
   useEffect(() => {
     const observerOptions = {
@@ -118,8 +134,8 @@ const Services = () => {
       {/* SECTION 2 — SERVICES TICKER */}
       <ServiceTicker />
 
-      {/* SECTION 3 — STICKY PHASE NAVIGATOR */}
-      <nav className="sticky top-[80px] md:top-[88px] z-40 bg-white/80 backdrop-blur-xl border-b border-[#E5E5E2] py-4">
+      {/* SECTION 3 — PHASE NAVIGATOR (Mobile Sticky + Desktop Sidebar) */}
+      <nav className="lg:hidden sticky top-[80px] md:top-[88px] z-40 bg-white/80 backdrop-blur-xl border-b border-[#E5E5E2] py-4">
         <div className="container max-w-[1240px] mx-auto px-4">
           <div className="flex justify-center gap-6 md:gap-12">
             {[
@@ -144,6 +160,37 @@ const Services = () => {
             ))}
           </div>
         </div>
+      </nav>
+
+      {/* Vertical Sidebar Navigator for Desktop */}
+      <nav className={`hidden lg:flex fixed left-8 xl:left-12 top-1/2 -translate-y-1/2 z-40 flex-col gap-12 transition-all duration-700 ease-in-out ${showSidebar ? "opacity-100 translate-x-0 pointer-events-auto" : "opacity-0 -translate-x-12 pointer-events-none"
+        }`}>
+        {[
+          { id: 1, label: "Foundation" },
+          { id: 2, label: "Growth" },
+          { id: 3, label: "Scale" },
+        ].map((phase) => (
+          <button
+            key={phase.id}
+            onClick={() => scrollToPhase(phase.id)}
+            className="group flex items-center gap-6 text-left transition-all duration-500"
+          >
+            <div className="relative flex flex-col items-center">
+              <div className={`w-[1px] h-14 md:h-16 transition-all duration-700 ${activePhase === phase.id ? "bg-[#D4B483] scale-y-110" : "bg-neutral-200 scale-y-100"}`} />
+              {activePhase === phase.id && (
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#D4B483] shadow-[0_0_15px_rgba(212,180,131,0.6)]" />
+              )}
+            </div>
+            <div className="flex flex-col gap-0.5">
+              <span className={`text-[10px] font-black tracking-[0.2em] transition-all duration-500 uppercase ${activePhase === phase.id ? "text-[#D4B483] translate-x-1" : "text-neutral-300 group-hover:text-neutral-400"}`}>
+                PHASE 0{phase.id}
+              </span>
+              <span className={`text-[15px] font-black uppercase tracking-widest transition-all duration-500 ${activePhase === phase.id ? "text-neutral-900 translate-x-2" : "text-neutral-400 group-hover:text-black"}`}>
+                {phase.label}
+              </span>
+            </div>
+          </button>
+        ))}
       </nav>
 
       {/* SECTION 4 — PHASE 1: FOUNDATION */}
@@ -284,7 +331,7 @@ const Services = () => {
               investment="$2,500/mo"
               investmentSub="optional performance bonus"
               footerNote="We'll show you our creator database on the first call"
-              ctaText="Book a Free Strategy Call"
+              ctaText="Start with creators already primed to sell"
             />
 
             <ServiceCard
@@ -328,7 +375,7 @@ const Services = () => {
               investment="$3,000/mo"
               investmentSub="10–20 videos/month"
               footerNote="We'll share winning creative examples on the call"
-              ctaText="Get a Free Creative Audit"
+              ctaText="Creative built to convert, not just look good"
             />
           </div>
         </div>
@@ -445,13 +492,13 @@ const Services = () => {
                   We'll tell you <TapeLabel className="inline-block px-3 py-0.5 bg-[#F5EDE3] text-black shadow-sm transform rotate-[1deg]">exactly what you need.</TapeLabel>
                 </h2>
                 <p className="text-white/50 text-lg md:text-xl font-medium mb-12 max-w-xl mx-auto cursor-none">
-                  Book a free 20-minute call. We'll look at your brand, ask the right questions, and tell you honestly which phase you're in — and what to focus on first.
+                  Book a Free Audit Call. We'll look at your brand, ask the right questions, and tell you honestly which phase you're in — and what to focus on first.
                 </p>
 
                 <div className="flex flex-col items-center gap-6">
                   <Link to="/contact">
                     <Button className="bg-[#F5EDE3] text-black hover:bg-white rounded-full px-10 py-8 text-xl font-black transition-all hover:scale-105 shadow-xl">
-                      Book a Free 20-Min Call <ArrowRight size={24} className="ml-2" />
+                      Book a Free Audit Call <ArrowRight size={24} className="ml-2" />
                     </Button>
                   </Link>
                   <Link to="/case-studies" className="text-white/50 hover:text-white text-sm font-bold transition-colors">
