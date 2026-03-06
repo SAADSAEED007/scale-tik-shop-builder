@@ -6,9 +6,11 @@ import navLogo from "@/assets/nav_logo.png";
 
 const navItems = [
   { label: "Services", path: "/services" },
-  { label: "About", path: "/#about" },
+  { label: "Why Us", path: "/why-us" },
   { label: "Careers", path: "/careers" },
   { label: "Case Studies", path: "/case-studies" },
+  { label: "Testimonials", path: "/testimonials" },
+  { label: "Who We Are", path: "/about" },
 ];
 
 const Header = () => {
@@ -61,11 +63,11 @@ const Header = () => {
   }, [isVisible]);
 
   return (
-    <div className={`fixed top-6 left-0 right-0 z-50 px-4 md:px-6 flex justify-center pointer-events-none transition-all duration-500 ease-in-out ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0"
+    <div className={`fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center pointer-events-none px-4 md:px-6 transition-all duration-500 ease-in-out ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0"
       }`}>
       <header
-        className={`w-full max-w-5xl rounded-[2.5rem] md:rounded-full border border-border/30 bg-white/70 dark:bg-card/70 backdrop-blur-2xl shadow-[0_15px_40px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out pointer-events-auto ${scrolled ? "py-2 px-3 md:px-5 max-w-4xl" : "py-4 px-5 md:px-8"
-          } ${open ? "rounded-[2rem] bg-white dark:bg-card shadow-2xl" : ""}`}
+        className={`w-full max-w-full rounded-[2.5rem] md:rounded-full border border-border/30 bg-white/70 dark:bg-card/70 backdrop-blur-2xl shadow-[0_15px_40px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out pointer-events-auto ${scrolled ? "py-2 px-8" : "py-4 px-8"
+          } ${open ? "rounded-[2rem] bg-white dark:bg-card shadow-2xl is-open" : ""}`}
       >
         <div className="flex items-center justify-between">
           {/* Left: Logo + Brand Name */}
@@ -74,11 +76,11 @@ const Header = () => {
             onClick={(e) => handleNavClick(e, "/")}
             className="flex items-center gap-3 group transition-all duration-300 active:scale-95 shrink-0"
           >
-            <div className="relative h-14 w-14 md:h-20 md:w-20 flex items-center justify-center transition-all duration-500">
+            <div className="relative h-12 w-12 md:h-16 md:w-16 flex items-center justify-center transition-all duration-500">
               <img
                 src={navLogo}
                 alt="TikShop Scale"
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-20 w-20 md:h-36 md:w-36 object-contain filter drop-shadow-sm max-w-none"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 object-contain filter drop-shadow-sm max-w-none"
               />
             </div>
             <div className="flex flex-col -space-y-1">
@@ -109,14 +111,23 @@ const Header = () => {
           </nav>
 
           {/* Right: CTA Button */}
-          <div className="flex items-center gap-2 md:gap-4">
-            <Link to="/contact" className="hidden sm:block">
+          <div className="flex items-center gap-2 md:gap-4 shrink-0">
+            <Link to="/creators" className="flex">
+              <Button
+                variant="outline"
+                size="sm"
+                className="bg-transparent border-[1.5px] border-[#E5E5E2] text-black rounded-[8px] p-[8px_12px] h-auto text-[11px] md:text-[13px] whitespace-nowrap hover:bg-[#F5EDE3] hover:border-black hover:-translate-y-0.5 transition-all duration-300 active:scale-95 font-bold"
+              >
+                Join <span className="hidden md:inline">Our Creator </span>Network
+              </Button>
+            </Link>
+            <Link to="/landing" className="flex">
               <Button
                 variant="hero"
                 size="sm"
-                className="rounded-full px-7 py-5 h-auto shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95 border-none font-bold"
+                className="rounded-full p-[8px_12px] h-auto text-[11px] md:text-[13px] whitespace-nowrap shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95 border-none font-bold"
               >
-                Get Started
+                Scale <span className="hidden md:inline">My TikTok </span>Shop
               </Button>
             </Link>
 
@@ -154,11 +165,6 @@ const Header = () => {
                 <div className={`w-2 h-2 rounded-full transition-all duration-500 ${location.pathname === item.path ? "bg-primary-foreground scale-100" : "bg-primary opacity-20 scale-50"}`} />
               </Link>
             ))}
-            <Link to="/contact" onClick={() => setOpen(false)} className="block pt-4">
-              <Button variant="hero" className="w-full rounded-[1.5rem] py-8 text-xl font-black shadow-2xl active:scale-[0.98] transition-all">
-                Contact Us
-              </Button>
-            </Link>
           </div>
         </div>
       </header>

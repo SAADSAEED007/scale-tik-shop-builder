@@ -16,6 +16,8 @@ export default {
       fontFamily: {
         heading: ["Montserrat", "sans-serif"],
         body: ["Inter", "sans-serif"],
+        syne: ["Syne", "sans-serif"],
+        manrope: ["Manrope", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

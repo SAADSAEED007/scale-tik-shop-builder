@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=Syne:wght@700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -137,6 +137,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -148,4 +149,178 @@
 
 .pause-hover:hover .animate-ticker {
   animation-play-state: paused;
+}
+
+/* GLOBAL MOBILE RESPONSIVENESS FIXES */
+@media (max-width: 768px) {
+
+  html,
+  body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    position: relative;
+  }
+
+  /* 1. NAVBAR (Header.tsx) */
+  header nav {
+    display: none !important;
+    /* Hide center desktop nav */
+  }
+
+  header .flex.items-center.justify-between>.flex.items-center.gap-2.md\:gap-4 {
+    gap: 4px !important;
+    /* Tighter gap for two buttons on mobile */
+  }
+
+  header a button {
+    padding: 6px 10px !important;
+    font-size: 10px !important;
+    white-space: nowrap !important;
+    height: auto !important;
+  }
+
+  header {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Only force pill shape when closed. When open, keep the rounded-[2rem] from React state */
+  header:not(.is-open) {
+    border-radius: 9999px !important;
+  }
+
+  /* 2. TICKER SPEED (All tickers) */
+  .animate-ticker {
+    animation-duration: 10s !important;
+  }
+
+  /* 3. GRIDS: Use more surgical overrides instead of global ones */
+  .grid-mobile-1 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Hero Stat Grids (keeping small 2-col visual if applicable or just centering) */
+  .hero-stats-grid,
+  .results-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* 4. HERO SECTIONS */
+  section.pt-\[145px\],
+  section.pt-\[160px\],
+  section.pt-24,
+  section.pt-36 {
+    padding-top: 100px !important;
+    padding-bottom: 40px !important;
+    text-align: center !important;
+  }
+
+  h1 {
+    font-size: 32px !important;
+    line-height: 1.1 !important;
+  }
+
+  h2 {
+    font-size: 28px !important;
+  }
+
+  /* Center hero content and stack buttons */
+  .hero-content,
+  .hero-buttons,
+  .flex-col-sm-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .hero-buttons button,
+  .hero-buttons a {
+    width: 100% !important;
+  }
+
+  /* Wrap trust chips */
+  .trust-chips {
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+
+  /* Hide Hero Right Assets (Phones/etc) if they overflow or clutter */
+  .hero-right-visual {
+    padding: 0 !important;
+    margin-top: 40px !important;
+  }
+
+  .hero-right-visual img {
+    max-width: 200px !important;
+  }
+
+  /* 5. CARDS & SECTIONS */
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .container {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    width: 100% !important;
+  }
+
+  /* 6. FORMS (Creators) */
+  form .grid-cols-2,
+  form .grid-cols-1.md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  form input,
+  form select,
+  form textarea {
+    width: 100% !important;
+  }
+
+  /* 7. PAGE SPECIFIC FIXES */
+  /* Who We Are: Team grid 2-col */
+  .team-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Testimonials: Featured metric grid center */
+  .featured-metrics {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* 8. FOOTER */
+  footer .grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  footer .flex.items-center.gap-3 {
+    justify-content: center !important;
+  }
+
+  footer .flex.gap-4 {
+    justify-content: center !important;
+  }
+
+  footer .mt-20.pt-10 {
+    text-align: center !important;
+    gap: 24px !important;
+    margin-top: 40px !important;
+    padding-top: 32px !important;
+  }
+
+  footer .grid {
+    gap: 48px !important;
+  }
+
+  /* Global Image responsiveness */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
 }

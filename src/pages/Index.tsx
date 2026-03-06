@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import TapeLabel from "@/components/TapeLabel";
 import FadeIn from "@/components/FadeIn";
-import { ArrowRight, Zap, BarChart3, Users, Target, Play, TrendingUp } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, Zap, BarChart3, Users, Target, Play, TrendingUp, Map, Video, Rocket, Unlock } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { useInView, animate } from "framer-motion";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import Hero from "@/components/Hero";
 import ServiceTicker from "@/components/ServiceTicker";
@@ -13,10 +14,55 @@ import fiveStarIcon from "@/assets/five-star-rating-icon.svg";
 import { Star } from "lucide-react";
 
 
+const Counter = ({ value, duration = 2, decimals = 0 }: { value: number; duration?: number; decimals?: number }) => {
+  const [count, setCount] = useState(0);
+  const nodeRef = useRef(null);
+  const isInView = useInView(nodeRef, { once: true });
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(0, value, {
+        duration,
+        onUpdate: (latest) => setCount(latest),
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, value, duration]);
+
+  return <span ref={nodeRef}>{count.toFixed(decimals)}</span>;
+};
+
 const steps = [
-  { num: "01", title: "Audit + Plan", desc: "We analyze your brand, category, and competition to build a roadmap." },
-  { num: "02", title: "Create + Launch", desc: "Content, creators, ads, and shop optimization go live fast." },
-  { num: "03", title: "Test + Scale", desc: "Weekly creative testing, data reviews, and scaling what works." },
+  {
+    num: "01",
+    title: "Deep Dive Audit",
+    desc: "We dig into your shop before we touch a single thing. Because fixing the wrong problem first is how brands waste 3 months.",
+    icon: Target
+  },
+  {
+    num: "02",
+    title: "Custom Growth Roadmap",
+    desc: "We don’t pull from a template. We look at your specific situation and tell you exactly what needs to happen and in what order.",
+    icon: Map
+  },
+  {
+    num: "03",
+    title: "Build Your Content Pipeline",
+    desc: "Real creators. Real product. Real content. We handle the sourcing, briefing, and setup — you get videos that sell.",
+    icon: Video
+  },
+  {
+    num: "04",
+    title: "Launch + Scale",
+    desc: "Your content goes live, your Shop gets optimized, and we start running Spark Ads all at the same time. No waiting around.",
+    icon: Rocket
+  },
+  {
+    num: "05",
+    title: "Weekly Optimize + Compound",
+    desc: "Every week we kill what’s not working. This is how $20K months become $100K months — compounding results.",
+    icon: TrendingUp
+  },
 ];
 
 const caseStudies = [
@@ -28,26 +74,53 @@ const caseStudies = [
 
 const testimonials = [
   {
-    quote: "We went from $800/month to $23K in 60 days. The creator strategy and affiliate setup were game-changing. TikShopScale knows this platform better than anyone.",
+    quote: "We’d been live on TikTok Shop for months with almost no traction. Six weeks after working together, we were at $47K/month. The creator matching made the difference.",
+    author: "Derek W.",
+    role: "eCommerce Operator",
+    badge: "$47K/month in 6 weeks",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Derek&backgroundColor=ffdfbf"
+  },
+  {
+    quote: "TikTok Shop was doing about $800/month for us. They rebuilt our creator setup and fixed our listings. We hit $23K/month within 60 days.",
     author: "Marcus T.",
     role: "DTC Skincare Brand, LA",
-    badge: "+$22K/mo",
+    badge: "$800/mo → $23K/mo in 60 days",
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus&backgroundColor=ffdfbf"
   },
   {
-    quote: "We were on Meta with 2x ROAS. TikTok with their system hit 6.8x in week three. The paid ads plus affiliate combo is genuinely unreal.",
-    author: "Cathy N.",
-    role: "Beauty Brand Founder",
-    badge: "6.8x ROAS",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya&backgroundColor=ffdfbf"
+    quote: "We were stuck at 2x on Meta and couldn’t crack TikTok. Their paid + affiliate setup got one of our SKUs to 6.8x ROAS by week 3. Finally felt scalable.",
+    author: "Kathy N.",
+    role: "Beauty Founder",
+    badge: "6.8x ROAS on TikTok",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kathy&backgroundColor=ffdfbf"
+  }
+];
+
+const whyChooseUs = [
+  {
+    num: "01",
+    title: <span>⚡ We Move <TapeLabel className="inline-block px-2 py-0 translate-y-[-2px]">Fast</TapeLabel></span>,
+    desc: "Most agencies take 6 weeks to onboard you. We’re launching content in week two. Speed is a competitive advantage on TikTok and we treat it that way.",
+    icon: Zap
   },
   {
-    quote: "I'd been on TikTok Shop for months with no traction. Within 6 weeks of working with them, our shop hit $47K/month. The setup and creator strategy made all the difference.",
-    author: "Derek W.",
-    role: "eCommerce Operator",
-    badge: "$47K/mo in 6 wks",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Derek&backgroundColor=ffdfbf"
-  }
+    num: "02",
+    title: <span>🎯 TikTok Is <TapeLabel className="inline-block px-2 py-0 translate-y-[-2px]">All We Do</TapeLabel></span>,
+    desc: "We don’t manage your Instagram, your Amazon, or your email list. One platform. Total focus. That’s why our results beat generalist agencies every time.",
+    icon: Target
+  },
+  {
+    num: "03",
+    title: <span>📊 No Guessing. <TapeLabel className="inline-block px-2 py-0 translate-y-[-2px]">Just Testing.</TapeLabel></span>,
+    desc: "Every creative decision is backed by data. We run tests, read the numbers, and scale what works. Your budget never burns on gut feel.",
+    icon: BarChart3
+  },
+  {
+    num: "04",
+    title: <span>🔓 Cancel <TapeLabel className="inline-block px-2 py-0 translate-y-[-2px]">Anytime</TapeLabel></span>,
+    desc: "No 6-month contracts. No lock-in. We earn your business every single month — which means we have to actually perform to keep it.",
+    icon: Unlock
+  },
 ];
 
 const Index = () => {
@@ -107,34 +180,15 @@ const Index = () => {
             <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-primary/20 -translate-x-1/2 z-0" />
 
             <div className="space-y-20 md:space-y-32">
-              {[
-                {
-                  num: "01",
-                  title: "Audit + Plan",
-                  desc: "We analyze your brand, category, and competition to build a roadmap.",
-                  icon: Target
-                },
-                {
-                  num: "02",
-                  title: "Create + Launch",
-                  desc: "Content, creators, ads, and shop optimization go live fast.",
-                  icon: Play
-                },
-                {
-                  num: "03",
-                  title: "Test + Scale",
-                  desc: "Weekly creative testing, data reviews, and scaling what works.",
-                  icon: TrendingUp
-                },
-              ].map((s, i) => (
+              {steps.map((s, i) => (
                 <div
                   key={s.num}
                   className={`relative flex flex-col items-center justify-center md:flex-row ${i % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'
                     }`}
                 >
                   {/* Timeline Indicator on the line */}
-                  <div className="absolute left-8 md:left-1/2 w-10 h-10 rounded-full bg-background border-2 border-primary/40 flex items-center justify-center -translate-x-1/2 z-20 shadow-lg" >
-                    <span className="text-[10px] font-black text-primary">{s.num}</span>
+                  <div className="absolute left-8 md:left-1/2 w-10 h-10 rounded-full bg-[#F5EDE3] border-2 border-[#E5E5E2] flex items-center justify-center -translate-x-1/2 z-20 shadow-lg" >
+                    <span className="text-[10px] font-black text-black">{s.num}</span>
                   </div>
 
                   {/* Card wrapper */}
@@ -167,6 +221,79 @@ const Index = () => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Why Brands Choose Us */}
+      <section id="why-choose-us" className="pt-20 md:pt-32 pb-0">
+        <div className="container max-w-5xl">
+          <FadeIn>
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4">
+                Why Brands <TapeLabel>Choose Us</TapeLabel>
+              </h2>
+              <p className="text-base md:text-xl text-muted-foreground font-medium max-w-3xl mx-auto">
+                We aren't a generalist agency. <TapeLabel className="inline-block px-3 py-0.5 mt-2 md:mt-0">We are a specialized growth partner built for the TikTok era.</TapeLabel>
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {whyChooseUs.map((s, i) => (
+              <FadeIn key={s.num} delay={i * 0.1}>
+                <div className="group p-8 md:p-10 rounded-[2rem] border border-border/50 bg-background/50 backdrop-blur-md shadow-sm transition-all duration-500 hover:bg-[#F5EDE3] hover:border-[#E6D5C3] hover:shadow-md hover:-translate-y-1 h-full flex flex-col">
+                  <div className="flex items-start justify-end mb-6">
+                    <span className="text-sm font-black text-primary/30 group-hover:text-primary/50 transition-colors">
+                      {s.num}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl font-black tracking-tight text-neutral-900 mb-4">
+                    {s.title}
+                  </h3>
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-medium">
+                    {s.desc}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats / Metrics Section */}
+      <section className="py-12 md:py-20 overflow-hidden">
+        <div className="container max-w-6xl">
+          <FadeIn>
+            <div className="p-8 md:p-12 rounded-[2.5rem] bg-slate-50/50 border border-slate-100 backdrop-blur-sm shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)]">
+              <div className="grid grid-cols-2 lg:grid-cols-5 gap-y-12 gap-x-8">
+                {[
+                  { value: 1.4, prefix: "$", suffix: "M+", label: "Revenue Managed", color: "from-orange-500 to-rose-500", decimals: 1 },
+                  { value: 110, prefix: "", suffix: "+", label: "Brands Served", color: "from-indigo-600 to-purple-600", decimals: 0 },
+                  { value: 91, prefix: "", suffix: "%", label: "Client Retention", color: "from-rose-500 to-fuchsia-600", decimals: 0 },
+                  { value: 72, prefix: "", suffix: "hr", label: "Launch Time", color: "from-blue-600 to-indigo-600", decimals: 0 },
+                  { value: 7, prefix: "3–", suffix: "x", label: "Average Growth", color: "from-purple-600 to-pink-600", decimals: 0 },
+                ].map((stat, i) => (
+                  <div key={i} className="flex flex-col items-center text-center group">
+                    <span className="text-3xl md:text-4xl font-black tracking-tighter text-slate-900 mb-1">
+                      {stat.prefix}
+                      <Counter value={stat.value} decimals={stat.decimals} />
+                      {stat.suffix}
+                    </span>
+                    <p className="text-xs md:text-[13px] font-bold text-slate-400 uppercase tracking-wide mb-6">
+                      {stat.label}
+                    </p>
+                    <div className="w-full h-[3px] bg-slate-100 rounded-full relative overflow-hidden">
+                      <div
+                        className={`absolute inset-y-0 left-0 w-3/4 rounded-full bg-gradient-to-r ${stat.color} transition-all duration-1000 ease-out`}
+                        style={{ width: i % 2 === 0 ? '65%' : '85%' }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -251,9 +378,13 @@ const Index = () => {
                 <Zap size={100} />
               </div>
               <h2 className="text-2xl md:text-4xl font-black tracking-tighter mb-4">
-                Get the TikTok Shop Scale Checklist
+                The System Behind Every Brand We Scale
               </h2>
-              <p className="text-base text-muted-foreground mb-8">The exact step‑by‑step playbook our brands use to cross $100K/mo on the platform.</p>
+              <p className="text-base text-muted-foreground mb-8">
+                The exact system we use to take brands from launch to $100K+ per month using creators, native content, optimization, and paid scale.
+                <br /><br />
+                Thinking about starting or ready to scale on TikTok Shop? This is for you.
+              </p>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <input
                   type="email"
@@ -287,13 +418,13 @@ const Index = () => {
                 <FadeIn key={i} delay={i * 0.1}>
                   <div className="p-8 md:p-10 rounded-[2rem] bg-white border border-neutral-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] flex flex-col h-full relative overflow-hidden group hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] transition-all duration-500">
                     {/* Top Row: Stars and Badge */}
-                    <div className="flex items-center justify-between mb-8">
+                    <div className="flex items-center justify-between mb-8 -mr-1 md:-mr-2">
                       <div className="flex gap-1">
                         {[...Array(5)].map((_, starIndex) => (
                           <Star key={starIndex} size={16} fill="#f59e0b" stroke="none" />
                         ))}
                       </div>
-                      <div className="bg-black px-4 py-1.5 rounded-full text-[12px] font-black text-white">
+                      <div className="bg-black px-4 py-1.5 rounded-full text-[12px] font-black text-white shrink-0">
                         {t.badge}
                       </div>
                     </div>
@@ -330,10 +461,10 @@ const Index = () => {
           <FadeIn>
             <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-6 leading-none">Ready to scale?</h2>
             <p className="text-primary-foreground/70 mb-10 text-lg md:text-xl">Let's map the fastest, most efficient path to TikTok Shop dominance.</p>
-            <Link to="/contact">
-              <Button variant="hero-secondary" size="lg" className="gap-3 rounded-full px-10 py-8 text-xl shadow-2xl hover:scale-105 transition-transform">
-                Book a Free Audit <ArrowRight size={24} />
-              </Button>
+            <Link to="/contact" className="w-full sm:w-auto">
+              <button className="bg-black text-white hover:bg-[#2E2E2E] px-10 py-4 rounded-[10px] font-[700] text-[16px] transition-all duration-300 hover:-translate-y-1 shadow-2xl flex items-center justify-center gap-3 w-full sm:w-auto mx-auto">
+                Book a Free Audit <ArrowRight size={20} />
+              </button>
             </Link>
           </FadeIn>
         </div>
