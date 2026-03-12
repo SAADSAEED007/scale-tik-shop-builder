@@ -15,6 +15,7 @@ import {
   User,
   Quote
 } from "lucide-react";
+import SEO from "@/components/SEO";
 
 interface CaseStudy {
   id: string;
@@ -44,7 +45,7 @@ const studies: CaseStudy[] = [
     ],
     quote: "We were on Meta with 2x ROAS. TikTok with their system hit 6.8x in week three. I wish we'd switched sooner.",
     author: "Skincare Brand",
-    role: "US"
+    role: ""
   },
   {
     id: "fashion-1",
@@ -60,7 +61,7 @@ const studies: CaseStudy[] = [
     ],
     quote: "Months of nothing, then suddenly everything clicked. The shop audit alone found things I never would have caught.",
     author: "Fashion Brand",
-    role: "UK"
+    role: ""
   },
   {
     id: "health-1",
@@ -76,7 +77,7 @@ const studies: CaseStudy[] = [
     ],
     quote: "I thought live wasn't for us. First session did $14K. We now go live twice a week.",
     author: "Health Brand",
-    role: "US"
+    role: ""
   },
   {
     id: "home-1",
@@ -92,7 +93,7 @@ const studies: CaseStudy[] = [
     ],
     quote: "They found 6 things wrong in the first audit call. I'd had the shop running for 4 months and had no idea.",
     author: "Home Goods Brand",
-    role: "AU"
+    role: ""
   },
   {
     id: "beauty-2",
@@ -108,7 +109,7 @@ const studies: CaseStudy[] = [
     ],
     quote: "We used to lose creators after one post. Now our top 20 feel like part of the team. The revenue consistency changed everything.",
     author: "Skincare Brand",
-    role: "CA"
+    role: ""
   },
   {
     id: "health-2",
@@ -124,13 +125,18 @@ const studies: CaseStudy[] = [
     ],
     quote: "Revenue looked great. Profit felt wrong. They found out why in week two. I hadn't looked at SKU-level data like that before.",
     author: "Health & Wellness Brand",
-    role: "US"
+    role: ""
   }
 ];
 
 const CaseStudies = () => {
   return (
     <div className="bg-[#F7F7F5] min-h-screen font-body text-[#0D0D0D]">
+      <SEO 
+        title="Case Studies"
+        description="See how we've scaled brands on TikTok Shop. Real results, real numbers, and the strategies we used to get there."
+        keywords="TikTok Shop Results, eCommerce Case Studies, TikTok ROAS, Brand Scaling"
+      />
       {/* SECTION 1 — HERO */}
       <section className="pt-36 pb-16 md:pt-44 md:pb-24 bg-white relative overflow-hidden text-center">
         {/* Subtle radial beige glow */}
@@ -183,7 +189,7 @@ const CaseStudies = () => {
                     </h2>
 
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 rounded-full bg-white/10 text-white/60 text-[10px] font-black uppercase tracking-widest border border-white/5">💄 Beauty Accessories</span>
+                      <span className="px-3 py-1 rounded-full bg-white/10 text-white/60 text-[10px] font-black uppercase tracking-widest border border-white/5">💄 Beauty</span>
                       <span className="px-3 py-1 rounded-full bg-white/10 text-white/60 text-[10px] font-black uppercase tracking-widest border border-white/5">📍 US Brand</span>
                       <span className="px-3 py-1 rounded-full bg-white/10 text-white/60 text-[10px] font-black uppercase tracking-widest border border-white/5">🚀 New to TikTok Shop</span>
                       <span className="px-3 py-1 rounded-full bg-white/10 text-white/60 text-[10px] font-black uppercase tracking-widest border border-white/5">🛠 Creator Seeding + Spark Ads</span>
@@ -298,13 +304,13 @@ const CaseStudies = () => {
                 <div className="bg-[#F5EDE3] border border-[#D4B483]/30 rounded-2xl p-10 mb-16 relative overflow-hidden">
                   <Quote size={48} className="absolute -top-4 -left-4 text-[#D4B483]/10" />
                   <p className="text-xl md:text-2xl font-medium text-black leading-relaxed mb-8 relative z-10">
-                    "I was ready to quit TikTok Shop before finding them. Within 60 days I had more orders than I knew what to do with. The creator setup alone changed everything — I didn't realise I'd been doing it completely wrong."
+                    "TikTok Shop was doing about $800/month for us. They rebuilt our creator setup and fixed our listings. We hit $23K/month within 60 days."
                   </p>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-[#0D0D0D] flex items-center justify-center text-white text-xl">👩</div>
+                    <div className="w-12 h-12 rounded-full bg-[#0D0D0D] flex items-center justify-center text-white text-xl">👨</div>
                     <div>
-                      <div className="font-black text-black">Sarah K.</div>
-                      <div className="text-xs font-bold text-[#D4B483] uppercase tracking-widest">Beauty Accessories Brand, US</div>
+                      <div className="font-black text-black">Marcus T.</div>
+                      <div className="text-xs font-bold text-[#D4B483] uppercase tracking-widest">DTC Skincare Brand, US</div>
                     </div>
                   </div>
                 </div>
@@ -323,13 +329,12 @@ const CaseStudies = () => {
 
           {/* SECTION 5 — MORE RESULTS GRID */}
           <div className="flex items-center gap-8 mb-16">
-            <span className="text-[11px] font-black text-[#9A9A9A] uppercase tracking-widest shrink-0">MORE RESULTS</span>
+            <TapeLabel className="rotate-[1deg] px-3 py-1 bg-[#F5EDE3] shrink-0 text-[11px] font-black uppercase tracking-widest text-black">MORE RESULTS</TapeLabel>
             <div className="h-px bg-[#E5E5E2] w-full" />
           </div>
 
           <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}
           >
             {studies.map((study) => (
               <div key={study.id} className="bg-white border border-[#E5E5E2] rounded-[18px] overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-500 flex flex-col h-full relative group">
@@ -367,7 +372,7 @@ const CaseStudies = () => {
 
                   <div className="grid grid-cols-3 gap-2 mb-8">
                     {study.stats.map((s, i) => (
-                      <div key={i} className="bg-[#F7F7F5] border border-[#E5E5E2] rounded-lg p-3 text-center">
+                      <div key={s.label} className="bg-[#F7F7F5] border border-[#E5E5E2] rounded-lg p-3 text-center">
                         <div className={`text-base font-black font-heading ${i === 0 ? "text-[#16A34A]" : "text-[#0D0D0D]"}`}>{s.value}</div>
                         <div className="text-[9px] font-black text-[#9A9A9A] uppercase leading-none mt-1">{s.label}</div>
                       </div>
@@ -380,7 +385,7 @@ const CaseStudies = () => {
                 </div>
 
                 <div className="px-8 py-6 bg-[#fcfcfc] border-t border-neutral-50 flex items-center justify-between">
-                  <span className="text-[10px] font-black text-[#9A9A9A] uppercase tracking-widest">{study.author} · {study.role}</span>
+                  <span className="text-[10px] font-black text-[#9A9A9A] uppercase tracking-widest">{study.author}{study.role && ` · ${study.role}`}</span>
                   <Link to="/contact" className="text-[11px] font-black text-[#0D0D0D] uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
                     Get similar results <ArrowRight size={14} />
                   </Link>

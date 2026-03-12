@@ -19,6 +19,7 @@ import {
   Search,
   CheckCircle2
 } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const Services = () => {
   const [activePhase, setActivePhase] = useState(1);
@@ -87,8 +88,13 @@ const Services = () => {
 
   return (
     <div className="bg-[#F7F7F5] min-h-screen font-body text-neutral-900">
+      <SEO 
+        title="Our Services"
+        description="Explore our 3-phase TikTok Shop growth framework: Foundation, Growth, and Scale. Specialist services for brands ready to dominate TikTok Shop."
+        keywords="TikTok Shop Management, Creator Seeding, Spark Ads, Shop Audit, Growth Roadmap"
+      />
       {/* SECTION 1 — HERO */}
-      <section className="pt-36 pb-16 md:pt-44 md:pb-24 bg-white relative overflow-hidden text-center">
+      <section className="pt-28 pb-16 md:pt-36 md:pb-24 bg-white relative overflow-hidden text-center">
         {/* Subtle radial beige glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#F5EDE3_0%,_transparent_70%)] opacity-40 pointer-events-none" />
 
@@ -102,14 +108,14 @@ const Services = () => {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black font-heading tracking-tighter leading-[1.1] text-neutral-900 mb-8 max-w-4xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black font-heading tracking-tighter leading-[1.1] text-neutral-900 mb-8 max-w-4xl mx-auto">
               Everything you need to <br className="hidden md:block" />
               <TapeLabel className="inline-block px-4 py-1 rotate-[-2deg] origin-left bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500 text-black">
                 win
               </TapeLabel> on TikTok Shop
             </h1>
 
-            <p className="text-lg md:text-xl text-neutral-500 font-medium max-w-xl mx-auto leading-relaxed mb-10">
+            <p className="text-base md:text-xl text-neutral-500 font-medium max-w-xl mx-auto leading-relaxed mb-10 px-4">
               From first-ever launch to scaling past $100K/mo — we handle the full TikTok commerce stack, in the right order, at the right time.
             </p>
 
@@ -330,8 +336,8 @@ const Services = () => {
               timeline="Ongoing / real traction in 4–6 weeks"
               investment="$2,500/mo"
               investmentSub="optional performance bonus"
-              footerNote="We'll show you our creator database on the first call"
-              ctaText="Start with creators already primed to sell"
+              footerNote="Start with creators already primed to sell"
+              ctaText="Start with ready creators"
             />
 
             <ServiceCard
@@ -374,8 +380,8 @@ const Services = () => {
               timeline="First batch in 2 weeks / weekly testing cycles ongoing"
               investment="$3,000/mo"
               investmentSub="10–20 videos/month"
-              footerNote="We'll share winning creative examples on the call"
-              ctaText="Creative built to convert, not just look good"
+              footerNote="Creative built to convert, not just look good"
+              ctaText="Creative that converts"
             />
           </div>
         </div>
@@ -571,12 +577,12 @@ const ServiceCard = ({
           <span className="font-bold text-neutral-900">{descBold}</span> {descNormal}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 pt-10 border-t border-[#E5E5E2]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 pt-10 border-t border-[#E5E5E2]">
           <div>
             <h4 className="text-[11px] font-black text-neutral-900 uppercase tracking-widest mb-6">WHAT YOU GET:</h4>
             <ul className="space-y-4">
               {features.map((f, i) => (
-                <li key={i} className="flex gap-3 text-[15px] text-neutral-500 font-medium leading-snug">
+                <li key={f} className="flex gap-3 text-[14px] md:text-[15px] text-neutral-500 font-medium leading-snug">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#F5EDE3] shadow-sm mt-2 shrink-0" />
                   {f}
                 </li>
@@ -587,7 +593,7 @@ const ServiceCard = ({
           <div>
             <h4 className="text-[11px] font-black text-neutral-900 uppercase tracking-widest mb-6">WHO IT'S FOR + TIMELINE:</h4>
             <div className="space-y-6">
-              <p className="text-[16px] text-neutral-500 font-medium leading-relaxed italic">
+              <p className="text-[15px] md:text-[16px] text-neutral-500 font-medium leading-relaxed italic">
                 "{who}"
               </p>
               <div className="flex items-center gap-2 text-[12px] font-black text-neutral-400 uppercase tracking-widest pt-4 border-t border-neutral-100/50">
@@ -598,14 +604,14 @@ const ServiceCard = ({
         </div>
       </div>
 
-      <div className="bg-[#F7F7F5]/50 px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-[#E5E5E2]">
-        <div className="flex items-center gap-3 text-neutral-400 font-bold text-xs uppercase tracking-widest">
-          <Search size={14} className="text-[#D4B483]" />
+      <div className="bg-[#F7F7F5]/50 px-6 md:px-8 py-5 md:py-6 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 border-t border-[#E5E5E2]">
+        <div className="flex items-center gap-3 text-neutral-400 font-bold text-[10px] md:text-xs uppercase tracking-widest text-center sm:text-left">
+          <Search size={14} className="hidden sm:block text-[#D4B483]" />
           {footerNote}
         </div>
-        <Link to="/contact">
-          <Button variant="hero" size="sm" className="bg-black text-white hover:bg-neutral-800 rounded-full px-8 py-6 font-bold shadow-lg transition-all group-hover:scale-105 active:scale-95">
-            {ctaText} <ArrowRight size={18} className="ml-2" />
+        <Link to="/contact" className="w-full sm:w-auto">
+          <Button variant="hero" size="sm" className="w-full sm:w-auto bg-black text-white hover:bg-neutral-800 rounded-full px-6 sm:px-8 py-5 sm:py-6 font-bold shadow-lg transition-all group-hover:scale-105 active:scale-95 text-[11px] sm:text-sm whitespace-normal sm:whitespace-nowrap text-center">
+            {ctaText} <ArrowRight size={16} className="ml-1 sm:ml-2 shrink-0" />
           </Button>
         </Link>
       </div>

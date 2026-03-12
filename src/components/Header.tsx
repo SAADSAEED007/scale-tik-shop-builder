@@ -8,8 +8,8 @@ const navItems = [
   { label: "Services", path: "/services" },
   { label: "Who We Are", path: "/about" },
   { label: "Why Us", path: "/why-us" },
-  { label: "Careers", path: "/careers" },
   { label: "Case Studies", path: "/case-studies" },
+  { label: "Careers", path: "/careers" },
 ];
 
 const Header = () => {
@@ -65,7 +65,7 @@ const Header = () => {
     <div className={`fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center pointer-events-none px-4 md:px-6 transition-all duration-500 ease-in-out ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0"
       }`}>
       <header
-        className={`w-full max-w-full rounded-[2.5rem] md:rounded-full border border-border/30 bg-white/70 dark:bg-card/70 backdrop-blur-2xl shadow-[0_15px_40px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out pointer-events-auto ${scrolled ? "py-2 px-8" : "py-4 px-8"
+        className={`w-full max-w-full rounded-[2.5rem] md:rounded-full border border-border/30 bg-white/70 dark:bg-card/70 backdrop-blur-2xl shadow-[0_15px_40px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out pointer-events-auto ${scrolled ? "py-2 px-4 md:px-8" : "py-3 md:py-4 px-4 md:px-8"
           } ${open ? "rounded-[2rem] bg-white dark:bg-card shadow-2xl is-open" : ""}`}
       >
         <div className="flex items-center justify-between">
@@ -73,20 +73,20 @@ const Header = () => {
           <Link
             to="/"
             onClick={(e) => handleNavClick(e, "/")}
-            className="flex items-center gap-3 group transition-all duration-300 active:scale-95 shrink-0"
+            className="flex items-center gap-1 md:gap-1 group transition-all duration-300 active:scale-95 shrink-0"
           >
-            <div className="relative h-12 w-12 md:h-16 md:w-16 flex items-center justify-center transition-all duration-500">
+            <div className="relative h-9 w-9 md:h-16 md:w-16 flex items-center justify-center transition-all duration-500">
               <img
                 src={navLogo}
                 alt="TikShop Scale"
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 object-contain filter drop-shadow-sm max-w-none"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 md:h-28 md:w-28 object-contain filter drop-shadow-sm max-w-none"
               />
             </div>
             <div className="flex flex-col -space-y-1">
-              <span className="font-heading font-black text-xl md:text-2xl tracking-tighter text-foreground whitespace-nowrap leading-none">
+              <span className="font-heading font-black text-base md:text-2xl tracking-tighter text-foreground whitespace-nowrap leading-none">
                 TikShop
               </span>
-              <span className="font-heading font-bold text-[0.75rem] md:text-[0.85rem] uppercase tracking-[0.2em] text-primary/40 group-hover:text-primary transition-all duration-500">
+              <span className="font-heading font-bold text-[0.6rem] md:text-[0.85rem] uppercase tracking-[0.15em] md:tracking-[0.2em] text-primary/40 group-hover:text-primary transition-all duration-500">
                 Scale
               </span>
             </div>
@@ -110,33 +110,33 @@ const Header = () => {
           </nav>
 
           {/* Right: CTA Button */}
-          <div className="flex items-center gap-2 md:gap-4 shrink-0">
+          <div className="flex items-center gap-1 md:gap-1.5 shrink-0">
             <Link to="/creators" className="flex">
               <Button
                 variant="outline"
                 size="sm"
-                className="bg-transparent border-[1.5px] border-[#E5E5E2] text-black rounded-[8px] p-[8px_12px] h-auto text-[11px] md:text-[13px] whitespace-nowrap hover:bg-[#F5EDE3] hover:border-black hover:-translate-y-0.5 transition-all duration-300 active:scale-95 font-bold"
+                className="bg-transparent border-[1.5px] border-[#E5E5E2] text-black rounded-[8px] p-[4px_8px] md:p-[6px_12px] h-auto text-[10px] md:text-[13px] whitespace-nowrap hover:bg-[#F5EDE3] hover:border-black hover:-translate-y-0.5 transition-all duration-300 active:scale-95 font-bold leading-none tracking-tighter"
               >
-                Join <span className="hidden md:inline">Our Creator </span>Network
+                Join Our Creator Network
               </Button>
             </Link>
             <Link to="/landing" className="flex">
               <Button
                 variant="hero"
                 size="sm"
-                className="rounded-full p-[8px_12px] h-auto text-[11px] md:text-[13px] whitespace-nowrap shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95 border-none font-bold"
+                className="rounded-full p-[6px_10px] md:p-[8px_16px] h-auto text-[10px] md:text-[13px] whitespace-nowrap shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95 border-none font-bold"
               >
-                Scale <span className="hidden md:inline">My TikTok </span>Shop
+                Scale My TikTok Shop
               </Button>
             </Link>
 
-            {/* Mobile toggle */}
+            {/* Mobile toggle - Standardized 44px touch target */}
             <button
-              className="md:hidden p-3 rounded-2xl bg-secondary/20 hover:bg-secondary/40 text-foreground transition-all active:scale-90"
+              className="md:hidden flex items-center justify-center w-11 h-11 rounded-2xl bg-secondary/20 hover:bg-secondary/40 text-foreground transition-all active:scale-90"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
-              <div className="relative w-6 h-6 flex items-center justify-center">
+              <div className="relative w-6 h-6 flex items-center justify-center pointer-events-none">
                 <X className={`absolute transition-all duration-500 ease-in-out ${open ? 'scale-100 rotate-0 opacity-100' : 'scale-50 rotate-90 opacity-0'}`} size={22} />
                 <Menu className={`absolute transition-all duration-500 ease-in-out ${open ? 'scale-50 -rotate-90 opacity-0' : 'scale-100 rotate-0 opacity-100'}`} size={22} />
               </div>

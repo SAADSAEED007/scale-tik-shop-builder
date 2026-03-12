@@ -47,46 +47,52 @@ const Footer = () => {
         }
       `}</style>
 
-      <div className="footer-content container max-w-[1240px] mx-auto px-10 pt-[72px] pb-[56px] px-[24px] md:px-[40px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr] gap-12 md:gap-[56px] text-center md:text-left">
-
+      <div className="footer-content container max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-[72px] pb-10 sm:pb-12 md:pb-[56px]">
+        <div className="flex flex-col lg:flex-row lg:justify-between items-center md:items-start gap-10 sm:gap-12 md:gap-[56px] lg:gap-0 text-center md:text-left">
           {/* COLUMN 1 — BRAND COLUMN */}
-          <div className="flex flex-col items-center md:items-start lg:col-span-1">
+          <div className="flex flex-col items-center md:items-start lg:max-w-[300px] mt-2">
             {/* Logo */}
             <Link
               to="/"
-              className="flex items-center gap-[12px] mb-[20px] group transition-all duration-300 active:scale-95"
+              className="flex items-center gap-1 group transition-all duration-300 active:scale-95 mb-[20px] md:-ml-2 pb-2"
             >
               <div className="relative h-16 w-16 flex items-center justify-center transition-all duration-500">
-                <img src={navLogo} alt="TikShop Scale" className="h-[64px] w-auto object-contain" />
+                <img
+                  src={navLogo}
+                  alt="TikShop Scale"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-28 w-28 object-contain filter drop-shadow-sm max-w-none"
+                />
               </div>
               <div className="flex flex-col -space-y-1">
-                <span className="font-syne font-[800] text-[20px] tracking-[-0.3px] text-[#1A1A1A] leading-none">
+                <span className="font-heading font-black text-[24px] tracking-tighter text-[#1A1A1A] leading-none">
                   TikShop
                 </span>
-                <span className="font-syne font-[700] text-[9.5px] uppercase tracking-[3px] text-[#9A9080]">
+                <span className="font-heading font-bold text-[0.85rem] uppercase tracking-[0.2em] text-[#9A9080] group-hover:text-black transition-all duration-500">
                   Scale
                 </span>
               </div>
             </Link>
 
             {/* Description */}
-            <p className="text-[14px] text-[#6B6358] leading-[1.75] max-w-[300px] mb-[24px] font-medium">
+            <p className="text-[14px] text-[#6B6358] leading-[1.75] mb-[24px] font-medium">
               TikTok Shop is all we do. That's why we're better at it than anyone who doesn't.
             </p>
 
             {/* Social Buttons */}
-            <div className="flex justify-center md:justify-start gap-[8px] mb-[28px]">
+            <div className="flex justify-center md:justify-start gap-[10px] mb-[28px]">
               {[
-                { icon: <XIcon className="w-5 h-5" fill="currentColor" />, label: "X" },
-                { icon: <Linkedin size={18} />, label: "LinkedIn" },
-                { icon: <Instagram size={18} />, label: "Instagram" },
-                { icon: <Facebook size={18} />, label: "Facebook" },
+                { icon: <XIcon className="w-[18px] h-[18px]" fill="white" />, label: "X", href: "https://x.com/tikshopscale", bg: "#000000" },
+                { icon: <Linkedin size={18} strokeWidth={2.5} />, label: "LinkedIn", href: "https://www.linkedin.com/company/tikshop-scale/", bg: "#0A66C2" },
+                { icon: <Instagram size={18} strokeWidth={2.5} />, label: "Instagram", href: "https://www.instagram.com/tikshopscale/", bg: "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)" },
+                { icon: <Facebook size={18} strokeWidth={2.5} />, label: "Facebook", href: "https://www.facebook.com/tikshopscale", bg: "#1877F2" },
               ].map((s) => (
                 <a
                   key={s.label}
-                  href="#"
-                  className="w-[38px] h-[38px] rounded-full bg-[rgba(0,0,0,0.06)] border border-[rgba(0,0,0,0.08)] flex items-center justify-center text-[#3D3830] transition-all duration-200 hover:bg-[#1A1A1A] hover:text-[#EDEADF] hover:-translate-y-[2px]"
+                  href={s.href}
+                  target={s.href !== "#" ? "_blank" : undefined}
+                  rel={s.href !== "#" ? "noopener noreferrer" : undefined}
+                  className="w-[36px] h-[36px] rounded-full flex items-center justify-center text-white transition-all duration-300 hover:-translate-y-[3px] hover:shadow-lg active:scale-95 border border-white/20"
+                  style={{ background: s.bg }}
                   aria-label={s.label}
                 >
                   {s.icon}
@@ -95,62 +101,64 @@ const Footer = () => {
             </div>
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 mt-6 md:mt-4">
+            <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 mt-1">
               {/* Badge 1 — TikTok Shop Partner */}
-              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-lg px-3 h-9 md:h-11 flex items-center justify-center shadow-sm whitespace-nowrap overflow-hidden max-w-fit">
+              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-lg px-4 h-11 md:h-14 flex items-center justify-center shadow-sm whitespace-nowrap overflow-hidden max-w-fit">
                 <img
                   src={tiktokShopLogo}
                   alt="TikTok Shop Partner"
-                  className="h-[16px] md:h-[20px] w-auto object-contain block shrink-0"
-                  style={{ maxHeight: '100%', maxWidth: '120px' }}
+                  className="h-[20px] md:h-[24px] w-auto object-contain block shrink-0"
+                  style={{ maxHeight: '100%', maxWidth: '160px' }}
                 />
               </div>
               {/* Badge 2 — Clutch Verified */}
-              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-lg px-3 h-9 md:h-11 text-[11px] md:text-[13px] font-bold text-[#1A1A1A] inline-flex items-center gap-1.5 shadow-sm whitespace-nowrap max-w-fit">
-                <div className="w-3 h-3 md:w-3.5 md:h-3.5 rounded-full bg-[#FF3D2E] shrink-0" />
+              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-lg px-4 h-11 md:h-14 text-[13px] md:text-[15px] font-bold text-[#1A1A1A] inline-flex items-center gap-2 shadow-sm whitespace-nowrap">
+                <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-[#FF3D2E] shrink-0" />
                 <span>Clutch Verified</span>
               </div>
-              {/* Badge 3 — Trustpilot */}
-              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-lg px-3 h-9 md:h-11 text-[11px] md:text-[13px] font-bold text-[#1A1A1A] inline-flex items-center gap-1.5 shadow-sm whitespace-nowrap max-w-fit">
-                <div className="bg-[#00B67A] p-0.5 flex items-center justify-center rounded-[2px] h-3.5 w-3.5 md:h-[18px] md:w-[18px] shrink-0">
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="white">
+              <a
+                href="https://www.trustpilot.com/review/tikshopscale.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-lg px-4 h-11 md:h-14 text-[13px] md:text-[15px] font-bold text-[#1A1A1A] inline-flex items-center gap-2 shadow-sm whitespace-nowrap transition-all duration-300 hover:-translate-y-1 hover:shadow-md cursor-pointer"
+              >
+                <div className="bg-[#00B67A] p-0.5 flex items-center justify-center rounded-[2px] h-4 w-4 md:h-[20px] md:w-[20px] shrink-0">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                   </svg>
                 </div>
                 <span>Trustpilot</span>
-                <div className="hidden sm:flex gap-0.5 ml-1">
+                <div className="flex gap-0.5 ml-1">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <div key={i} className="w-3 h-3 md:w-3.5 md:h-3.5 bg-[#00B67A] rounded-[2px] flex items-center justify-center text-white text-[8px] md:text-[9px]">★</div>
+                    <div key={i} className="w-3 h-3 md:w-3.5 md:h-3.5 bg-[#00B67A] rounded-[1px] flex items-center justify-center text-white text-[8px] md:text-[9px]">★</div>
                   ))}
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
           {/* COLUMN 2 — NAVIGATION */}
-          <div className="flex flex-col items-center md:items-start mt-8 md:mt-0">
+          <div className="flex flex-col items-center md:items-start lg:px-4">
             <h4 className="text-[10px] font-[700] uppercase tracking-[3px] text-[#9A9080] mb-[20px]">NAVIGATION</h4>
             <nav className="flex flex-col gap-[11px] items-center md:items-start text-[14px] font-[500] text-[#3D3830]">
               <Link to="/services" className="nav-link hover:text-[#1A1A1A]">Services</Link>
               <Link to="/about" className="nav-link hover:text-[#1A1A1A]">Who We Are</Link>
               <Link to="/why-us" className="nav-link hover:text-[#1A1A1A]">Why Us</Link>
-              <Link to="/careers" className="nav-link hover:text-[#1A1A1A]">Careers</Link>
               <Link to="/case-studies" className="nav-link hover:text-[#1A1A1A]">Case Studies</Link>
-              <Link to="/testimonials" className="nav-link hover:text-[#1A1A1A]">Testimonials</Link>
+              <Link to="/careers" className="nav-link hover:text-[#1A1A1A]">Careers</Link>
               <Link to="/creators" className="nav-link hover:text-[#1A1A1A]">Join Our Creator Network</Link>
-              <Link to="/landing" className="mt-[4px]">
-                <span className="bg-[#1A1A1A] text-[#EDEADF] px-[14px] py-[7px] rounded-[100px] text-[12.5px] font-[700] inline-flex items-center gap-[6px] hover:bg-[#333] transition-all hover:-translate-y-[1px]">
+              <Link to="/landing" className="mt-2">
+                <span className="bg-[#1A1A1A] text-[#EDEADF] px-4 py-2 rounded-full text-[13px] font-bold inline-flex items-center gap-2 hover:bg-[#333] transition-all hover:-translate-y-0.5 shadow-sm md:-ml-1.5">
                   Scale My TikTok Shop
                 </span>
               </Link>
             </nav>
           </div>
 
-          {/* COLUMN 3 — CONTACT */}
-          <div className="flex flex-col items-center md:items-start mt-8 md:mt-0 lg:pl-4">
+          {/* COLUMN 3 — CONTACT & GLOBAL PRESENCE */}
+          <div className="flex flex-col items-center md:items-start lg:pl-4 xl:pl-0">
             <h4 className="text-[10px] font-[700] uppercase tracking-[3px] text-[#9A9080] mb-[20px]">CONTACT</h4>
-            <div className="flex flex-col items-center md:items-start gap-[14px]">
-              {/* Item 1 — Email */}
+            <div className="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-[14px] mb-[40px]">
               <div className="flex items-center gap-[10px]">
                 <div className="w-[34px] h-[34px] bg-[rgba(0,0,0,0.05)] rounded-[8px] flex items-center justify-center shrink-0">
                   <Mail size={16} stroke="#3D3830" strokeWidth={2} />
@@ -159,26 +167,41 @@ const Footer = () => {
                   info@tikshopscale.com
                 </a>
               </div>
-              {/* Item 2 — Book a Call */}
               <div className="flex items-center gap-[10px]">
                 <div className="w-[34px] h-[34px] bg-[rgba(0,0,0,0.05)] rounded-[8px] flex items-center justify-center shrink-0">
                   <Phone size={16} stroke="#3D3830" strokeWidth={2} />
                 </div>
-                <a
-                  href="https://calendly.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[14px] font-[500] text-[#3D3830] hover:text-[#1A1A1A] transition-colors"
-                >
+                <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="text-[14px] font-[500] text-[#3D3830] hover:text-[#1A1A1A] transition-colors">
                   Book a Call →
                 </a>
+              </div>
+            </div>
+
+            <h4 className="text-[10px] font-[700] uppercase tracking-[3px] text-[#9A9080] mb-[20px]">GLOBAL PRESENCE</h4>
+            <div className="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-5">
+              {/* US */}
+              <div className="flex items-center gap-3">
+                <div className="w-[34px] h-[34px] bg-[rgba(0,0,0,0.05)] border border-[rgba(0,0,0,0.1)] rounded-[8px] flex items-center justify-center text-[10px] font-bold text-[#1A1A1A] tracking-tighter shrink-0">US</div>
+                <div className="flex flex-col items-start leading-none">
+                  <span className="text-[14px] font-bold text-[#1A1A1A] mb-1">United States</span>
+                  <span className="text-[11.5px] text-[#6B6358] font-medium">Florida</span>
+                </div>
+              </div>
+
+              {/* AE */}
+              <div className="flex items-center gap-3">
+                <div className="w-[34px] h-[34px] bg-[rgba(0,0,0,0.05)] border border-[rgba(0,0,0,0.1)] rounded-[8px] flex items-center justify-center text-[10px] font-bold text-[#1A1A1A] tracking-tighter shrink-0">AE</div>
+                <div className="flex flex-col items-start leading-none">
+                  <span className="text-[14px] font-bold text-[#1A1A1A] mb-1">UAE</span>
+                  <span className="text-[11.5px] text-[#6B6358] font-medium">Dubai</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* BOTTOM BAR */}
-        <div className="mt-[56px] pt-[20px] border-t border-[rgba(0,0,0,0.08)] flex flex-col md:flex-row justify-between items-center gap-[12px] text-center md:text-left">
+        <div className="mt-10 sm:mt-[56px] pt-4 sm:pt-[20px] border-t border-[rgba(0,0,0,0.08)] flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-[12px] text-center md:text-left">
           <div className="text-[12px] text-[#9A9080] font-medium">
             © 2023–2026 TikShop Scale. All rights reserved.
           </div>

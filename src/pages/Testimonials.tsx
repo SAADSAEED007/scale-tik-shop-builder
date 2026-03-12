@@ -60,36 +60,7 @@ const Testimonials = () => {
                     pointer-events: none;
                 }
 
-                /* Responsive Rules */
-                @media (max-width: 900px) {
-                    .featured-testimonial-card {
-                        grid-template-columns: 1fr !important;
-                    }
-                    .video-side {
-                        min-height: 260px !important;
-                    }
-                    .video-grid {
-                        grid-template-columns: 1fr !important;
-                    }
-                    .quotes-strip-grid {
-                        grid-template-columns: 1fr !important;
-                    }
-                    .share-story-card {
-                        grid-template-columns: 1fr !important;
-                        padding: 32px 24px !important;
-                    }
-                    .main-content-inner {
-                        padding: 48px 16px 60px !important;
-                    }
-                }
-                @media (max-width: 560px) {
-                    .featured-results-grid {
-                        grid-template-columns: 1fr 1fr !important;
-                    }
-                    .hero-section {
-                        padding: 100px 20px 56px !important;
-                    }
-                }
+                /* Note: Responsive rules handled globally in index.css */
                 `}
             </style>
 
@@ -110,7 +81,7 @@ const Testimonials = () => {
                     </FadeIn>
                     <FadeIn delay={0.2}>
                         <p className="font-body text-[clamp(15px,2vw,18px)] text-neutral-500 font-medium leading-relaxed max-w-[480px] mx-auto mb-10">
-                            Real brands. Real faces. Real results — in their own words. No scripts, no actors, no made-up quotes.
+                            Real brands. Real faces. <TapeLabel className="rotate-[1deg] px-2 py-0.5">Real results</TapeLabel> — in their own words. No scripts, no actors, no made-up quotes.
                         </p>
                     </FadeIn>
                     <FadeIn delay={0.3}>
@@ -179,7 +150,6 @@ const Testimonials = () => {
                             <div className="p-10 md:p-[40px_38px] flex flex-col justify-center">
                                 <div className="flex flex-wrap gap-2 mb-5">
                                     <span className="bg-[#F7F7F5] border border-[#E5E5E2] text-[#5C5C5C] text-[12px] font-[700] px-3 py-1 rounded-full">💄 Beauty Brand</span>
-                                    <span className="bg-[#F7F7F5] border border-[#E5E5E2] text-[#5C5C5C] text-[12px] font-[700] px-3 py-1 rounded-full">📍 US</span>
                                     <span className="bg-[#EDE9FE] text-[#5B21B6] text-[12px] font-[700] px-3 py-1 rounded-full">Creator Seeding</span>
                                 </div>
                                 <blockquote className="featured-quote italic text-[clamp(16px,2vw,20px)] text-[#2E2E2E] leading-[1.65] mb-6 pl-5 relative">
@@ -191,7 +161,7 @@ const Testimonials = () => {
                                     </div>
                                     <div>
                                         <div className="font-heading font-[800] text-[15px] text-black">Sarah K.</div>
-                                        <div className="text-[12.5px] text-[#9A9A9A] font-medium">Beauty Accessories Brand · Los Angeles</div>
+                                        <div className="text-[12.5px] text-[#9A9A9A] font-medium">Beauty Brand</div>
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 featured-results-grid results-stats-grid">
@@ -228,7 +198,7 @@ const Testimonials = () => {
                                 avatar: "👩",
                                 quote: "We were on Meta with 2x ROAS. TikTok with their system hit 6.8x in week three. I wish we'd switched sooner.",
                                 name: "Cathy N.",
-                                role: "Beauty Brand Founder · US"
+                                role: "Beauty Brand Founder"
                             },
                             {
                                 result: "$47K/mo",
@@ -236,7 +206,7 @@ const Testimonials = () => {
                                 avatar: "👨",
                                 quote: "Months of nothing, then suddenly everything clicked. The shop audit found things I never would have caught on my own.",
                                 name: "Derek W.",
-                                role: "eCommerce Operator · UK"
+                                role: "eCommerce Operator"
                             },
                             {
                                 result: "$14K in 2hrs",
@@ -244,7 +214,7 @@ const Testimonials = () => {
                                 avatar: "👨",
                                 quote: "I thought live shopping wasn't for us. First session did $14K in 2 hours. We now go live twice a week and it's our best revenue day.",
                                 name: "Marcus T.",
-                                role: "Home Goods Brand · AU"
+                                role: "Home Goods Brand"
                             },
                             {
                                 result: "+38% Profit",
@@ -252,7 +222,7 @@ const Testimonials = () => {
                                 avatar: "👩",
                                 quote: "Revenue looked great. Profit felt wrong. They found out why in week two. I hadn't looked at SKU-level data like that before — it changed everything.",
                                 name: "Priya N.",
-                                role: "Health & Wellness Brand · CA"
+                                role: "Health & Wellness Brand"
                             }
                         ].map((card, idx) => (
                             <FadeIn key={idx} delay={idx * 0.05}>

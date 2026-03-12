@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import TapeLabel from "@/components/TapeLabel";
 import FadeIn from "@/components/FadeIn";
 import { Send } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const revenueRanges = ["Under $10K/mo", "$10K–$50K/mo", "$50K–$200K/mo", "$200K+/mo"];
 
@@ -17,6 +18,11 @@ const Contact = () => {
 
   return (
     <div>
+      <SEO 
+        title="Contact Us"
+        description="Ready to scale your TikTok Shop? Get in touch today for a free audit call. Let's map your fastest path to growth."
+        keywords="Contact TikShop Scale, TikTok Shop Audit, eCommerce Consultation"
+      />
       <section className="pt-36 pb-20 md:py-28 bg-card">
         <div className="container max-w-2xl text-center">
           <FadeIn>

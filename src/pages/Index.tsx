@@ -11,7 +11,10 @@ import ServiceTicker from "@/components/ServiceTicker";
 import FAQ from "@/components/FAQ";
 import carrerImage from "@/assets/carrer.png";
 import navLogo from "@/assets/nav_logo.png";
+import footerLogo from "@/assets/footer_logo.png";
+import tikTokShopLogo from "@/assets/tiktokshop_logo.png";
 import fiveStarIcon from "@/assets/five-star-rating-icon.svg";
+import SEO from "@/components/SEO";
 import { Star } from "lucide-react";
 
 
@@ -67,10 +70,10 @@ const steps = [
 ];
 
 const caseStudies = [
-  { title: "Beauty Brand Blowup", metric: "+340% GMV in 60 days", sub: "Creator seeding + Spark Ads", tag: "UGC" },
-  { title: "Supplement Scale", metric: "4.2x ROAS on Spark Ads", sub: "Performance creative testing", tag: "Ads" },
-  { title: "Fashion Affiliate Engine", metric: "120+ creators activated", sub: "Affiliate program buildout", tag: "Affiliate" },
-  { title: "Live Shopping Launch", metric: "$48K first live event", sub: "Live strategy + host training", tag: "Live" },
+  { title: "Live Shopping Launch", metric: "First live session. $14K revenue. 2 hours", sub: "Live strategy + host training", tag: "Live" },
+  { title: "Home Goods Shop Audit", metric: "Listing audit found $18K in recoverable GMV", sub: "Shop rebuild + listing SEO", tag: "Audit" },
+  { title: "Skincare Retention Engine", metric: "Top 20 creators retained. 42% of GMV", sub: "Creator incentive programme", tag: "Retention" },
+  { title: "Health & Wellness SKU Audit", metric: "Cut 3 SKUs. Profit up 38% in 30 days", sub: "Ad reallocation + reporting", tag: "Audit" },
 ];
 
 const testimonials = [
@@ -129,50 +132,138 @@ const Index = () => {
 
   return (
     <div>
+      <SEO 
+        title="Scale Your TikTok Shop"
+        description="The specialist agency for TikTok Shop growth. We build creator pipelines, content systems, and paid strategies that get you to $100K+/mo without the guesswork."
+        keywords="TikTok Shop, TikTok Marketing, eCommerce Growth, Creator Seeding, Spark Ads"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "TikShop Scale",
+          "url": "https://tikshopscale.com",
+          "logo": "https://tikshopscale.com/src/assets/nav_logo.png",
+          "sameAs": [
+            "https://x.com/tikshopscale",
+            "https://www.linkedin.com/company/tikshop-scale/",
+            "https://www.instagram.com/tikshopscale/",
+            "https://www.facebook.com/tikshopscale"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "info@tikshopscale.com"
+          }
+        }}
+      />
       <Hero />
       <ServiceTicker />
 
-      {/* Services Showcase */}
-      <section id="services" className="pt-12 md:pt-16 overflow-hidden">
-        <div className="container mb-6 md:mb-8">
+      {/* Stats / Metrics Section */}
+      <section className="py-8 md:py-16 overflow-hidden bg-slate-50/30">
+        <div className="container max-w-6xl px-4 md:px-6">
           <FadeIn>
-            <h2 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter text-center mb-4 leading-none">
+            <div className="p-4 md:p-8 lg:p-12 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border border-slate-100 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.06)] relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 blur-3xl pointer-events-none" />
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6 md:gap-y-10 gap-x-4 md:gap-x-10 relative z-10">
+                {[
+                  {
+                    value: 54.2,
+                    prefix: "$",
+                    suffix: "M+",
+                    label: "GMV Managed",
+                    icon: <img src={tikTokShopLogo} className="h-10 md:h-16 w-auto object-contain" />,
+                    color: "from-orange-500 to-rose-500",
+                    decimals: 1,
+                    colSpan: "col-span-2 md:col-span-1"
+                  },
+                  {
+                    value: 182,
+                    prefix: "",
+                    suffix: "+",
+                    label: "Brands Served",
+                    icon: <span className="text-xl md:text-3xl">🤝</span>,
+                    color: "from-indigo-600 to-purple-600",
+                    decimals: 0
+                  },
+                  {
+                    value: 98,
+                    prefix: "",
+                    suffix: "%",
+                    label: "Client Retention",
+                    icon: (
+                      <img src={fiveStarIcon} alt="5 Stars" className="h-4 md:h-6 w-auto" />
+                    ),
+                    color: "from-rose-500 to-fuchsia-600",
+                    decimals: 0
+                  },
+                  {
+                    value: 72,
+                    prefix: "",
+                    suffix: "hr",
+                    label: "Campaign Launch Time",
+                    icon: <span className="text-xl md:text-3xl">🚀</span>,
+                    color: "from-blue-600 to-indigo-600",
+                    decimals: 0
+                  },
+                  {
+                    value: 7,
+                    prefix: "3–",
+                    suffix: "x",
+                    label: "Avg GMV Growth",
+                    icon: <span className="text-xl md:text-3xl">📈</span>,
+                    color: "from-purple-600 to-pink-600",
+                    decimals: 0
+                  },
+                ].map((stat, i) => (
+                  <div key={stat.label} className={`flex flex-col items-center text-center group ${stat.colSpan || ''}`}>
+                    <div className="h-10 md:h-16 flex items-center justify-center mb-2">
+                      {stat.icon}
+                    </div>
+                    <span className="text-xl md:text-3xl font-heading font-black tracking-tighter text-slate-900 mb-1 leading-none">
+                      {stat.prefix}
+                      <Counter value={stat.value} decimals={stat.decimals} />
+                      {stat.suffix}
+                    </span>
+                    <p className="text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest leading-tight h-8 flex items-center justify-center px-1">
+                      {stat.label}
+                    </p>
+                    <div className="w-full h-[3px] bg-slate-100 rounded-full mt-4 relative overflow-hidden hidden sm:block">
+                      <div
+                        className={`absolute inset-y-0 left-0 rounded-full bg-gradient-to-r ${stat.color} transition-all duration-1000 ease-out`}
+                        style={{ width: '100%' }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Services Showcase */}
+      <section id="services" className="pt-12 md:pt-16 pb-12 md:pb-20 overflow-hidden">
+        <div className="container mb-8 md:mb-12 px-4">
+          <FadeIn>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter text-center mb-6 leading-[1.1] md:leading-none">
               What we <TapeLabel>do</TapeLabel>
             </h2>
-            <p className="text-center text-muted-foreground max-w-xl mx-auto text-base md:text-xl leading-relaxed">
-              End‑to‑end TikTok Shop growth. We've mastered the platform's unique ecosystem.
+            <p className="text-center text-muted-foreground max-w-2xl mx-auto text-base md:text-xl leading-relaxed font-medium">
+              Our services are delivered through a 3 phase TikTok Shop growth framework. <br className="hidden md:block" />
+              Each phase includes the key services needed to build, grow, and scale your TikTok Shop revenue.
             </p>
           </FadeIn>
         </div>
         <ServicesShowcase />
       </section>
 
-      {/* Infographic Section */}
-      <section className="pt-12 md:pt-16 pb-0">
-        <div className="container max-w-[1240px] mx-auto px-4">
-          <FadeIn>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-10 md:mb-12">
-              Our TikTok Shop <TapeLabel>Growth Framework</TapeLabel>
-            </h2>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="flex justify-center items-center">
-              <img
-                src={carrerImage}
-                alt="TikShop Scale Process Infographic"
-                className="w-full h-auto object-contain max-w-[1100px] mx-auto"
-              />
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* How it works */}
       <section id="how-it-works" className="pt-2 md:pt-4 pb-0 overflow-hidden relative">
         <div className="container max-w-5xl">
           <FadeIn>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-8 md:mb-12">
-              How it <TapeLabel>works</TapeLabel>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-8 md:mb-12 leading-tight">
+              From Audit to $100K+/month - <TapeLabel>Here's How</TapeLabel>
             </h2>
           </FadeIn>
 
@@ -180,7 +271,7 @@ const Index = () => {
             {/* Central Vertical Line */}
             <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-primary/20 -translate-x-1/2 z-0" />
 
-            <div className="space-y-20 md:space-y-32">
+            <div className="space-y-12 md:space-y-20">
               {steps.map((s, i) => (
                 <div
                   key={s.num}
@@ -195,15 +286,27 @@ const Index = () => {
                   {/* Card wrapper */}
                   <div className="w-full md:w-[45%] pl-20 md:pl-0">
                     <FadeIn>
-                      <div className="group p-8 md:p-10 rounded-[2.5rem] border border-border/50 bg-background/60 backdrop-blur-md shadow-sm hover:shadow-2xl hover:border-primary/20 transition-all duration-500 relative">
+                      <div className="group p-6 md:p-8 rounded-[2rem] border border-border/50 bg-background/60 backdrop-blur-md shadow-sm hover:shadow-2xl hover:border-primary/20 transition-all duration-500 relative">
                         {/* Subtle background icon */}
-                        <div className="absolute top-8 right-8 text-primary/5 transition-colors group-hover:text-primary/10">
+                        <div className="absolute top-6 right-8 text-primary/5 transition-colors group-hover:text-primary/10">
                           <s.icon size={48} strokeWidth={1} />
                         </div>
 
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-3">
                           <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
-                            <s.icon size={24} />
+                            {s.num === "01" ? (
+                              <span className="text-2xl">🎯</span>
+                            ) : s.num === "02" ? (
+                              <span className="text-2xl">📊</span>
+                            ) : s.num === "03" ? (
+                              <span className="text-2xl">📹</span>
+                            ) : s.num === "04" ? (
+                              <span className="text-2xl">🚀</span>
+                            ) : s.num === "05" ? (
+                              <span className="text-2xl">📈</span>
+                            ) : (
+                              <s.icon size={24} />
+                            )}
                           </div>
                           <div>
                             <h3 className="text-2xl font-black tracking-tight mb-2">{s.title}</h3>
@@ -221,11 +324,47 @@ const Index = () => {
                 </div>
               ))}
             </div>
+
+            <FadeIn delay={0.2}>
+              <div className="mt-16 md:mt-24 flex flex-col items-center relative z-10 w-full">
+                <TapeLabel className="rotate-[-1deg] p-10 md:p-16 flex flex-col items-center md:items-start gap-10 shadow-2xl relative w-full md:w-auto min-w-full md:min-w-[800px]">
+                  <h3 className="text-3xl md:text-5xl font-black tracking-tight leading-tight text-center md:text-left pb-12 md:pb-0">
+                    See What This Looks Like <br /> For Your Brand
+                  </h3>
+                  <Link to="/contact" className="md:absolute md:bottom-6 md:right-6">
+                    <button className="bg-black text-white px-8 py-4 rounded-none font-bold text-[16px] md:text-[18px] flex items-center gap-2 hover:-translate-y-1 transition-all shadow-xl">
+                      Book a Free Growth Audit <ArrowRight size={20} />
+                    </button>
+                  </Link>
+                </TapeLabel>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* Why Brands Choose Us */}
+      {/* Infographic Section */}
+      <section className="pt-16 md:pt-24 pb-0">
+        <div className="container max-w-[1240px] mx-auto px-4 md:px-6">
+          <FadeIn>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-10 md:mb-16">
+              Our TikTok Shop <TapeLabel>Growth Framework</TapeLabel>
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="flex justify-center items-center">
+              <img
+                src={carrerImage}
+                alt="TikShop Scale Process Infographic"
+                loading="lazy"
+                className="w-full h-auto object-contain max-w-[1000px] mx-auto filter drop-shadow-2xl"
+              />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Why Brands Choose Us - TEMPORARILY HIDDEN
       <section id="why-choose-us" className="pt-20 md:pt-32 pb-0">
         <div className="container max-w-5xl">
           <FadeIn>
@@ -261,87 +400,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      */}
 
-      {/* Stats / Metrics Section */}
-      <section className="py-12 md:py-20 overflow-hidden">
-        <div className="container max-w-6xl">
-          <FadeIn>
-            <div className="p-8 md:p-12 rounded-[2.5rem] bg-slate-50/50 border border-slate-100 backdrop-blur-sm shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)]">
-              <div className="grid grid-cols-2 lg:grid-cols-5 gap-y-12 gap-x-8">
-                {[
-                  {
-                    value: 34.2,
-                    prefix: "$",
-                    suffix: "M+",
-                    label: "GMV Managed",
-                    icon: <img src={navLogo} className="h-10 md:h-12 w-auto object-contain" />,
-                    color: "from-orange-500 to-rose-500",
-                    decimals: 1
-                  },
-                  {
-                    value: 275,
-                    prefix: "",
-                    suffix: "+",
-                    label: "Brands Served",
-                    icon: <span className="text-2xl md:text-3xl">🛍️</span>,
-                    color: "from-indigo-600 to-purple-600",
-                    decimals: 0
-                  },
-                  {
-                    value: 91,
-                    prefix: "",
-                    suffix: "%",
-                    label: "Client Retention",
-                    icon: <img src={fiveStarIcon} className="h-4 md:h-5 w-auto object-contain" />,
-                    color: "from-rose-500 to-fuchsia-600",
-                    decimals: 0
-                  },
-                  {
-                    value: 72,
-                    prefix: "",
-                    suffix: "hr",
-                    label: "Affiliate Campaign Launch Time",
-                    icon: <span className="text-2xl md:text-3xl">🚀</span>,
-                    color: "from-blue-600 to-indigo-600",
-                    decimals: 0
-                  },
-                  {
-                    value: 7,
-                    prefix: "3–",
-                    suffix: "x",
-                    label: "Average GMV Growth in 90 days",
-                    icon: <span className="text-2xl md:text-3xl">📈</span>,
-                    color: "from-purple-600 to-pink-600",
-                    decimals: 0
-                  },
-                ].map((stat, i) => (
-                  <div key={i} className="flex flex-col items-center text-center group">
-                    <div className="h-16 flex items-center justify-center mb-1">
-                      {stat.icon}
-                    </div>
-                    <span className="text-2xl md:text-3xl font-heading font-black tracking-tighter text-slate-900 mb-1">
-                      {stat.prefix}
-                      <Counter value={stat.value} decimals={stat.decimals} />
-                      {stat.suffix}
-                    </span>
-                    <p className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest leading-tight h-8 flex items-center">
-                      {stat.label}
-                    </p>
-                    <div className="w-full h-[3px] bg-slate-100 rounded-full mt-4 relative overflow-hidden">
-                      <div
-                        className={`absolute inset-y-0 left-0 w-3/4 rounded-full bg-gradient-to-r ${stat.color} transition-all duration-1000 ease-out`}
-                        style={{ width: i % 2 === 0 ? '65%' : '85%' }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* About Section */}
+      {/* About Section - TEMPORARILY HIDDEN
       <section id="about" className="pt-12 md:pt-16 pb-0">
         <div className="container">
           <FadeIn>
@@ -353,19 +414,19 @@ const Index = () => {
             {[
               {
                 title: "Our Legacy",
-                desc: "We started this because too many good brands were guessing their way through TikTok Shop. Before this was an agency, it was us in the trenches. Running accounts. Testing creatives. Losing money. Learning fast. Figuring out what actually works. That operator mindset is still how we build today.",
+                desc: "We started this because too many good brands were guessing their way through TikTok Shop. Before this was an agency, it was us in the trenches — running accounts, testing creatives, losing money, and learning fast. That operator mindset is still how we build today.",
               },
               {
                 title: "Our Mission",
-                desc: "Take the guesswork out of growth. TikTok changes quickly, so we test constantly, move fast, and let data guide decisions. No vanity metrics. No fluff. Just real revenue and sustainable scaling.",
+                desc: "We take the guesswork out of growth. TikTok moves fast, so we test constantly, make data-driven decisions, and cut through the noise. No vanity metrics. No fluff. Just real revenue, sustainable scaling, and strategies that are built to last.",
               },
               {
                 title: "Our Team",
-                desc: "We are specialists, not generalists. Growth leads, creative strategists, affiliate managers, paid media operators. Everyone works inside the TikTok Shop every day. It is not a side service. It is what we do.",
+                desc: "We are specialists, not generalists. Growth leads, creative strategists, affiliate managers, and paid media operators — everyone works inside TikTok Shop every single day. This is not a side service we offer. It is the only thing we do.",
               },
               {
                 title: "Our Promise",
-                desc: "We care about profit, not optics. If something is not working, we fix it. If TikTok Shop is not the right move for you, we will say that too. Simple focus: build something that actually scales.",
+                desc: "We care about profit, not optics. If something is not working, we fix it fast. If TikTok Shop is not the right move for your brand, we will tell you honestly. Our focus is simple: build something real, sustainable, and built to actually scale.",
               },
             ].map((card, i) => (
               <FadeIn key={card.title} delay={i * 0.1}>
@@ -380,9 +441,10 @@ const Index = () => {
           </div>
         </div>
       </section>
+      */}
 
       {/* Case studies preview */}
-      <section className="pt-12 md:pt-16 pb-0">
+      <section className="pt-24 md:pt-40 pb-0">
         <div className="container">
           <FadeIn>
             <div className="text-center mb-12">
@@ -410,11 +472,30 @@ const Index = () => {
               </FadeIn>
             ))}
           </div>
+
+          <FadeIn delay={0.2}>
+            <div className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-10">
+              <Link
+                to="/case-studies"
+                className="group flex items-center gap-2 px-8 py-4 rounded-xl bg-[#F5EDE3] hover:bg-[#EBDCC8] transition-all duration-300"
+              >
+                <span className="font-bold text-[16px] md:text-[18px] text-black">View More Case Studies</span>
+                <ArrowRight size={20} className="text-black group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                to="/contact"
+                className="group flex items-center gap-2 px-8 py-4 rounded-xl bg-[#F5EDE3] hover:bg-[#EBDCC8] transition-all duration-300"
+              >
+                <span className="font-bold text-[16px] md:text-[18px] text-black">Get similar results</span>
+                <ArrowRight size={20} className="text-black group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Lead magnet */}
-      <section className="pt-12 md:pt-16 pb-0">
+      <section className="pt-24 md:pt-40 pb-0">
         <div className="container max-w-2xl">
           <FadeIn>
             <div className="p-8 md:p-12 rounded-[2.5rem] text-center bg-secondary/30 border border-border/50 relative overflow-hidden">
@@ -445,27 +526,27 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="pt-12 md:pt-16 pb-0 overflow-hidden">
+      <section className="pt-24 md:pt-40 pb-0 overflow-hidden">
         <div className="container px-4 md:px-6">
           <FadeIn>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
                 What brands <TapeLabel>say</TapeLabel>
               </h2>
-              <p className="text-neutral-500 text-xl md:text-3xl font-bold">Real brands. Real results.</p>
+              <p className="text-neutral-500 text-xl md:text-3xl font-bold">Real brands. <TapeLabel className="rotate-[1deg] px-3">Real results.</TapeLabel></p>
             </div>
           </FadeIn>
 
           <div className="max-w-[1240px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {testimonials.map((t, i) => (
-                <FadeIn key={i} delay={i * 0.1}>
+                <FadeIn key={t.author || i} delay={i * 0.1}>
                   <div className="p-8 md:p-10 rounded-[2rem] bg-white border border-neutral-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] flex flex-col h-full relative overflow-hidden group hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] transition-all duration-500">
                     {/* Top Row: Stars and Badge */}
                     <div className="flex items-center justify-between gap-4 mb-8">
                       <div className="flex gap-1 shrink-0">
                         {[...Array(5)].map((_, starIndex) => (
-                          <Star key={starIndex} size={16} fill="#f59e0b" stroke="none" />
+                          <Star key={`star-${i}-${starIndex}`} size={16} fill="#f59e0b" stroke="none" />
                         ))}
                       </div>
                       <div className="bg-black px-4 py-1.5 rounded-full text-[12px] font-black text-white whitespace-nowrap">

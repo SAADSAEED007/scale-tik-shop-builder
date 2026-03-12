@@ -4,16 +4,82 @@ import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/FadeIn";
 import TapeLabel from "@/components/TapeLabel";
 import ServiceTicker from "@/components/ServiceTicker";
+import SEO from "@/components/SEO";
 import {
     ArrowRight,
     Plus,
     Minus,
     Quote,
-    Play
+    Play,
+    Target,
+    Map,
+    Video,
+    Rocket,
+    TrendingUp,
+    Zap,
+    Star
 } from "lucide-react";
+
+const testimonials = [
+    {
+        quote: "We’d been live on TikTok Shop for months with almost no traction. Six weeks after working together, we were at $47K/month. The creator matching made the difference.",
+        author: "Derek W.",
+        role: "eCommerce Operator",
+        badge: "$47K/month in 6 weeks",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Derek&backgroundColor=ffdfbf"
+    },
+    {
+        quote: "TikTok Shop was doing about $800/month for us. They rebuilt our creator setup and fixed our listings. We hit $23K/month within 60 days.",
+        author: "Marcus T.",
+        role: "DTC Skincare Brand",
+        badge: "$800/mo → $23K/mo in 60 days",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus&backgroundColor=ffdfbf"
+    },
+    {
+        quote: "We were stuck at 2x on Meta and couldn’t crack TikTok. Their paid + affiliate setup got one of our SKUs to 6.8x ROAS by week 3. Finally felt scalable.",
+        author: "Kathy N.",
+        role: "Beauty Founder",
+        badge: "6.8x ROAS on TikTok",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kathy&backgroundColor=ffdfbf"
+    }
+];
+
+const steps = [
+    {
+        num: "01",
+        title: "Deep Dive Audit",
+        desc: "We dig into your shop before we touch a single thing. Because fixing the wrong problem first is how brands waste 3 months.",
+        icon: Target
+    },
+    {
+        num: "02",
+        title: "Custom Growth Roadmap",
+        desc: "We don’t pull from a template. We look at your specific situation and tell you exactly what needs to happen and in what order.",
+        icon: Map
+    },
+    {
+        num: "03",
+        title: "Build Your Content Pipeline",
+        desc: "Real creators. Real product. Real content. We handle the sourcing, briefing, and setup — you get videos that sell.",
+        icon: Video
+    },
+    {
+        num: "04",
+        title: "Launch + Scale",
+        desc: "Your content goes live, your Shop gets optimized, and we start running Spark Ads all at the same time. No waiting around.",
+        icon: Rocket
+    },
+    {
+        num: "05",
+        title: "Weekly Optimize + Compound",
+        desc: "Every week we kill what’s not working. This is how $20K months become $100K months — compounding results.",
+        icon: TrendingUp
+    },
+];
 
 const Landing = () => {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
+    const [email, setEmail] = useState("");
 
     const toggleFaq = (index: number) => {
         setOpenFaq(openFaq === index ? null : index);
@@ -21,7 +87,7 @@ const Landing = () => {
 
     const tickerItems = [
         "Compliance", "Shop Operations", "Launch Strategy",
-        "Creator Seeding", "$34.2M+ GMV", "Spark Ads", "275+ Brands",
+        "Creator Seeding", "$54.2M+ GMV", "Spark Ads", "182+ Brands",
         "Live Shopping", "6.4x ROAS", "Affiliate Growth", "60 Day Results",
         "Shop Optimization", "No Lock-In"
     ];
@@ -51,9 +117,14 @@ const Landing = () => {
 
     return (
         <div className="bg-[#F7F7F5] font-body text-[#0D0D0D] overflow-x-hidden">
+            <SEO 
+                title="Scaling System"
+                description="Our proven system for scaling brands on TikTok Shop. We handle everything from audits to creator seeding and Spark Ads scale."
+                keywords="TikTok Shop Scaling, Creator Marketing, eCommerce Strategy, TikTok Ads"
+            />
 
             {/* SECTION 1 — HERO */}
-            <section className="relative min-h-screen bg-[#FFFFFF] flex flex-col items-center justify-center pt-[160px] pb-[88px] px-8 text-center overflow-hidden">
+            <section className="relative min-h-screen bg-[#FFFFFF] flex flex-col items-center justify-center pt-[180px] pb-[88px] px-8 text-center overflow-hidden">
                 {/* Subtle radial beige glow */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#F5EDE3_0%,_transparent_70%)] opacity-40 pointer-events-none" />
 
@@ -67,18 +138,20 @@ const Landing = () => {
                     </FadeIn>
 
                     <FadeIn delay={0.1}>
-                        <h1 className="text-3xl sm:text-5xl md:text-7xl font-black font-heading tracking-tighter leading-[1.05] text-neutral-900 mb-8 max-w-4xl mx-auto">
-                            Your brand should be doing <br className="hidden md:block" />
-                            <TapeLabel className="inline-block px-4 py-1 rotate-[-1.5deg] origin-left bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500 text-black mx-1">
-                                $100K/mo
-                            </TapeLabel> <br className="hidden md:block" />
-                            <span className="text-black">on TikTok Shop.</span>
-                        </h1>
+                        <div className="flex flex-col items-center text-center">
+                            <h1 className="text-3xl sm:text-4xl md:text-[60px] font-black font-heading tracking-tighter leading-[1] text-neutral-900 mb-6 max-w-5xl mx-auto">
+                                Why settle for a generalist <br className="hidden md:block" />
+                                when you can have a <TapeLabel className="inline-block px-5 py-1.5 bg-[#F5EDE3] text-black shadow-sm transform rotate-[1.5deg] hover:rotate-0 transition-transform duration-500 mx-1">specialist?</TapeLabel>
+                            </h1>
+                            <h2 className="text-xl md:text-[48px] font-black font-heading text-neutral-900 mb-10 tracking-tighter flex flex-wrap items-center justify-center gap-2 leading-[1]">
+                                Your brand should be doing <TapeLabel className="inline-block px-3 py-1 bg-[#F5EDE3] text-black shadow-sm transform rotate-[-1.5deg] origin-left mx-1 hover:rotate-0 transition-transform duration-500">$100K+/mo</TapeLabel> on TikTok Shop.
+                            </h2>
+                        </div>
                     </FadeIn>
 
                     <FadeIn delay={0.2}>
                         <p className="text-lg md:text-xl text-neutral-500 font-medium max-w-2xl mx-auto leading-relaxed mb-12">
-                            We build the creator pipeline, content system, and paid strategy that gets you there — <span className="text-neutral-900 font-bold">without the guesswork, wasted budget, or slow agencies.</span>
+                            We build the creator pipeline, content system, and paid strategy that gets you there <span className="text-neutral-900 font-bold">without the guesswork, wasted budget, or slow agencies.</span>
                         </p>
                     </FadeIn>
 
@@ -91,42 +164,22 @@ const Landing = () => {
                             </Link>
                             <Link to="/case-studies">
                                 <button className="inline-flex items-center justify-center bg-transparent border-[1.5px] border-[#E5E5E2] text-[#0D0D0D] hover:border-black font-manrope font-[800] text-[15px] px-[36px] py-[18px] h-auto rounded-[10px] transition-all duration-300 hover:-translate-y-[2px]">
-                                    See Real Results
+                                    See <TapeLabel className="rotate-[1deg] px-2 py-0.5 mx-1">Real Results</TapeLabel>
                                 </button>
                             </Link>
                         </div>
                     </FadeIn>
 
-                    <FadeIn delay={0.4}>
-                        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-[11px] font-bold text-[#5C5C5C] uppercase tracking-widest">
-                            <div className="flex items-center gap-2">
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
-                                <span>$34.2M+ GMV Generated</span>
-                            </div>
-                            <div className="w-px h-4 bg-[#E5E5E2] hidden sm:block" />
-                            <div className="flex items-center gap-2">
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
-                                <span>275+ Brands Scaled</span>
-                            </div>
-                            <div className="w-px h-4 bg-[#E5E5E2] hidden sm:block" />
-                            <div className="flex items-center gap-2">
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
-                                <span>6.4x Avg ROAS</span>
-                            </div>
-                            <div className="w-px h-4 bg-[#E5E5E2] hidden sm:block" />
-                            <div className="flex items-center gap-2">
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
-                                <span>No Lock-In Contracts</span>
-                            </div>
-                        </div>
-                    </FadeIn>
+
                 </div>
             </section>
 
             {/* SECTION 2 — SERVICESTICKER */}
             <ServiceTicker items={tickerItems} />
 
+            {/* 
             {/* SECTION 3 — FOUNDER VIDEO */}
+            {/* 
             <section className="bg-[#0D0D0D] py-[88px] px-4 md:px-10 overflow-hidden">
                 <div className="container max-w-[860px] mx-auto text-center">
                     <FadeIn>
@@ -143,10 +196,8 @@ const Landing = () => {
                         <div className="w-full max-w-[860px] mx-auto">
                             <div className="relative w-full pb-[56.25%] rounded-[20px] overflow-hidden bg-[#181818] border border-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.6)]">
                                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-[20px]">
-                                    {/* Avatar Circle - Outlined */}
                                     <div className="w-[100px] h-[100px] rounded-full border-[3px] border-[#D4B483] bg-transparent" />
 
-                                    {/* Play Button */}
                                     <button className="w-[72px] h-[72px] bg-[#F5EDE3] rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(212,180,131,0.3)] cursor-pointer group transition-transform hover:scale-105">
                                         <Play fill="black" color="black" size={24} className="ml-1" />
                                     </button>
@@ -157,6 +208,126 @@ const Landing = () => {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </FadeIn>
+                </div>
+                     {/* SECTION 6 — RESULTS (Moved up) */}
+            <section className="bg-[#0D0D0D] py-20 px-4 md:px-10 overflow-hidden">
+                <div className="container max-w-[860px] mx-auto text-center">
+                    <FadeIn>
+                        <span className="text-[#F5EDE3] font-heading font-black text-[11px] uppercase tracking-[0.2em] mb-6 block">
+                            ACROSS EVERY BRAND WE WORK WITH
+                        </span>
+                        <h2 className="text-3xl md:text-5xl font-black font-heading text-white tracking-tighter mb-16">
+                            <TapeLabel className="inline-block px-4 py-1.5 bg-[#F5EDE3] text-[#0D0D0D] shadow-sm transform rotate-[-1.5deg] origin-left mx-1 hover:rotate-0 transition-transform duration-500">The numbers say it all.</TapeLabel>
+                        </h2>
+
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                            {[
+                                { val: "$54.2M+", label: "Total GMV generated for clients", gold: true },
+                                { val: "182+", label: "Brands scaled on TikTok Shop" },
+                                { val: "6.4x", label: "Average ROAS on paid campaigns" },
+                                { val: "60d", label: "Average time to meaningful results" }
+                            ].map((stat, i) => (
+                                <div
+                                    key={stat.label}
+                                    className={`border border-white/5 rounded-[16px] p-8 flex flex-col items-center justify-center text-center transition-all ${stat.gold ? 'bg-[#F5EDE3]' : 'bg-[#181818]'}`}
+                                >
+                                    <div className={`text-2xl md:text-[42px] font-black font-heading leading-none mb-3 tracking-tighter ${stat.gold ? 'text-[#0D0D0D]' : 'text-white'}`}>
+                                        {stat.val}
+                                    </div>
+                                    <div className={`text-[12.5px] font-bold uppercase tracking-widest leading-tight ${stat.gold ? 'text-[#0D0D0D]/65' : 'text-white/40'}`}>
+                                        {stat.label}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </FadeIn>
+                </div>
+            </section>
+
+            {/* SECTION 7 — CASE STUDIES PREVIEW (Moved up) */}
+            <section className="bg-white py-[88px] px-4 md:px-10 border-t border-[#E5E5E2] overflow-hidden">
+                <div className="container max-w-[1000px] mx-auto">
+                    <FadeIn>
+                        <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
+                            <div>
+                                <span className="text-[#0D0D0D] font-heading font-black text-[11px] uppercase tracking-[0.2em] mb-4 block">
+                                    <TapeLabel className="rotate-[1deg] px-3 py-1 bg-[#F5EDE3]">REAL RESULTS</TapeLabel>
+                                </span>
+                                <h2 className="text-3xl md:text-[44px] font-black font-heading tracking-tighter leading-none mb-4">
+                                    Brands we've scaled.
+                                </h2>
+                                <p className="text-[#9A9A9A] text-lg font-medium italic">
+                                    Real numbers. No cherry-picked screenshots.
+                                </p>
+                            </div>
+                            <Link to="/case-studies" className="group flex items-center gap-1 text-[13px] font-black uppercase tracking-widest border-b-2 border-[#F5EDE3] pb-1 transition-all">
+                                See all case studies <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                            </Link>
+                        </div>
+                    </FadeIn>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {[
+                            {
+                                badge: "$800 → $23K/mo",
+                                tags: "💄 Beauty · 60 Days · Creator Seeding",
+                                title: "From zero traction to $23K/month in 60 days flat",
+                                text: "Had been live for 3 months with no results. Fixed listings, recruited 47 creators, launched Spark Ads on the winning hook. GMV went from $800 to $23K.",
+                                brand: "Beauty Brand"
+                            },
+                            {
+                                badge: "6.8x ROAS",
+                                tags: "💊 Health · Week 3 · Spark Ads",
+                                title: "From 2x ROAS on Meta to 6.8x on TikTok by week three",
+                                text: "Was spending $8K/mo on Meta with mediocre returns. Rebuilt their entire ad strategy for TikTok's native ecosystem. 6.8x ROAS from week 3.",
+                                brand: "Health Brand"
+                            },
+                            {
+                                badge: "$47K/mo in 6wks",
+                                tags: "👗 Fashion · 6 Weeks · Full Management",
+                                title: "Zero presence to $47K/month in 6 weeks",
+                                text: "Months of nothing on TikTok Shop. After a full audit and creator pipeline launch, monthly GMV hit $47K in 6 weeks with 89 active affiliates driving sales.",
+                                brand: "Fashion Brand"
+                            }
+                        ].map((card, i) => (
+                            <FadeIn key={card.title} delay={i * 0.1}>
+                                <div className="bg-[#F7F7F5] border border-[#E5E5E2] rounded-[18px] h-full flex flex-col hover:-translate-y-2 hover:shadow-xl transition-all duration-500 overflow-hidden group">
+                                    <div className="p-8 pb-6 border-b border-[#E5E5E2] grow">
+                                        <div className="bg-[#0D0D0D] text-white font-heading font-black text-sm px-4 py-2 rounded-[10px] w-fit mb-6">
+                                            {card.badge}
+                                        </div>
+                                        <div className="text-[10px] font-black text-[#0D0D0D] uppercase tracking-widest mb-4">
+                                            {card.tags}
+                                        </div>
+                                        <h3 className="text-xl font-black font-heading leading-tight text-[#0D0D0D] mb-4">
+                                            {card.title}
+                                        </h3>
+                                        <p className="text-sm text-[#5C5C5C] font-medium leading-relaxed">
+                                            {card.text}
+                                        </p>
+                                    </div>
+                                    <div className="px-8 py-5 flex items-center justify-between">
+                                        <span className="text-[11px] font-bold text-[#9A9A9A] uppercase tracking-widest">{card.brand}</span>
+                                        <Link to="/case-studies" className="text-[11px] font-black text-[#0D0D0D] uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
+                                            Full story <ArrowRight size={14} />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </FadeIn>
+                        ))}
+                    </div>
+
+                    <FadeIn delay={0.4}>
+                        <div className="mt-20 text-center">
+                            <p className="text-[#0D0D0D] text-lg font-medium mb-6">Your brand could be next.</p>
+                            <Link
+                                to="/contact"
+                                className="inline-flex items-center gap-2 bg-[#0D0D0D] hover:bg-[#2E2E2E] text-white px-10 py-5 rounded-[12px] font-black font-heading transition-all hover:-translate-y-1 hover:shadow-2xl"
+                            >
+                                Book a Free Growth Audit <ArrowRight size={20} />
+                            </Link>
                         </div>
                     </FadeIn>
                 </div>
@@ -198,7 +369,7 @@ const Landing = () => {
                                 text: "The top TikTok Shops get 40–70% of GMV from affiliates. Most brands have zero creator pipeline and have no idea they're leaving this on the table."
                             }
                         ].map((card, i) => (
-                            <FadeIn key={i} delay={i * 0.1}>
+                            <FadeIn key={card.title} delay={i * 0.1}>
                                 <div className="bg-[#FFF5F5] border-[1.5px] border-[#FECACA] rounded-[18px] p-6 h-full">
                                     <span className="text-[#DC2626] font-black text-[10px] uppercase tracking-widest mb-4 block">❌ THE MISTAKE</span>
                                     <div className="text-3xl mb-4">{card.icon}</div>
@@ -232,7 +403,7 @@ const Landing = () => {
                                 text: "We find creators in your niche, send them your product, brief them on what to say — and build a pipeline that keeps growing without you chasing it."
                             }
                         ].map((card, i) => (
-                            <FadeIn key={i} delay={(i + 3) * 0.1}>
+                            <FadeIn key={card.title} delay={(i + 3) * 0.1}>
                                 <div className="bg-[#F5EDE3] border-[1.5px] border-[#D4B483]/30 rounded-[18px] p-6 h-full transition-all duration-300 hover:shadow-xl">
                                     <span className="text-[#D4B483] font-black text-[10px] uppercase tracking-widest mb-4 block">✓ HOW WE FIX IT</span>
                                     <div className="text-3xl mb-4">{card.icon}</div>
@@ -250,216 +421,175 @@ const Landing = () => {
             </section>
 
             {/* SECTION 5 — HOW IT WORKS */}
-            <section className="bg-[#F7F7F5] py-[88px] px-4 md:px-10 overflow-hidden">
-                <div className="container max-w-[740px] mx-auto">
+            <section id="how-it-works" className="bg-[#F7F7F5] py-[88px] px-4 md:px-10 overflow-hidden relative border-t border-[#E5E5E2]">
+                <div className="container max-w-5xl mx-auto">
+                    <FadeIn>
+                        <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-8 md:mb-12 leading-tight">
+                            From Audit to $100K+/month - <TapeLabel>Here's How</TapeLabel>
+                        </h2>
+                    </FadeIn>
+
+                    <div className="relative">
+                        {/* Central Vertical Line */}
+                        <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-[#0D0D0D]/10 -translate-x-1/2 z-0" />
+
+                        <div className="space-y-12 md:space-y-20">
+                            {steps.map((s, i) => (
+                                <div
+                                    key={s.num}
+                                    className={`relative flex flex-col items-center justify-center md:flex-row ${i % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'
+                                        }`}
+                                >
+                                    {/* Timeline Indicator on the line */}
+                                    <div className="absolute left-8 md:left-1/2 w-10 h-10 rounded-full bg-[#F5EDE3] border-2 border-[#E5E5E2] flex items-center justify-center -translate-x-1/2 z-20 shadow-lg" >
+                                        <span className="text-[10px] font-black text-black">{s.num}</span>
+                                    </div>
+
+                                    {/* Card wrapper */}
+                                    <div className="w-full md:w-[45%] pl-20 md:pl-0">
+                                        <FadeIn>
+                                            <div className="group p-6 md:p-8 rounded-[2rem] border border-[#E5E5E2] bg-white/60 backdrop-blur-md shadow-sm hover:shadow-2xl hover:border-[#D4B483]/20 transition-all duration-500 relative">
+                                                {/* Subtle background icon */}
+                                                <div className="absolute top-6 right-8 text-black/5 transition-colors group-hover:text-black/10">
+                                                    <s.icon size={48} strokeWidth={1} />
+                                                </div>
+
+                                                <div className="flex flex-col gap-3">
+                                                    <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center text-black">
+                                                        {s.num === "01" ? (
+                                                            <span className="text-2xl">🎯</span>
+                                                        ) : s.num === "02" ? (
+                                                            <span className="text-2xl">📊</span>
+                                                        ) : s.num === "03" ? (
+                                                            <span className="text-2xl">📹</span>
+                                                        ) : s.num === "04" ? (
+                                                            <span className="text-2xl">🚀</span>
+                                                        ) : s.num === "05" ? (
+                                                            <span className="text-2xl">📈</span>
+                                                        ) : (
+                                                            <s.icon size={24} />
+                                                        )}
+                                                    </div>
+                                                    <div>
+                                                        <h3 className="text-2xl font-black tracking-tight mb-2 font-heading">{s.title}</h3>
+                                                        <p className="text-[#5C5C5C] leading-relaxed font-medium">
+                                                            {s.desc}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </FadeIn>
+                                    </div>
+
+                                    {/* Spacer for desktop layout balance */}
+                                    <div className="hidden md:block md:w-[45%]" />
+                                </div>
+                            ))}
+                        </div>
+
+                        <FadeIn delay={0.2}>
+                            <div className="mt-16 md:mt-24 flex flex-col items-center relative z-10 w-full">
+                                <TapeLabel className="rotate-[-1deg] p-10 md:p-16 flex flex-col items-center md:items-start gap-10 shadow-2xl relative w-full md:w-auto min-w-full md:min-w-[800px] bg-[#F5EDE3]">
+                                    <h3 className="text-3xl md:text-5xl font-black tracking-tight leading-tight text-center md:text-left pb-12 md:pb-0 font-heading">
+                                        See What This Looks Like <br /> For Your Brand
+                                    </h3>
+                                    <Link to="/contact" className="md:absolute md:bottom-6 md:right-6">
+                                        <button className="bg-black text-white px-8 py-4 rounded-none font-bold text-[16px] md:text-[18px] flex items-center gap-2 hover:-translate-y-1 transition-all shadow-xl">
+                                            Book a Free Growth Audit <ArrowRight size={20} />
+                                        </button>
+                                    </Link>
+                                </TapeLabel>
+                            </div>
+                        </FadeIn>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+            {/* Lead magnet */}
+            <section className="pt-24 md:pt-40 pb-0 bg-white">
+                <div className="container max-w-2xl mx-auto px-4">
+                    <FadeIn>
+                        <div className="p-8 md:p-12 rounded-[2.5rem] text-center bg-[#F5EDE3]/30 border border-[#E5E5E2] relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-4 opacity-5">
+                                <Zap size={100} />
+                            </div>
+                            <h2 className="text-2xl md:text-3xl font-black font-heading tracking-tighter mb-4 text-[#0D0D0D]">
+                                The System Behind Every Brand We Scale
+                            </h2>
+                            <p className="text-base text-[#5C5C5C] mb-8 font-medium">
+                                The exact system we use to take brands from launch to $100K+ per month using creators, native content, optimization, and paid scale.
+                                <br /><br />
+                                Thinking about starting or ready to scale on TikTok Shop? This is for you.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                                <input
+                                    type="email"
+                                    placeholder="name@company.com"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="flex-1 h-12 px-6 rounded-full border border-[#E5E5E2] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-black/5 transition-all font-medium"
+                                />
+                                <button className="bg-black text-white px-8 py-3 rounded-full font-bold transition-all hover:scale-105">
+                                    Send it
+                                </button>
+                            </div>
+                        </div>
+                    </FadeIn>
+                </div>
+            </section>
+
+            {/* Testimonials */}
+            <section className="pt-24 md:pt-40 pb-[80px] overflow-hidden bg-white">
+                <div className="container max-w-7xl mx-auto px-4 md:px-6">
                     <FadeIn>
                         <div className="text-center mb-16">
-                            <span className="text-[#0D0D0D] font-heading font-black text-[11px] uppercase tracking-[0.2em] mb-4 block">
-                                HOW IT WORKS
-                            </span>
-                            <h2 className="text-3xl md:text-[50px] font-black font-heading tracking-tighter leading-[1] mb-6">
-                                From your first call to <TapeLabel className="inline-block px-3 py-1 bg-[#F5EDE3] text-black shadow-sm transform rotate-[-1deg] origin-left mt-1 hover:rotate-0 transition-transform duration-500">compounding revenue.</TapeLabel>
+                            <h2 className="text-4xl md:text-5xl font-black font-heading tracking-tight mb-4 text-[#0D0D0D]">
+                                What brands <TapeLabel>say</TapeLabel>
                             </h2>
+                            <p className="text-[#5C5C5C] text-xl md:text-3xl font-bold font-heading">Real brands. <TapeLabel className="rotate-[1deg] px-3">Real results.</TapeLabel></p>
                         </div>
                     </FadeIn>
 
-                    <div className="space-y-0">
-                        {[
-                            {
-                                week: "WEEK 1",
-                                title: "Deep Dive Audit — We find what's really broken",
-                                text: "Before we do anything, we dig into your shop, your content, your numbers. We want to know exactly what's going wrong before we start fixing it. Most brands discover 2–3 revenue leaks they didn't know existed."
-                            },
-                            {
-                                week: "WEEK 1–2",
-                                title: "Custom Roadmap — Your plan, built for your brand",
-                                text: "We sit down, look at your brand, your numbers, your competition — and build a plan around that. Not a deck we've sent 50 other brands."
-                            },
-                            {
-                                week: "WEEK 2–3",
-                                active: true,
-                                title: "Build Your Creator Pipeline — Real creators, real briefs",
-                                text: "We find creators in your niche, send them your product, and brief them on what to say. They make the content. We turn it into Spark Ads."
-                            },
-                            {
-                                week: "WEEK 3–4",
-                                title: "Launch + Amplify — Everything fires at once",
-                                text: "We don't drip-feed. Content live. Shop tight. Spark Ads running. Everything hits at once so the algorithm rewards you fast."
-                            },
-                            {
-                                week: "ONGOING",
-                                title: "Weekly Optimize + Compound — This is where real growth happens",
-                                text: "Week over week, we cut the losers and scale the winners. Most brands plateau. Ours don't."
-                            }
-                        ].map((step, i, arr) => (
-                            <FadeIn key={i}>
-                                <div className={`flex gap-8 ${i !== arr.length - 1 ? 'border-b border-[#E5E5E2]' : ''} py-12 group last:pb-0`}>
-                                    <div className="flex flex-col items-center">
-                                        <div className={`w-11 h-11 rounded-full flex items-center justify-center text-sm font-black font-heading shrink-0 ${step.active ? 'bg-[#F5EDE3] text-[#0D0D0D] border border-[#E5E5E2]/50 shadow-sm' : 'bg-[#0D0D0D] text-white'}`}>
-                                            {i + 1}
+                    <div className="max-w-[1240px] mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                            {testimonials.map((t, i) => (
+                                <FadeIn key={t.author || i} delay={i * 0.1}>
+                                    <div className="p-8 md:p-10 rounded-[2rem] bg-white border border-[#E5E5E2] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] flex flex-col h-full relative overflow-hidden group hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] transition-all duration-500">
+                                        {/* Top Row: Stars and Badge */}
+                                        <div className="flex items-center justify-between gap-4 mb-8">
+                                            <div className="flex gap-1 shrink-0">
+                                                {[...Array(5)].map((_, starIndex) => (
+                                                    <Star key={`star-${i}-${starIndex}`} size={16} fill="#D4B483" stroke="none" />
+                                                ))}
+                                            </div>
+                                            <div className="bg-[#0D0D0D] px-4 py-1.5 rounded-full text-[12px] font-black text-white whitespace-nowrap">
+                                                {t.badge}
+                                            </div>
                                         </div>
-                                        {i !== arr.length - 1 && <div className="w-[2px] grow bg-[#E5E5E2] mt-4" />}
-                                    </div>
-                                    <div className="pb-4">
-                                        <span className="text-[#0D0D0D] font-black text-[10px] uppercase tracking-widest mb-3 block">{step.week}</span>
-                                        <h3 className="text-xl md:text-2xl font-black font-heading tracking-tight mb-4 text-[#0D0D0D]">
-                                            {step.title}
-                                        </h3>
-                                        <p className="text-[#5C5C5C] text-lg font-medium leading-relaxed max-w-xl">
-                                            {step.text}
+
+                                        {/* Quote */}
+                                        <p className="text-[17px] md:text-[18px] leading-[1.6] text-[#5C5C5C] font-medium mb-12 italic">
+                                            "{t.quote}"
                                         </p>
-                                    </div>
-                                </div>
-                            </FadeIn>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
-            {/* SECTION 6 — RESULTS */}
-            <section className="bg-[#0D0D0D] py-20 px-4 md:px-10 overflow-hidden">
-                <div className="container max-w-[860px] mx-auto text-center">
-                    <FadeIn>
-                        <span className="text-[#F5EDE3] font-heading font-black text-[11px] uppercase tracking-[0.2em] mb-6 block">
-                            ACROSS EVERY BRAND WE WORK WITH
-                        </span>
-                        <h2 className="text-3xl md:text-5xl font-black font-heading text-white tracking-tighter mb-16">
-                            <TapeLabel className="inline-block px-4 py-1.5 bg-[#F5EDE3] text-[#0D0D0D] shadow-sm transform rotate-[-1.5deg] origin-left mx-1 hover:rotate-0 transition-transform duration-500">The numbers say it all.</TapeLabel>
-                        </h2>
-
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                            {[
-                                { val: "$34.2M+", label: "Total GMV generated for clients", gold: true },
-                                { val: "275+", label: "Brands scaled on TikTok Shop" },
-                                { val: "6.4x", label: "Average ROAS on paid campaigns" },
-                                { val: "60d", label: "Average time to meaningful results" }
-                            ].map((stat, i) => (
-                                <div
-                                    key={i}
-                                    className={`border border-white/5 rounded-[16px] p-8 flex flex-col items-center justify-center text-center transition-all ${stat.gold ? 'bg-[#F5EDE3]' : 'bg-[#181818]'}`}
-                                >
-                                    <div className={`text-2xl md:text-[42px] font-black font-heading leading-none mb-3 tracking-tighter ${stat.gold ? 'text-[#0D0D0D]' : 'text-white'}`}>
-                                        {stat.val}
+                                        {/* Footer: Info (Initial + Names/Roles) */}
+                                        <div className="mt-auto flex items-center gap-4">
+                                            <div className="flex flex-col">
+                                                <span className="font-bold text-[16px] text-[#0D0D0D] leading-tight font-heading">{t.author}</span>
+                                                <span className="text-[13px] font-medium text-[#9A9A9A] mt-0.5">{t.role}</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className={`text-[12.5px] font-bold uppercase tracking-widest leading-tight ${stat.gold ? 'text-[#0D0D0D]/65' : 'text-white/40'}`}>
-                                        {stat.label}
-                                    </div>
-                                </div>
+                                </FadeIn>
                             ))}
                         </div>
-                    </FadeIn>
-                </div>
-            </section>
-
-            {/* SECTION 7 — CASE STUDIES PREVIEW */}
-            <section className="bg-white py-[88px] px-4 md:px-10 border-t border-[#E5E5E2] overflow-hidden">
-                <div className="container max-w-[1000px] mx-auto">
-                    <FadeIn>
-                        <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
-                            <div>
-                                <span className="text-[#F5EDE3] font-heading font-black text-[11px] uppercase tracking-[0.2em] mb-4 block">
-                                    REAL RESULTS
-                                </span>
-                                <h2 className="text-3xl md:text-[44px] font-black font-heading tracking-tighter leading-none mb-4">
-                                    Brands we've scaled.
-                                </h2>
-                                <p className="text-[#9A9A9A] text-lg font-medium italic">
-                                    Real numbers. No cherry-picked screenshots.
-                                </p>
-                            </div>
-                            <Link to="/case-studies" className="group flex items-center gap-1 text-[13px] font-black uppercase tracking-widest border-b-2 border-[#F5EDE3] pb-1 transition-all">
-                                See all case studies <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                            </Link>
-                        </div>
-                    </FadeIn>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {[
-                            {
-                                badge: "$800 → $23K/mo",
-                                tags: "💄 Beauty · 60 Days · Creator Seeding",
-                                title: "From zero traction to $23K/month in 60 days flat",
-                                text: "Had been live for 3 months with no results. Fixed listings, recruited 47 creators, launched Spark Ads on the winning hook. GMV went from $800 to $23K.",
-                                brand: "Beauty Brand · US"
-                            },
-                            {
-                                badge: "6.8x ROAS",
-                                tags: "💊 Health · Week 3 · Spark Ads",
-                                title: "From 2x ROAS on Meta to 6.8x on TikTok by week three",
-                                text: "Was spending $8K/mo on Meta with mediocre returns. Rebuilt their entire ad strategy for TikTok's native ecosystem. 6.8x ROAS from week 3.",
-                                brand: "Health Brand · US"
-                            },
-                            {
-                                badge: "$47K/mo in 6wks",
-                                tags: "👗 Fashion · 6 Weeks · Full Management",
-                                title: "Zero presence to $47K/month in 6 weeks",
-                                text: "Months of nothing on TikTok Shop. After a full audit and creator pipeline launch, monthly GMV hit $47K in 6 weeks with 89 active affiliates driving sales.",
-                                brand: "Fashion Brand · UK"
-                            }
-                        ].map((card, i) => (
-                            <FadeIn key={i} delay={i * 0.1}>
-                                <div className="bg-[#F7F7F5] border border-[#E5E5E2] rounded-[18px] h-full flex flex-col hover:-translate-y-2 hover:shadow-xl transition-all duration-500 overflow-hidden group">
-                                    <div className="p-8 pb-6 border-b border-[#E5E5E2] grow">
-                                        <div className="bg-[#0D0D0D] text-white font-heading font-black text-sm px-4 py-2 rounded-[10px] w-fit mb-6">
-                                            {card.badge}
-                                        </div>
-                                        <div className="text-[10px] font-black text-[#0D0D0D] uppercase tracking-widest mb-4">
-                                            {card.tags}
-                                        </div>
-                                        <h3 className="text-xl font-black font-heading leading-tight text-[#0D0D0D] mb-4">
-                                            {card.title}
-                                        </h3>
-                                        <p className="text-sm text-[#5C5C5C] font-medium leading-relaxed">
-                                            {card.text}
-                                        </p>
-                                    </div>
-                                    <div className="px-8 py-5 flex items-center justify-between">
-                                        <span className="text-[11px] font-bold text-[#9A9A9A] uppercase tracking-widest">{card.brand}</span>
-                                        <Link to="/case-studies" className="text-[11px] font-black text-[#0D0D0D] uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
-                                            Full story <ArrowRight size={14} />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </FadeIn>
-                        ))}
                     </div>
-                </div>
-            </section>
-
-            {/* SECTION 8 — FAQ */}
-            <section className="bg-[#F7F7F5] py-[88px] px-4 md:px-10 overflow-hidden">
-                <div className="container max-w-[700px] mx-auto text-center">
-                    <FadeIn>
-                        <span className="text-[#0D0D0D] font-heading font-black text-[11px] uppercase tracking-[0.2em] mb-4 block">
-                            COMMON QUESTIONS
-                        </span>
-                        <h2 className="text-3xl md:text-[50px] font-black font-heading tracking-tighter leading-none mb-16">
-                            Answered <TapeLabel className="inline-block px-3 py-1 bg-[#F5EDE3] text-black shadow-sm transform rotate-[-1.5deg] origin-left mx-1 hover:rotate-0 transition-transform duration-500">honestly.</TapeLabel>
-                        </h2>
-
-                        <div className="space-y-3 text-left">
-                            {faqItems.map((item, i) => (
-                                <div key={i} className="bg-white border border-[#E5E5E2] rounded-[13px] overflow-hidden transition-all duration-300">
-                                    <button
-                                        onClick={() => toggleFaq(i)}
-                                        className="w-full flex items-center justify-between p-6 text-left hover:bg-neutral-50 transition-colors"
-                                    >
-                                        <span className="text-[15px] font-bold text-[#0D0D0D] font-body leading-tight">{item.q}</span>
-                                        <div className={`w-8 h-8 rounded-full border border-[#E5E5E2]/50 flex items-center justify-center transition-all bg-[#F5EDE3] ${openFaq === i ? 'rotate-45' : 'rotate-0'}`}>
-                                            <Plus size={18} className="text-[#0D0D0D]" />
-                                        </div>
-                                    </button>
-                                    <div
-                                        className={`overflow-hidden transition-all duration-500 ease-in-out ${openFaq === i ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'}`}
-                                    >
-                                        <div className="p-6 pt-0 text-[14.5px] text-[#5C5C5C] leading-[1.72] font-medium border-t border-[#F7F7F5]">
-                                            {item.a}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </FadeIn>
                 </div>
             </section>
 
@@ -490,6 +620,43 @@ const Landing = () => {
                         <p className="text-white/25 text-[11px] font-bold uppercase tracking-widest">
                             No commitment · No pitch deck · We'll review your brand before the call
                         </p>
+                    </FadeIn>
+                </div>
+            </section>
+
+            {/* SECTION 10 — FAQ */}
+            <section className="bg-white py-[110px] px-4 md:px-10 border-t border-[#E5E5E2] overflow-hidden">
+                <div className="container max-w-[700px] mx-auto text-center">
+                    <FadeIn>
+                        <span className="text-[#0D0D0D] font-heading font-black text-[11px] uppercase tracking-[0.2em] mb-4 block">
+                            COMMON QUESTIONS
+                        </span>
+                        <h2 className="text-3xl md:text-[50px] font-black font-heading tracking-tighter leading-none mb-16">
+                            Answered <TapeLabel className="inline-block px-3 py-1 bg-[#F5EDE3] text-black shadow-sm transform rotate-[-1.5deg] origin-left mx-1 hover:rotate-0 transition-transform duration-500">honestly.</TapeLabel>
+                        </h2>
+
+                        <div className="space-y-3 text-left">
+                            {faqItems.map((item, i) => (
+                                <div key={item.q} className="bg-white border border-[#E5E5E2] rounded-[13px] overflow-hidden transition-all duration-300">
+                                    <button
+                                        onClick={() => toggleFaq(i)}
+                                        className="w-full flex items-center justify-between p-6 text-left hover:bg-neutral-50 transition-colors"
+                                    >
+                                        <span className="text-[15px] font-bold text-[#0D0D0D] font-body leading-tight">{item.q}</span>
+                                        <div className={`w-8 h-8 rounded-full border border-[#E5E5E2]/50 flex items-center justify-center transition-all bg-[#F5EDE3] ${openFaq === i ? 'rotate-45' : 'rotate-0'}`}>
+                                            <Plus size={18} className="text-[#0D0D0D]" />
+                                        </div>
+                                    </button>
+                                    <div
+                                        className={`overflow-hidden transition-all duration-500 ease-in-out ${openFaq === i ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'}`}
+                                    >
+                                        <div className="p-6 pt-0 text-[14.5px] text-[#5C5C5C] leading-[1.72] font-medium border-t border-[#F7F7F5]">
+                                            {item.a}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </FadeIn>
                 </div>
             </section>

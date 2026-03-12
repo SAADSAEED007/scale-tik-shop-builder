@@ -6,59 +6,54 @@ import { Link } from "react-router-dom";
 
 const services = [
     {
-        title: "Launch Strategy",
-        desc: "We build your 30–60 day launch roadmap before you spend a dollar — offer positioning, creator seeding, content plan, and paid strategy all aligned.",
-        icon: Map,
-        cta: "Book a Free Strategy Call"
+        phase: "PHASE 01",
+        title: "Foundation",
+        emoji: "🧱",
+        desc: "Before scaling anything, we build the core TikTok Shop infrastructure so your brand is positioned to convert traffic into revenue.",
+        servicesList: [
+            "Launch Strategy",
+            "TikTok Shop Setup + Optimization",
+            "Compliance + Risk Management"
+        ],
+        cta1: "Learn More",
+        cta2: "Book a Free Shop Audit"
     },
     {
-        title: "TikTok Shop Setup + Optimization",
-        desc: "We audit every inch of your shop and fix what's silently killing your conversion rate — bad titles, wrong categories, weak images, and weak pricing.",
-        icon: Zap,
-        cta: "Book a Free Shop Audit"
+        phase: "PHASE 02",
+        title: "Growth",
+        emoji: "📈",
+        desc: "Once the foundation is set, we activate creators, affiliates, and content to start generating consistent sales.",
+        servicesList: [
+            "Creator Seeding + Affiliate Program",
+            "Creator Management + Retention Program",
+            "UGC Production + Creative Direction"
+        ],
+        cta1: "Learn More",
+        cta2: "Book a Free Creators Audit"
     },
     {
-        title: "Compliance + Risk Management",
-        desc: "One policy violation can freeze your shop overnight. We audit your shop before TikTok does to prevent suspended listings or payouts.",
-        icon: Shield,
-        cta: "Get a Free Compliance Check"
+        phase: "PHASE 03",
+        title: "Scale",
+        emoji: "🚀",
+        desc: "After traction begins, we scale aggressively through paid media, LIVE commerce, and operational optimization.",
+        servicesList: [
+            "Spark Ads + Paid Media Management",
+            "LIVE Shopping Strategy + Execution",
+            "Shop Operations + Reporting"
+        ],
+        cta1: "Learn More",
+        cta2: "Book a Free Ad Audit"
     },
     {
-        title: "Creator Seeding + Affiliate Program",
-        desc: "Find creators in your niche, send them your product, brief them on what to say, and build an affiliate engine that grows month after month.",
-        icon: Users,
-        cta: "Start with creators already primed to sell"
-    },
-    {
-        title: "Creator Management + Retention",
-        desc: "We manage your top performers so they stay loyal, stay motivated, and keep selling. That's where the compounding happens.",
-        icon: Star,
-        cta: "Get a Free Creator Audit"
-    },
-    {
-        title: "UGC Production + Creative Direction",
-        desc: "The reason most TikTok content doesn't sell is the brief. We handle hook-first scripts, briefs, filming guidance, editing, and weekly A/B testing.",
-        icon: Video,
-        cta: "Creative built to convert, not just look"
-    },
-    {
-        title: "Spark Ads + Paid Media Management",
-        desc: "We take your best-performing organic content and scale it with a paid strategy built specifically for TikTok's native ad ecosystem.",
-        icon: BarChart3,
-        cta: "Get a Free Ad Audit"
-    },
-    {
-        title: "Live Shopping Strategy + Execution",
-        desc: "Live selling is TikTok Shop's highest-converting format. We design the full experience: scripting, host sourcing, training, and promotional mechanics.",
-        icon: Play,
-        cta: "Book a Free Live Strategy Call"
-    },
-    {
-        title: "Shop Operations + Reporting",
-        desc: "We handle backend management (inventory/catalog) and give you clear weekly visibility into GMV, profit, CVR, and exactly where to focus next.",
-        icon: Layout,
-        cta: "Get a Free Margin Audit"
-    },
+        phase: null,
+        title: "Not sure where your brand stands?",
+        emoji: "🔍",
+        desc: "Most brands don’t know if they need foundation, growth, or scale support.",
+        subDesc: "We’ll audit your TikTok Shop and show you exactly where the opportunity is.",
+        servicesList: [],
+        cta1: null,
+        cta2: "Book a Free Shop Audit"
+    }
 ];
 
 const ServicesShowcase = () => {
@@ -230,9 +225,9 @@ const ServicesShowcase = () => {
 
                     {/* Progress Indicators */}
                     <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 flex flex-col gap-4 hidden sm:flex z-50">
-                        {services.map((_, i) => (
+                        {services.map((s, i) => (
                             <div
-                                key={i}
+                                key={s.title}
                                 className={`h-10 w-1 rounded-full transition-all duration-700 ${activeSlide === i ? "bg-primary scale-x-125 shadow-[0_0_15px_rgba(var(--primary),0.3)]" : "bg-border/30"
                                     }`}
                             />
@@ -248,28 +243,57 @@ const ServicesShowcase = () => {
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 1.02, y: -30 }}
                                 transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
-                                className="flex flex-col items-center gap-4 md:gap-10"
+                                className="flex flex-col items-center gap-4 md:gap-8"
                             >
-                                <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-[#F5EDE3] flex items-center justify-center text-neutral-900 border border-[#E6D5C3]">
-                                    {React.createElement(services[activeSlide].icon, { size: 32, className: "md:w-10 md:h-10", strokeWidth: 1.25 })}
+                                <div className="text-4xl md:text-6xl mb-2">
+                                    {services[activeSlide].emoji}
                                 </div>
 
                                 <div className="space-y-3 md:space-y-4">
-                                    <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] text-primary/30">
-                                        Step 0{activeSlide + 1}
-                                    </span>
+                                    {services[activeSlide].phase && (
+                                        <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] text-primary/30">
+                                            {services[activeSlide].phase}
+                                        </span>
+                                    )}
                                     <h3 className="text-2xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-none text-foreground">
                                         {services[activeSlide].title}
                                     </h3>
                                     <p className="text-xs md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto font-medium px-2">
                                         {services[activeSlide].desc}
                                     </p>
+                                    
+                                    {services[activeSlide].subDesc && (
+                                        <p className="text-xs md:text-lg text-neutral-900 leading-relaxed max-w-xl mx-auto font-bold px-2">
+                                            {services[activeSlide].subDesc}
+                                        </p>
+                                    )}
+
+                                    {services[activeSlide].servicesList.length > 0 && (
+                                        <div className="pt-4 space-y-2">
+                                            <p className="text-[10px] md:text-xs font-black uppercase tracking-widest text-[#9A9A9A]">Services included:</p>
+                                            <ul className="flex flex-col items-center gap-1">
+                                                {services[activeSlide].servicesList.map((service, idx) => (
+                                                    <li key={service} className="text-xs md:text-base font-bold text-neutral-600 flex items-center gap-2">
+                                                        <span className="w-1 h-1 bg-primary rounded-full" />
+                                                        {service}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
                                 </div>
 
-                                <div className="pt-2">
+                                <div className="pt-4 flex flex-wrap items-center justify-center gap-4 md:gap-8">
+                                    {services[activeSlide].cta1 && (
+                                        <Link to="/contact">
+                                            <button className="text-[12px] md:text-base font-black flex items-center gap-1 hover:gap-2 transition-all group">
+                                                {services[activeSlide].cta1} <ArrowRight size={18} className="transition-transform" />
+                                            </button>
+                                        </Link>
+                                    )}
                                     <Link to="/contact">
-                                        <Button variant="hero" size="lg" className="rounded-full px-8 md:px-10 h-11 md:h-16 text-[13px] md:text-base font-bold shadow-xl active:scale-95 transition-all gap-2">
-                                            {services[activeSlide].cta}
+                                        <Button variant="hero" size="lg" className="rounded-full px-6 md:px-10 h-10 md:h-14 text-[12px] md:text-base font-black shadow-xl active:scale-95 transition-all gap-2">
+                                            {services[activeSlide].cta2}
                                             <ArrowRight size={18} className="md:w-5 md:h-5" />
                                         </Button>
                                     </Link>
@@ -278,13 +302,13 @@ const ServicesShowcase = () => {
                         </AnimatePresence>
                     </div>
 
-                    <div className="absolute top-6 right-6 md:top-12 md:right-12 text-[10px] md:text-sm font-black tracking-widest text-primary/10 select-none">
+                    <div className="absolute top-6 right-6 md:top-12 md:right-12 text-[10px] md:text-sm font-black tracking-widest text-black select-none">
                         0{activeSlide + 1} / 0{services.length}
                     </div>
 
                     <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 sm:hidden">
-                        {services.map((_, i) => (
-                            <div key={i} className={`h-1 rounded-full transition-all duration-500 ${activeSlide === i ? "w-6 bg-primary" : "w-1.5 bg-border/40"}`} />
+                        {services.map((s, i) => (
+                            <div key={s.title} className={`h-1 rounded-full transition-all duration-500 ${activeSlide === i ? "w-6 bg-primary" : "w-1.5 bg-border/40"}`} />
                         ))}
                     </div>
 

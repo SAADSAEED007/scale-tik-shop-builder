@@ -6,6 +6,7 @@ import { Check, X, Minus, Zap, Target, Users, Layout } from "lucide-react";
 
 import TapeLabel from "@/components/TapeLabel";
 import ServiceTicker from "@/components/ServiceTicker";
+import SEO from "@/components/SEO";
 
 import navLogo from "@/assets/nav_logo.png";
 
@@ -68,15 +69,13 @@ const SectionHeader = ({ title }: { title: string }) => (
 );
 
 const WhyUs = () => {
-    const tickerItems = [
-        "Compliance", "Shop Operations", "Launch Strategy",
-        "Creator Seeding", "$34.2M+ GMV", "Spark Ads", "275+ Brands",
-        "Live Shopping", "6.4x ROAS", "Affiliate Growth", "60 Day Results",
-        "Shop Optimization", "No Lock-In"
-    ];
-
     return (
         <div className="pt-44 pb-24 overflow-hidden min-h-screen bg-white">
+            <SEO 
+                title="Why Choose Us"
+                description="We only do TikTok Shop. That's why we win. Learn why a specialized agency beats a generalist every single time."
+                keywords="Specialist TikTok Agency, TikTok Shop Expertise, eCommerce Growth Partner"
+            />
             {/* Hero Section */}
             <section className="container max-w-5xl mx-auto px-4 text-center mb-24 md:mb-36">
                 <FadeIn>
@@ -85,13 +84,13 @@ const WhyUs = () => {
                             WHY TIKSHOP SCALE
                         </span>
                     </div>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black font-montserrat tracking-tighter leading-[1.1] text-neutral-900 mb-2">
+                    <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black font-montserrat tracking-tighter leading-[1.1] text-neutral-900 mb-2">
                         We only do <br className="hidden md:block" />
-                        <TapeLabel className="inline-block px-4 py-1 rotate-[-2deg] origin-left bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500">
+                        <TapeLabel className="inline-block px-3 sm:px-4 py-1 rotate-[-2deg] origin-left bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500">
                             TikTok Shop
                         </TapeLabel>.
                     </h1>
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-black font-montserrat tracking-tighter leading-[1.1] text-neutral-900 mb-10">
+                    <h2 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-black font-montserrat tracking-tighter leading-[1.1] text-neutral-900 mb-10">
                         That's why we win.
                     </h2>
                     <p className="text-lg md:text-xl text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
@@ -102,14 +101,14 @@ const WhyUs = () => {
 
             {/* Service Ticker */}
             <div className="mb-24 md:mb-32">
-                <ServiceTicker items={tickerItems} />
+                <ServiceTicker />
             </div>
 
             {/* Comparison Block */}
-            <section className="container max-w-[1200px] mx-auto px-4 mb-32 md:mb-40">
+            <section className="container max-w-[1200px] mx-auto px-2 sm:px-4 mb-32 md:mb-40">
                 <FadeIn delay={0.2}>
                     <div className="relative">
-                        <div className="bg-white border border-border shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] rounded-[40px] overflow-hidden">
+                        <div className="bg-white border border-border shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] rounded-[20px] sm:rounded-[40px] overflow-hidden">
                             <div className="overflow-x-auto scrollbar-hide">
                                 <table className="w-full text-left border-collapse min-w-[950px]">
                                     <thead>
@@ -127,11 +126,11 @@ const WhyUs = () => {
                                                         ★ BEST CHOICE
                                                     </div>
                                                     <div className="flex flex-col gap-4 items-center">
-                                                        <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center text-white overflow-hidden relative">
+                                                        <div className="w-12 h-12 flex items-center justify-center overflow-hidden relative">
                                                             <img
                                                                 src={navLogo}
                                                                 alt="TikShop Scale Logo"
-                                                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 max-w-none object-contain invert"
+                                                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 max-w-none object-contain"
                                                             />
                                                         </div>
                                                         <div className="flex flex-col gap-1">
@@ -310,12 +309,12 @@ const WhyUs = () => {
             {/* Impact Section */}
             <section className="container max-w-4xl mx-auto px-4 mb-32 md:mb-40 text-center">
                 <FadeIn>
-                    <h2 className="text-4xl md:text-6xl font-black font-montserrat tracking-tighter leading-tight mb-12">
+                    <h2 className="text-2xl sm:text-4xl md:text-6xl font-black font-montserrat tracking-tighter leading-tight mb-12">
                         What This <br className="md:hidden" />
-                        <TapeLabel className="inline-block px-4 py-1 rotate-[-1deg] bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500 text-black">Means for You</TapeLabel>
+                        <TapeLabel className="inline-block px-3 sm:px-4 py-1 rotate-[-1deg] bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500 text-black">Means for You</TapeLabel>
                     </h2>
 
-                    <div className="space-y-8 text-lg md:text-2xl text-neutral-600 font-medium leading-relaxed max-w-3xl mx-auto">
+                    <div className="space-y-8 text-sm sm:text-base md:text-xl text-neutral-600 font-medium leading-relaxed max-w-3xl mx-auto">
                         <p className="border-b border-neutral-100 pb-8">
                             You're not hiring a team learning on your budget. We're already inside TikTok Shop every day watching what's changing, seeing what converts, moving fast.
                         </p>
@@ -333,18 +332,18 @@ const WhyUs = () => {
             {/* Final CTA Bar */}
             <section className="container max-w-[1200px] mx-auto px-4">
                 <FadeIn>
-                    <div className="bg-black text-white rounded-[30px] p-10 md:p-14 mb-20 flex flex-col md:flex-row items-center justify-between gap-10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)]">
-                        <div>
-                            <h2 className="text-3xl md:text-4xl font-black mb-4 leading-tight">
+                    <div className="bg-black text-white rounded-[20px] sm:rounded-[30px] p-6 sm:p-10 md:p-14 mb-20 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)]">
+                        <div className="text-center md:text-left">
+                            <h2 className="text-xl sm:text-3xl md:text-4xl font-black mb-4 leading-tight">
                                 Ready to work with a team that <br className="hidden md:block" />
-                                <TapeLabel className="inline-block px-4 py-1.5 rotate-[-2deg] origin-left bg-[#F5EDE3] shadow-sm text-black">only does TikTok?</TapeLabel>
+                                <TapeLabel className="inline-block px-3 sm:px-4 py-1 rotate-[-2deg] origin-left bg-[#F5EDE3] shadow-sm text-black">only does TikTok?</TapeLabel>
                             </h2>
-                            <p className="text-neutral-400 text-lg font-medium">
+                            <p className="text-neutral-400 text-base sm:text-lg font-medium">
                                 Free audit call — no commitment, no pitch deck, just honest advice.
                             </p>
                         </div>
-                        <Link to="/contact">
-                            <Button size="lg" className="rounded-full bg-[#F5EDE3] hover:bg-white text-black font-black text-lg px-10 py-8 transition-transform hover:scale-105 shadow-sm border border-neutral-100">
+                        <Link to="/contact" className="w-full md:w-auto">
+                            <Button size="lg" className="w-full md:w-auto rounded-full bg-[#F5EDE3] hover:bg-white text-black font-black text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-8 transition-transform hover:scale-105 shadow-sm border border-neutral-100">
                                 Book a Free Audit Call →
                             </Button>
                         </Link>

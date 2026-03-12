@@ -84,7 +84,7 @@ const FAQ = () => {
                     <Accordion type="single" collapsible className="space-y-2.5">
                         {faqs.map((faq, index) => (
                             <AccordionItem
-                                key={index}
+                                key={faq.question}
                                 value={`item-${index}`}
                                 className="border-none group"
                             >

@@ -2,6 +2,7 @@ import { useState } from "react";
 import FadeIn from "@/components/FadeIn";
 import TapeLabel from "@/components/TapeLabel";
 import ServiceTicker from "@/components/ServiceTicker";
+import SEO from "@/components/SEO";
 
 const Creators = () => {
     const [submitted, setSubmitted] = useState(false);
@@ -18,7 +19,12 @@ const Creators = () => {
     };
 
     return (
-        <div className="bg-[#F7F7F5] text-[#0D0D0D] font-manrope">
+        <div className="bg-[#F7F7F5] text-[#0D0D0D] font-body">
+            <SEO 
+                title="Join Our Creator Network"
+                description="Are you a TikTok creator? Partner with fast-growing brands through the TikShopScale network. Earn more through performance-based deals."
+                keywords="TikTok Creator Network, Affiliate Marketing, UGC Creator, TikTok Shop Partnerships"
+            />
             <style>
                 {`
                 @keyframes pulse-opacity {
@@ -70,26 +76,26 @@ const Creators = () => {
 
                         <div className="w-full max-w-[600px] bg-[rgba(0,0,0,0.03)] border border-[#E5E5E2] rounded-[16px] p-[4px] mb-[44px] flex flex-col md:flex-row shadow-sm mx-auto">
                             <div className="flex-1 py-[18px] px-5 flex flex-col items-center">
-                                <span className="font-syne font-[800] text-[26px] text-[#D4B483]">275+</span>
+                                <span className="font-heading font-[800] text-[26px] text-[#0D0D0D]">182+</span>
                                 <span className="text-[11.5px] text-[#9A9A9A] font-[600] uppercase">Brand Partners</span>
                             </div>
                             <div className="hidden md:block w-[1px] bg-[#E5E5E2] my-4" />
                             <div className="md:hidden h-[1px] bg-[#E5E5E2] mx-8" />
                             <div className="flex-1 py-[18px] px-5 flex flex-col items-center">
-                                <span className="font-syne font-[800] text-[26px] text-[#D4B483]">$34.2M+</span>
+                                <span className="font-heading font-[800] text-[26px] text-[#0D0D0D]">$54.2M+</span>
                                 <span className="text-[11.5px] text-[#9A9A9A] font-[600] uppercase">GMV Generated</span>
                             </div>
                             <div className="hidden md:block w-[1px] bg-[#E5E5E2] my-4" />
                             <div className="md:hidden h-[1px] bg-[#E5E5E2] mx-8" />
                             <div className="flex-1 py-[18px] px-5 flex flex-col items-center">
-                                <span className="font-syne font-[800] text-[26px] text-[#D4B483]">10+</span>
+                                <span className="font-heading font-[800] text-[26px] text-[#0D0D0D]">10+</span>
                                 <span className="text-[11.5px] text-[#9A9A9A] font-[600] uppercase">Niches We Work In</span>
                             </div>
                         </div>
 
                         <a
                             href="#apply"
-                            className="inline-flex items-center justify-center bg-[#0D0D0D] hover:bg-[#2E2E2E] text-white font-manrope font-[800] text-[15px] px-[36px] py-[15px] h-auto rounded-[10px] shadow-[0_4px_28px_rgba(0,0,0,0.2)] hover:-translate-y-[2px] transition-all duration-300"
+                            className="inline-flex items-center justify-center bg-[#0D0D0D] hover:bg-[#2E2E2E] text-white font-body font-[800] text-[15px] px-[36px] py-[15px] h-auto rounded-[10px] shadow-[0_4px_28px_rgba(0,0,0,0.2)] hover:-translate-y-[2px] transition-all duration-300"
                         >
                             Apply to Join the Network →
                         </a>
@@ -112,15 +118,15 @@ const Creators = () => {
             {/* 4 — WHAT YOU GET SECTION */}
             <section className="bg-[#FFFFFF] border-t border-[#E5E5E2] py-[88px] px-10">
                 <div className="max-w-[1020px] mx-auto text-center md:text-left">
-                    <span className="text-[#0D0D0D] font-syne font-[700] text-[11px] letter-spacing-[3px] tracking-[3px] uppercase block mb-[12px]">FOR CREATORS</span>
-                    <h2 className="font-syne font-[800] text-[clamp(28px,4vw,48px)] text-[#0D0D0D] leading-[1.08] mb-[48px]">What you get when you join.</h2>
+                    <span className="text-[#0D0D0D] font-heading font-[700] text-[11px] letter-spacing-[3px] tracking-[3px] uppercase block mb-[12px]">FOR CREATORS</span>
+                    <h2 className="font-heading font-[800] text-[clamp(28px,4vw,48px)] text-[#0D0D0D] leading-[1.08] mb-[48px]">What you get when you join.</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-5 gap-[14px] mt-16">
                         {/* Card 1 */}
                         <div className="group relative bg-[#FFFFFF] border border-[#E5E5E2] rounded-[18px] p-[30px_24px] overflow-hidden transition-all hover:border-[#D4B483]/40 hover:-translate-y-[4px]">
                             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#F5EDE3]" />
                             <div className="text-[28px] mb-[14px]">📦</div>
-                            <h3 className="font-syne font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Free Products Shipped to You</h3>
+                            <h3 className="font-heading font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Free Products Shipped to You</h3>
                             <p className="text-[13px] text-[#5C5C5C] leading-[1.65]">Every partnership starts with the brand sending you their product — no cost to you.</p>
                         </div>
 
@@ -128,14 +134,14 @@ const Creators = () => {
                         <div className="group relative bg-[#FFFFFF] border border-[#E5E5E2] rounded-[18px] p-[30px_24px] overflow-hidden transition-all hover:border-[#D4B483]/40 hover:-translate-y-[4px]">
                             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#F5EDE3]" />
                             <div className="text-[28px] mb-[14px]">💼</div>
-                            <h3 className="font-syne font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Performance-Based Retainers</h3>
+                            <h3 className="font-heading font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Performance-Based Retainers</h3>
                             <p className="text-[13px] text-[#5C5C5C] leading-[1.65]">Top creators unlock monthly retainers on top of commission — guaranteed recurring income.</p>
                         </div>
 
                         {/* Card 3 (BEIGE) */}
                         <div className="group relative bg-[#F5EDE3] rounded-[18px] p-[30px_24px] overflow-hidden transition-all hover:-translate-y-[4px]">
                             <div className="text-[28px] mb-[14px]">💰</div>
-                            <h3 className="font-syne font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Commission on Every Sale</h3>
+                            <h3 className="font-heading font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Commission on Every Sale</h3>
                             <p className="text-[13px] text-[#5C5C5C] leading-[1.65]">Every purchase from your content puts money directly in your pocket. Compounds every month.</p>
                         </div>
 
@@ -143,7 +149,7 @@ const Creators = () => {
                         <div className="group relative bg-[#FFFFFF] border border-[#E5E5E2] rounded-[18px] p-[30px_24px] overflow-hidden transition-all hover:border-[#D4B483]/40 hover:-translate-y-[4px]">
                             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#F5EDE3]" />
                             <div className="text-[28px] mb-[14px]">🤝</div>
-                            <h3 className="font-syne font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Ongoing Brand Partnerships</h3>
+                            <h3 className="font-heading font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Ongoing Brand Partnerships</h3>
                             <p className="text-[13px] text-[#5C5C5C] leading-[1.65]">Not a one-off post. We build long-term relationships between creators and brands that last.</p>
                         </div>
 
@@ -151,7 +157,7 @@ const Creators = () => {
                         <div className="group relative bg-[#FFFFFF] border border-[#E5E5E2] rounded-[18px] p-[30px_24px] overflow-hidden transition-all hover:border-[#D4B483]/40 hover:-translate-y-[4px]">
                             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#F5EDE3]" />
                             <div className="text-[28px] mb-[14px]">🧠</div>
-                            <h3 className="font-syne font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Support on What Actually Converts</h3>
+                            <h3 className="font-heading font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Support on What Actually Converts</h3>
                             <p className="text-[13px] text-[#5C5C5C] leading-[1.65]">We brief every creator on hooks, angles, and formats that drive sales — not just views.</p>
                         </div>
                     </div>
@@ -162,8 +168,8 @@ const Creators = () => {
             <section id="apply" className="bg-[#F7F7F5] border-t border-[#E5E5E2] py-[88px] px-10">
                 <div className="max-w-[700px] mx-auto text-center">
                     <div className="mb-[48px]">
-                        <span className="text-[#0D0D0D] font-syne font-[700] text-[11px] letter-spacing-[3px] tracking-[3px] uppercase block mb-[12px]">CREATOR APPLICATION</span>
-                        <h2 className="font-syne font-[800] text-[clamp(28px,4vw,46px)] text-[#0D0D0D] leading-[1.08] mb-[12px]">Ready to <TapeLabel className="inline-block px-3 py-1 bg-[#F5EDE3] text-black shadow-sm transform rotate-[-1deg] origin-left mt-1 hover:rotate-0 transition-transform duration-500">get started?</TapeLabel></h2>
+                        <span className="text-[#0D0D0D] font-heading font-[700] text-[11px] letter-spacing-[3px] tracking-[3px] uppercase block mb-[12px]">CREATOR APPLICATION</span>
+                        <h2 className="font-heading font-[800] text-[clamp(28px,4vw,46px)] text-[#0D0D0D] leading-[1.08] mb-[12px]">Ready to <TapeLabel className="inline-block px-3 py-1 bg-[#F5EDE3] text-black shadow-sm transform rotate-[-1deg] origin-left mt-1 hover:rotate-0 transition-transform duration-500">get started?</TapeLabel></h2>
                         <p className="text-[#5C5C5C] text-[15px] leading-[1.65] max-w-[500px] mx-auto">Fill out the form below. We review every application personally and get back to you within 48 hours.</p>
                     </div>
 
@@ -271,7 +277,7 @@ const Creators = () => {
                                 <div className="flex flex-col gap-[14px] mt-4">
                                     <button
                                         type="submit"
-                                        className="w-full bg-[#F5EDE3] hover:bg-white text-[#0D0D0D] border-none rounded-[12px] p-[17px] font-manrope font-[800] text-[16px] shadow-xl hover:-translate-y-[2px] transition-all duration-300"
+                                        className="w-full bg-[#F5EDE3] hover:bg-white text-[#0D0D0D] border-none rounded-[12px] p-[17px] font-body font-[800] text-[16px] shadow-xl hover:-translate-y-[2px] transition-all duration-300"
                                     >
                                         Apply to Join the Creator Network →
                                     </button>
@@ -283,7 +289,7 @@ const Creators = () => {
                         ) : (
                             <div id="success-message" className="text-center py-16 flex flex-col items-center animate-fade-in-up relative z-10">
                                 <div className="text-[56px] mb-8">✅</div>
-                                <h3 className="font-syne font-[800] text-[26px] text-[#D4B483] mb-4">Application Received!</h3>
+                                <h3 className="font-heading font-[800] text-[26px] text-[#D4B483] mb-4">Application Received!</h3>
                                 <p className="text-white/60 text-[15px] leading-[1.65]">We review every application personally. You'll hear back from us within 48 hours. Keep creating — we'll be in touch.</p>
                             </div>
                         )}
