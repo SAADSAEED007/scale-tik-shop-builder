@@ -1,6 +1,8 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Mail, Phone, ArrowUp } from "lucide-react";
-import navLogo from "@/assets/nav_logo.png";
+import navLogo from "@/assets/nav_logo.webp";
+import navLogo84 from "@/assets/nav_logo-84.webp";
 import tiktokShopLogo from "@/assets/tiktokshop_brand logo.png";
 
 // X SVG component for reusable parts
@@ -18,21 +20,40 @@ const TikTokIcon = ({ className = "w-6 h-6", fill = "white" }) => (
 );
 
 const Footer = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const isDark = document.body.classList.contains("dark-mode");
+    setIsDarkMode(isDark);
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newIsDark = !isDarkMode;
+    setIsDarkMode(newIsDark);
+    if (newIsDark) {
+      document.body.classList.add("dark-mode");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.classList.remove("dark-mode");
+      localStorage.setItem("theme", "light");
+    }
+  };
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="footer relative bg-[#EDEADF] text-[#1A1A1A] overflow-hidden border-t border-[rgba(0,0,0,0.07)]">
+    <footer className="footer relative bg-[var(--footer-bg)] text-[var(--site-text)] overflow-hidden border-t border-[var(--card-border)] transition-colors duration-300">
       <style>{`
         .footer::before {
           content: '';
           position: absolute;
           inset: 0;
-          background-image: radial-gradient(circle, rgba(0,0,0,0.055) 1px, transparent 1px);
+          background-image: radial-gradient(circle, var(--site-text) 1px, transparent 1px);
           background-size: 28px 28px;
           pointer-events: none;
-          opacity: 0.5;
+          opacity: 0.05;
           z-index: 0;
         }
         .footer-content {
@@ -45,11 +66,14 @@ const Footer = () => {
         .nav-link:hover {
           padding-left: 4px;
         }
+        body.dark-mode .footer::before {
+          opacity: 0.08;
+        }
       `}</style>
 
       <div className="footer-content container max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 pt-12 sm:pt-16 md:pt-[72px] pb-10 sm:pb-12 md:pb-[56px]">
         <div className="flex flex-col lg:flex-row lg:justify-between items-center md:items-start gap-10 sm:gap-12 md:gap-[56px] lg:gap-0 text-center md:text-left">
-          {/* COLUMN 1 — BRAND COLUMN */}
+          {/* COLUMN 1 BRAND COLUMN */}
           <div className="flex flex-col items-center md:items-start lg:max-w-[300px] mt-2">
             {/* Logo */}
             <Link
@@ -59,22 +83,27 @@ const Footer = () => {
               <div className="relative h-16 w-16 flex items-center justify-center transition-all duration-500">
                 <img
                   src={navLogo}
+                  srcSet={`${navLogo84} 84w, ${navLogo} 1536w`}
+                  sizes="(max-width: 768px) 84px, 168px"
                   alt="TikShop Scale"
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-28 w-28 object-contain filter drop-shadow-sm max-w-none"
+                  loading="lazy"
+                  width="1536"
+                  height="1024"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-28 w-28 object-contain filter drop-shadow-sm max-w-none dark-mode-logo transition-all duration-300"
                 />
               </div>
               <div className="flex flex-col -space-y-1">
-                <span className="font-heading font-black text-[24px] tracking-tighter text-[#1A1A1A] leading-none">
+                <span className="font-heading font-black text-[24px] tracking-tighter text-[var(--site-text)] leading-none transition-colors">
                   TikShop
                 </span>
-                <span className="font-heading font-bold text-[0.85rem] uppercase tracking-[0.2em] text-[#9A9080] group-hover:text-black transition-all duration-500">
+                <span className="font-heading font-bold text-[0.85rem] uppercase tracking-[0.2em] text-[var(--muted-text)] group-hover:text-[var(--site-text)] transition-all duration-500 transition-colors">
                   Scale
                 </span>
               </div>
             </Link>
 
             {/* Description */}
-            <p className="text-[14px] text-[#6B6358] leading-[1.75] mb-[24px] font-medium">
+            <p className="text-[14px] text-[var(--muted-text)] leading-[1.75] mb-[24px] font-medium transition-colors">
               TikTok Shop is all we do. That's why we're better at it than anyone who doesn't.
             </p>
 
@@ -92,7 +121,7 @@ const Footer = () => {
                   target={s.href !== "#" ? "_blank" : undefined}
                   rel={s.href !== "#" ? "noopener noreferrer" : undefined}
                   className="w-[36px] h-[36px] rounded-full flex items-center justify-center text-white transition-all duration-300 hover:-translate-y-[3px] hover:shadow-lg active:scale-95 border border-white/20"
-                  style={{ background: s.bg }}
+                  style={{ background: s.bg, filter: `brightness(var(--social-bg-opacity-mod))` }}
                   aria-label={s.label}
                 >
                   {s.icon}
@@ -102,17 +131,20 @@ const Footer = () => {
 
             {/* Trust Badges */}
             <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 mt-1">
-              {/* Badge 1 — TikTok Shop Partner */}
-              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-lg px-4 h-11 md:h-14 flex items-center justify-center shadow-sm whitespace-nowrap overflow-hidden max-w-fit">
+              {/* Badge 1 TikTok Shop Partner */}
+              <div className="bg-[var(--badge-bg)] border border-[var(--card-border)] rounded-lg px-4 h-11 md:h-14 flex items-center justify-center shadow-sm whitespace-nowrap overflow-hidden max-w-fit transition-colors">
                 <img
                   src={tiktokShopLogo}
                   alt="TikTok Shop Partner"
-                  className="h-[20px] md:h-[24px] w-auto object-contain block shrink-0"
+                  width="160"
+                  height="24"
+                  loading="lazy"
+                  className={`h-[20px] md:h-[24px] w-auto object-contain block shrink-0 ${isDarkMode ? 'brightness-0 invert' : ''}`}
                   style={{ maxHeight: '100%', maxWidth: '160px' }}
                 />
               </div>
-              {/* Badge 2 — Clutch Verified */}
-              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-lg px-4 h-11 md:h-14 text-[13px] md:text-[15px] font-bold text-[#1A1A1A] inline-flex items-center gap-2 shadow-sm whitespace-nowrap">
+              {/* Badge 2 Clutch Verified */}
+              <div className="bg-[var(--badge-bg)] border border-[var(--card-border)] rounded-lg px-4 h-11 md:h-14 text-[13px] md:text-[15px] font-bold text-[var(--badge-text)] inline-flex items-center gap-2 shadow-sm whitespace-nowrap transition-colors">
                 <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-[#FF3D2E] shrink-0" />
                 <span>Clutch Verified</span>
               </div>
@@ -120,7 +152,7 @@ const Footer = () => {
                 href="https://www.trustpilot.com/review/tikshopscale.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.09)] rounded-lg px-4 h-11 md:h-14 text-[13px] md:text-[15px] font-bold text-[#1A1A1A] inline-flex items-center gap-2 shadow-sm whitespace-nowrap transition-all duration-300 hover:-translate-y-1 hover:shadow-md cursor-pointer"
+                className="bg-[var(--badge-bg)] border border-[var(--card-border)] rounded-lg px-4 h-11 md:h-14 text-[13px] md:text-[15px] font-bold text-[var(--badge-text)] inline-flex items-center gap-2 shadow-sm whitespace-nowrap transition-all duration-300 hover:-translate-y-1 hover:shadow-md cursor-pointer transition-colors"
               >
                 <div className="bg-[#00B67A] p-0.5 flex items-center justify-center rounded-[2px] h-4 w-4 md:h-[20px] md:w-[20px] shrink-0">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
@@ -137,63 +169,63 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* COLUMN 2 — NAVIGATION */}
+          {/* COLUMN 2 NAVIGATION */}
           <div className="flex flex-col items-center md:items-start lg:px-4">
-            <h4 className="text-[10px] font-[700] uppercase tracking-[3px] text-[#9A9080] mb-[20px]">NAVIGATION</h4>
-            <nav className="flex flex-col gap-[11px] items-center md:items-start text-[14px] font-[500] text-[#3D3830]">
-              <Link to="/services" className="nav-link hover:text-[#1A1A1A]">Services</Link>
-              <Link to="/about" className="nav-link hover:text-[#1A1A1A]">Who We Are</Link>
-              <Link to="/why-us" className="nav-link hover:text-[#1A1A1A]">Why Us</Link>
-              <Link to="/case-studies" className="nav-link hover:text-[#1A1A1A]">Case Studies</Link>
-              <Link to="/careers" className="nav-link hover:text-[#1A1A1A]">Careers</Link>
-              <Link to="/creators" className="nav-link hover:text-[#1A1A1A]">Join Our Creator Network</Link>
+            <h2 className="text-[10px] font-[700] uppercase tracking-[3px] text-[var(--muted-text)] mb-[20px]">NAVIGATION</h2>
+            <nav className="flex flex-col gap-[11px] items-center md:items-start text-[14px] font-[500] text-[var(--nav-link-text)]">
+              <Link to="/services" className="nav-link hover:text-[var(--site-text)]">Services</Link>
+              <Link to="/about" className="nav-link hover:text-[var(--site-text)]">Who We Are</Link>
+              <Link to="/why-us" className="nav-link hover:text-[var(--site-text)]">Why Us</Link>
+              <Link to="/case-studies" className="nav-link hover:text-[var(--site-text)]">Case Studies</Link>
+              <Link to="/careers" className="nav-link hover:text-[var(--site-text)]">Careers</Link>
+              <Link to="/creators" className="nav-link hover:text-[var(--site-text)]">Join Our Creator Network</Link>
               <Link to="/landing" className="mt-2">
-                <span className="bg-[#1A1A1A] text-[#EDEADF] px-4 py-2 rounded-full text-[13px] font-bold inline-flex items-center gap-2 hover:bg-[#333] transition-all hover:-translate-y-0.5 shadow-sm md:-ml-1.5">
+                <span className="bg-[var(--site-text)] text-[var(--site-bg)] px-4 py-2 rounded-full text-[13px] font-bold inline-flex items-center gap-2 hover:opacity-80 transition-all hover:-translate-y-0.5 shadow-sm md:-ml-1.5">
                   Scale My TikTok Shop
                 </span>
               </Link>
             </nav>
           </div>
 
-          {/* COLUMN 3 — CONTACT & GLOBAL PRESENCE */}
+          {/* COLUMN 3 CONTACT & GLOBAL PRESENCE */}
           <div className="flex flex-col items-center md:items-start lg:pl-4 xl:pl-0">
-            <h4 className="text-[10px] font-[700] uppercase tracking-[3px] text-[#9A9080] mb-[20px]">CONTACT</h4>
+            <h2 className="text-[10px] font-[700] uppercase tracking-[3px] text-[var(--muted-text)] mb-[20px]">CONTACT</h2>
             <div className="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-[14px] mb-[40px]">
               <div className="flex items-center gap-[10px]">
-                <div className="w-[34px] h-[34px] bg-[rgba(0,0,0,0.05)] rounded-[8px] flex items-center justify-center shrink-0">
-                  <Mail size={16} stroke="#3D3830" strokeWidth={2} />
+                <div className="w-[34px] h-[34px] bg-[var(--site-text)]/5 rounded-[8px] flex items-center justify-center shrink-0">
+                  <Mail size={16} stroke="var(--site-text)" strokeWidth={2} />
                 </div>
-                <a href="mailto:info@tikshopscale.com" className="text-[14px] font-[500] text-[#3D3830] hover:text-[#1A1A1A] transition-colors">
+                <a href="mailto:info@tikshopscale.com" className="text-[14px] font-[500] text-[var(--nav-link-text)] hover:text-[var(--site-text)] transition-colors">
                   info@tikshopscale.com
                 </a>
               </div>
               <div className="flex items-center gap-[10px]">
-                <div className="w-[34px] h-[34px] bg-[rgba(0,0,0,0.05)] rounded-[8px] flex items-center justify-center shrink-0">
-                  <Phone size={16} stroke="#3D3830" strokeWidth={2} />
+                <div className="w-[34px] h-[34px] bg-[var(--site-text)]/5 rounded-[8px] flex items-center justify-center shrink-0">
+                  <Phone size={16} stroke="var(--site-text)" strokeWidth={2} />
                 </div>
-                <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="text-[14px] font-[500] text-[#3D3830] hover:text-[#1A1A1A] transition-colors">
+                <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer" className="text-[14px] font-[500] text-[var(--nav-link-text)] hover:text-[var(--site-text)] transition-colors">
                   Book a Call →
                 </a>
               </div>
             </div>
 
-            <h4 className="text-[10px] font-[700] uppercase tracking-[3px] text-[#9A9080] mb-[20px]">GLOBAL PRESENCE</h4>
+            <h2 className="text-[10px] font-[700] uppercase tracking-[3px] text-[var(--muted-text)] mb-[20px]">GLOBAL PRESENCE</h2>
             <div className="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-5">
               {/* US */}
               <div className="flex items-center gap-3">
-                <div className="w-[34px] h-[34px] bg-[rgba(0,0,0,0.05)] border border-[rgba(0,0,0,0.1)] rounded-[8px] flex items-center justify-center text-[10px] font-bold text-[#1A1A1A] tracking-tighter shrink-0">US</div>
+                <div className="w-[34px] h-[34px] bg-[var(--site-text)]/5 border border-[var(--card-border)] rounded-[8px] flex items-center justify-center text-[10px] font-bold text-[var(--site-text)] tracking-tighter shrink-0 transition-colors">US</div>
                 <div className="flex flex-col items-start leading-none">
-                  <span className="text-[14px] font-bold text-[#1A1A1A] mb-1">United States</span>
-                  <span className="text-[11.5px] text-[#6B6358] font-medium">Florida</span>
+                  <span className="text-[14px] font-bold text-[var(--site-text)] mb-1 transition-colors">United States</span>
+                  <span className="text-[11.5px] text-[var(--muted-text)] font-medium transition-colors">Florida</span>
                 </div>
               </div>
 
               {/* AE */}
               <div className="flex items-center gap-3">
-                <div className="w-[34px] h-[34px] bg-[rgba(0,0,0,0.05)] border border-[rgba(0,0,0,0.1)] rounded-[8px] flex items-center justify-center text-[10px] font-bold text-[#1A1A1A] tracking-tighter shrink-0">AE</div>
+                <div className="w-[34px] h-[34px] bg-[var(--site-text)]/5 border border-[var(--card-border)] rounded-[8px] flex items-center justify-center text-[10px] font-bold text-[var(--site-text)] tracking-tighter shrink-0 transition-colors">AE</div>
                 <div className="flex flex-col items-start leading-none">
-                  <span className="text-[14px] font-bold text-[#1A1A1A] mb-1">UAE</span>
-                  <span className="text-[11.5px] text-[#6B6358] font-medium">Dubai</span>
+                  <span className="text-[14px] font-bold text-[var(--site-text)] mb-1 transition-colors">UAE</span>
+                  <span className="text-[11.5px] text-[var(--muted-text)] font-medium transition-colors">Dubai</span>
                 </div>
               </div>
             </div>
@@ -201,25 +233,38 @@ const Footer = () => {
         </div>
 
         {/* BOTTOM BAR */}
-        <div className="mt-10 sm:mt-[56px] pt-4 sm:pt-[20px] border-t border-[rgba(0,0,0,0.08)] flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-[12px] text-center md:text-left">
-          <div className="text-[12px] text-[#9A9080] font-medium">
+        <div className="mt-10 sm:mt-[56px] pt-4 sm:pt-[20px] border-t border-[var(--footer-border)] flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-[12px] text-center md:text-left transition-colors">
+          <div className="text-[12px] text-[var(--muted-text)] font-medium">
             © 2023–2026 TikShop Scale. All rights reserved.
           </div>
 
           <div className="flex gap-[22px] justify-center md:justify-center">
-            <Link to="/privacy" className="text-[12px] font-[600] text-[#9A9080] uppercase tracking-[0.5px] hover:text-[#1A1A1A] transition-colors">Privacy</Link>
-            <Link to="/terms-of-service" className="text-[12px] font-[600] text-[#9A9080] uppercase tracking-[0.5px] hover:text-[#1A1A1A] transition-colors">Terms</Link>
+            <Link to="/privacy" className="text-[12px] font-[600] text-[var(--muted-text)] uppercase tracking-[0.5px] hover:text-[var(--site-text)] transition-colors">Privacy</Link>
+            <Link to="/terms-of-service" className="text-[12px] font-[600] text-[var(--muted-text)] uppercase tracking-[0.5px] hover:text-[var(--site-text)] transition-colors">Terms</Link>
           </div>
 
-          <button
-            onClick={scrollToTop}
-            className="group flex items-center gap-[8px] text-[12px] font-[700] uppercase tracking-[1.5px] text-[#3D3830] hover:text-[#1A1A1A] transition-all"
-          >
-            BACK TO TOP
-            <div className="w-[24px] h-[24px] bg-[#1A1A1A] rounded-full flex items-center justify-center text-[#EDEADF] text-[12px] transition-transform duration-300 group-hover:-translate-y-[3px]">
-              <ArrowUp size={12} strokeWidth={3} />
-            </div>
-          </button>
+          <div className="flex items-center gap-6">
+            <button
+              onClick={toggleDarkMode}
+              className="group flex items-center gap-[8px] text-[12px] font-[700] uppercase tracking-[1.5px] text-[var(--nav-link-text)] hover:text-[var(--site-text)] transition-all"
+              aria-label="Toggle Dark Mode"
+            >
+              <span className="text-[14px] transition-transform duration-300 group-hover:scale-110">
+                {isDarkMode ? "☀️" : "🌙"}
+              </span>
+              {isDarkMode ? "LIGHT MODE" : "DARK MODE"}
+            </button>
+
+            <button
+              onClick={scrollToTop}
+              className="group flex items-center gap-[8px] text-[12px] font-[700] uppercase tracking-[1.5px] text-[var(--nav-link-text)] hover:text-[var(--site-text)] transition-all"
+            >
+              BACK TO TOP
+              <div className="w-[24px] h-[24px] bg-[var(--site-text)] rounded-full flex items-center justify-center text-[var(--site-bg)] text-[12px] transition-transform duration-300 group-hover:-translate-y-[3px]">
+                <ArrowUp size={12} strokeWidth={3} />
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </footer>

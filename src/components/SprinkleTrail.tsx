@@ -22,13 +22,20 @@ const SprinkleTrail = () => {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
+        let resizeTimer: NodeJS.Timeout;
         const resizeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (canvas) {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                }
+            }, 300);
         };
 
         window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
         const createParticle = (x: number, y: number) => {
             // Create 1-2 particles per move event for subtlety

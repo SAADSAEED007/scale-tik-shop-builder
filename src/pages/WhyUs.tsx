@@ -2,13 +2,16 @@ import React from "react";
 import FadeIn from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Check, X, Minus, Zap, Target, Users, Layout } from "lucide-react";
+import { Check, X, Minus, Zap, Target, Users, Layout, ChevronLeft, ChevronRight } from "lucide-react";
 
 import TapeLabel from "@/components/TapeLabel";
 import ServiceTicker from "@/components/ServiceTicker";
 import SEO from "@/components/SEO";
 
 import navLogo from "@/assets/nav_logo.png";
+import otherAgenciesIcon from "@/assets/icons of why us/group.png";
+import freelanceIcon from "@/assets/icons of why us/freelance-work.png";
+import diyIcon from "@/assets/icons of why us/meeting.png";
 
 interface StatusIconProps {
     type: "full" | "partial" | "none";
@@ -68,10 +71,225 @@ const SectionHeader = ({ title }: { title: string }) => (
     </tr>
 );
 
+const ComparisonData = {
+    competitors: [
+        {
+            name: "TikShop Scale",
+            sub: "TikTok Shop Specialist Agency",
+            highlight: true,
+            icon: (
+                <div className="w-12 h-12 flex items-center justify-center overflow-hidden relative">
+                    <img
+                        src={navLogo}
+                        alt="TikShop Scale Logo"
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 max-w-none object-contain"
+                    />
+                </div>
+            ),
+            badge: "★ BEST CHOICE"
+        },
+        {
+            name: "Other Agencies",
+            sub: "Generalist social agencies on TikTok",
+            icon: <img src={freelanceIcon} alt="Other Agencies" className="w-8 h-8 object-contain" />
+        },
+        {
+            name: "Freelancer / VA",
+            sub: "Upwork hire or virtual assistant",
+            icon: <img src={otherAgenciesIcon} alt="Freelancer / VA" className="w-8 h-8 object-contain" />
+        },
+        {
+            name: "DIY In-House",
+            sub: "Figuring it out yourself",
+            icon: <img src={diyIcon} alt="DIY In-House" className="w-8 h-8 object-contain" />
+        }
+    ],
+    sections: [
+        {
+            title: "TIKTOK SHOP EXPERTISE",
+            rows: [
+                { title: "Only works on TikTok Shop", subtext: "Not splitting focus across 5 platforms", values: ["full", "none", "none", "full"] },
+                { title: "Knows what's working on the algorithm right now", subtext: "Not 6 months behind on platform changes", values: ["full", "partial", "none", "none"] },
+                { title: "Has run real TikTok Shop accounts before", subtext: "Not learning the platform on your budget", values: ["full", "partial", "none", "none"] },
+                { title: "TikTok Shop policy & compliance knowledge", subtext: "You always know removals and account flags", values: ["full", "partial", "none", "none"] },
+            ]
+        },
+        {
+            title: "CREATOR & CONTENT",
+            rows: [
+                { title: "Sources creators who actually sell not just get views", subtext: "Vetted for conversion, not just follower count", values: ["full", "partial", "none", "none"] },
+                { title: "Sends product, briefs creators, handles everything", subtext: "You don't chase anyone we do it all", values: ["full", "partial", "partial", "none"] },
+                { title: "Tests multiple hooks until one wins", subtext: "Data-backed creative not gut feel", values: ["full", "partial", "none", "none"] },
+                { title: "Builds an affiliate engine that compounds monthly", subtext: "More creators promoting you every week", values: ["full", "partial", "none", "none"] },
+            ]
+        },
+        {
+            title: "GROWTH & PAID MEDIA",
+            rows: [
+                { title: "Turns your best organic content into Spark Ads", subtext: "Amplifies what's already working not guessing", values: ["full", "partial", "none", "none"] },
+                { title: "Cuts losing ads weekly doesn't let budget bleed", subtext: "Active management, not set-and-forget", values: ["full", "partial", "none", "none"] },
+                { title: "Ad strategy built for TikTok not copy-pasted from Meta", subtext: "Different platform, completely different approach", values: ["full", "partial", "none", "none"] },
+            ]
+        },
+        {
+            title: "SHOP & OPERATIONS",
+            rows: [
+                { title: "Optimizes listings for TikTok's search algorithm", subtext: "More eyes on your products without paying for ads", values: ["full", "partial", "partial", "partial"] },
+                { title: "Sets up and manages live shopping sessions", subtext: "The highest-converting format on TikTok Shop", values: ["full", "none", "none", "none"] },
+                { title: "You can see your real numbers not just vanity metrics", subtext: "GMV, real profit, ROAS weekly, clearly", values: ["full", "partial", "none", "partial"] },
+            ]
+        },
+        {
+            title: "WORKING TOGETHER",
+            rows: [
+                { title: "One person responsible for your account", subtext: "You always know who to call", values: ["full", "partial", "full", "full"] },
+                { title: "You hear from us weekly with actual data", subtext: 'Not a monthly PDF that says "results improving"', values: ["full", "partial", "none", "full"] },
+                { title: "Cancel anytime no 6-month lock-in", subtext: "We earn your business every month", values: ["full", "none", "full", "full"] },
+                { title: "No surprise fees ever", subtext: "What we quote is what you pay", values: ["full", "none", "partial", "full"] },
+            ]
+        }
+    ]
+};
+
+const MobileComparison = () => {
+    const [activeIndex, setActiveIndex] = React.useState(0);
+    const [touchStart, setTouchStart] = React.useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = React.useState<number | null>(null);
+    const containerRef = React.useRef<HTMLDivElement>(null);
+
+    const handleCardChange = (newIndex: number) => {
+        setActiveIndex(newIndex);
+        if (containerRef.current) {
+            const offset = 70;
+            const top = containerRef.current.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+    };
+
+    const nextCard = () => handleCardChange((activeIndex + 1) % 4);
+    const prevCard = () => handleCardChange((activeIndex - 1 + 4) % 4);
+
+    const handleTouchStart = (e: React.TouchEvent) => setTouchStart(e.targetTouches[0].clientX);
+    const handleTouchMove = (e: React.TouchEvent) => setTouchEnd(e.targetTouches[0].clientX);
+    const handleTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        if (distance > 50) nextCard();
+        else if (distance < -50) prevCard();
+        setTouchStart(null);
+        setTouchEnd(null);
+    };
+
+    return (
+        <div ref={containerRef} className="md:hidden mt-8 -mx-2 sm:mx-0 overflow-hidden relative">
+            <div
+                className="flex transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+            >
+                {ComparisonData.competitors.map((comp, compIdx) => (
+                    <div key={compIdx} className="w-full flex-shrink-0 px-2">
+                        <div className={`rounded-3xl border border-border shadow-xl overflow-hidden ${comp.highlight ? 'bg-[#f5f3e7]' : 'bg-white'}`}>
+                            {/* Card Header */}
+                            <div className="py-10 px-6 flex flex-col items-center text-center gap-4 relative">
+                                {comp.badge && (
+                                    <div className="bg-emerald-600 text-white text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full shadow-lg mb-2">
+                                        {comp.badge}
+                                    </div>
+                                )}
+                                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${!comp.highlight ? 'bg-secondary/30' : ''}`}>
+                                    {comp.icon}
+                                </div>
+                                <div className="flex flex-col gap-1">
+                                    <h3 className="text-xl font-black tracking-tight">{comp.name}</h3>
+                                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-tight">
+                                        {comp.sub}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Card Body */}
+                            <div className="divide-y divide-border/20">
+                                {ComparisonData.sections.map((section, secIdx) => (
+                                    <div key={secIdx}>
+                                        <div className="bg-neutral-900 py-3.5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-white flex items-center gap-3">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-[#F5EDE3]" />
+                                            {section.title}
+                                        </div>
+                                        <div className="divide-y divide-border/10">
+                                            {section.rows.map((row, rowIdx) => (
+                                                <div key={rowIdx} className="py-5 px-6 flex items-start gap-4 hover:bg-black/[0.02] transition-colors">
+                                                    <div className="flex-1 min-w-0">
+                                                        <h4 className="font-bold text-neutral-900 text-[13px] leading-tight mb-1">{row.title}</h4>
+                                                        <p className="text-[10px] text-muted-foreground font-medium">{row.subtext}</p>
+                                                    </div>
+                                                    <div className="flex-shrink-0 pt-0.5">
+                                                        <StatusIcon type={row.values[compIdx] as any} />
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-center gap-6 mt-8 mb-4">
+                <button
+                    onClick={prevCard}
+                    className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center transition-transform active:scale-90 border border-border/50"
+                    aria-label="Previous card"
+                >
+                    <ChevronLeft className="w-5 h-5" />
+                </button>
+                <div className="flex gap-2">
+                    {ComparisonData.competitors.map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => handleCardChange(i)}
+                            className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === i ? 'w-8 bg-black' : 'w-1.5 bg-neutral-200'}`}
+                            aria-label={`Go to slide ${i + 1}`}
+                        />
+                    ))}
+                </div>
+                <button
+                    onClick={nextCard}
+                    className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center transition-transform active:scale-90 border border-border/50"
+                    aria-label="Next card"
+                >
+                    <ChevronRight className="w-5 h-5" />
+                </button>
+            </div>
+
+            {/* Legend on Mobile */}
+            <div className="flex flex-wrap items-center justify-center gap-6 py-8 px-4 mt-4 border-t border-border/20">
+                <div className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-emerald-500" strokeWidth={3} />
+                    <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Included</span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <Minus className="w-4 h-4 text-[#D4B483]" strokeWidth={3} />
+                    <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Partial</span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <X className="w-4 h-4 text-rose-500" strokeWidth={3} />
+                    <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">No</span>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const WhyUs = () => {
     return (
-        <div className="pt-44 pb-24 overflow-hidden min-h-screen bg-white">
-            <SEO 
+        <div className="pt-44 pb-24 overflow-hidden min-h-screen bg-white grid-net">
+            <SEO
                 title="Why Choose Us"
                 description="We only do TikTok Shop. That's why we win. Learn why a specialized agency beats a generalist every single time."
                 keywords="Specialist TikTok Agency, TikTok Shop Expertise, eCommerce Growth Partner"
@@ -94,7 +312,7 @@ const WhyUs = () => {
                         That's why we win.
                     </h2>
                     <p className="text-lg md:text-xl text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
-                        Other agencies are spread thin across every platform. We go all-in on one — and it shows in your results.
+                        Other agencies are spread thin across every platform. We go all-in on one and it shows in your results.
                     </p>
                 </FadeIn>
             </section>
@@ -108,7 +326,7 @@ const WhyUs = () => {
             <section className="container max-w-[1200px] mx-auto px-2 sm:px-4 mb-32 md:mb-40">
                 <FadeIn delay={0.2}>
                     <div className="relative">
-                        <div className="bg-white border border-border shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] rounded-[20px] sm:rounded-[40px] overflow-hidden">
+                        <div className="hidden md:block bg-white border border-border shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] rounded-[20px] sm:rounded-[40px] overflow-hidden">
                             <div className="overflow-x-auto scrollbar-hide">
                                 <table className="w-full text-left border-collapse min-w-[950px]">
                                     <thead>
@@ -130,7 +348,7 @@ const WhyUs = () => {
                                                             <img
                                                                 src={navLogo}
                                                                 alt="TikShop Scale Logo"
-                                                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 max-w-none object-contain"
+                                                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 max-w-none object-contain dark-mode-logo transition-all duration-300"
                                                             />
                                                         </div>
                                                         <div className="flex flex-col gap-1">
@@ -141,10 +359,10 @@ const WhyUs = () => {
                                                 </div>
                                             </th>
                                             {/* Other Agencies */}
-                                            <th className="py-14 px-8 w-[17%] min-w-[140px] md:min-w-0">
+                                            <th className="py-14 px-8 w-[17%] min-w-[140px] md:min-w-0 grid-net">
                                                 <div className="flex flex-col gap-6 items-center text-center pt-10">
-                                                    <div className="w-12 h-12 rounded-xl bg-secondary/30 flex items-center justify-center text-neutral-400">
-                                                        <Users size={24} />
+                                                    <div className="w-12 h-12 rounded-xl bg-white border border-border/50 shadow-sm flex items-center justify-center p-2">
+                                                        <img src={freelanceIcon} alt="Other Agencies" className="w-8 h-8 object-contain" />
                                                     </div>
                                                     <div className="flex flex-col gap-1">
                                                         <span className="text-lg font-black tracking-tight">Other Agencies</span>
@@ -155,8 +373,8 @@ const WhyUs = () => {
                                             {/* Freelancer / VA */}
                                             <th className="py-14 px-8 w-[17%] min-w-[140px] md:min-w-0">
                                                 <div className="flex flex-col gap-6 items-center text-center pt-10">
-                                                    <div className="w-12 h-12 rounded-xl bg-secondary/30 flex items-center justify-center text-neutral-400">
-                                                        <Target size={24} />
+                                                    <div className="w-12 h-12 rounded-xl bg-white border border-border/50 shadow-sm flex items-center justify-center p-2">
+                                                        <img src={otherAgenciesIcon} alt="Freelancer / VA" className="w-8 h-8 object-contain" />
                                                     </div>
                                                     <div className="flex flex-col gap-1">
                                                         <span className="text-lg font-black tracking-tight">Freelancer / VA</span>
@@ -167,8 +385,8 @@ const WhyUs = () => {
                                             {/* DIY In-House */}
                                             <th className="py-14 px-8 w-[17%] min-w-[140px] md:min-w-0">
                                                 <div className="flex flex-col gap-6 items-center text-center pt-10">
-                                                    <div className="w-12 h-12 rounded-xl bg-secondary/30 flex items-center justify-center text-neutral-400">
-                                                        <Layout size={24} />
+                                                    <div className="w-12 h-12 rounded-xl bg-white border border-border/50 shadow-sm flex items-center justify-center p-2">
+                                                        <img src={diyIcon} alt="DIY In-House" className="w-8 h-8 object-contain" />
                                                     </div>
                                                     <div className="flex flex-col gap-1">
                                                         <span className="text-lg font-black tracking-tight">DIY In-House</span>
@@ -205,18 +423,18 @@ const WhyUs = () => {
                                         {/* CREATOR & CONTENT */}
                                         <SectionHeader title="CREATOR & CONTENT" />
                                         <ComparisonRow
-                                            title="Sources creators who actually sell — not just get views"
+                                            title="Sources creators who actually sell not just get views"
                                             subtext="Vetted for conversion, not just follower count"
                                             tikshop="full" others="partial" freelancer="none" diy="none"
                                         />
                                         <ComparisonRow
                                             title="Sends product, briefs creators, handles everything"
-                                            subtext="You don't chase anyone — we do it all"
+                                            subtext="You don't chase anyone we do it all"
                                             tikshop="full" others="partial" freelancer="partial" diy="none"
                                         />
                                         <ComparisonRow
                                             title="Tests multiple hooks until one wins"
-                                            subtext="Data-backed creative — not gut feel"
+                                            subtext="Data-backed creative not gut feel"
                                             tikshop="full" others="partial" freelancer="none" diy="none"
                                         />
                                         <ComparisonRow
@@ -229,16 +447,16 @@ const WhyUs = () => {
                                         <SectionHeader title="GROWTH & PAID MEDIA" />
                                         <ComparisonRow
                                             title="Turns your best organic content into Spark Ads"
-                                            subtext="Amplifies what's already working — not guessing"
+                                            subtext="Amplifies what's already working not guessing"
                                             tikshop="full" others="partial" freelancer="none" diy="none"
                                         />
                                         <ComparisonRow
-                                            title="Cuts losing ads weekly — doesn't let budget bleed"
+                                            title="Cuts losing ads weekly doesn't let budget bleed"
                                             subtext="Active management, not set-and-forget"
                                             tikshop="full" others="partial" freelancer="none" diy="none"
                                         />
                                         <ComparisonRow
-                                            title="Ad strategy built for TikTok — not copy-pasted from Meta"
+                                            title="Ad strategy built for TikTok not copy-pasted from Meta"
                                             subtext="Different platform, completely different approach"
                                             tikshop="full" others="partial" freelancer="none" diy="none"
                                         />
@@ -256,8 +474,8 @@ const WhyUs = () => {
                                             tikshop="full" others="none" freelancer="none" diy="none"
                                         />
                                         <ComparisonRow
-                                            title="You can see your real numbers — not just vanity metrics"
-                                            subtext="GMV, real profit, ROAS — weekly, clearly"
+                                            title="You can see your real numbers not just vanity metrics"
+                                            subtext="GMV, real profit, ROAS weekly, clearly"
                                             tikshop="full" others="partial" freelancer="none" diy="partial"
                                         />
 
@@ -269,17 +487,17 @@ const WhyUs = () => {
                                             tikshop="full" others="partial" freelancer="full" diy="full"
                                         />
                                         <ComparisonRow
-                                            title="You hear from us weekly — with actual data"
+                                            title="You hear from us weekly with actual data"
                                             subtext={'Not a monthly PDF that says "results improving"'}
                                             tikshop="full" others="partial" freelancer="none" diy="full"
                                         />
                                         <ComparisonRow
-                                            title="Cancel anytime — no 6-month lock-in"
+                                            title="Cancel anytime no 6-month lock-in"
                                             subtext="We earn your business every month"
                                             tikshop="full" others="none" freelancer="full" diy="full"
                                         />
                                         <ComparisonRow
-                                            title="No surprise fees — ever"
+                                            title="No surprise fees ever"
                                             subtext="What we quote is what you pay"
                                             tikshop="full" others="none" freelancer="partial" diy="full"
                                         />
@@ -303,11 +521,13 @@ const WhyUs = () => {
                                 </div>
                             </div>
                         </div>
+
+                        <MobileComparison />
                     </div>
                 </FadeIn>
             </section>
             {/* Impact Section */}
-            <section className="container max-w-4xl mx-auto px-4 mb-32 md:mb-40 text-center">
+            <section className="container max-w-4xl mx-auto px-4 mb-32 md:mb-40 text-center grid-net">
                 <FadeIn>
                     <h2 className="text-2xl sm:text-4xl md:text-6xl font-black font-montserrat tracking-tighter leading-tight mb-12">
                         What This <br className="md:hidden" />
@@ -330,7 +550,7 @@ const WhyUs = () => {
             </section>
 
             {/* Final CTA Bar */}
-            <section className="container max-w-[1200px] mx-auto px-4">
+            <section className="container max-w-[1200px] mx-auto px-4 grid-net">
                 <FadeIn>
                     <div className="bg-black text-white rounded-[20px] sm:rounded-[30px] p-6 sm:p-10 md:p-14 mb-20 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)]">
                         <div className="text-center md:text-left">
@@ -339,14 +559,14 @@ const WhyUs = () => {
                                 <TapeLabel className="inline-block px-3 sm:px-4 py-1 rotate-[-2deg] origin-left bg-[#F5EDE3] shadow-sm text-black">only does TikTok?</TapeLabel>
                             </h2>
                             <p className="text-neutral-400 text-base sm:text-lg font-medium">
-                                Free audit call — no commitment, no pitch deck, just honest advice.
+                                Free audit call no commitment, no pitch deck, just honest advice.
                             </p>
                         </div>
-                        <Link to="/contact" className="w-full md:w-auto">
+                        <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
                             <Button size="lg" className="w-full md:w-auto rounded-full bg-[#F5EDE3] hover:bg-white text-black font-black text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-8 transition-transform hover:scale-105 shadow-sm border border-neutral-100">
                                 Book a Free Audit Call →
                             </Button>
-                        </Link>
+                        </a>
                     </div>
                 </FadeIn>
             </section>

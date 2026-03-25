@@ -13,6 +13,7 @@ import carrerImage from "@/assets/carrer.png";
 import navLogo from "@/assets/nav_logo.png";
 import footerLogo from "@/assets/footer_logo.png";
 import tikTokShopLogo from "@/assets/tiktokshop_logo.png";
+import tikTokShopLogo70 from "@/assets/tiktokshop_logo-70.webp";
 import fiveStarIcon from "@/assets/five-star-rating-icon.svg";
 import SEO from "@/components/SEO";
 import { Star } from "lucide-react";
@@ -52,7 +53,7 @@ const steps = [
   {
     num: "03",
     title: "Build Your Content Pipeline",
-    desc: "Real creators. Real product. Real content. We handle the sourcing, briefing, and setup — you get videos that sell.",
+    desc: "Real creators. Real product. Real content. We handle the sourcing, briefing, and setup you get videos that sell.",
     icon: Video
   },
   {
@@ -64,7 +65,7 @@ const steps = [
   {
     num: "05",
     title: "Weekly Optimize + Compound",
-    desc: "Every week we kill what’s not working. This is how $20K months become $100K months — compounding results.",
+    desc: "Every week we kill what’s not working. This is how $20K months become $100K months compounding results.",
     icon: TrendingUp
   },
 ];
@@ -122,7 +123,7 @@ const whyChooseUs = [
   {
     num: "04",
     title: <span>🔓 Cancel <TapeLabel className="inline-block px-2 py-0 translate-y-[-2px]">Anytime</TapeLabel></span>,
-    desc: "No 6-month contracts. No lock-in. We earn your business every single month — which means we have to actually perform to keep it.",
+    desc: "No 6-month contracts. No lock-in. We earn your business every single month which means we have to actually perform to keep it.",
     icon: Unlock
   },
 ];
@@ -132,7 +133,7 @@ const Index = () => {
 
   return (
     <div>
-      <SEO 
+      <SEO
         title="Scale Your TikTok Shop"
         description="The specialist agency for TikTok Shop growth. We build creator pipelines, content systems, and paid strategies that get you to $100K+/mo without the guesswork."
         keywords="TikTok Shop, TikTok Marketing, eCommerce Growth, Creator Seeding, Spark Ads"
@@ -159,10 +160,10 @@ const Index = () => {
       <ServiceTicker />
 
       {/* Stats / Metrics Section */}
-      <section className="py-8 md:py-16 overflow-hidden bg-slate-50/30">
+      <section className="py-8 md:py-16 overflow-hidden bg-slate-50/30 grid-net">
         <div className="container max-w-6xl px-4 md:px-6">
           <FadeIn>
-            <div className="p-4 md:p-8 lg:p-12 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border border-slate-100 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.06)] relative overflow-hidden">
+            <div className="p-4 md:p-8 lg:p-12 rounded-[1.5rem] md:rounded-[2.5rem] bg-[var(--card-bg)] grid-net border border-[var(--card-border)] shadow-[0_30px_70px_-20px_rgba(0,0,0,0.06)] relative overflow-hidden transition-colors">
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 blur-3xl pointer-events-none" />
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-6 md:gap-y-10 gap-x-4 md:gap-x-10 relative z-10">
@@ -172,7 +173,7 @@ const Index = () => {
                     prefix: "$",
                     suffix: "M+",
                     label: "GMV Managed",
-                    icon: <img src={tikTokShopLogo} className="h-10 md:h-16 w-auto object-contain" />,
+                    icon: <img src={tikTokShopLogo} srcSet={`${tikTokShopLogo70} 70w, ${tikTokShopLogo} 512w`} sizes="(max-width: 768px) 70px, 140px" className="h-10 md:h-16 w-auto object-contain" alt="TikShop Scale logo" width="512" height="512" loading="lazy" />,
                     color: "from-orange-500 to-rose-500",
                     decimals: 1,
                     colSpan: "col-span-2 md:col-span-1"
@@ -187,14 +188,12 @@ const Index = () => {
                     decimals: 0
                   },
                   {
-                    value: 98,
-                    prefix: "",
-                    suffix: "%",
-                    label: "Client Retention",
-                    icon: (
-                      <img src={fiveStarIcon} alt="5 Stars" className="h-4 md:h-6 w-auto" />
-                    ),
-                    color: "from-rose-500 to-fuchsia-600",
+                    value: 7,
+                    prefix: "3–",
+                    suffix: "x",
+                    label: "Avg GMV Growth",
+                    icon: <span className="text-xl md:text-3xl">📈</span>,
+                    color: "from-purple-600 to-pink-600",
                     decimals: 0
                   },
                   {
@@ -207,12 +206,14 @@ const Index = () => {
                     decimals: 0
                   },
                   {
-                    value: 7,
-                    prefix: "3–",
-                    suffix: "x",
-                    label: "Avg GMV Growth",
-                    icon: <span className="text-xl md:text-3xl">📈</span>,
-                    color: "from-purple-600 to-pink-600",
+                    value: 98,
+                    prefix: "",
+                    suffix: "%",
+                    label: "Client Retention",
+                    icon: (
+                      <img src={fiveStarIcon} alt="5 Stars" className="h-4 md:h-6 w-auto" width="96" height="16" loading="lazy" />
+                    ),
+                    color: "from-rose-500 to-fuchsia-600",
                     decimals: 0
                   },
                 ].map((stat, i) => (
@@ -220,12 +221,12 @@ const Index = () => {
                     <div className="h-10 md:h-16 flex items-center justify-center mb-2">
                       {stat.icon}
                     </div>
-                    <span className="text-xl md:text-3xl font-heading font-black tracking-tighter text-slate-900 mb-1 leading-none">
+                    <span className="text-xl md:text-3xl font-heading font-black tracking-tighter text-[var(--site-text)] mb-1 leading-none transition-colors">
                       {stat.prefix}
                       <Counter value={stat.value} decimals={stat.decimals} />
                       {stat.suffix}
                     </span>
-                    <p className="text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest leading-tight h-8 flex items-center justify-center px-1">
+                    <p className="text-[9px] md:text-[11px] font-bold text-[var(--muted-text)] uppercase tracking-widest leading-tight h-8 flex items-center justify-center px-1 transition-colors">
                       {stat.label}
                     </p>
                     <div className="w-full h-[3px] bg-slate-100 rounded-full mt-4 relative overflow-hidden hidden sm:block">
@@ -243,7 +244,7 @@ const Index = () => {
       </section>
 
       {/* Services Showcase */}
-      <section id="services" className="pt-12 md:pt-16 pb-12 md:pb-20 overflow-hidden">
+      <section id="services" className="pt-12 md:pt-16 pb-12 md:pb-20 overflow-hidden grid-net">
         <div className="container mb-8 md:mb-12 px-4">
           <FadeIn>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter text-center mb-6 leading-[1.1] md:leading-none">
@@ -259,11 +260,12 @@ const Index = () => {
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="pt-2 md:pt-4 pb-0 overflow-hidden relative">
+      <section id="how-it-works" className="pt-2 md:pt-4 pb-24 md:pb-32 overflow-hidden relative grid-net">
         <div className="container max-w-5xl">
           <FadeIn>
             <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-8 md:mb-12 leading-tight">
-              From Audit to $100K+/month - <TapeLabel>Here's How</TapeLabel>
+              From Audit to $100K+/month <br />
+              <TapeLabel>Here's How</TapeLabel>
             </h2>
           </FadeIn>
 
@@ -279,8 +281,8 @@ const Index = () => {
                     }`}
                 >
                   {/* Timeline Indicator on the line */}
-                  <div className="absolute left-8 md:left-1/2 w-10 h-10 rounded-full bg-[#F5EDE3] border-2 border-[#E5E5E2] flex items-center justify-center -translate-x-1/2 z-20 shadow-lg" >
-                    <span className="text-[10px] font-black text-black">{s.num}</span>
+                  <div className="absolute left-8 md:left-1/2 w-10 h-10 rounded-full bg-[var(--site-accent-bg)] border-2 border-[var(--card-border)] flex items-center justify-center -translate-x-1/2 z-20 shadow-lg transition-colors" >
+                    <span className="text-[10px] font-black text-[var(--site-text)] transition-colors">{s.num}</span>
                   </div>
 
                   {/* Card wrapper */}
@@ -327,16 +329,16 @@ const Index = () => {
 
             <FadeIn delay={0.2}>
               <div className="mt-16 md:mt-24 flex flex-col items-center relative z-10 w-full">
-                <TapeLabel className="rotate-[-1deg] p-10 md:p-16 flex flex-col items-center md:items-start gap-10 shadow-2xl relative w-full md:w-auto min-w-full md:min-w-[800px]">
-                  <h3 className="text-3xl md:text-5xl font-black tracking-tight leading-tight text-center md:text-left pb-12 md:pb-0">
+                <div className="bg-[var(--site-accent-bg)] p-10 md:p-16 flex flex-col items-center md:items-start gap-10 shadow-2xl relative w-full md:w-auto min-w-full md:min-w-[800px] border border-[var(--card-border)] rounded-[2rem] transition-colors">
+                  <h3 className="text-3xl md:text-5xl font-black tracking-tight leading-tight text-center md:text-left pb-12 md:pb-0 font-heading text-[var(--site-text)] transition-colors">
                     See What This Looks Like <br /> For Your Brand
                   </h3>
-                  <Link to="/contact" className="md:absolute md:bottom-6 md:right-6">
+                  <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer" className="md:absolute md:bottom-6 md:right-6">
                     <button className="bg-black text-white px-8 py-4 rounded-none font-bold text-[16px] md:text-[18px] flex items-center gap-2 hover:-translate-y-1 transition-all shadow-xl">
                       Book a Free Growth Audit <ArrowRight size={20} />
                     </button>
-                  </Link>
-                </TapeLabel>
+                  </a>
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -344,10 +346,10 @@ const Index = () => {
       </section>
 
       {/* Infographic Section */}
-      <section className="pt-16 md:pt-24 pb-0">
+      <section className="pt-8 md:pt-12 pb-0 grid-net">
         <div className="container max-w-[1240px] mx-auto px-4 md:px-6">
           <FadeIn>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-10 md:mb-16">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-6 md:mb-8">
               Our TikTok Shop <TapeLabel>Growth Framework</TapeLabel>
             </h2>
           </FadeIn>
@@ -357,6 +359,8 @@ const Index = () => {
                 src={carrerImage}
                 alt="TikShop Scale Process Infographic"
                 loading="lazy"
+                width="1536"
+                height="1024"
                 className="w-full h-auto object-contain max-w-[1000px] mx-auto filter drop-shadow-2xl"
               />
             </div>
@@ -414,7 +418,7 @@ const Index = () => {
             {[
               {
                 title: "Our Legacy",
-                desc: "We started this because too many good brands were guessing their way through TikTok Shop. Before this was an agency, it was us in the trenches — running accounts, testing creatives, losing money, and learning fast. That operator mindset is still how we build today.",
+                desc: "We started this because too many good brands were guessing their way through TikTok Shop. Before this was an agency, it was us in the trenches running accounts, testing creatives, losing money, and learning fast. That operator mindset is still how we build today.",
               },
               {
                 title: "Our Mission",
@@ -422,7 +426,7 @@ const Index = () => {
               },
               {
                 title: "Our Team",
-                desc: "We are specialists, not generalists. Growth leads, creative strategists, affiliate managers, and paid media operators — everyone works inside TikTok Shop every single day. This is not a side service we offer. It is the only thing we do.",
+                desc: "We are specialists, not generalists. Growth leads, creative strategists, affiliate managers, and paid media operators everyone works inside TikTok Shop every single day. This is not a side service we offer. It is the only thing we do.",
               },
               {
                 title: "Our Promise",
@@ -444,7 +448,7 @@ const Index = () => {
       */}
 
       {/* Case studies preview */}
-      <section className="pt-24 md:pt-40 pb-0">
+      <section className="pt-24 md:pt-40 pb-0 grid-net">
         <div className="container">
           <FadeIn>
             <div className="text-center mb-12">
@@ -455,7 +459,7 @@ const Index = () => {
                 <h3 className="text-lg md:text-xl font-bold tracking-tight mb-2">
                   The numbers <TapeLabel>say it all</TapeLabel>
                 </h3>
-                <p className="text-neutral-400 text-sm md:text-lg font-medium mt-2">
+                <p className="text-neutral-500 text-sm md:text-lg font-medium mt-2">
                   Across every brand we work with, results compound. Here&apos;s what our clients see on average.
                 </p>
               </div>
@@ -477,25 +481,27 @@ const Index = () => {
             <div className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-10">
               <Link
                 to="/case-studies"
-                className="group flex items-center gap-2 px-8 py-4 rounded-xl bg-[#F5EDE3] hover:bg-[#EBDCC8] transition-all duration-300"
+                className="group flex items-center gap-2 px-8 py-4 rounded-xl bg-[var(--site-accent-bg)] hover:opacity-80 transition-all duration-300"
               >
-                <span className="font-bold text-[16px] md:text-[18px] text-black">View More Case Studies</span>
-                <ArrowRight size={20} className="text-black group-hover:translate-x-1 transition-transform" />
+                <span className="font-bold text-[16px] md:text-[18px] text-[var(--site-text)]">View More Case Studies</span>
+                <ArrowRight size={20} className="text-[var(--site-text)] group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link
-                to="/contact"
-                className="group flex items-center gap-2 px-8 py-4 rounded-xl bg-[#F5EDE3] hover:bg-[#EBDCC8] transition-all duration-300"
+              <a
+                href="https://calendly.com/tikshopscale/30mincall"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 px-8 py-4 rounded-xl bg-[var(--site-accent-bg)] hover:opacity-80 transition-all duration-300"
               >
-                <span className="font-bold text-[16px] md:text-[18px] text-black">Get similar results</span>
-                <ArrowRight size={20} className="text-black group-hover:translate-x-1 transition-transform" />
-              </Link>
+                <span className="font-bold text-[16px] md:text-[18px] text-[var(--site-text)]">Get similar results</span>
+                <ArrowRight size={20} className="text-[var(--site-text)] group-hover:translate-x-1 transition-transform" />
+              </a>
             </div>
           </FadeIn>
         </div>
       </section>
 
       {/* Lead magnet */}
-      <section className="pt-24 md:pt-40 pb-0">
+      <section className="pt-24 md:pt-40 pb-0 grid-net">
         <div className="container max-w-2xl">
           <FadeIn>
             <div className="p-8 md:p-12 rounded-[2.5rem] text-center bg-secondary/30 border border-border/50 relative overflow-hidden">
@@ -526,7 +532,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="pt-24 md:pt-40 pb-0 overflow-hidden">
+      <section className="pt-24 md:pt-40 pb-0 overflow-hidden grid-net">
         <div className="container px-4 md:px-6">
           <FadeIn>
             <div className="text-center mb-16">
@@ -541,7 +547,7 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {testimonials.map((t, i) => (
                 <FadeIn key={t.author || i} delay={i * 0.1}>
-                  <div className="p-8 md:p-10 rounded-[2rem] bg-white border border-neutral-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] flex flex-col h-full relative overflow-hidden group hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] transition-all duration-500">
+                  <div className="p-8 md:p-10 rounded-[2rem] bg-[var(--card-bg)] border border-[var(--card-border)] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] flex flex-col h-full relative overflow-hidden group hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] transition-all duration-500">
                     {/* Top Row: Stars and Badge */}
                     <div className="flex items-center justify-between gap-4 mb-8">
                       <div className="flex gap-1 shrink-0">
@@ -549,21 +555,21 @@ const Index = () => {
                           <Star key={`star-${i}-${starIndex}`} size={16} fill="#f59e0b" stroke="none" />
                         ))}
                       </div>
-                      <div className="bg-black px-4 py-1.5 rounded-full text-[12px] font-black text-white whitespace-nowrap">
+                      <div className="bg-[var(--site-text)] px-4 py-1.5 rounded-full text-[12px] font-black text-[var(--site-bg)] whitespace-nowrap transition-colors">
                         {t.badge}
                       </div>
                     </div>
 
                     {/* Quote */}
-                    <p className="text-[17px] md:text-[19px] leading-[1.6] text-neutral-500/90 font-medium mb-12">
+                    <p className="text-[17px] md:text-[19px] leading-[1.6] text-[var(--muted-text)] font-medium mb-12 transition-colors">
                       "{t.quote}"
                     </p>
 
                     {/* Footer: Info (Initial + Names/Roles) */}
                     <div className="mt-auto flex items-center gap-4">
                       <div className="flex flex-col">
-                        <span className="font-bold text-[16px] text-neutral-900 leading-tight">{t.author}</span>
-                        <span className="text-[13px] font-medium text-neutral-400 mt-0.5">{t.role}</span>
+                        <span className="font-bold text-[16px] text-[var(--site-text)] leading-tight transition-colors">{t.author}</span>
+                        <span className="text-[13px] font-medium text-[var(--muted-text)] mt-0.5 transition-colors">{t.role}</span>
                       </div>
                     </div>
                   </div>
@@ -583,11 +589,11 @@ const Index = () => {
           <FadeIn>
             <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-6 leading-none">Ready to scale?</h2>
             <p className="text-primary-foreground/70 mb-10 text-lg md:text-xl">Let's map the fastest, most efficient path to TikTok Shop dominance.</p>
-            <Link to="/contact" className="w-full sm:w-auto">
+            <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <button className="bg-black text-white hover:bg-[#2E2E2E] px-10 py-4 rounded-[10px] font-[700] text-[16px] transition-all duration-300 hover:-translate-y-1 shadow-2xl flex items-center justify-center gap-3 w-full sm:w-auto mx-auto">
                 Book a Free Audit Call <ArrowRight size={20} />
               </button>
-            </Link>
+            </a>
           </FadeIn>
         </div>
       </section>

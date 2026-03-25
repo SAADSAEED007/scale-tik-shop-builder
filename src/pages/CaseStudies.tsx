@@ -37,7 +37,7 @@ const studies: CaseStudy[] = [
     stage: "scaling",
     service: "ads",
     title: "Meta was 2x ROAS. TikTok hit 6.8x by week three.",
-    problem: "This brand was spending $8K/mo on Meta ads with mediocre returns. They were sceptical about TikTok but agreed to a 30-day test. We rebuilt their entire ad strategy for TikTok's native ecosystem — not a copy-paste from Meta.",
+    problem: "This brand was spending $8K/mo on Meta ads with mediocre returns. They were sceptical about TikTok but agreed to a 30-day test. We rebuilt their entire ad strategy for TikTok's native ecosystem not a copy-paste from Meta.",
     stats: [
       { value: "6.8x", label: "ROAS achieved" },
       { value: "3 wks", label: "Time to 6x ROAS" },
@@ -101,7 +101,7 @@ const studies: CaseStudy[] = [
     stage: "scaling",
     service: "creators",
     title: "Top 20 creators retained. 42% of GMV for 4 straight months.",
-    problem: "Brand had built an affiliate network but creators kept going quiet after their first post. High churn meant constant recruitment cost. We built a tiered incentive structure and retention programme — top 20 creators stayed active and drove 42% of GMV consistently.",
+    problem: "Brand had built an affiliate network but creators kept going quiet after their first post. High churn meant constant recruitment cost. We built a tiered incentive structure and retention programme top 20 creators stayed active and drove 42% of GMV consistently.",
     stats: [
       { value: "42%", label: "GMV from top 20" },
       { value: "4 mo", label: "Consistent output" },
@@ -131,14 +131,14 @@ const studies: CaseStudy[] = [
 
 const CaseStudies = () => {
   return (
-    <div className="bg-[#F7F7F5] min-h-screen font-body text-[#0D0D0D]">
+    <main className="bg-[#F7F7F5] grid-net min-h-screen font-body text-[#0D0D0D]">
       <SEO 
         title="Case Studies"
         description="See how we've scaled brands on TikTok Shop. Real results, real numbers, and the strategies we used to get there."
         keywords="TikTok Shop Results, eCommerce Case Studies, TikTok ROAS, Brand Scaling"
       />
-      {/* SECTION 1 — HERO */}
-      <section className="pt-36 pb-16 md:pt-44 md:pb-24 bg-white relative overflow-hidden text-center">
+      {/* SECTION 1 HERO */}
+      <section className="pt-36 pb-16 md:pt-44 md:pb-24 bg-white grid-net relative overflow-hidden text-center">
         {/* Subtle radial beige glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#F5EDE3_0%,_transparent_70%)] opacity-40 pointer-events-none" />
 
@@ -165,13 +165,13 @@ const CaseStudies = () => {
         </div>
       </section>
 
-      {/* SECTION 2 — TICKER */}
+      {/* SECTION 2 TICKER */}
       <CaseStudiesTicker />
 
 
-      <div className="py-24 md:py-32">
+      <div className="py-24 md:py-32 grid-net">
         <div className="container max-w-[1060px] mx-auto px-4">
-          {/* SECTION 4 — FEATURED CASE STUDY */}
+          {/* SECTION 4 FEATURED CASE STUDY */}
           <FadeIn>
             <div className="bg-white border border-[#E5E5E2] rounded-[22px] overflow-hidden shadow-md mb-24 group">
               {/* TOP SECTION (dark header) */}
@@ -185,7 +185,7 @@ const CaseStudies = () => {
                     </span>
                     <h2 className="text-3xl md:text-[44px] font-black font-heading text-white tracking-tighter leading-[1] mb-8">
                       From $800/month to $23K <br className="hidden md:block" />
-                      — in 60 days flat
+                      in 60 days flat
                     </h2>
 
                     <div className="flex flex-wrap gap-2">
@@ -217,13 +217,13 @@ const CaseStudies = () => {
                   <div>
                     <h4 className="text-[11px] font-black text-[#0D0D0D] uppercase tracking-widest mb-6">THE PROBLEM:</h4>
                     <p className="text-[#5C5C5C] text-lg leading-relaxed font-medium">
-                      This brand had been live on TikTok Shop for 3 months with zero traction — fewer than 20 orders a week, no creator strategy, and was running ads straight to cold traffic with no organic foundation.
+                      This brand had been live on TikTok Shop for 3 months with zero traction fewer than 20 orders a week, no creator strategy, and was running ads straight to cold traffic with no organic foundation.
                     </p>
                   </div>
                   <div>
                     <h4 className="text-[11px] font-black text-[#0D0D0D] uppercase tracking-widest mb-6">WHY IT WASN'T WORKING:</h4>
                     <p className="text-[#5C5C5C] text-lg leading-relaxed font-medium">
-                      The shop had 4 listing titles in the wrong category — which completely killed algorithm visibility. No affiliate recruitment meant no organic reach. And their ads were Meta-style creative.
+                      The shop had 4 listing titles in the wrong category which completely killed algorithm visibility. No affiliate recruitment meant no organic reach. And their ads were Meta-style creative.
                     </p>
                   </div>
                 </div>
@@ -236,7 +236,7 @@ const CaseStudies = () => {
                       { title: "Recruited 47 creators", desc: "sent samples, briefed each with hook-first scripts tailored to their audience." },
                       { title: "Tested 3 hook variants", desc: "identified the winning angle by day 12 of the creative cycle." },
                       { title: "Launched Spark Ads", desc: "scaled from $800/day to $2,400/day by week 5 with 6x+ ROAS." },
-                      { title: "Expanded network", desc: "reached 140 creators by week 6 — affiliate sales reached 58% of GMV." }
+                      { title: "Expanded network", desc: "reached 140 creators by week 6 affiliate sales reached 58% of GMV." }
                     ].map((step, i) => (
                       <div key={i} className="bg-[#F7F7F5] border border-[#E5E5E2] rounded-2xl p-6 hover:border-[#D4B483]/30 transition-colors">
                         <div className="flex items-start gap-4">
@@ -307,27 +307,26 @@ const CaseStudies = () => {
                     "TikTok Shop was doing about $800/month for us. They rebuilt our creator setup and fixed our listings. We hit $23K/month within 60 days."
                   </p>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-[#0D0D0D] flex items-center justify-center text-white text-xl">👨</div>
                     <div>
                       <div className="font-black text-black">Marcus T.</div>
-                      <div className="text-xs font-bold text-[#D4B483] uppercase tracking-widest">DTC Skincare Brand, US</div>
+                      <div className="text-xs font-bold text-[#D4B483] uppercase tracking-widest">DTC Skincare Brand, LA</div>
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-6 hero-buttons">
-                  <Link to="/contact" className="w-full sm:w-auto">
+                  <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                     <Button className="w-full bg-[#0D0D0D] text-white hover:bg-neutral-800 rounded-full px-10 py-7 text-lg font-black transition-all hover:scale-105 shadow-xl">
                       Get Results Like This <ArrowRight size={20} className="ml-2" />
                     </Button>
-                  </Link>
-                  <span className="text-sm font-bold text-[#9A9A9A] uppercase tracking-widest">Free Audit call — no commitment required</span>
+                  </a>
+                  <span className="text-sm font-bold text-[#9A9A9A] uppercase tracking-widest">Free Audit call no commitment required</span>
                 </div>
               </div>
             </div>
           </FadeIn>
 
-          {/* SECTION 5 — MORE RESULTS GRID */}
+          {/* SECTION 5 MORE RESULTS GRID */}
           <div className="flex items-center gap-8 mb-16">
             <TapeLabel className="rotate-[1deg] px-3 py-1 bg-[#F5EDE3] shrink-0 text-[11px] font-black uppercase tracking-widest text-black">MORE RESULTS</TapeLabel>
             <div className="h-px bg-[#E5E5E2] w-full" />
@@ -386,16 +385,16 @@ const CaseStudies = () => {
 
                 <div className="px-8 py-6 bg-[#fcfcfc] border-t border-neutral-50 flex items-center justify-between">
                   <span className="text-[10px] font-black text-[#9A9A9A] uppercase tracking-widest">{study.author}{study.role && ` · ${study.role}`}</span>
-                  <Link to="/contact" className="text-[11px] font-black text-[#0D0D0D] uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
+                  <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer" className="text-[11px] font-black text-[#0D0D0D] uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
                     Get similar results <ArrowRight size={14} />
-                  </Link>
+                  </a>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* SECTION 6 — TRANSPARENCY / HONEST SECTION */}
+        {/* SECTION 6 TRANSPARENCY / HONEST SECTION */}
         <section className="mt-40 mb-32">
           <div className="container max-w-[1100px] mx-auto px-4">
             <FadeIn>
@@ -454,8 +453,8 @@ const CaseStudies = () => {
           </div>
         </section>
 
-        {/* SECTION 7 — BOTTOM CTA */}
-        <section className="py-24 md:py-32 bg-white">
+        {/* SECTION 7 BOTTOM CTA */}
+        <section className="py-24 md:py-32 bg-white grid-net">
           <div className="container max-w-[860px] mx-auto px-4">
             <FadeIn>
               <div className="bg-[#0D0D0D] rounded-[2rem] p-10 md:p-16 text-center relative overflow-hidden shadow-2xl group">
@@ -471,15 +470,15 @@ const CaseStudies = () => {
                     We'll tell you <TapeLabel className="inline-block px-3 py-0.5 bg-[#F5EDE3] text-black shadow-sm transform rotate-[1deg]">what's possible.</TapeLabel>
                   </h3>
                   <p className="text-white/50 text-lg md:text-xl font-medium mb-12 max-w-xl mx-auto leading-relaxed">
-                    Book a Free Audit Call. We'll look at your brand, ask the right questions, and give you an honest view of what TikTok Shop can do for you — no pitch, no pressure.
+                    Book a Free Audit Call. We'll look at your brand, ask the right questions, and give you an honest view of what TikTok Shop can do for you no pitch, no pressure.
                   </p>
 
                   <div className="flex flex-col items-center gap-6 hero-buttons">
-                    <Link to="/contact" className="w-full sm:w-auto">
+                    <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                       <Button className="w-full bg-[#F5EDE3] text-black hover:bg-white rounded-full px-10 py-8 text-xl font-black transition-all hover:scale-105 shadow-xl">
                         Book a Free Audit Call <ArrowRight size={24} className="ml-2" />
                       </Button>
-                    </Link>
+                    </a>
                     <Link to="/services" className="text-white/50 hover:text-white text-sm font-bold transition-colors">
                       View Our Services
                     </Link>
@@ -494,7 +493,7 @@ const CaseStudies = () => {
           </div>
         </section>
       </div>
-    </div>
+    </main>
   );
 };
 

@@ -19,7 +19,7 @@ const Creators = () => {
     };
 
     return (
-        <div className="bg-[#F7F7F5] text-[#0D0D0D] font-body">
+        <div className="bg-[#F7F7F5] grid-net text-[#0D0D0D] font-body">
             <SEO 
                 title="Join Our Creator Network"
                 description="Are you a TikTok creator? Partner with fast-growing brands through the TikShopScale network. Earn more through performance-based deals."
@@ -49,8 +49,8 @@ const Creators = () => {
                 `}
             </style>
 
-            {/* 2 — HERO SECTION */}
-            <section className="relative min-h-screen bg-[#FFFFFF] flex flex-col items-center justify-center pt-[160px] pb-[72px] px-8 text-center overflow-hidden">
+            {/* 2 HERO SECTION */}
+            <section className="relative min-h-screen bg-[#FFFFFF] grid-net flex flex-col items-center justify-center pt-[160px] pb-[72px] px-8 text-center overflow-hidden">
                 {/* Subtle radial beige glow */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#F5EDE3_0%,_transparent_70%)] opacity-40 pointer-events-none" />
 
@@ -103,7 +103,7 @@ const Creators = () => {
                 </div>
             </section>
 
-            {/* 3 — TICKER */}
+            {/* 3 TICKER */}
             <ServiceTicker
                 items={[
                     "FREE PRODUCTS",
@@ -115,8 +115,8 @@ const Creators = () => {
                 ]}
             />
 
-            {/* 4 — WHAT YOU GET SECTION */}
-            <section className="bg-[#FFFFFF] border-t border-[#E5E5E2] py-[88px] px-10">
+            {/* 4 WHAT YOU GET SECTION */}
+            <section className="bg-[#FFFFFF] grid-net border-t border-[#E5E5E2] py-[88px] px-10">
                 <div className="max-w-[1020px] mx-auto text-center md:text-left">
                     <span className="text-[#0D0D0D] font-heading font-[700] text-[11px] letter-spacing-[3px] tracking-[3px] uppercase block mb-[12px]">FOR CREATORS</span>
                     <h2 className="font-heading font-[800] text-[clamp(28px,4vw,48px)] text-[#0D0D0D] leading-[1.08] mb-[48px]">What you get when you join.</h2>
@@ -127,7 +127,7 @@ const Creators = () => {
                             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#F5EDE3]" />
                             <div className="text-[28px] mb-[14px]">📦</div>
                             <h3 className="font-heading font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Free Products Shipped to You</h3>
-                            <p className="text-[13px] text-[#5C5C5C] leading-[1.65]">Every partnership starts with the brand sending you their product — no cost to you.</p>
+                            <p className="text-[13px] text-[#5C5C5C] leading-[1.65]">Every partnership starts with the brand sending you their product no cost to you.</p>
                         </div>
 
                         {/* Card 2 */}
@@ -135,7 +135,7 @@ const Creators = () => {
                             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#F5EDE3]" />
                             <div className="text-[28px] mb-[14px]">💼</div>
                             <h3 className="font-heading font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Performance-Based Retainers</h3>
-                            <p className="text-[13px] text-[#5C5C5C] leading-[1.65]">Top creators unlock monthly retainers on top of commission — guaranteed recurring income.</p>
+                            <p className="text-[13px] text-[#5C5C5C] leading-[1.65]">Top creators unlock monthly retainers on top of commission guaranteed recurring income.</p>
                         </div>
 
                         {/* Card 3 (BEIGE) */}
@@ -158,14 +158,14 @@ const Creators = () => {
                             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#F5EDE3]" />
                             <div className="text-[28px] mb-[14px]">🧠</div>
                             <h3 className="font-heading font-[800] text-[15px] text-[#0D0D0D] leading-[1.3] mb-[8px]">Support on What Actually Converts</h3>
-                            <p className="text-[13px] text-[#5C5C5C] leading-[1.65]">We brief every creator on hooks, angles, and formats that drive sales — not just views.</p>
+                            <p className="text-[13px] text-[#5C5C5C] leading-[1.65]">We brief every creator on hooks, angles, and formats that drive sales not just views.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* 5 — APPLICATION FORM SECTION */}
-            <section id="apply" className="bg-[#F7F7F5] border-t border-[#E5E5E2] py-[88px] px-10">
+            {/* 5 APPLICATION FORM SECTION */}
+            <section id="apply" className="bg-[#F7F7F5] grid-net border-t border-[#E5E5E2] py-[88px] px-10">
                 <div className="max-w-[700px] mx-auto text-center">
                     <div className="mb-[48px]">
                         <span className="text-[#0D0D0D] font-heading font-[700] text-[11px] letter-spacing-[3px] tracking-[3px] uppercase block mb-[12px]">CREATOR APPLICATION</span>
@@ -248,11 +248,11 @@ const Creators = () => {
                                         <span className="text-[11px] uppercase letter-spacing-[2px] tracking-[2px] text-white/40 whitespace-nowrap font-bold">Your Performance</span>
                                         <div className="h-[1px] flex-1 bg-white/10"></div>
                                     </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px]">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px] mb-[16px]">
                                         <div className="flex flex-col gap-2">
                                             <label className="text-[12.5px] text-white/70 font-[700] tracking-[0.5px]">Average Monthly GMV Generated</label>
                                             <select className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
-                                                <option className="bg-[#0D0D0D]">I haven't sold yet</option>
+                                                <option value="" className="bg-[#0D0D0D]">Select Average Monthly GMV</option>
                                                 <option className="bg-[#0D0D0D]">Under $1,000/mo</option>
                                                 <option className="bg-[#0D0D0D]">$1,000 – $5,000/mo</option>
                                                 <option className="bg-[#0D0D0D]">$5,000 – $20,000/mo</option>
@@ -263,7 +263,7 @@ const Creators = () => {
                                         <div className="flex flex-col gap-2">
                                             <label className="text-[12.5px] text-white/70 font-[700] tracking-[0.5px]">Total GMV Generated (Lifetime)</label>
                                             <select className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
-                                                <option className="bg-[#0D0D0D]">Just starting out</option>
+                                                <option value="" className="bg-[#0D0D0D]">Select Total GMV Generated (Lifetime)</option>
                                                 <option className="bg-[#0D0D0D]">Under $5,000</option>
                                                 <option className="bg-[#0D0D0D]">$5,000 – $25,000</option>
                                                 <option className="bg-[#0D0D0D]">$25,000 – $100,000</option>
@@ -271,6 +271,17 @@ const Creators = () => {
                                                 <option className="bg-[#0D0D0D]">$500,000+</option>
                                             </select>
                                         </div>
+                                    </div>
+                                    <div className="flex flex-col gap-2">
+                                        <label className="text-[12.5px] text-white/70 font-[700] tracking-[0.5px]">What's Your Monthly Retainer?</label>
+                                        <select className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
+                                            <option value="" className="bg-[#0D0D0D]">Select Your Average Monthly Retainer</option>
+                                            <option className="bg-[#0D0D0D]">$0 - $500</option>
+                                            <option className="bg-[#0D0D0D]">$500 - $1,000</option>
+                                            <option className="bg-[#0D0D0D]">$1,000 - $2,500</option>
+                                            <option className="bg-[#0D0D0D]">$2,500 - $5,000</option>
+                                            <option className="bg-[#0D0D0D]">$5,000+</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -290,7 +301,7 @@ const Creators = () => {
                             <div id="success-message" className="text-center py-16 flex flex-col items-center animate-fade-in-up relative z-10">
                                 <div className="text-[56px] mb-8">✅</div>
                                 <h3 className="font-heading font-[800] text-[26px] text-[#D4B483] mb-4">Application Received!</h3>
-                                <p className="text-white/60 text-[15px] leading-[1.65]">We review every application personally. You'll hear back from us within 48 hours. Keep creating — we'll be in touch.</p>
+                                <p className="text-white/60 text-[15px] leading-[1.65]">We review every application personally. You'll hear back from us within 48 hours. Keep creating we'll be in touch.</p>
                             </div>
                         )}
                     </div>

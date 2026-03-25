@@ -33,16 +33,29 @@ const Services = () => {
   useEffect(() => {
     // Show/hide sidebar based on scroll
     const handleScrollVisibility = () => {
-      // Show sidebar after hero (roughly 500px)
-      if (window.scrollY > 450) {
+      const heroThreshold = 450;
+      const phase3Bottom = phaseRefs[3].current ? phaseRefs[3].current.offsetTop + phaseRefs[3].current.offsetHeight : 0;
+      const scrollY = window.scrollY;
+
+      // Show sidebar between hero and end of Phase 3
+      if (scrollY > heroThreshold && (phase3Bottom === 0 || scrollY < phase3Bottom - 400)) {
         setShowSidebar(true);
       } else {
         setShowSidebar(false);
       }
     };
 
-    window.addEventListener("scroll", handleScrollVisibility);
-    return () => window.removeEventListener("scroll", handleScrollVisibility);
+    let rafId: number;
+    const scrollListener = () => {
+      if (rafId) window.cancelAnimationFrame(rafId);
+      rafId = window.requestAnimationFrame(handleScrollVisibility);
+    };
+
+    window.addEventListener("scroll", scrollListener, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+      if (rafId) window.cancelAnimationFrame(rafId);
+    };
   }, []);
 
   useEffect(() => {
@@ -87,14 +100,14 @@ const Services = () => {
   };
 
   return (
-    <div className="bg-[#F7F7F5] min-h-screen font-body text-neutral-900">
-      <SEO 
+    <div className="bg-[#F7F7F5] grid-net min-h-screen font-body text-neutral-900">
+      <SEO
         title="Our Services"
         description="Explore our 3-phase TikTok Shop growth framework: Foundation, Growth, and Scale. Specialist services for brands ready to dominate TikTok Shop."
         keywords="TikTok Shop Management, Creator Seeding, Spark Ads, Shop Audit, Growth Roadmap"
       />
-      {/* SECTION 1 — HERO */}
-      <section className="pt-28 pb-16 md:pt-36 md:pb-24 bg-white relative overflow-hidden text-center">
+      {/* SECTION 1 HERO */}
+      <section className="pt-28 pb-16 md:pt-36 md:pb-24 bg-white grid-net relative overflow-hidden text-center">
         {/* Subtle radial beige glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#F5EDE3_0%,_transparent_70%)] opacity-40 pointer-events-none" />
 
@@ -116,7 +129,7 @@ const Services = () => {
             </h1>
 
             <p className="text-base md:text-xl text-neutral-500 font-medium max-w-xl mx-auto leading-relaxed mb-10 px-4">
-              From first-ever launch to scaling past $100K/mo — we handle the full TikTok commerce stack, in the right order, at the right time.
+              From first-ever launch to scaling past $100K/mo we handle the full TikTok commerce stack, in the right order, at the right time.
             </p>
 
             <div className="flex flex-wrap justify-center gap-3 md:gap-4">
@@ -137,11 +150,11 @@ const Services = () => {
         </div>
       </section>
 
-      {/* SECTION 2 — SERVICES TICKER */}
+      {/* SECTION 2 SERVICES TICKER */}
       <ServiceTicker />
 
-      {/* SECTION 3 — PHASE NAVIGATOR (Mobile Sticky + Desktop Sidebar) */}
-      <nav className="lg:hidden sticky top-[80px] md:top-[88px] z-40 bg-white/80 backdrop-blur-xl border-b border-[#E5E5E2] py-4">
+      {/* SECTION 3 PHASE NAVIGATOR (Mobile Sticky + Desktop Sidebar) */}
+      <nav className="lg:hidden sticky top-[80px] md:top-[88px] z-40 bg-white/80 backdrop-blur-xl border-b border-[#E5E5E2] py-4 will-change-transform">
         <div className="container max-w-[1240px] mx-auto px-4">
           <div className="flex justify-center gap-6 md:gap-12">
             {[
@@ -169,7 +182,7 @@ const Services = () => {
       </nav>
 
       {/* Vertical Sidebar Navigator for Desktop */}
-      <nav className={`hidden lg:flex fixed left-8 xl:left-12 top-1/2 -translate-y-1/2 z-40 flex-col gap-12 transition-all duration-700 ease-in-out ${showSidebar ? "opacity-100 translate-x-0 pointer-events-auto" : "opacity-0 -translate-x-12 pointer-events-none"
+      <nav className={`hidden lg:flex fixed left-8 xl:left-12 top-1/2 -translate-y-1/2 z-40 flex-col gap-12 transition-all duration-700 ease-in-out will-change-transform ${showSidebar ? "opacity-100 translate-x-0 pointer-events-auto" : "opacity-0 -translate-x-12 pointer-events-none"
         }`}>
         {[
           { id: 1, label: "Foundation" },
@@ -199,11 +212,11 @@ const Services = () => {
         ))}
       </nav>
 
-      {/* SECTION 4 — PHASE 1: FOUNDATION */}
+      {/* SECTION 4 PHASE 1: FOUNDATION */}
       <section
         data-phase="1"
         ref={phaseRefs[1]}
-        className="py-24 md:py-32 bg-white"
+        className="py-24 md:py-32 bg-white grid-net"
       >
         <div className="container max-w-[900px] mx-auto px-4">
           <FadeIn>
@@ -212,7 +225,7 @@ const Services = () => {
                 PHASE 1
               </div>
               <h2 className="text-3xl md:text-5xl font-black font-heading tracking-tighter mb-6">
-                Foundation — Get it right <br className="hidden md:block" />
+                Foundation Get it right <br className="hidden md:block" />
                 <TapeLabel className="inline-block px-3 py-1 bg-[#F5EDE3] text-black shadow-sm transform -rotate-1 origin-left mt-2">
                   before you spend.
                 </TapeLabel>
@@ -226,11 +239,11 @@ const Services = () => {
           <div className="space-y-8">
             <ServiceCard
               num="01"
-              icon={Map}
+              emoji="🚀"
               title="Launch Strategy"
               proof="Brands with a launch plan generate 3x more GMV in their first 60 days"
               descBold="Most brands rush their TikTok Shop launch, burn their first $5K on ads with no traction, and blame the platform."
-              descNormal="We build your 30–60 day launch roadmap before you spend a dollar — offer positioning, creator seeding, content plan, and paid strategy all aligned. So when you go live, you hit the ground running."
+              descNormal="We build your 30–60 day launch roadmap before you spend a dollar offer positioning, creator seeding, content plan, and paid strategy all aligned. So when you go live, you hit the ground running."
               features={[
                 "Market & competitor analysis inside TikTok Shop",
                 "Offer positioning & pricing strategy",
@@ -248,10 +261,10 @@ const Services = () => {
 
             <ServiceCard
               num="02"
-              icon={Zap}
-              title="TikTok Shop Setup + Optimization"
-              proof="One listing audit found $18K/mo in recoverable GMV — before spending a dollar on ads"
-              descBold="Most underperforming shops don't have a product problem — they have a listings problem."
+              emoji="🛒"
+              title="TikTok Shop Setup + Optimization Strategy"
+              proof="One listing audit found $18K/mo in recoverable GMV before spending a dollar on ads"
+              descBold="Most underperforming shops don't have a product problem they have a listings problem."
               descNormal="Bad titles, wrong categories, weak images, and no pricing strategy. We audit every inch of your shop and fix what's silently killing your conversion rate."
               features={[
                 "Full shop setup or audit",
@@ -260,21 +273,21 @@ const Services = () => {
                 "Offer & pricing structure",
                 "Conversion rate improvements"
               ]}
-              who="Brands launching from scratch — or already live but not hitting GMV targets and not sure why."
+              who="Brands launching from scratch or already live but not hitting GMV targets and not sure why."
               timeline="2–4 weeks"
               investment="$1,500/mo"
               investmentSub="or one-time setup fee"
-              footerNote="Free shop audit — we'll review yours live on the call"
+              footerNote="Free shop audit we'll review yours live on the call"
               ctaText="Book a Free Shop Audit"
             />
 
             <ServiceCard
               num="03"
-              icon={Shield}
+              emoji="🛡️"
               title="Compliance + Risk Management"
               proof="Caught and resolved 3 listing violations before they triggered an account-level flag"
               descBold="One policy violation can freeze your shop overnight. Most brands don't find out they're non-compliant until the damage is done"
-              descNormal="— suspended listings, withheld payouts, or a full account ban. We audit your shop before TikTok does."
+              descNormal=" suspended listings, withheld payouts, or a full account ban. We audit your shop before TikTok does."
               features={[
                 "Policy compliance audits",
                 "Listing approval support",
@@ -286,18 +299,18 @@ const Services = () => {
               timeline="1–2 weeks initial audit / then ongoing monitoring"
               investment="$800/mo"
               investmentSub="ongoing monitoring"
-              footerNote="Free compliance check — we'll flag your risks on the call"
+              footerNote="Free compliance check we'll flag your risks on the call"
               ctaText="Get a Free Compliance Check"
             />
           </div>
         </div>
       </section>
 
-      {/* SECTION 5 — PHASE 2: GROWTH */}
+      {/* SECTION 5 PHASE 2: GROWTH */}
       <section
         data-phase="2"
         ref={phaseRefs[2]}
-        className="py-24 md:py-32 bg-[#F7F7F5]"
+        className="py-24 md:py-32 bg-[#F7F7F5] grid-net"
       >
         <div className="container max-w-[900px] mx-auto px-4">
           <FadeIn>
@@ -306,13 +319,13 @@ const Services = () => {
                 PHASE 2
               </div>
               <h2 className="text-3xl md:text-5xl font-black font-heading tracking-tighter mb-6">
-                Growth — Build the engine <br className="hidden md:block" />
+                Growth Build the engine <br className="hidden md:block" />
                 <TapeLabel className="inline-block px-3 py-1 bg-[#F5EDE3] text-black shadow-sm transform rotate-1 origin-left mt-2">
                   that drives sales.
                 </TapeLabel>
               </h2>
               <p className="text-lg md:text-xl text-neutral-500 font-medium leading-relaxed max-w-2xl mx-auto">
-                Creators and content are the core growth levers on TikTok Shop. This phase builds the system that keeps generating GMV — with or without paid ads.
+                Creators and content are the core growth levers on TikTok Shop. This phase builds the system that keeps generating GMV with or without paid ads.
               </p>
             </div>
           </FadeIn>
@@ -320,10 +333,10 @@ const Services = () => {
           <div className="space-y-8">
             <ServiceCard
               num="04"
-              icon={Users}
+              emoji="🌱"
               title="Creator Seeding + Affiliate Program"
-              proof="312 active affiliates recruited in 6 weeks — affiliate sales went from 0% to 60% of total GMV"
-              descBold="Affiliates are the #1 growth lever on TikTok Shop — and most brands have zero system to recruit them."
+              proof="312 active affiliates recruited in 6 weeks affiliate sales went from 0% to 60% of total GMV"
+              descBold="Affiliates are the #1 growth lever on TikTok Shop and most brands have zero system to recruit them."
               descNormal="We find creators in your niche, send them your product, brief them on what to say, and build an affiliate engine that keeps growing month after month without you lifting a finger."
               features={[
                 "Creator sourcing & vetting",
@@ -332,7 +345,7 @@ const Services = () => {
                 "Content briefing & tracking",
                 "Performance optimization"
               ]}
-              who="Brands ready to let creators drive the majority of their sales. Works best when you have a product that converts — we amplify it."
+              who="Brands ready to let creators drive the majority of their sales. Works best when you have a product that converts we amplify it."
               timeline="Ongoing / real traction in 4–6 weeks"
               investment="$2,500/mo"
               investmentSub="optional performance bonus"
@@ -342,10 +355,10 @@ const Services = () => {
 
             <ServiceCard
               num="05"
-              icon={Star}
+              emoji="🤝"
               title="Creator Management + Retention Program"
-              proof="Retained top 20 creators for a fashion brand — they drove 42% of GMV for 4 consecutive months"
-              descBold="Getting a creator to post once is easy. Building a network of creators who promote you consistently and increase their output — that's where the compounding happens."
+              proof="Retained top 20 creators for a fashion brand they drove 42% of GMV for 4 consecutive months"
+              descBold="Getting a creator to post once is easy. Building a network of creators who promote you consistently and increase their output that's where the compounding happens."
               descNormal="We manage your top performers so they stay loyal, stay motivated, and keep selling."
               features={[
                 "Top performer identification",
@@ -364,10 +377,10 @@ const Services = () => {
 
             <ServiceCard
               num="06"
-              icon={Video}
+              emoji="🎬"
               title="UGC Production + Creative Direction"
               proof="Hook test #7 drove 2.1M views and $38K in direct sales in 72 hours"
-              descBold="The reason most TikTok content doesn't sell isn't the creator — it's the brief. Wrong hook, wrong angle, looks like an ad."
+              descBold="The reason most TikTok content doesn't sell isn't the creator it's the brief. Wrong hook, wrong angle, looks like an ad."
               descNormal="We handle the full creative system: hook-first scripts, creator briefs, filming guidance, editing, and weekly A/B testing until we find what actually converts."
               features={[
                 "Hook-first script frameworks",
@@ -387,11 +400,11 @@ const Services = () => {
         </div>
       </section>
 
-      {/* SECTION 6 — PHASE 3: SCALE */}
+      {/* SECTION 6 PHASE 3: SCALE */}
       <section
         data-phase="3"
         ref={phaseRefs[3]}
-        className="py-24 md:py-32 bg-white"
+        className="py-24 md:py-32 bg-white grid-net"
       >
         <div className="container max-w-[900px] mx-auto px-4">
           <FadeIn>
@@ -400,7 +413,7 @@ const Services = () => {
                 PHASE 3
               </div>
               <h2 className="text-3xl md:text-5xl font-black font-heading tracking-tighter mb-6">
-                Scale — Pour fuel on <br className="hidden md:block" />
+                Scale Pour fuel on <br className="hidden md:block" />
                 <TapeLabel className="inline-block px-3 py-1 bg-[#F5EDE3] text-black shadow-sm transform -rotate-1 origin-left mt-2">
                   what's working.
                 </TapeLabel>
@@ -414,10 +427,10 @@ const Services = () => {
           <div className="space-y-8">
             <ServiceCard
               num="07"
-              icon={BarChart3}
-              title="Spark Ads + Paid Media Management"
+              emoji="📊"
+              title="Ads + Paid Media Management"
               proof="$12K ad spend → $81K revenue in 30 days. 6.8x ROAS from week 3"
-              descBold="Most failed TikTok ad campaigns use the wrong creative format, wrong objective, or wrong audience signal — not the wrong budget."
+              descBold="Most failed TikTok ad campaigns use the wrong creative format, wrong objective, or wrong audience signal not the wrong budget."
               descNormal="We take your best-performing organic content and scale it with a paid strategy built specifically for TikTok's native ad ecosystem. We run the ads. You see the ROAS."
               features={[
                 "Spark Ads setup & management",
@@ -430,16 +443,16 @@ const Services = () => {
               timeline="Ongoing / weekly creative testing + optimizations"
               investment="$2,000/mo"
               investmentSub="ad spend (direct to TikTok)"
-              footerNote="Free ad account audit — we'll show you where spend is leaking"
+              footerNote="Free ad account audit we'll show you where spend is leaking"
               ctaText="Get a Free Ad Audit"
             />
 
             <ServiceCard
               num="08"
-              icon={Play}
+              emoji="🔴"
               title="Live Shopping Strategy + Execution"
               proof="First live session generated $14K in 2 hours with a host we sourced and trained from scratch"
-              descBold="Live selling is TikTok Shop's highest-converting format — and most brands either ignore it completely or go live with no plan and wonder why nobody buys."
+              descBold="Live selling is TikTok Shop's highest-converting format and most brands either ignore it completely or go live with no plan and wonder why nobody buys."
               descNormal="We design the full experience: scripting, host sourcing or training, promotional mechanics, and post-live analysis so every session gets better."
               features={[
                 "Live event planning & scripting",
@@ -458,10 +471,10 @@ const Services = () => {
 
             <ServiceCard
               num="09"
-              icon={Layout}
+              emoji="📈"
               title="Shop Operations + Reporting"
-              proof="Found 3 SKUs eating 22% of margin — cutting them pushed monthly profit up 38% in 30 days"
-              descBold="At $50K+/mo, operational chaos will quietly cap your growth. Inventory issues, slow-moving SKUs, unclear numbers — they compound fast and silently."
+              proof="Found 3 SKUs eating 22% of margin cutting them pushed monthly profit up 38% in 30 days"
+              descBold="At $50K+/mo, operational chaos will quietly cap your growth. Inventory issues, slow-moving SKUs, unclear numbers they compound fast and silently."
               descNormal="We handle backend management and give you clear weekly visibility into GMV, profit, CVR, and exactly where to focus next."
               features={[
                 "Inventory & catalog oversight",
@@ -474,15 +487,15 @@ const Services = () => {
               timeline="Ongoing / weekly or bi-weekly reporting"
               investment="$1,800/mo"
               investmentSub="scales with volume"
-              footerNote="Free margin audit — we'll find your profit leaks"
+              footerNote="Free margin audit we'll find your profit leaks"
               ctaText="Get a Free Margin Audit"
             />
           </div>
         </div>
       </section>
 
-      {/* SECTION 7 — BOTTOM CTA BANNER */}
-      <section className="py-24 md:py-32 bg-white">
+      {/* SECTION 7 BOTTOM CTA BANNER */}
+      <section className="py-24 md:py-32 bg-white grid-net">
         <div className="container max-w-[860px] mx-auto px-4">
           <FadeIn>
             <div className="bg-[#0D0D0D] rounded-[2rem] p-10 md:p-16 text-center relative overflow-hidden shadow-2xl group">
@@ -498,15 +511,15 @@ const Services = () => {
                   We'll tell you <TapeLabel className="inline-block px-3 py-0.5 bg-[#F5EDE3] text-black shadow-sm transform rotate-[1deg]">exactly what you need.</TapeLabel>
                 </h2>
                 <p className="text-white/50 text-lg md:text-xl font-medium mb-12 max-w-xl mx-auto cursor-none">
-                  Book a Free Audit Call. We'll look at your brand, ask the right questions, and tell you honestly which phase you're in — and what to focus on first.
+                  Book a Free Audit Call. We'll look at your brand, ask the right questions, and tell you honestly which phase you're in and what to focus on first.
                 </p>
 
                 <div className="flex flex-col items-center gap-6">
-                  <Link to="/contact">
+                  <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer">
                     <Button className="bg-[#F5EDE3] text-black hover:bg-white rounded-full px-10 py-8 text-xl font-black transition-all hover:scale-105 shadow-xl">
                       Book a Free Audit Call <ArrowRight size={24} className="ml-2" />
                     </Button>
-                  </Link>
+                  </a>
                   <Link to="/case-studies" className="text-white/50 hover:text-white text-sm font-bold transition-colors">
                     View Case Studies
                   </Link>
@@ -526,7 +539,7 @@ const Services = () => {
 
 interface ServiceCardProps {
   num: string;
-  icon: any;
+  emoji: string;
   title: string;
   proof: string;
   descBold: string;
@@ -542,7 +555,7 @@ interface ServiceCardProps {
 
 const ServiceCard = ({
   num,
-  icon: Icon,
+  emoji,
   title,
   proof,
   descBold,
@@ -563,8 +576,8 @@ const ServiceCard = ({
       <div className="p-8 md:p-10">
         <div className="flex items-start justify-between mb-8">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-[#F7F7F5] border border-neutral-100 flex items-center justify-center text-neutral-900 group-hover:bg-[#F5EDE3] group-hover:text-black transition-colors duration-500">
-              <Icon size={24} strokeWidth={1.5} />
+            <div className="w-12 h-12 rounded-xl bg-[#F7F7F5] border border-neutral-100 flex items-center justify-center text-2xl group-hover:bg-[#F5EDE3] transition-colors duration-500">
+              {emoji}
             </div>
             <div>
               <span className="text-[#9A9A9A] text-[10px] font-black uppercase tracking-widest block mb-1">SERVICE {num}</span>
@@ -609,11 +622,11 @@ const ServiceCard = ({
           <Search size={14} className="hidden sm:block text-[#D4B483]" />
           {footerNote}
         </div>
-        <Link to="/contact" className="w-full sm:w-auto">
+        <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
           <Button variant="hero" size="sm" className="w-full sm:w-auto bg-black text-white hover:bg-neutral-800 rounded-full px-6 sm:px-8 py-5 sm:py-6 font-bold shadow-lg transition-all group-hover:scale-105 active:scale-95 text-[11px] sm:text-sm whitespace-normal sm:whitespace-nowrap text-center">
             {ctaText} <ArrowRight size={16} className="ml-1 sm:ml-2 shrink-0" />
           </Button>
-        </Link>
+        </a>
       </div>
     </div>
   </FadeIn>

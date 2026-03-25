@@ -23,7 +23,7 @@ const Contact = () => {
         description="Ready to scale your TikTok Shop? Get in touch today for a free audit call. Let's map your fastest path to growth."
         keywords="Contact TikShop Scale, TikTok Shop Audit, eCommerce Consultation"
       />
-      <section className="pt-36 pb-20 md:py-28 bg-card">
+      <section className="pt-36 pb-20 md:py-28 bg-card grid-net">
         <div className="container max-w-2xl text-center">
           <FadeIn>
             <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
@@ -36,7 +36,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 grid-net">
         <div className="container max-w-xl">
           <FadeIn>
             <form onSubmit={handleSubmit} className="space-y-5">

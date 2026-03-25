@@ -11,11 +11,11 @@ const services = [
         emoji: "🧱",
         desc: "Before scaling anything, we build the core TikTok Shop infrastructure so your brand is positioned to convert traffic into revenue.",
         servicesList: [
-            "Launch Strategy",
-            "TikTok Shop Setup + Optimization",
-            "Compliance + Risk Management"
+            { name: "Launch Strategy", emoji: "🚀" },
+            { name: "TikTok Shop Setup + Optimization Strategy", emoji: "🛒" },
+            { name: "Compliance + Risk Management", emoji: "🛡️" }
         ],
-        cta1: "Learn More",
+        cta1: "learn more →",
         cta2: "Book a Free Shop Audit"
     },
     {
@@ -24,11 +24,11 @@ const services = [
         emoji: "📈",
         desc: "Once the foundation is set, we activate creators, affiliates, and content to start generating consistent sales.",
         servicesList: [
-            "Creator Seeding + Affiliate Program",
-            "Creator Management + Retention Program",
-            "UGC Production + Creative Direction"
+            { name: "Creator Seeding + Affiliate Program", emoji: "🌱" },
+            { name: "Creator Management + Retention Program", emoji: "🤝" },
+            { name: "UGC Production + Creative Direction", emoji: "🎬" }
         ],
-        cta1: "Learn More",
+        cta1: "learn more →",
         cta2: "Book a Free Creators Audit"
     },
     {
@@ -37,11 +37,11 @@ const services = [
         emoji: "🚀",
         desc: "After traction begins, we scale aggressively through paid media, LIVE commerce, and operational optimization.",
         servicesList: [
-            "Spark Ads + Paid Media Management",
-            "LIVE Shopping Strategy + Execution",
-            "Shop Operations + Reporting"
+            { name: "Ads + Paid Media Management", emoji: "📊" },
+            { name: "LIVE Shopping Strategy + Execution", emoji: "🔴" },
+            { name: "Shop Operations + Reporting", emoji: "📈" }
         ],
-        cta1: "Learn More",
+        cta1: "learn more →",
         cta2: "Book a Free Ad Audit"
     },
     {
@@ -71,18 +71,27 @@ const ServicesShowcase = () => {
 
     // Use a high-frequency effect to check positioning for EARLIER intervention
     useEffect(() => {
+        let rafId: number | null = null;
+        
         const checkPos = () => {
-            if (!containerRef.current) return;
-            const rect = containerRef.current.getBoundingClientRect();
-            const vh = window.innerHeight;
+            if (rafId) return;
+            rafId = window.requestAnimationFrame(() => {
+                rafId = null;
+                if (!containerRef.current) return;
+                const rect = containerRef.current.getBoundingClientRect();
+                const vh = window.innerHeight;
 
-            // Early detection: trigger "active" state as it's nearing center (40-60% range)
-            const isInRange = rect.top < vh * 0.45 && rect.bottom > vh * 0.55;
-            setIsCentered(isInRange);
+                // Early detection: trigger "active" state as it's nearing center (40-60% range)
+                const isInRange = rect.top < vh * 0.45 && rect.bottom > vh * 0.55;
+                setIsCentered(isInRange);
+            });
         };
 
         window.addEventListener("scroll", checkPos, { passive: true });
-        return () => window.removeEventListener("scroll", checkPos);
+        return () => {
+            window.removeEventListener("scroll", checkPos);
+            if (rafId) cancelAnimationFrame(rafId);
+        };
     }, []);
 
     const handleWheel = useCallback((e: WheelEvent) => {
@@ -107,12 +116,13 @@ const ServicesShowcase = () => {
                 if (e.cancelable) e.preventDefault();
                 e.stopPropagation();
 
-                // Lock the body to prevent ANY background movement
+                const mid = rect.top + rect.height / 2;
+                const vMid = vh / 2;
+
+                // Lock the body to prevent ANY background movement AFTER reading rects
                 document.body.style.overflow = 'hidden';
 
                 // Force section to stay centered while internal scroll happens
-                const mid = rect.top + rect.height / 2;
-                const vMid = vh / 2;
                 if (Math.abs(mid - vMid) > 1) {
                     window.scrollTo({
                         top: window.scrollY + (mid - vMid),
@@ -216,12 +226,12 @@ const ServicesShowcase = () => {
             ref={containerRef}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
-            className="relative h-screen w-full flex items-center justify-center bg-background overflow-hidden"
+            className="relative h-screen w-full flex items-center justify-center bg-[var(--site-bg)] overflow-hidden transition-colors"
         >
             <div className="w-full max-w-5xl relative px-4">
 
                 {/* Main Content Card - Optimized for mobile responsiveness */}
-                <div className="relative w-full h-[520px] md:h-[600px] bg-card/70 backdrop-blur-2xl rounded-[2.5rem] md:rounded-[4rem] border border-border/40 shadow-2xl flex items-center justify-center p-5 md:p-12 overflow-hidden">
+                <div className="relative w-full h-[520px] md:h-[600px] bg-[var(--card-bg)]/70 backdrop-blur-2xl rounded-[2.5rem] md:rounded-[4rem] border border-[var(--card-border)] shadow-2xl flex items-center justify-center p-5 md:p-12 overflow-hidden transition-colors">
 
                     {/* Progress Indicators */}
                     <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 flex flex-col gap-4 hidden sm:flex z-50">
@@ -251,52 +261,52 @@ const ServicesShowcase = () => {
 
                                 <div className="space-y-3 md:space-y-4">
                                     {services[activeSlide].phase && (
-                                        <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] text-primary/30">
+                                        <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] text-[var(--muted-text)] transition-colors">
                                             {services[activeSlide].phase}
                                         </span>
                                     )}
-                                    <h3 className="text-2xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-none text-foreground">
+                                    <h3 className="text-2xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-none text-[var(--site-text)] transition-colors">
                                         {services[activeSlide].title}
                                     </h3>
-                                    <p className="text-xs md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto font-medium px-2">
+                                    <p className="text-xs md:text-lg text-[var(--muted-text)] leading-relaxed max-w-xl mx-auto font-medium px-2 transition-colors">
                                         {services[activeSlide].desc}
                                     </p>
                                     
                                     {services[activeSlide].subDesc && (
-                                        <p className="text-xs md:text-lg text-neutral-900 leading-relaxed max-w-xl mx-auto font-bold px-2">
+                                        <p className="text-xs md:text-lg text-[var(--site-text)] leading-relaxed max-w-xl mx-auto font-bold px-2 transition-colors">
                                             {services[activeSlide].subDesc}
                                         </p>
                                     )}
 
                                     {services[activeSlide].servicesList.length > 0 && (
                                         <div className="pt-4 space-y-2">
-                                            <p className="text-[10px] md:text-xs font-black uppercase tracking-widest text-[#9A9A9A]">Services included:</p>
+                                            <p className="text-[10px] md:text-xs font-black uppercase tracking-widest text-[var(--muted-text)] transition-colors">Services included:</p>
                                             <ul className="flex flex-col items-center gap-1">
-                                                {services[activeSlide].servicesList.map((service, idx) => (
-                                                    <li key={service} className="text-xs md:text-base font-bold text-neutral-600 flex items-center gap-2">
-                                                        <span className="w-1 h-1 bg-primary rounded-full" />
-                                                        {service}
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                                 {services[activeSlide].servicesList.map((service, idx) => (
+                                                     <li key={service.name} className="text-xs md:text-base font-bold text-[var(--muted-text)] flex items-center gap-2 transition-colors">
+                                                         <span>{service.emoji}</span>
+                                                         {service.name}
+                                                     </li>
+                                                 ))}
+                                             </ul>
                                         </div>
                                     )}
                                 </div>
 
                                 <div className="pt-4 flex flex-wrap items-center justify-center gap-4 md:gap-8">
                                     {services[activeSlide].cta1 && (
-                                        <Link to="/contact">
+                                        <Link to="/case-studies">
                                             <button className="text-[12px] md:text-base font-black flex items-center gap-1 hover:gap-2 transition-all group">
-                                                {services[activeSlide].cta1} <ArrowRight size={18} className="transition-transform" />
+                                                {services[activeSlide].cta1}
                                             </button>
                                         </Link>
                                     )}
-                                    <Link to="/contact">
+                                    <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer">
                                         <Button variant="hero" size="lg" className="rounded-full px-6 md:px-10 h-10 md:h-14 text-[12px] md:text-base font-black shadow-xl active:scale-95 transition-all gap-2">
                                             {services[activeSlide].cta2}
                                             <ArrowRight size={18} className="md:w-5 md:h-5" />
                                         </Button>
-                                    </Link>
+                                    </a>
                                 </div>
                             </motion.div>
                         </AnimatePresence>
@@ -305,13 +315,16 @@ const ServicesShowcase = () => {
                     <div className="absolute top-6 right-6 md:top-12 md:right-12 text-[10px] md:text-sm font-black tracking-widest text-black select-none">
                         0{activeSlide + 1} / 0{services.length}
                     </div>
+                </div>
 
-                    <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 sm:hidden">
-                        {services.map((s, i) => (
-                            <div key={s.title} className={`h-1 rounded-full transition-all duration-500 ${activeSlide === i ? "w-6 bg-primary" : "w-1.5 bg-border/40"}`} />
-                        ))}
-                    </div>
-
+                {/* Mobile indicators - Moved below the card and centered */}
+                <div className="mt-8 flex justify-center gap-2 sm:hidden relative z-30">
+                    {services.map((s, i) => (
+                        <div 
+                            key={`mobile-indicator-${i}`} 
+                            className={`h-1.5 rounded-full transition-all duration-500 ${activeSlide === i ? "w-10 bg-primary" : "w-2 bg-border/40"}`} 
+                        />
+                    ))}
                 </div>
             </div>
         </section>

@@ -62,13 +62,13 @@ const FAQ = () => {
                 {/* Header Section */}
                 <div className="text-center mb-10 md:mb-12">
                     <FadeIn>
-                        <div className="inline-flex items-center px-5 py-1.5 rounded-full bg-[#F5EDE3] border border-[#E6D5C3] text-neutral-900 text-[9px] font-black uppercase tracking-[0.2em] mb-4 shadow-sm">
+                        <div className="inline-flex items-center px-5 py-1.5 rounded-full bg-[var(--site-accent-bg)] border border-[var(--card-border)] text-[var(--site-text)] text-[9px] font-black uppercase tracking-[0.2em] mb-4 shadow-sm transition-colors">
                             Common Questions
                         </div>
 
                         <h2 className="text-3xl md:text-4xl lg:text-[42px] font-black tracking-tighter mb-4 leading-tight text-foreground">
                             Frequently Asked <br />
-                            <TapeLabel className="inline-block mt-1 px-4 py-1 rotate-[-1deg] bg-[#F5EDE3] shadow-sm">
+                            <TapeLabel className="inline-block mt-1 px-4 py-1 rotate-[-1deg] bg-[var(--site-accent-bg)] shadow-sm transition-colors">
                                 Questions
                             </TapeLabel>
                         </h2>
@@ -88,11 +88,11 @@ const FAQ = () => {
                                 value={`item-${index}`}
                                 className="border-none group"
                             >
-                                <div className="rounded-2xl md:rounded-[1.5rem] border border-border/50 bg-background/50 backdrop-blur-md shadow-sm transition-all duration-500 overflow-hidden group-data-[state=open]:bg-[#F5EDE3] group-data-[state=open]:shadow-md group-data-[state=open]:border-[#E6D5C3] hover:shadow-md hover:-translate-y-0.5">
-                                    <AccordionTrigger className="px-6 md:px-8 py-4 md:py-5 text-left hover:no-underline font-bold text-[15px] md:text-[17px] text-foreground transition-all [&>svg]:h-3.5 [&>svg]:w-3.5 md:[&>svg]:h-4 md:[&>svg]:w-4">
+                                <div className="rounded-2xl md:rounded-[1.5rem] border border-[var(--card-border)] bg-[var(--site-bg)]/50 backdrop-blur-md shadow-sm transition-all duration-500 overflow-hidden group-data-[state=open]:bg-[var(--site-accent-bg)] group-data-[state=open]:shadow-md group-data-[state=open]:border-[var(--card-border)] hover:shadow-md hover:-translate-y-0.5 transition-colors">
+                                    <AccordionTrigger className="px-6 md:px-8 py-4 md:py-5 text-left hover:no-underline font-bold text-[15px] md:text-[17px] text-[var(--site-text)] transition-all [&>svg]:h-3.5 [&>svg]:w-3.5 md:[&>svg]:h-4 md:[&>svg]:w-4 transition-colors">
                                         {faq.question}
                                     </AccordionTrigger>
-                                    <AccordionContent className="px-6 md:px-8 pb-5 text-neutral-600 text-sm md:text-[15px] leading-relaxed font-medium">
+                                    <AccordionContent className="px-6 md:px-8 pb-5 text-[var(--muted-text)] text-sm md:text-[15px] leading-relaxed font-medium transition-colors">
                                         {faq.answer}
                                     </AccordionContent>
                                 </div>

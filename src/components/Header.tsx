@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import navLogo from "@/assets/nav_logo.png";
+import navLogo from "@/assets/nav_logo.webp";
+import navLogo84 from "@/assets/nav_logo-84.webp";
 
 const navItems = [
   { label: "Services", path: "/services" },
@@ -37,32 +38,43 @@ const Header = () => {
   };
 
   useEffect(() => {
+    let ticking = false;
+    let rafId: number;
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      if (!ticking) {
+        rafId = window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
 
-      // Scrolled state for appearance (padding/max-width)
-      setScrolled(currentScrollY > 15);
+          // Scrolled state for appearance (padding/max-width)
+          setScrolled(currentScrollY > 15);
 
-      // Visibility state for hide/show on scroll direction
-      if (currentScrollY <= 50) {
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY.current + 15) {
-        // Scrolling down - Hide
-        if (isVisible) setIsVisible(false);
-      } else if (currentScrollY < lastScrollY.current - 15) {
-        // Scrolling up - Show
-        if (!isVisible) setIsVisible(true);
+          // Visibility state for hide/show on scroll direction
+          if (currentScrollY <= 50) {
+            setIsVisible(true);
+          } else if (currentScrollY > lastScrollY.current + 15) {
+            // Scrolling down - Hide
+            if (isVisible) setIsVisible(false);
+          } else if (currentScrollY < lastScrollY.current - 15) {
+            // Scrolling up - Show
+            if (!isVisible) setIsVisible(true);
+          }
+
+          lastScrollY.current = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
       }
-
-      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (ticking && rafId) window.cancelAnimationFrame(rafId);
+    };
   }, [isVisible]);
 
   return (
-    <div className={`fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center pointer-events-none px-4 md:px-6 transition-all duration-500 ease-in-out ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0"
+    <div className={`fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center pointer-events-none px-4 md:px-6 transition-all duration-500 ease-in-out will-change-transform ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0"
       }`}>
       <header
         className={`w-full max-w-full rounded-[2.5rem] md:rounded-full border border-border/30 bg-white/70 dark:bg-card/70 backdrop-blur-2xl shadow-[0_15px_40px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out pointer-events-auto ${scrolled ? "py-2 px-4 md:px-8" : "py-3 md:py-4 px-4 md:px-8"
@@ -78,8 +90,12 @@ const Header = () => {
             <div className="relative h-9 w-9 md:h-16 md:w-16 flex items-center justify-center transition-all duration-500">
               <img
                 src={navLogo}
+                srcSet={`${navLogo84} 84w, ${navLogo} 1536w`}
+                sizes="(max-width: 768px) 84px, 168px"
                 alt="TikShop Scale"
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 md:h-28 md:w-28 object-contain filter drop-shadow-sm max-w-none"
+                width="1536"
+                height="1024"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 md:h-28 md:w-28 object-contain filter drop-shadow-sm max-w-none dark-mode-logo transition-all duration-300"
               />
             </div>
             <div className="flex flex-col -space-y-1">
@@ -109,36 +125,38 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right: CTA Button */}
-          <div className="flex items-center gap-1 md:gap-1.5 shrink-0">
-            <Link to="/creators" className="flex">
+          {/* Right: CTA Button & Mobile Menu */}
+          <div className="flex items-center gap-1 md:gap-1.5 shrink-0 max-md:max-w-[65vw] max-md:justify-end">
+            <Link to="/creators" className="flex shrink-0">
               <Button
                 variant="outline"
                 size="sm"
-                className="bg-transparent border-[1.5px] border-[#E5E5E2] text-black rounded-[8px] p-[4px_8px] md:p-[6px_12px] h-auto text-[10px] md:text-[13px] whitespace-nowrap hover:bg-[#F5EDE3] hover:border-black hover:-translate-y-0.5 transition-all duration-300 active:scale-95 font-bold leading-none tracking-tighter"
+                className="bg-transparent max-md:border-transparent max-md:shadow-none max-md:p-1 md:border-[1.5px] border-[#E5E5E2] text-black rounded-[8px] p-[4px_8px] md:p-[6px_12px] h-auto text-[9.5px] min-[390px]:text-[11px] md:text-[13px] whitespace-nowrap hover:bg-[#F5EDE3] max-md:hover:bg-transparent md:hover:border-black hover:-translate-y-0.5 transition-all duration-300 active:scale-95 font-bold leading-none tracking-tighter"
               >
-                Join Our Creator Network
+                <span className="md:hidden">Join Network</span>
+                <span className="hidden md:inline">Join Our Creator Network</span>
               </Button>
             </Link>
-            <Link to="/landing" className="flex">
+            <Link to="/landing" className="flex shrink-0">
               <Button
                 variant="hero"
                 size="sm"
-                className="rounded-full p-[6px_10px] md:p-[8px_16px] h-auto text-[10px] md:text-[13px] whitespace-nowrap shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95 border-none font-bold"
+                className="rounded-full p-[5px_8px] min-[390px]:p-[6px_10px] md:p-[8px_16px] h-auto text-[9.5px] min-[390px]:text-[11px] md:text-[13px] whitespace-nowrap shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95 border-none font-bold"
               >
-                Scale My TikTok Shop
+                <span className="md:hidden">Scale Shop</span>
+                <span className="hidden md:inline">Scale My TikTok Shop</span>
               </Button>
             </Link>
 
-            {/* Mobile toggle - Standardized 44px touch target */}
+            {/* Mobile toggle - placed at the far right */}
             <button
-              className="md:hidden flex items-center justify-center w-11 h-11 rounded-2xl bg-secondary/20 hover:bg-secondary/40 text-foreground transition-all active:scale-90"
+              className="md:hidden flex items-center justify-center w-8 h-8 min-[390px]:w-10 min-[390px]:h-10 rounded-xl bg-secondary/20 hover:bg-secondary/40 text-foreground transition-all active:scale-90 shrink-0 ml-0.5"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
-              <div className="relative w-6 h-6 flex items-center justify-center pointer-events-none">
-                <X className={`absolute transition-all duration-500 ease-in-out ${open ? 'scale-100 rotate-0 opacity-100' : 'scale-50 rotate-90 opacity-0'}`} size={22} />
-                <Menu className={`absolute transition-all duration-500 ease-in-out ${open ? 'scale-50 -rotate-90 opacity-0' : 'scale-100 rotate-0 opacity-100'}`} size={22} />
+              <div className="relative w-5 h-5 flex items-center justify-center pointer-events-none">
+                <X className={`absolute transition-all duration-500 ease-in-out ${open ? 'scale-100 rotate-0 opacity-100' : 'scale-50 rotate-90 opacity-0'}`} size={18} />
+                <Menu className={`absolute transition-all duration-500 ease-in-out ${open ? 'scale-50 -rotate-90 opacity-0' : 'scale-100 rotate-0 opacity-100'}`} size={18} />
               </div>
             </button>
           </div>

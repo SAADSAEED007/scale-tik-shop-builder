@@ -8,7 +8,7 @@ import SEO from "@/components/SEO";
 
 const About = () => {
   return (
-    <div className="bg-[#F7F7F5] font-body text-[#0D0D0D] overflow-x-hidden">
+    <div className="bg-[#F7F7F5] grid-net font-body text-[#0D0D0D] overflow-x-hidden">
       <SEO 
         title="Who We Are"
         description="TikShop Scale was built because brands deserved better than guesswork. We are a specialized TikTok Shop growth partner built for the TikTok era."
@@ -45,8 +45,8 @@ const About = () => {
                 `}
       </style>
 
-      {/* 2 — HERO SECTION */}
-      <section className="hero-section relative bg-[#FFFFFF] pt-[125px] pb-[100px] px-8 overflow-hidden">
+      {/* 2 HERO SECTION */}
+      <section className="hero-section relative bg-[#FFFFFF] grid-net pt-[125px] pb-[100px] px-8 overflow-hidden">
         <div className="max-w-[1060px] mx-auto flex flex-col items-center text-center relative z-10">
           <FadeIn delay={0}>
             <div className="inline-block px-5 py-2.5 rounded-full bg-black/5 backdrop-blur-md border border-neutral-200/50 mb-10 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
@@ -104,11 +104,11 @@ const About = () => {
         </div>
       </section>
 
-      {/* 3 — TICKER */}
+      {/* 3 TICKER */}
       <ServiceTicker />
 
-      {/* 4 — OUR STORY SECTION */}
-      <section className="bg-[#FFFFFF] pt-[88px] pb-[88px] px-8 border-t border-[#E5E5E2]">
+      {/* 4 OUR STORY SECTION */}
+      <section className="bg-[#FFFFFF] grid-net pt-[88px] pb-[88px] px-8 border-t border-[#E5E5E2]">
         <div className="max-w-[1060px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           {/* LEFT STORY TEXT */}
           <div>
@@ -164,8 +164,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* 5 — WHAT WE BELIEVE SECTION */}
-      <section className="bg-[#F7F7F5] pt-[88px] pb-[88px] px-8">
+      {/* 5 WHAT WE BELIEVE SECTION */}
+      <section className="bg-[#F7F7F5] grid-net pt-[88px] pb-[88px] px-8">
         <div className="max-w-[1060px] mx-auto">
           <div className="max-w-[560px] mb-[52px]">
             <span className="font-heading font-black text-[11.5px] text-[#0D0D0D] tracking-[3px] uppercase block mb-[12px]">
@@ -224,7 +224,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* 6 — WHY TIKTOK SHOP ONLY SECTION */}
+      {/* 6 WHY TIKTOK SHOP ONLY SECTION */}
       <section className="bg-[#0D0D0D] pt-[88px] pb-[88px] px-8">
         <div className="max-w-[1060px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* LEFT CONTENT */}
@@ -286,7 +286,7 @@ const About = () => {
             </div>
             <div className="mt-5 pt-5 border-t border-[rgba(255,255,255,0.07)]">
               <p className="text-[13px] text-[rgba(255,255,255,0.35)] leading-[1.65]">
-                Generalist agencies split their attention — and their expertise — across all of these. You get a fraction of a team. We give you everything we have.
+                Generalist agencies split their attention and their expertise across all of these. You get a fraction of a team. We give you everything we have.
               </p>
             </div>
           </div>
@@ -294,8 +294,8 @@ const About = () => {
       </section>
 
 
-      {/* 8 — WHO WE'RE BUILT FOR SECTION */}
-      <section className="bg-[#F7F7F5] pt-[88px] pb-[88px] px-8">
+      {/* 8 WHO WE'RE BUILT FOR SECTION */}
+      <section className="bg-[#F7F7F5] grid-net pt-[88px] pb-[88px] px-8">
         <div className="max-w-[1060px] mx-auto">
           <div className="max-w-[580px] mx-auto text-center mb-[48px]">
             <span className="font-heading font-black text-[11.5px] text-[#0D0D0D] tracking-[3px] uppercase block mb-[12px]">
@@ -355,7 +355,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* 9 — TEAM SECTION 
+      {/* 9 TEAM SECTION 
       <section className="bg-[#FFFFFF] pt-[88px] pb-[88px] px-8 border-t border-[#E5E5E2]">
         <div className="max-w-[1060px] mx-auto">
           <div className="max-w-[560px] mb-[52px]">
@@ -366,7 +366,7 @@ const About = () => {
               Real people. Real specialists. <TapeLabel className="inline-block px-3 py-1 rotate-[-1.5deg] origin-left bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500 text-black mx-1">No generalists allowed.</TapeLabel>
             </h2>
             <p className="text-[16px] text-[#5C5C5C] font-medium leading-[1.7]">
-              Every person on this team was hired for one reason — they're genuinely excellent at their specific role inside TikTok Shop. No account managers who "also do content." No creatives who "also run ads."
+              Every person on this team was hired for one reason they're genuinely excellent at their specific role inside TikTok Shop. No account managers who "also do content." No creatives who "also run ads."
             </p>
           </div>
 
@@ -380,13 +380,13 @@ const About = () => {
                 The person behind <TapeLabel className="inline-block px-2 py-1 rotate-[-1.5deg] origin-left bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500 text-black mx-1">TikShopScale.</TapeLabel>
               </h3>
               <p className="text-[15px] text-[#5C5C5C] font-medium leading-[1.75] mb-3.5">
-                Before TikShopScale existed, I was deep inside TikTok Shop — running accounts, testing creators, burning money on the wrong ads, and figuring out what actually worked the hard way.
+                Before TikShopScale existed, I was deep inside TikTok Shop running accounts, testing creators, burning money on the wrong ads, and figuring out what actually worked the hard way.
               </p>
               <p className="text-[15px] text-[#5C5C5C] font-medium leading-[1.75] mb-3.5">
                 When other brand owners started asking how I was getting results, I realised there was a gap. Not another generalist agency that "also does TikTok." A specialist team that did nothing else. <span className="font-bold text-[#2E2E2E]">So that's what I built.</span>
               </p>
               <p className="text-[15px] text-[#5C5C5C] font-medium leading-[1.75] mb-6">
-                Every system we use, every process we follow, every creator strategy we deploy — I've tested it personally before we ever ran it for a client. That's the standard I hold the team to.
+                Every system we use, every process we follow, every creator strategy we deploy I've tested it personally before we ever ran it for a client. That's the standard I hold the team to.
               </p>
               <div className="flex flex-wrap gap-5">
                 <div className="bg-white border border-[#E5E5E2] rounded-[12px] p-4 min-w-[120px]">
@@ -409,8 +409,8 @@ const About = () => {
             {[
               { emoji: "👤", border: "border-[#D4B483]", name: "Founder", role: "FOUNDER & STRATEGY LEAD", bio: "Built TikShopScale after running TikTok Shop accounts independently and seeing the same fixable mistakes costing brands millions. Obsessed with the platform's commercial mechanics." },
               { emoji: "🎬", border: "border-[#E5E5E2]", name: "Creative Director", role: "UGC & HOOK STRATEGY", bio: "Responsible for every hook framework and creative brief we produce. Has personally overseen 500+ TikTok Shop creatives and knows exactly why some sell and most don't." },
-              { emoji: "👥", border: "border-[#E5E5E2]", name: "Creator Lead", role: "AFFILIATE & CREATOR NETWORK", bio: "Manages our entire creator pipeline — sourcing, vetting, outreach, onboarding, and retention. Has built affiliate networks of 300+ creators for single clients." },
-              { emoji: "📊", border: "border-[#E5E5E2]", name: "Paid Media Lead", role: "SPARK ADS & PERFORMANCE", bio: "Has managed $2M+ in TikTok ad spend. Builds every paid strategy from TikTok's native mechanics — never a copy-paste from Meta or Google." }
+              { emoji: "👥", border: "border-[#E5E5E2]", name: "Creator Lead", role: "AFFILIATE & CREATOR NETWORK", bio: "Manages our entire creator pipeline sourcing, vetting, outreach, onboarding, and retention. Has built affiliate networks of 300+ creators for single clients." },
+              { emoji: "📊", border: "border-[#E5E5E2]", name: "Paid Media Lead", role: "SPARK ADS & PERFORMANCE", bio: "Has managed $2M+ in TikTok ad spend. Builds every paid strategy from TikTok's native mechanics never a copy-paste from Meta or Google." }
             ].map((member, i) => (
               <div key={member.name} className="bg-[#F7F7F5] border border-[#E5E5E2] rounded-[18px] p-[28px_22px] text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-[5px]">
                 <div className={`w-[72px] h-[72px] rounded-full bg-[#0D0D0D] border-[3px] ${member.border} flex items-center justify-center text-[32px] mx-auto mb-4`}>
@@ -426,7 +426,7 @@ const About = () => {
           <div className="mt-8 bg-[#F5EDE3] border border-[#D4B483]/30 rounded-[14px] p-[22px_28px] flex items-center gap-4">
             <span className="text-[28px]">📝</span>
             <p className="text-[14px] text-black leading-[1.65]">
-              <span className="font-bold">Note on team photos:</span> We'll update this section with real names and photos as the team grows. For now — know that every person listed is real, active, and working on client accounts every single day. No headcount padding, no offshore outsourcing we don't tell you about.
+              <span className="font-bold">Note on team photos:</span> We'll update this section with real names and photos as the team grows. For now know that every person listed is real, active, and working on client accounts every single day. No headcount padding, no offshore outsourcing we don't tell you about.
             </p>
           </div>
         </div>
@@ -435,7 +435,7 @@ const About = () => {
 
 
 
-      {/* 10 — FINAL CTA SECTION */}
+      {/* 10 FINAL CTA SECTION */}
       <section id="contact" className="cta-section relative bg-[#0D0D0D] pt-[100px] pb-[100px] px-8 text-center overflow-hidden">
         <div className="relative z-10">
           <FadeIn>
@@ -450,16 +450,16 @@ const About = () => {
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-[17px] text-[rgba(255,255,255,0.45)] font-medium max-w-[480px] mx-auto mb-[40px]">
-              No pitch deck. No hard sell. Book a Free Audit Call and we'll tell you exactly what we think — including if TikTok Shop isn't the right move for you right now.
+              No pitch deck. No hard sell. Book a Free Audit Call and we'll tell you exactly what we think including if TikTok Shop isn't the right move for you right now.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link to="/contact">
+              <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer">
                 <button className="bg-[#0D0D0D] hover:bg-[#2E2E2E] text-white px-10 py-4 rounded-[10px] font-[700] text-[16px] transition-all duration-300 hover:-translate-y-1">
                   Book a Free Audit Call →
                 </button>
-              </Link>
+              </a>
               <Link to="/case-studies" className="text-[rgba(255,255,255,0.45)] text-[15px] px-6 py-4 hover:text-white transition-colors duration-300">
                 See Our Results First
               </Link>

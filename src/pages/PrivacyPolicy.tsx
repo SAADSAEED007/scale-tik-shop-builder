@@ -3,9 +3,9 @@ import TapeLabel from "@/components/TapeLabel";
 
 const PrivacyPolicy = () => {
     return (
-        <div className="min-h-screen pt-24 pb-20">
+        <div className="min-h-screen pt-24 pb-20 grid-net">
             {/* Hero Section */}
-            <section className="relative pt-16 pb-12 overflow-hidden">
+            <section className="relative pt-16 pb-12 overflow-hidden grid-net">
                 <div className="container max-w-[1240px] mx-auto px-4 md:px-6">
                     <FadeIn>
                         <div className="text-center">
@@ -24,7 +24,7 @@ const PrivacyPolicy = () => {
             </section>
 
             {/* Content Section */}
-            <section className="relative">
+            <section className="relative grid-net">
                 <div className="container max-w-4xl mx-auto px-4 md:px-6">
                     <FadeIn delay={0.1}>
                         <div className="bg-white/50 backdrop-blur-md rounded-[2.5rem] border border-border/50 p-8 md:p-16 shadow-sm">

@@ -16,7 +16,7 @@ import {
 
 const Careers = () => {
   return (
-    <div className="bg-[#F7F7F5] font-body text-[#0D0D0D] overflow-x-hidden">
+    <div className="bg-[#F7F7F5] grid-net font-body text-[#0D0D0D] overflow-x-hidden">
       <SEO 
         title="Careers | Join the Team"
         description="We're building the best TikTok Shop team in the world. We don't want applicants, we want obsessives. Join TikShop Scale today."
@@ -24,18 +24,14 @@ const Careers = () => {
       />
       <style>
         {`
-          .grid-bg {
-            background-image: radial-gradient(circle, rgba(0,0,0,0.035) 1px, transparent 1px);
-            background-size: 32px 32px;
-          }
           .card-shadow {
             box-shadow: 0 10px 30px -10px rgba(0,0,0,0.04);
           }
         `}
       </style>
 
-      {/* 1 — HERO SECTION */}
-      <section className="relative bg-[#FFFFFF] pt-[140px] md:pt-[180px] pb-[100px] px-6 overflow-hidden grid-bg">
+      {/* 1 HERO SECTION */}
+      <section className="relative bg-[#FFFFFF] grid-net pt-[88px] pb-[88px] px-8 border-t border-[#E5E5E2] overflow-hidden">
         <div className="max-w-[1060px] mx-auto flex flex-col items-center text-center relative z-10">
           <FadeIn delay={0}>
             <div className="inline-block px-5 py-2.5 rounded-full bg-black/5 backdrop-blur-md border border-neutral-200/50 mb-10 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
@@ -60,8 +56,8 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* 2 — HONEST VERSION SECTION */}
-      <section className="py-24 px-6 bg-[#F7F7F5]">
+      {/* 2 HONEST VERSION SECTION */}
+      <section className="bg-[#F7F7F5] grid-net pt-[88px] pb-[88px] px-8">
         <div className="max-w-[1000px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn delay={0.1}>
@@ -73,7 +69,7 @@ const Careers = () => {
             <FadeIn delay={0.2}>
               <div className="space-y-6">
                 <p className="text-lg md:text-xl text-[#5C5C5C] font-medium leading-[1.75]">
-                  We're the team behind <span className="text-[#0D0D0D] font-bold underline decoration-[#D4B483]/30">$54.2M+ in TikTok Shop GMV</span>. We move faster than any agency our size because everyone here actually understands the platform — not from a course, from doing it.
+                  We're the team behind <span className="text-[#0D0D0D] font-bold underline decoration-[#D4B483]/30">$54.2M+ in TikTok Shop GMV</span>. We move faster than any agency our size because everyone here actually understands the platform not from a course, from doing it.
                 </p>
                 <p className="text-lg md:text-xl text-[#5C5C5C] font-medium leading-[1.75]">
                   No corporate layers. No waiting 3 weeks for approvals. If you spot something that works, we test it the same week.
@@ -84,8 +80,8 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* 3 — FIT SECTION */}
-      <section className="pb-24 px-6 bg-[#F7F7F5]">
+      {/* 3 FIT SECTION */}
+      <section className="pb-24 px-6 bg-[#F7F7F5] grid-net">
         <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* You'll fit here if: */}
@@ -99,7 +95,7 @@ const Careers = () => {
                   {[
                     "You live on TikTok and actually understand why things go viral",
                     "You care about results more than looking busy",
-                    "You want your work to directly impact revenue — not vanity metrics",
+                    "You want your work to directly impact revenue not vanity metrics",
                     "You get uncomfortable when things stop growing"
                   ].map((item, i) => (
                     <li key={item} className="flex gap-4 text-[16px] md:text-[17px] text-[#5C5C5C] font-medium leading-[1.4]">
@@ -139,8 +135,8 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* 4 — PERKS SECTION */}
-      <section className="py-24 px-6 bg-[#FCF6F0]">
+      {/* 4 PERKS SECTION */}
+      <section className="py-24 px-6 bg-white grid-net">
         <div className="max-w-[1240px] mx-auto text-center">
           <FadeIn className="mb-16">
             <h2 className="text-4xl md:text-6xl font-black font-heading tracking-tight mb-8 uppercase">
@@ -180,8 +176,8 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* 5 — CLOSING CTA SECTION */}
-      <section className="py-24 px-6 bg-[#F7F7F5] relative overflow-hidden">
+      {/* 5 CLOSING CTA SECTION */}
+      <section className="py-24 px-6 bg-[#F7F7F5] grid-net relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#D4B48310_0%,_transparent_70%)] opacity-40 pointer-events-none" />
         
         <div className="max-w-[1000px] mx-auto text-center relative z-10">

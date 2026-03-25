@@ -4,22 +4,25 @@ const tickerItems = [
     "BRANDS SERVED 182+",
     "+340% GMV AVERAGE",
     "LAUNCH STRATEGY",
-    "$800 → $23K/MO",
-    "LISTING OPTIMIZATION",
     "6.8X ROAS",
-    "CREATOR SOURCING & SEEDING",
-    "182 AFFILIATES IN 6 WEEKS",
     "UGC PRODUCTION",
     "$47K/MO IN 6 WEEKS",
     "LIVE SELLING STRATEGY",
-    "$14K LIVE IN 2H",
-    "SHOP OPERATIONS",
-    "AFFILIATE MANAGEMENT",
-    "PERFORMANCE ANALYTICS",
-    "SPARK ADS",
 ];
 
+import { useState, useEffect } from "react";
+
 const ServiceTicker = ({ items, variant = 'black' }: { items?: string[], variant?: 'black' | 'gold' }) => {
+    const [isReady, setIsReady] = useState(false);
+
+    useEffect(() => {
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => setIsReady(true));
+        } else {
+            setTimeout(() => setIsReady(true), 0);
+        }
+    }, []);
+
     // Use provided items or default to standard services
     const displayItems = items || tickerItems;
 
@@ -27,6 +30,12 @@ const ServiceTicker = ({ items, variant = 'black' }: { items?: string[], variant
     const doubledItems = [...displayItems, ...displayItems];
 
     const isGold = variant === 'gold';
+
+    if (!isReady) {
+        return (
+            <div className={`w-full py-3 md:py-[12px] min-h-[48px] md:min-h-[54px] overflow-hidden relative pause-hover select-none ${isGold ? "bg-[#F5EDE3]" : "bg-black border-y border-white/10"}`} />
+        );
+    }
 
     return (
         <div className={`w-full py-3 md:py-[12px] overflow-hidden relative pause-hover select-none ${isGold ? "bg-[#F5EDE3]" : "bg-black border-y border-white/10"

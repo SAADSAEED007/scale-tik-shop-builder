@@ -9,7 +9,7 @@ import { Play, ArrowRight, Video as VideoIcon, Search } from "lucide-react";
 
 const Testimonials = () => {
     return (
-        <div className="bg-[#F7F7F5] min-h-screen font-body text-[#0D0D0D]">
+        <div className="bg-[#F7F7F5] grid-net min-h-screen font-body text-[#0D0D0D]">
             <style>
                 {`
                 @keyframes pulse {
@@ -64,8 +64,8 @@ const Testimonials = () => {
                 `}
             </style>
 
-            {/* 2 — HERO SECTION */}
-            <section className="hero-section relative bg-[#FFFFFF] pt-[160px] pb-[88px] px-8 text-center overflow-hidden">
+            {/* 2 HERO SECTION */}
+            <section className="hero-section relative bg-[#FFFFFF] grid-net pt-[160px] pb-[88px] px-8 text-center overflow-hidden">
                 <div className="relative z-10 max-w-[1020px] mx-auto">
                     <FadeIn delay={0}>
                         <div className="inline-block px-5 py-2.5 rounded-full bg-black/5 backdrop-blur-md border border-neutral-200/50 mb-10 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
@@ -81,7 +81,7 @@ const Testimonials = () => {
                     </FadeIn>
                     <FadeIn delay={0.2}>
                         <p className="font-body text-[clamp(15px,2vw,18px)] text-neutral-500 font-medium leading-relaxed max-w-[480px] mx-auto mb-10">
-                            Real brands. Real faces. <TapeLabel className="rotate-[1deg] px-2 py-0.5">Real results</TapeLabel> — in their own words. No scripts, no actors, no made-up quotes.
+                            Real brands. Real faces. <TapeLabel className="rotate-[1deg] px-2 py-0.5">Real results</TapeLabel> in their own words. No scripts, no actors, no made-up quotes.
                         </p>
                     </FadeIn>
                     <FadeIn delay={0.3}>
@@ -97,7 +97,7 @@ const Testimonials = () => {
                 </div>
             </section>
 
-            {/* 3 — TICKER */}
+            {/* 3 TICKER */}
             <ServiceTicker
                 variant="black"
                 items={[
@@ -110,11 +110,11 @@ const Testimonials = () => {
                 ]}
             />
 
-            {/* 4 — MAIN CONTENT AREA */}
-            <main className="bg-[#F7F7F5]">
+            {/* 4 MAIN CONTENT AREA */}
+            <main className="bg-[#F7F7F5] grid-net">
                 <div className="max-w-[1020px] mx-auto px-6 pt-[72px] pb-[80px] main-content-inner">
 
-                    {/* 4A — FEATURED TESTIMONIAL */}
+                    {/* 4A FEATURED TESTIMONIAL */}
                     <FadeIn>
                         <div className="flex items-center gap-3 mb-5">
                             <TapeLabel className="bg-[#F5EDE3] text-black text-[11px] font-[800] tracking-[2px] uppercase px-[14px] py-1.25 rounded-full flex shrink-0 rotate-[1deg]">
@@ -126,7 +126,7 @@ const Testimonials = () => {
 
                     <FadeIn delay={0.1}>
                         <div className="bg-white border border-[#E5E5E2] rounded-[22px] overflow-hidden shadow-[0_4px_40px_rgba(0,0,0,0.08)] mb-16 grid grid-cols-1 md:grid-cols-2 featured-testimonial-card">
-                            {/* LEFT — Video side */}
+                            {/* LEFT Video side */}
                             <div className="bg-[#0D0D0D] relative min-h-[360px] flex items-center justify-center video-side">
                                 <div className="absolute top-4 left-4 bg-[#F5EDE3] text-[#3D2800] font-heading text-[18px] font-[800] px-4 py-2 rounded-[10px] z-10 shadow-sm">
                                     +$22K/mo
@@ -146,14 +146,14 @@ const Testimonials = () => {
                                 </div>
                             </div>
 
-                            {/* RIGHT — Info side */}
+                            {/* RIGHT Info side */}
                             <div className="p-10 md:p-[40px_38px] flex flex-col justify-center">
                                 <div className="flex flex-wrap gap-2 mb-5">
                                     <span className="bg-[#F7F7F5] border border-[#E5E5E2] text-[#5C5C5C] text-[12px] font-[700] px-3 py-1 rounded-full">💄 Beauty Brand</span>
                                     <span className="bg-[#EDE9FE] text-[#5B21B6] text-[12px] font-[700] px-3 py-1 rounded-full">Creator Seeding</span>
                                 </div>
                                 <blockquote className="featured-quote italic text-[clamp(16px,2vw,20px)] text-[#2E2E2E] leading-[1.65] mb-6 pl-5 relative">
-                                    "I was ready to quit TikTok Shop before finding them. Within 60 days I had more orders than I knew what to do with. The creator setup alone changed everything — I didn't realise I'd been doing it completely wrong."
+                                    "I was ready to quit TikTok Shop before finding them. Within 60 days I had more orders than I knew what to do with. The creator setup alone changed everything I didn't realise I'd been doing it completely wrong."
                                 </blockquote>
                                 <div className="flex items-center gap-3 mb-7">
                                     <div className="w-[44px] h-[44px] rounded-full bg-[#0D0D0D] flex items-center justify-center text-[20px]">
@@ -182,7 +182,7 @@ const Testimonials = () => {
                         </div>
                     </FadeIn>
 
-                    {/* 4B — MORE TESTIMONIALS */}
+                    {/* 4B MORE TESTIMONIALS */}
                     <FadeIn>
                         <div className="flex items-center gap-3.5 mb-6">
                             <span className="text-[11px] font-[700] tracking-[2.5px] uppercase text-[#9A9A9A] whitespace-nowrap">MORE TESTIMONIALS</span>
@@ -220,7 +220,7 @@ const Testimonials = () => {
                                 result: "+38% Profit",
                                 category: "💊 Health Brand",
                                 avatar: "👩",
-                                quote: "Revenue looked great. Profit felt wrong. They found out why in week two. I hadn't looked at SKU-level data like that before — it changed everything.",
+                                quote: "Revenue looked great. Profit felt wrong. They found out why in week two. I hadn't looked at SKU-level data like that before it changed everything.",
                                 name: "Priya N.",
                                 role: "Health & Wellness Brand"
                             }
@@ -264,7 +264,7 @@ const Testimonials = () => {
                         ))}
                     </div>
 
-                    {/* 4C — MINI QUOTES STRIP */}
+                    {/* 4C MINI QUOTES STRIP */}
                     <FadeIn>
                         <div className="flex items-center gap-3.5 mb-6">
                             <span className="text-[11px] font-[700] tracking-[2.5px] uppercase text-[#9A9A9A] whitespace-nowrap">IN THEIR OWN WORDS</span>
@@ -282,7 +282,7 @@ const Testimonials = () => {
                             },
                             {
                                 initial: "D",
-                                text: "They told us TikTok Ads wouldn't work yet — and they were right. Fixed the foundation first. Then we scaled. Smart.",
+                                text: "They told us TikTok Ads wouldn't work yet and they were right. Fixed the foundation first. Then we scaled. Smart.",
                                 name: "Derek W.",
                                 result: "$47K/mo"
                             },
@@ -312,7 +312,7 @@ const Testimonials = () => {
                         ))}
                     </div>
 
-                    {/* 4D — SHARE YOUR STORY SECTION */}
+                    {/* 4D SHARE YOUR STORY SECTION */}
                     <FadeIn>
                         <div className="flex items-center gap-3.5 mb-6">
                             <span className="text-[11px] font-[700] tracking-[2.5px] uppercase text-[#9A9A9A] whitespace-nowrap">ARE YOU A CLIENT?</span>
@@ -327,7 +327,7 @@ const Testimonials = () => {
                                     Share your story. Help other brands decide.
                                 </h3>
                                 <p className="text-[15px] text-[#5C5C5C] leading-[1.7] font-medium">
-                                    If you're a current or past TikShopScale client, we'd love to feature you here. It takes less than 2 minutes — just answer 3 questions on camera from your phone.
+                                    If you're a current or past TikShopScale client, we'd love to feature you here. It takes less than 2 minutes just answer 3 questions on camera from your phone.
                                 </p>
                             </div>
                             <div className="flex flex-col gap-3">
@@ -350,7 +350,7 @@ const Testimonials = () => {
                         </div>
                     </FadeIn>
 
-                    {/* 4E — FINAL CTA BLOCK */}
+                    {/* 4E FINAL CTA BLOCK */}
                     <FadeIn>
                         <section id="contact" className="cta-glow relative bg-[#0D0D0D] rounded-[20px] p-14 md:p-[56px_48px] text-center overflow-hidden">
                             <div className="relative z-10">
@@ -361,7 +361,7 @@ const Testimonials = () => {
                                     Your results could be <TapeLabel className="inline-block px-4 py-1 rotate-[1.5deg] bg-[#F5EDE3] shadow-sm transform hover:rotate-0 transition-transform duration-500 text-black">on this page.</TapeLabel>
                                 </h2>
                                 <p className="text-[15px] text-white/45 max-w-[420px] mx-auto mb-8 font-medium">
-                                    Book a free 20-minute audit call. We'll look at your shop and tell you honestly what's possible — no pitch, no pressure.
+                                    Book a free 20-minute audit call. We'll look at your shop and tell you honestly what's possible no pitch, no pressure.
                                 </p>
                                 <div className="flex flex-col items-center gap-4 hero-buttons">
                                     <a href="mailto:hello@tikshopscale.com" className="w-full sm:w-auto">

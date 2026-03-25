@@ -19,6 +19,7 @@ import {
     Zap,
     Star
 } from "lucide-react";
+import fiveStarIcon from "@/assets/five-star-rating-icon.svg";
 
 const testimonials = [
     {
@@ -60,7 +61,7 @@ const steps = [
     {
         num: "03",
         title: "Build Your Content Pipeline",
-        desc: "Real creators. Real product. Real content. We handle the sourcing, briefing, and setup — you get videos that sell.",
+        desc: "Real creators. Real product. Real content. We handle the sourcing, briefing, and setup you get videos that sell.",
         icon: Video
     },
     {
@@ -72,7 +73,7 @@ const steps = [
     {
         num: "05",
         title: "Weekly Optimize + Compound",
-        desc: "Every week we kill what’s not working. This is how $20K months become $100K months — compounding results.",
+        desc: "Every week we kill what’s not working. This is how $20K months become $100K months compounding results.",
         icon: TrendingUp
     },
 ];
@@ -95,7 +96,7 @@ const Landing = () => {
     const faqItems = [
         {
             q: "How long until we see results?",
-            a: "Most brands see early traction in 3–4 weeks. Meaningful GMV growth typically shows by week 6–8. We won't promise overnight results — but we'll move faster than any agency you've worked with before."
+            a: "Most brands see early traction in 3–4 weeks. Meaningful GMV growth typically shows by week 6–8. We won't promise overnight results but we'll move faster than any agency you've worked with before."
         },
         {
             q: "Do we need to already be on TikTok Shop?",
@@ -107,24 +108,24 @@ const Landing = () => {
         },
         {
             q: "Are we locked into a long-term contract?",
-            a: "Never. We don't believe in holding clients with contracts — we hold them with results. Cancel anytime. We'd rather lose a client than trap one."
+            a: "Never. We don't believe in holding clients with contracts we hold them with results. Cancel anytime. We'd rather lose a client than trap one."
         },
         {
             q: "What if TikTok Shop doesn't work for our product?",
-            a: "We'll tell you on the first call. Some products genuinely aren't right for TikTok Shop — wrong price point, wrong demographic, wrong visual format. We'd rather tell you that upfront than take your money and deliver nothing."
+            a: "We'll tell you on the first call. Some products genuinely aren't right for TikTok Shop wrong price point, wrong demographic, wrong visual format. We'd rather tell you that upfront than take your money and deliver nothing."
         }
     ];
 
     return (
-        <div className="bg-[#F7F7F5] font-body text-[#0D0D0D] overflow-x-hidden">
-            <SEO 
+        <div className="bg-[#F7F7F5] grid-net font-body text-[#0D0D0D] overflow-x-hidden">
+            <SEO
                 title="Scaling System"
                 description="Our proven system for scaling brands on TikTok Shop. We handle everything from audits to creator seeding and Spark Ads scale."
                 keywords="TikTok Shop Scaling, Creator Marketing, eCommerce Strategy, TikTok Ads"
             />
 
-            {/* SECTION 1 — HERO */}
-            <section className="relative min-h-screen bg-[#FFFFFF] flex flex-col items-center justify-center pt-[180px] pb-[88px] px-8 text-center overflow-hidden">
+            {/* SECTION 1 HERO */}
+            <section className="relative min-h-screen bg-[#FFFFFF] grid-net flex flex-col items-center justify-center pt-[180px] pb-[88px] px-8 text-center overflow-hidden">
                 {/* Subtle radial beige glow */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#F5EDE3_0%,_transparent_70%)] opacity-40 pointer-events-none" />
 
@@ -157,11 +158,11 @@ const Landing = () => {
 
                     <FadeIn delay={0.3}>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                            <Link to="/contact">
+                            <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer">
                                 <button className="inline-flex items-center justify-center bg-[#0D0D0D] hover:bg-[#2E2E2E] text-white font-manrope font-[800] text-[15px] px-[36px] py-[15px] h-auto rounded-[10px] shadow-[0_4px_28px_rgba(0,0,0,0.2)] hover:-translate-y-[2px] transition-all duration-300">
                                     Book a Free Audit Call <ArrowRight size={18} className="ml-2" />
                                 </button>
-                            </Link>
+                            </a>
                             <Link to="/case-studies">
                                 <button className="inline-flex items-center justify-center bg-transparent border-[1.5px] border-[#E5E5E2] text-[#0D0D0D] hover:border-black font-manrope font-[800] text-[15px] px-[36px] py-[18px] h-auto rounded-[10px] transition-all duration-300 hover:-translate-y-[2px]">
                                     See <TapeLabel className="rotate-[1deg] px-2 py-0.5 mx-1">Real Results</TapeLabel>
@@ -174,11 +175,11 @@ const Landing = () => {
                 </div>
             </section>
 
-            {/* SECTION 2 — SERVICESTICKER */}
+            {/* SECTION 2 SERVICESTICKER */}
             <ServiceTicker items={tickerItems} />
 
             {/* 
-            {/* SECTION 3 — FOUNDER VIDEO */}
+            {/* SECTION 3 FOUNDER VIDEO */}
             {/* 
             <section className="bg-[#0D0D0D] py-[88px] px-4 md:px-10 overflow-hidden">
                 <div className="container max-w-[860px] mx-auto text-center">
@@ -187,10 +188,10 @@ const Landing = () => {
                             FROM THE FOUNDER
                         </span>
                         <h2 className="text-3xl md:text-[46px] font-black font-heading text-white tracking-tighter leading-[1.1] mb-8">
-                            Why we built <TapeLabel className="inline-block px-4 py-1.5 bg-[#F5EDE3] text-[#0D0D0D] shadow-sm transform rotate-[-1.5deg] origin-left mx-1 hover:rotate-0 transition-transform duration-500">TikShopScale</TapeLabel> — and what makes us different.
+                            Why we built <TapeLabel className="inline-block px-4 py-1.5 bg-[#F5EDE3] text-[#0D0D0D] shadow-sm transform rotate-[-1.5deg] origin-left mx-1 hover:rotate-0 transition-transform duration-500">TikShopScale</TapeLabel> and what makes us different.
                         </h2>
                         <p className="text-white/45 text-lg font-medium leading-relaxed mb-16 max-w-2xl mx-auto">
-                            Watch this before you book a call. It'll save us both time — and you'll know immediately if we're the right fit.
+                            Watch this before you book a call. It'll save us both time and you'll know immediately if we're the right fit.
                         </p>
 
                         <div className="w-full max-w-[860px] mx-auto">
@@ -211,7 +212,7 @@ const Landing = () => {
                         </div>
                     </FadeIn>
                 </div>
-                     {/* SECTION 6 — RESULTS (Moved up) */}
+                     {/* SECTION 6 RESULTS (Moved up) */}
             <section className="bg-[#0D0D0D] py-20 px-4 md:px-10 overflow-hidden">
                 <div className="container max-w-[860px] mx-auto text-center">
                     <FadeIn>
@@ -246,8 +247,8 @@ const Landing = () => {
                 </div>
             </section>
 
-            {/* SECTION 7 — CASE STUDIES PREVIEW (Moved up) */}
-            <section className="bg-white py-[88px] px-4 md:px-10 border-t border-[#E5E5E2] overflow-hidden">
+            {/* SECTION 7 CASE STUDIES PREVIEW (Moved up) */}
+            <section className="bg-white grid-net py-[88px] px-4 md:px-10 border-t border-[#E5E5E2] overflow-hidden">
                 <div className="container max-w-[1000px] mx-auto">
                     <FadeIn>
                         <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
@@ -322,19 +323,21 @@ const Landing = () => {
                     <FadeIn delay={0.4}>
                         <div className="mt-20 text-center">
                             <p className="text-[#0D0D0D] text-lg font-medium mb-6">Your brand could be next.</p>
-                            <Link
-                                to="/contact"
+                            <a
+                                href="https://calendly.com/tikshopscale/30mincall"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 bg-[#0D0D0D] hover:bg-[#2E2E2E] text-white px-10 py-5 rounded-[12px] font-black font-heading transition-all hover:-translate-y-1 hover:shadow-2xl"
                             >
                                 Book a Free Growth Audit <ArrowRight size={20} />
-                            </Link>
+                            </a>
                         </div>
                     </FadeIn>
                 </div>
             </section>
 
-            {/* SECTION 4 — PROBLEM / SOLUTION */}
-            <section className="bg-white py-[88px] px-4 md:px-10 border-t border-[#E5E5E2] overflow-hidden">
+            {/* SECTION 4 PROBLEM / SOLUTION */}
+            <section className="bg-white grid-net py-[88px] px-4 md:px-10 border-t border-[#E5E5E2] overflow-hidden">
                 <div className="container max-w-[1000px] mx-auto">
                     <FadeIn>
                         <div className="text-center mb-16 px-4">
@@ -345,13 +348,13 @@ const Landing = () => {
                                 Why most <TapeLabel className="inline-block px-3 py-1 bg-[#F5EDE3] text-black shadow-sm transform rotate-[-1.5deg] origin-left mx-1 hover:rotate-0 transition-transform duration-500">brands fail</TapeLabel> on TikTok Shop.
                             </h2>
                             <p className="text-[#5C5C5C] text-lg font-medium">
-                                The same 3 mistakes — over and over. Here's what we fix.
+                                The same 3 mistakes over and over. Here's what we fix.
                             </p>
                         </div>
                     </FadeIn>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                        {/* TOP ROW — Problem Cards */}
+                        {/* TOP ROW Problem Cards */}
                         {[
                             {
                                 icon: "📢",
@@ -365,7 +368,7 @@ const Landing = () => {
                             },
                             {
                                 icon: "🔗",
-                                title: "No affiliate system — 100% reliant on paid ads",
+                                title: "No affiliate system 100% reliant on paid ads",
                                 text: "The top TikTok Shops get 40–70% of GMV from affiliates. Most brands have zero creator pipeline and have no idea they're leaving this on the table."
                             }
                         ].map((card, i) => (
@@ -385,22 +388,22 @@ const Landing = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        {/* BOTTOM ROW — Solution Cards */}
+                        {/* BOTTOM ROW Solution Cards */}
                         {[
                             {
                                 icon: "🎯",
-                                title: "TikTok-native creative built to sell — not impress",
+                                title: "TikTok-native creative built to sell not impress",
                                 text: "Hook-first scripts, real creators, raw UGC formats that stop the scroll and drive purchase decisions. Built for TikTok's algorithm, not Meta's."
                             },
                             {
                                 icon: "🔥",
-                                title: "Organic foundation first — then we pour fuel on it",
+                                title: "Organic foundation first then we pour fuel on it",
                                 text: "We prove what converts organically before touching paid. Then Spark Ads scale what's already working. Your budget goes further. Every time."
                             },
                             {
                                 icon: "📈",
                                 title: "An affiliate engine that compounds month after month",
-                                text: "We find creators in your niche, send them your product, brief them on what to say — and build a pipeline that keeps growing without you chasing it."
+                                text: "We find creators in your niche, send them your product, brief them on what to say and build a pipeline that keeps growing without you chasing it."
                             }
                         ].map((card, i) => (
                             <FadeIn key={card.title} delay={(i + 3) * 0.1}>
@@ -420,12 +423,13 @@ const Landing = () => {
                 </div>
             </section>
 
-            {/* SECTION 5 — HOW IT WORKS */}
-            <section id="how-it-works" className="bg-[#F7F7F5] py-[88px] px-4 md:px-10 overflow-hidden relative border-t border-[#E5E5E2]">
+            {/* SECTION 5 HOW IT WORKS */}
+            <section id="how-it-works" className="bg-[#F7F7F5] grid-net py-[88px] px-4 md:px-10 overflow-hidden relative border-t border-[#E5E5E2]">
                 <div className="container max-w-5xl mx-auto">
                     <FadeIn>
                         <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center mb-8 md:mb-12 leading-tight">
-                            From Audit to $100K+/month - <TapeLabel>Here's How</TapeLabel>
+                            From Audit to $100K+/month <br />
+                            <TapeLabel>Here's How</TapeLabel>
                         </h2>
                     </FadeIn>
 
@@ -489,16 +493,16 @@ const Landing = () => {
 
                         <FadeIn delay={0.2}>
                             <div className="mt-16 md:mt-24 flex flex-col items-center relative z-10 w-full">
-                                <TapeLabel className="rotate-[-1deg] p-10 md:p-16 flex flex-col items-center md:items-start gap-10 shadow-2xl relative w-full md:w-auto min-w-full md:min-w-[800px] bg-[#F5EDE3]">
-                                    <h3 className="text-3xl md:text-5xl font-black tracking-tight leading-tight text-center md:text-left pb-12 md:pb-0 font-heading">
+                                <div className="bg-[#F5EDE3] p-10 md:p-16 flex flex-col items-center md:items-start gap-10 shadow-2xl relative w-full md:w-auto min-w-full md:min-w-[800px] border border-[#E5E5E2] rounded-[2rem]">
+                                    <h3 className="text-3xl md:text-5xl font-black tracking-tight leading-tight text-center md:text-left pb-12 md:pb-0 font-heading text-[#0D0D0D]">
                                         See What This Looks Like <br /> For Your Brand
                                     </h3>
-                                    <Link to="/contact" className="md:absolute md:bottom-6 md:right-6">
+                                    <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer" className="md:absolute md:bottom-6 md:right-6">
                                         <button className="bg-black text-white px-8 py-4 rounded-none font-bold text-[16px] md:text-[18px] flex items-center gap-2 hover:-translate-y-1 transition-all shadow-xl">
                                             Book a Free Growth Audit <ArrowRight size={20} />
                                         </button>
-                                    </Link>
-                                </TapeLabel>
+                                    </a>
+                                </div>
                             </div>
                         </FadeIn>
                     </div>
@@ -512,17 +516,17 @@ const Landing = () => {
 
 
             {/* Lead magnet */}
-            <section className="pt-24 md:pt-40 pb-0 bg-white">
-                <div className="container max-w-2xl mx-auto px-4">
+            <section className="pt-24 md:pt-40 pb-0 bg-white grid-net">
+                <div className="container max-w-2xl">
                     <FadeIn>
-                        <div className="p-8 md:p-12 rounded-[2.5rem] text-center bg-[#F5EDE3]/30 border border-[#E5E5E2] relative overflow-hidden">
-                            <div className="absolute top-0 right-0 p-4 opacity-5">
+                        <div className="p-8 md:p-12 rounded-[2.5rem] text-center bg-secondary/30 border border-border/50 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-4 opacity-10">
                                 <Zap size={100} />
                             </div>
-                            <h2 className="text-2xl md:text-3xl font-black font-heading tracking-tighter mb-4 text-[#0D0D0D]">
+                            <h2 className="text-2xl md:text-4xl font-black tracking-tighter mb-4">
                                 The System Behind Every Brand We Scale
                             </h2>
-                            <p className="text-base text-[#5C5C5C] mb-8 font-medium">
+                            <p className="text-base text-muted-foreground mb-8">
                                 The exact system we use to take brands from launch to $100K+ per month using creators, native content, optimization, and paid scale.
                                 <br /><br />
                                 Thinking about starting or ready to scale on TikTok Shop? This is for you.
@@ -533,11 +537,9 @@ const Landing = () => {
                                     placeholder="name@company.com"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="flex-1 h-12 px-6 rounded-full border border-[#E5E5E2] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-black/5 transition-all font-medium"
+                                    className="flex-1 h-12 px-6 rounded-full border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium"
                                 />
-                                <button className="bg-black text-white px-8 py-3 rounded-full font-bold transition-all hover:scale-105">
-                                    Send it
-                                </button>
+                                <Button variant="hero" size="lg" className="rounded-full shadow-lg">Send it</Button>
                             </div>
                         </div>
                     </FadeIn>
@@ -545,7 +547,7 @@ const Landing = () => {
             </section>
 
             {/* Testimonials */}
-            <section className="pt-24 md:pt-40 pb-[80px] overflow-hidden bg-white">
+            <section className="pt-24 md:pt-40 pb-[80px] overflow-hidden bg-white grid-net">
                 <div className="container max-w-7xl mx-auto px-4 md:px-6">
                     <FadeIn>
                         <div className="text-center mb-16">
@@ -565,7 +567,7 @@ const Landing = () => {
                                         <div className="flex items-center justify-between gap-4 mb-8">
                                             <div className="flex gap-1 shrink-0">
                                                 {[...Array(5)].map((_, starIndex) => (
-                                                    <Star key={`star-${i}-${starIndex}`} size={16} fill="#D4B483" stroke="none" />
+                                                    <Star key={`star-${i}-${starIndex}`} size={16} fill="#f59e0b" stroke="none" />
                                                 ))}
                                             </div>
                                             <div className="bg-[#0D0D0D] px-4 py-1.5 rounded-full text-[12px] font-black text-white whitespace-nowrap">
@@ -593,7 +595,7 @@ const Landing = () => {
                 </div>
             </section>
 
-            {/* SECTION 9 — FINAL CTA */}
+            {/* SECTION 9 FINAL CTA */}
             <section className="relative bg-[#0D0D0D] py-[110px] px-4 md:px-10 text-center overflow-hidden">
                 {/* Large radial beige glow orb centered behind content */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4B483]/10 rounded-full blur-[140px] pointer-events-none" />
@@ -608,14 +610,14 @@ const Landing = () => {
                             Start <TapeLabel className="inline-block px-4 py-1.5 bg-[#F5EDE3] text-[#0D0D0D] shadow-sm transform rotate-[-1.5deg] origin-left mx-1 hover:rotate-0 transition-transform duration-500">scaling.</TapeLabel>
                         </h2>
                         <p className="text-white/45 text-lg md:text-xl font-medium leading-relaxed mb-12 max-w-2xl mx-auto">
-                            Book a free 20-minute audit call. We'll review your shop live and tell you exactly what's holding your growth back — no pitch, no pressure.
+                            Book a free 20-minute audit call. We'll review your shop live and tell you exactly what's holding your growth back no pitch, no pressure.
                         </p>
 
-                        <Link to="/contact">
+                        <a href="https://calendly.com/tikshopscale/30mincall" target="_blank" rel="noopener noreferrer">
                             <button className="bg-[#0D0D0D] hover:bg-[#1A1A1A] text-white border border-white/20 rounded-[10px] px-[36px] py-[15px] text-[15px] font-[800] font-manrope transition-all hover:-translate-y-[2px] shadow-[0_4px_28px_rgba(0,0,0,0.4)] mb-8 inline-flex items-center justify-center cursor-pointer">
                                 Book a Free Audit Call <ArrowRight size={18} className="ml-2" />
                             </button>
-                        </Link>
+                        </a>
 
                         <p className="text-white/25 text-[11px] font-bold uppercase tracking-widest">
                             No commitment · No pitch deck · We'll review your brand before the call
@@ -624,8 +626,8 @@ const Landing = () => {
                 </div>
             </section>
 
-            {/* SECTION 10 — FAQ */}
-            <section className="bg-white py-[110px] px-4 md:px-10 border-t border-[#E5E5E2] overflow-hidden">
+            {/* SECTION 10 FAQ */}
+            <section className="bg-white grid-net py-[110px] px-4 md:px-10 border-t border-[#E5E5E2] overflow-hidden">
                 <div className="container max-w-[700px] mx-auto text-center">
                     <FadeIn>
                         <span className="text-[#0D0D0D] font-heading font-black text-[11px] uppercase tracking-[0.2em] mb-4 block">

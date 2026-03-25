@@ -20,7 +20,7 @@ const SEO: React.FC<SEOProps> = ({
   structuredData,
 }) => {
   const siteName = 'TikShop Scale';
-  const fullTitle = title ? `${title} — ${siteName}` : siteName;
+  const fullTitle = title ? `${title} ${siteName}` : siteName;
 
   useEffect(() => {
     // Update basic meta tags
