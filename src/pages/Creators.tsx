@@ -6,16 +6,43 @@ import SEO from "@/components/SEO";
 
 const Creators = () => {
     const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setSubmitted(true);
-        setTimeout(() => {
-            const successMsg = document.getElementById("success-message");
-            if (successMsg) {
-                successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setIsSubmitting(true);
+        const form = e.currentTarget;
+        const data = new FormData(form);
+        
+        try {
+            const response = await fetch("https://formspree.io/f/mreogpqg", {
+                method: "POST",
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            const responseData = await response.json();
+            console.log('Formspree response:', responseData);
+
+            if (response.ok) {
+                setSubmitted(true);
+                setTimeout(() => {
+                    const successMsg = document.getElementById("success-message");
+                    if (successMsg) {
+                        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 100);
+            } else {
+                alert("Something went wrong. Please try again.");
             }
-        }, 100);
+        } catch (error) {
+            console.error("Form error:", error);
+            alert("Error submitting form. Please check your connection.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -178,7 +205,8 @@ const Creators = () => {
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#F5EDE308_0%,_transparent_70%)] opacity-50 pointer-events-none" />
 
                         {!submitted ? (
-                            <form onSubmit={handleSubmit} className="flex flex-col gap-9 relative z-10">
+                            <form onSubmit={handleSubmit} action="https://formspree.io/f/mreogpqg" method="POST" className="flex flex-col gap-9 relative z-10">
+                                <input type="hidden" name="_subject" value="New Creator Submission" />
                                 {/* SECTION: YOUR INFO */}
                                 <div>
                                     <div className="flex items-center gap-4 mb-8">
@@ -189,11 +217,11 @@ const Creators = () => {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px]">
                                         <div className="flex flex-col gap-2">
                                             <label className="text-[12.5px] text-white/70 font-[700] tracking-[0.5px]">Full Name <span className="text-[#D4B483]">*</span></label>
-                                            <input required type="text" placeholder="Your full name" className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#D4B483] focus:bg-white/10" />
+                                            <input required type="text" name="fullName" placeholder="Your full name" className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#D4B483] focus:bg-white/10" />
                                         </div>
                                         <div className="flex flex-col gap-2">
                                             <label className="text-[12.5px] text-white/70 font-[700] tracking-[0.5px]">Email Address <span className="text-[#D4B483]">*</span></label>
-                                            <input required type="email" placeholder="your@email.com" className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#D4B483] focus:bg-white/10" />
+                                            <input required type="email" name="email" placeholder="your@email.com" className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#D4B483] focus:bg-white/10" />
                                         </div>
                                     </div>
                                 </div>
@@ -208,11 +236,11 @@ const Creators = () => {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px] mb-[16px]">
                                         <div className="flex flex-col gap-2">
                                             <label className="text-[12.5px] text-white/70 font-[700] tracking-[0.5px]">TikTok Handle <span className="text-[#D4B483]">*</span></label>
-                                            <input required type="text" placeholder="@yourhandle" className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#D4B483] focus:bg-white/10" />
+                                            <input required type="text" name="tiktokHandle" placeholder="@yourhandle" className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#D4B483] focus:bg-white/10" />
                                         </div>
                                         <div className="flex flex-col gap-2">
                                             <label className="text-[12.5px] text-white/70 font-[700] tracking-[0.5px]">Your Niche / Category <span className="text-[#D4B483]">*</span></label>
-                                            <select required className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
+                                            <select required name="category" className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
                                                 <option value="" className="bg-[#0D0D0D]">Select Category</option>
                                                 <option className="bg-[#0D0D0D]">Beauty & Skincare</option>
                                                 <option className="bg-[#0D0D0D]">Health & Wellness</option>
@@ -229,7 +257,7 @@ const Creators = () => {
                                     </div>
                                     <div className="flex flex-col gap-2">
                                         <label className="text-[12.5px] text-white/70 font-[700] tracking-[0.5px]">Approximate Monthly Views <span className="text-[#D4B483]">*</span></label>
-                                        <select required className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
+                                        <select required name="monthlyViews" className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
                                             <option value="" className="bg-[#0D0D0D]">Select Views</option>
                                             <option className="bg-[#0D0D0D]">Under 10K views/month</option>
                                             <option className="bg-[#0D0D0D]">10K – 50K views/month</option>
@@ -251,7 +279,7 @@ const Creators = () => {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px] mb-[16px]">
                                         <div className="flex flex-col gap-2">
                                             <label className="text-[12.5px] text-white/70 font-[700] tracking-[0.5px]">Average Monthly GMV Generated</label>
-                                            <select className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
+                                            <select name="averageMonthlyGmv" className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
                                                 <option value="" className="bg-[#0D0D0D]">Select Average Monthly GMV</option>
                                                 <option className="bg-[#0D0D0D]">Under $1,000/mo</option>
                                                 <option className="bg-[#0D0D0D]">$1,000 – $5,000/mo</option>
@@ -262,7 +290,7 @@ const Creators = () => {
                                         </div>
                                         <div className="flex flex-col gap-2">
                                             <label className="text-[12.5px] text-white/70 font-[700] tracking-[0.5px]">Total GMV Generated (Lifetime)</label>
-                                            <select className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
+                                            <select name="totalGmvLifetime" className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
                                                 <option value="" className="bg-[#0D0D0D]">Select Total GMV Generated (Lifetime)</option>
                                                 <option className="bg-[#0D0D0D]">Under $5,000</option>
                                                 <option className="bg-[#0D0D0D]">$5,000 – $25,000</option>
@@ -274,7 +302,7 @@ const Creators = () => {
                                     </div>
                                     <div className="flex flex-col gap-2">
                                         <label className="text-[12.5px] text-white/70 font-[700] tracking-[0.5px]">What's Your Monthly Retainer?</label>
-                                        <select className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
+                                        <select name="monthlyRetainer" className="bg-white/5 border-[1.5px] border-white/10 rounded-[10px] p-[13px_16px] text-[14.5px] text-white outline-none transition-all focus:border-[#D4B483] focus:bg-white/10 cursor-pointer appearance-none">
                                             <option value="" className="bg-[#0D0D0D]">Select Your Average Monthly Retainer</option>
                                             <option className="bg-[#0D0D0D]">$0 - $500</option>
                                             <option className="bg-[#0D0D0D]">$500 - $1,000</option>
@@ -288,9 +316,10 @@ const Creators = () => {
                                 <div className="flex flex-col gap-[14px] mt-4">
                                     <button
                                         type="submit"
-                                        className="w-full bg-[#F5EDE3] hover:bg-white text-[#0D0D0D] border-none rounded-[12px] p-[17px] font-body font-[800] text-[16px] shadow-xl hover:-translate-y-[2px] transition-all duration-300"
+                                        disabled={isSubmitting}
+                                        className="w-full bg-[#F5EDE3] hover:bg-white text-[#0D0D0D] border-none rounded-[12px] p-[17px] font-body font-[800] text-[16px] shadow-xl hover:-translate-y-[2px] transition-all duration-300 disabled:opacity-50 disabled:hover:-translate-y-0"
                                     >
-                                        Apply to Join the Creator Network →
+                                        {isSubmitting ? "Submitting..." : "Apply to Join the Creator Network →"}
                                     </button>
                                     <p className="flex items-center justify-center gap-2 text-[12.5px] text-white/30">
                                         🔒 We review every application personally and respond within 48 hours.

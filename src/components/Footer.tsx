@@ -244,7 +244,7 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center gap-6">
-            <button
+            {/* <button
               onClick={toggleDarkMode}
               className="group flex items-center gap-[8px] text-[12px] font-[700] uppercase tracking-[1.5px] text-[var(--nav-link-text)] hover:text-[var(--site-text)] transition-all"
               aria-label="Toggle Dark Mode"
@@ -253,7 +253,7 @@ const Footer = () => {
                 {isDarkMode ? "☀️" : "🌙"}
               </span>
               {isDarkMode ? "LIGHT MODE" : "DARK MODE"}
-            </button>
+            </button> */}
 
             <button
               onClick={scrollToTop}

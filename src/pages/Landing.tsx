@@ -5,6 +5,7 @@ import FadeIn from "@/components/FadeIn";
 import TapeLabel from "@/components/TapeLabel";
 import ServiceTicker from "@/components/ServiceTicker";
 import SEO from "@/components/SEO";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import {
     ArrowRight,
     Plus,
@@ -16,7 +17,6 @@ import {
     Video,
     Rocket,
     TrendingUp,
-    Zap,
     Star
 } from "lucide-react";
 import fiveStarIcon from "@/assets/five-star-rating-icon.svg";
@@ -80,7 +80,6 @@ const steps = [
 
 const Landing = () => {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
-    const [email, setEmail] = useState("");
 
     const toggleFaq = (index: number) => {
         setOpenFaq(openFaq === index ? null : index);
@@ -519,29 +518,7 @@ const Landing = () => {
             <section className="pt-24 md:pt-40 pb-0 bg-white grid-net">
                 <div className="container max-w-2xl">
                     <FadeIn>
-                        <div className="p-8 md:p-12 rounded-[2.5rem] text-center bg-secondary/30 border border-border/50 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 p-4 opacity-10">
-                                <Zap size={100} />
-                            </div>
-                            <h2 className="text-2xl md:text-4xl font-black tracking-tighter mb-4">
-                                The System Behind Every Brand We Scale
-                            </h2>
-                            <p className="text-base text-muted-foreground mb-8">
-                                The exact system we use to take brands from launch to $100K+ per month using creators, native content, optimization, and paid scale.
-                                <br /><br />
-                                Thinking about starting or ready to scale on TikTok Shop? This is for you.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                                <input
-                                    type="email"
-                                    placeholder="name@company.com"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="flex-1 h-12 px-6 rounded-full border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium"
-                                />
-                                <Button variant="hero" size="lg" className="rounded-full shadow-lg">Send it</Button>
-                            </div>
-                        </div>
+                        <NewsletterSignup />
                     </FadeIn>
                 </div>
             </section>

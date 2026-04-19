@@ -58,109 +58,86 @@ const services = [
 
 const ServicesShowcase = () => {
     const [activeSlide, setActiveSlide] = useState(0);
-    const [isCentered, setIsCentered] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const isTransitioning = useRef(false);
     const slideRef = useRef(0);
     const scrollAccumulator = useRef(0);
+    const releaseTimeoutRef = useRef<number | null>(null);
 
     // Keep ref in sync with state for use in event listeners
     useEffect(() => {
         slideRef.current = activeSlide;
     }, [activeSlide]);
 
-    // Use a high-frequency effect to check positioning for EARLIER intervention
     useEffect(() => {
-        let rafId: number | null = null;
-        
-        const checkPos = () => {
-            if (rafId) return;
-            rafId = window.requestAnimationFrame(() => {
-                rafId = null;
-                if (!containerRef.current) return;
-                const rect = containerRef.current.getBoundingClientRect();
-                const vh = window.innerHeight;
-
-                // Early detection: trigger "active" state as it's nearing center (40-60% range)
-                const isInRange = rect.top < vh * 0.45 && rect.bottom > vh * 0.55;
-                setIsCentered(isInRange);
-            });
-        };
-
-        window.addEventListener("scroll", checkPos, { passive: true });
         return () => {
-            window.removeEventListener("scroll", checkPos);
-            if (rafId) cancelAnimationFrame(rafId);
+            if (releaseTimeoutRef.current !== null) {
+                window.clearTimeout(releaseTimeoutRef.current);
+            }
         };
     }, []);
 
-    const handleWheel = useCallback((e: WheelEvent) => {
-        if (!containerRef.current) return;
+    const isInCaptureZone = useCallback(() => {
+        if (!containerRef.current) return false;
 
         const rect = containerRef.current.getBoundingClientRect();
-        const vh = window.innerHeight;
+        const viewportHeight = window.innerHeight;
+        const visibleTop = Math.max(rect.top, 0);
+        const visibleBottom = Math.min(rect.bottom, viewportHeight);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const visibleRatio = visibleHeight / Math.min(rect.height, viewportHeight);
+        const midpointOffset = Math.abs(rect.top + rect.height / 2 - viewportHeight / 2);
 
-        // TRIGGER LOCK EARLY: If top is approaching center or overlap is significant
-        const isLockableEntry = rect.top < vh * 0.4 && rect.bottom > vh * 0.6;
-
-        if (isLockableEntry) {
-            const isAtFirst = slideRef.current === 0;
-            const isAtLast = slideRef.current === services.length - 1;
-            const isScrollingUp = e.deltaY < 0;
-            const isScrollingDown = e.deltaY > 0;
-
-            const shouldCapture = (isScrollingDown && !isAtLast) || (isScrollingUp && !isAtFirst);
-
-            if (shouldCapture) {
-                // INSTANT SNAP & BODY LOCK
-                if (e.cancelable) e.preventDefault();
-                e.stopPropagation();
-
-                const mid = rect.top + rect.height / 2;
-                const vMid = vh / 2;
-
-                // Lock the body to prevent ANY background movement AFTER reading rects
-                document.body.style.overflow = 'hidden';
-
-                // Force section to stay centered while internal scroll happens
-                if (Math.abs(mid - vMid) > 1) {
-                    window.scrollTo({
-                        top: window.scrollY + (mid - vMid),
-                        behavior: 'instant' as any
-                    });
-                }
-
-                if (isTransitioning.current) return;
-
-                scrollAccumulator.current += e.deltaY;
-
-                // Ultra-sensitive threshold for fast response
-                if (Math.abs(scrollAccumulator.current) >= 30) {
-                    isTransitioning.current = true;
-                    const direction = scrollAccumulator.current > 0 ? 1 : -1;
-
-                    setActiveSlide(prev => {
-                        const next = prev + direction;
-                        return Math.max(0, Math.min(services.length - 1, next));
-                    });
-
-                    scrollAccumulator.current = 0;
-
-                    setTimeout(() => {
-                        isTransitioning.current = false;
-                    }, 400);
-                }
-            } else {
-                // We've reached the end, release body scroll
-                document.body.style.overflow = '';
-                scrollAccumulator.current = 0;
-            }
-        } else {
-            // Not in zone, ensure scroll is enabled
-            document.body.style.overflow = '';
-            scrollAccumulator.current = 0;
-        }
+        return visibleRatio > 0.72 && midpointOffset < viewportHeight * 0.18;
     }, []);
+
+    const releaseTransitionLock = useCallback(() => {
+        if (releaseTimeoutRef.current !== null) {
+            window.clearTimeout(releaseTimeoutRef.current);
+        }
+
+        releaseTimeoutRef.current = window.setTimeout(() => {
+            isTransitioning.current = false;
+        }, 380);
+    }, []);
+
+    const stepSlide = useCallback((direction: number) => {
+        isTransitioning.current = true;
+        setActiveSlide(prev => {
+            const next = prev + direction;
+            return Math.max(0, Math.min(services.length - 1, next));
+        });
+        releaseTransitionLock();
+    }, [releaseTransitionLock]);
+
+    const handleWheel = useCallback((e: WheelEvent) => {
+        if (!isInCaptureZone()) {
+            scrollAccumulator.current = 0;
+            return;
+        }
+
+        const isAtFirst = slideRef.current === 0;
+        const isAtLast = slideRef.current === services.length - 1;
+        const isScrollingUp = e.deltaY < 0;
+        const isScrollingDown = e.deltaY > 0;
+        const shouldCapture = (isScrollingDown && !isAtLast) || (isScrollingUp && !isAtFirst);
+
+        if (!shouldCapture) {
+            scrollAccumulator.current = 0;
+            return;
+        }
+
+        if (e.cancelable) e.preventDefault();
+        if (isTransitioning.current) return;
+
+        scrollAccumulator.current += e.deltaY;
+
+        if (Math.abs(scrollAccumulator.current) < 55) return;
+
+        const direction = scrollAccumulator.current > 0 ? 1 : -1;
+        scrollAccumulator.current = 0;
+        stepSlide(direction);
+    }, [isInCaptureZone, stepSlide]);
 
     // Touch Handling for Mobile Swipe
     const touchCoord = useRef({ x: 0, y: 0 });
@@ -176,38 +153,19 @@ const ServicesShowcase = () => {
         const deltaX = touchCoord.current.x - e.changedTouches[0].clientX;
         const deltaY = touchCoord.current.y - e.changedTouches[0].clientY;
 
-        // Determine if it was a horizontal or vertical swipe
-        if (Math.abs(deltaX) > 50 || Math.abs(deltaY) > 50) {
-            if (isTransitioning.current) return;
+        if (Math.abs(deltaX) <= 50 && Math.abs(deltaY) <= 50) return;
+        if (isTransitioning.current) return;
 
-            const isHorizontal = Math.abs(deltaX) > Math.abs(deltaY);
-            const direction = isHorizontal ? (deltaX > 0 ? 1 : -1) : (deltaY > 0 ? 1 : -1);
+        const isHorizontal = Math.abs(deltaX) > Math.abs(deltaY);
+        const direction = isHorizontal ? (deltaX > 0 ? 1 : -1) : (deltaY > 0 ? 1 : -1);
 
-            // For vertical swipe, check if we are in the lock zone
-            if (!isHorizontal) {
-                const rect = containerRef.current?.getBoundingClientRect();
-                const vh = window.innerHeight;
-                if (rect && (rect.top > vh * 0.2 || rect.bottom < vh * 0.8)) {
-                    // If not centered enough, let regular scroll happen
-                    return;
-                }
-
-                // If it's the last slide and they swipe down, let them scroll out
-                if (direction === 1 && activeSlide === services.length - 1) return;
-                // If it's the first slide and they swipe up, let them scroll out
-                if (direction === -1 && activeSlide === 0) return;
-            }
-
-            isTransitioning.current = true;
-            setActiveSlide(prev => {
-                const next = prev + direction;
-                return Math.max(0, Math.min(services.length - 1, next));
-            });
-
-            setTimeout(() => {
-                isTransitioning.current = false;
-            }, 400);
+        if (!isHorizontal) {
+            if (!isInCaptureZone()) return;
+            if (direction === 1 && activeSlide === services.length - 1) return;
+            if (direction === -1 && activeSlide === 0) return;
         }
+
+        stepSlide(direction);
     };
 
     useEffect(() => {
@@ -217,7 +175,6 @@ const ServicesShowcase = () => {
         }
         return () => {
             if (section) section.removeEventListener("wheel", handleWheel);
-            document.body.style.overflow = '';
         };
     }, [handleWheel]);
 

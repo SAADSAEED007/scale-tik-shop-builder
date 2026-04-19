@@ -3,12 +3,22 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Star } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import TapeLabel from "@/components/TapeLabel";
-import mobilePhone from "@/assets/mobile.webp";
-import mobilePhone420 from "@/assets/mobile-420.webp";
+import mobilePhone from "@/assets/mobile-clean.webp";
+import mobilePhone420 from "@/assets/mobile-420-clean.webp";
 
 const Hero = () => {
     return (
         <section className="relative pt-[100px] md:pt-[110px] pb-[40px] md:pb-[50px] overflow-hidden grid-net">
+            <style>{`
+                @media (max-width: 767px) {
+                    .hero-float-left {
+                        left: -64px !important;
+                    }
+                    .hero-float-right {
+                        right: -88px !important;
+                    }
+                }
+            `}</style>
             <div className="container max-w-[1240px] mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
 
@@ -72,7 +82,7 @@ const Hero = () => {
 
                             <div className="relative flex items-center justify-center">
                                 {/* Service Pills - Floating Left */}
-                                <div className="flex flex-col gap-6 md:gap-20 absolute -left-4 sm:-left-8 md:-left-[100px] z-30 pointer-events-none scale-[0.55] sm:scale-[0.6] md:scale-100 origin-right md:origin-center">
+                                <div className="hero-float-left flex flex-col gap-6 md:gap-20 absolute -left-4 sm:-left-8 md:-left-[100px] z-30 pointer-events-none scale-[0.55] sm:scale-[0.6] md:scale-100 origin-right md:origin-center">
                                     <div className="bg-[var(--card-bg)]/95 backdrop-blur-md px-4 md:px-6 py-2 md:py-3 rounded-full border border-[var(--card-border)] shadow-sm text-[12px] md:text-[15px] font-bold text-[var(--muted-text)] translate-x-16 animate-float-slow transition-colors">
                                         UGC Engine
                                     </div>
@@ -101,7 +111,7 @@ const Hero = () => {
                                 </div>
 
                                 {/* Performance Cards - Floating Right */}
-                                <div className="absolute -right-8 sm:-right-16 md:-right-40 h-full flex flex-col justify-center gap-12 sm:gap-28 z-30 scale-[0.65] sm:scale-90 md:scale-100">
+                                <div className="hero-float-right absolute -right-8 sm:-right-16 md:-right-40 h-full flex flex-col justify-center gap-12 sm:gap-28 z-30 scale-[0.65] sm:scale-90 md:scale-100">
                                     {/* +132% Revenue Growth */}
                                     <div className="bg-[var(--card-bg)]/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-[var(--card-border)] shadow-xl min-w-[170px] sm:min-w-[210px] transform hover:scale-105 transition-transform animate-float-delayed -translate-y-4 transition-colors">
                                         <p className="text-emerald-500 font-extrabold text-2xl sm:text-3xl mb-1">+132%</p>
