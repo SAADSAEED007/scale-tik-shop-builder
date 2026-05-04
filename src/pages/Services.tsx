@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/FadeIn";
@@ -24,11 +24,17 @@ import SEO from "@/components/SEO";
 const Services = () => {
   const [activePhase, setActivePhase] = useState(1);
   const [showSidebar, setShowSidebar] = useState(false);
-  const phaseRefs = {
-    1: useRef<HTMLElement>(null),
-    2: useRef<HTMLElement>(null),
-    3: useRef<HTMLElement>(null),
-  };
+  const phase1Ref = useRef<HTMLElement>(null);
+  const phase2Ref = useRef<HTMLElement>(null);
+  const phase3Ref = useRef<HTMLElement>(null);
+  const phaseRefs = useMemo(
+    () => ({
+      1: phase1Ref,
+      2: phase2Ref,
+      3: phase3Ref,
+    }),
+    [],
+  );
 
   useEffect(() => {
     // Show/hide sidebar based on scroll
@@ -56,7 +62,7 @@ const Services = () => {
       window.removeEventListener("scroll", scrollListener);
       if (rafId) window.cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [phaseRefs]);
 
   useEffect(() => {
     const observerOptions = {
@@ -81,7 +87,7 @@ const Services = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [phaseRefs]);
 
   const scrollToPhase = (phaseId: number) => {
     const ref = phaseRefs[phaseId as keyof typeof phaseRefs];

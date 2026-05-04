@@ -11,6 +11,15 @@ node_modules
 dist
 dist-ssr
 *.local
+.wrangler
+*.tmp
+*.timestamp-*.mjs
+*_output.txt
+*_out*.txt
+deploy_output.txt
+diff.txt
+last_lines.txt
+parent_index.txt
 
 # Editor directories and files
 .vscode/*

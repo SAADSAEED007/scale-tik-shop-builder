@@ -3,6 +3,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .ease-soft-swipe {
+    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+}
 @layer base {
   :root {
     --background: 0 0% 100%;

@@ -17,6 +17,8 @@ interface StatusIconProps {
     type: "full" | "partial" | "none";
 }
 
+type StatusType = StatusIconProps["type"];
+
 const StatusIcon = ({ type }: StatusIconProps) => {
     if (type === "full") return <Check className="w-5 h-5 md:w-6 md:h-6 text-emerald-500 mx-auto" strokeWidth={3} />;
     if (type === "partial") return <Minus className="w-5 h-5 md:w-6 md:h-6 text-[#D4B483] mx-auto" strokeWidth={3} />;
@@ -183,7 +185,7 @@ const MobileComparison = () => {
     return (
         <div ref={containerRef} className="md:hidden mt-8 -mx-2 sm:mx-0 overflow-hidden relative">
             <div
-                className="flex transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                className="flex transition-transform duration-500 ease-soft-swipe"
                 style={{ transform: `translateX(-${activeIndex * 100}%)` }}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
@@ -226,7 +228,7 @@ const MobileComparison = () => {
                                                         <p className="text-[10px] text-muted-foreground font-medium">{row.subtext}</p>
                                                     </div>
                                                     <div className="flex-shrink-0 pt-0.5">
-                                                        <StatusIcon type={row.values[compIdx] as any} />
+                                                        <StatusIcon type={row.values[compIdx] as StatusType} />
                                                     </div>
                                                 </div>
                                             ))}
