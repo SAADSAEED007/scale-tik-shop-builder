@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Mail, Phone, ArrowUp } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, Phone, ArrowUp, Moon, Sun } from "lucide-react";
 import navLogo from "@/assets/nav_logo.webp";
 import navLogo84 from "@/assets/nav_logo-84.webp";
 import tiktokShopLogo from "@/assets/tiktokshop_brand logo.png";
@@ -89,7 +89,7 @@ const Footer = () => {
                   loading="lazy"
                   width="1536"
                   height="1024"
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-28 w-28 object-contain filter drop-shadow-sm max-w-none dark-mode-logo transition-all duration-300"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-28 w-28 object-contain transition-all duration-300"
                 />
               </div>
               <div className="flex flex-col -space-y-1">
@@ -244,16 +244,16 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center gap-6">
-            {/* <button
+            <button
               onClick={toggleDarkMode}
               className="group flex items-center gap-[8px] text-[12px] font-[700] uppercase tracking-[1.5px] text-[var(--nav-link-text)] hover:text-[var(--site-text)] transition-all"
               aria-label="Toggle Dark Mode"
             >
-              <span className="text-[14px] transition-transform duration-300 group-hover:scale-110">
-                {isDarkMode ? "☀️" : "🌙"}
+              <span className="w-[24px] h-[24px] rounded-full border border-[var(--card-border)] bg-[var(--badge-bg)] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                {isDarkMode ? <Sun size={13} strokeWidth={2.5} /> : <Moon size={13} strokeWidth={2.5} />}
               </span>
               {isDarkMode ? "LIGHT MODE" : "DARK MODE"}
-            </button> */}
+            </button>
 
             <button
               onClick={scrollToTop}
@@ -272,3 +272,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

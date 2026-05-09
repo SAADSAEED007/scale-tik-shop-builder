@@ -9,6 +9,7 @@
     transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
   }
 }
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -60,36 +61,66 @@
     --footer-bg: #EDEADF;
     --muted-text: #6B6358;
     --nav-link-text: #3D3830;
+    --surface-bg: #F7F7F5;
+    --elevated-bg: #FFFFFF;
     --card-bg: #FFFFFF;
+    --card-bg-soft: #F7F7F5;
     --card-border: rgba(0, 0, 0, 0.09);
+    --strong-border: rgba(0, 0, 0, 0.16);
     --footer-border: rgba(0, 0, 0, 0.08);
     --badge-bg: #FFFFFF;
     --badge-text: #1a1a1a;
+    --premium-highlight-bg: #F5EDE3;
+    --premium-highlight-text: #1a1a1a;
     --grid-opacity: 0.08;
     --social-bg-opacity-mod: 1;
     --site-accent-bg: #F5EDE3;
+    --premium-shadow: 0 18px 45px -28px rgba(0, 0, 0, 0.28);
+    --premium-shadow-strong: 0 24px 70px -36px rgba(0, 0, 0, 0.38);
   }
 }
 
 body.dark-mode {
-  --site-bg: #1a1a18;
-  --site-text: #f0ede6;
-  --footer-bg: #1a1a18;
-  --muted-text: #a0a095;
-  --nav-link-text: #f0ede6;
-  --card-bg: #2a2a27;
-  --card-border: rgba(255, 255, 255, 0.1);
-  --footer-border: rgba(255, 255, 255, 0.15);
-  --badge-bg: #2a2a27;
-  --badge-text: #f0ede6;
-  --grid-opacity: 0.15;
-  --social-bg-opacity-mod: 0.8;
-  --site-accent-bg: #2a2a27;
-  
+  --site-bg: #10100f;
+  --site-text: #f7f1e8;
+  --surface-bg: #141413;
+  --elevated-bg: #1b1a18;
+  --footer-bg: #0d0d0c;
+  --muted-text: #b8b0a5;
+  --nav-link-text: #ded7cd;
+  --card-bg: #1b1a18;
+  --card-bg-soft: #23211e;
+  --card-border: rgba(255, 244, 226, 0.13);
+  --strong-border: rgba(255, 244, 226, 0.24);
+  --footer-border: rgba(255, 244, 226, 0.14);
+  --badge-bg: rgba(255, 244, 226, 0.07);
+  --badge-text: #f7f1e8;
+  --premium-highlight-bg: #312a20;
+  --premium-highlight-text: #f7e2bf;
+  --grid-opacity: 0.1;
+  --social-bg-opacity-mod: 0.9;
+  --site-accent-bg: #24211d;
+  --premium-shadow: 0 22px 70px -40px rgba(0, 0, 0, 0.9);
+  --premium-shadow-strong: 0 36px 110px -54px rgba(0, 0, 0, 0.95);
+
   /* Override shadcn variables if needed */
-  --background: 240 10% 10%;
-  --foreground: 0 0% 95%;
-  --border: 240 10% 20%;
+  --background: 40 4% 6%;
+  --foreground: 36 58% 94%;
+  --card: 35 6% 10%;
+  --card-foreground: 36 58% 94%;
+  --popover: 35 6% 10%;
+  --popover-foreground: 36 58% 94%;
+  --primary: 36 58% 94%;
+  --primary-foreground: 35 6% 8%;
+  --secondary: 35 8% 17%;
+  --secondary-foreground: 36 58% 94%;
+  --muted: 35 8% 17%;
+  --muted-foreground: 32 18% 68%;
+  --accent: 35 8% 18%;
+  --accent-foreground: 38 70% 88%;
+  --border: 36 18% 18%;
+  --input: 36 18% 18%;
+  --ring: 38 70% 76%;
 }
 
 @layer base {
@@ -117,7 +148,6 @@ body.dark-mode {
   /* Global Dark Mode Overrides for Hardcoded Tailwind classes */
   body.dark-mode .bg-white,
   body.dark-mode .bg-\[\#FFFFFF\],
-  body.dark-mode .bg-\[\#F7F7F5\],
   body.dark-mode .bg-slate-50\/30,
   body.dark-mode .bg-secondary\/30,
   body.dark-mode .bg-background,
@@ -125,9 +155,16 @@ body.dark-mode {
     background-color: var(--site-bg) !important;
   }
 
+  body.dark-mode .bg-\[\#F7F7F5\],
+  body.dark-mode .bg-\[\#fcfcfc\] {
+    background-color: var(--surface-bg) !important;
+  }
+
   body.dark-mode .bg-\[\#F5EDE3\],
+  body.dark-mode .bg-\[\#f5f3e7\],
   body.dark-mode .bg-secondary {
-    background-color: var(--site-accent-bg) !important;
+    background-color: var(--premium-highlight-bg) !important;
+    color: var(--premium-highlight-text) !important;
   }
 
   body.dark-mode .text-black,
@@ -155,6 +192,9 @@ body.dark-mode {
   body.dark-mode .bg-\[\#fffbeb\],
   body.dark-mode .bg-\[\#fff9df\],
   body.dark-mode .bg-\[\#fafafa\],
+  body.dark-mode .bg-\[\#EDE9FE\],
+  body.dark-mode .bg-\[\#DCFCE7\],
+  body.dark-mode .bg-\[\#FEE2E2\],
   body.dark-mode .group-hover\:bg-\[\#fafafa\]:hover {
     background-color: var(--site-accent-bg) !important;
   }
@@ -165,6 +205,8 @@ body.dark-mode {
   body.dark-mode .border-slate-200,
   body.dark-mode .border-\[\#E5E5E2\],
   body.dark-mode .border-\[\#E6D5C3\],
+  body.dark-mode .border-\[\#D4B483\],
+  body.dark-mode .border-\[\#D4B483\]\/30,
   body.dark-mode .border-border,
   body.dark-mode .border-border\/50,
   body.dark-mode .border-black\/5,
@@ -173,18 +215,55 @@ body.dark-mode {
   }
 
   body.dark-mode .tape-label {
-    background-color: var(--site-accent-bg) !important;
+    background-color: var(--premium-highlight-bg) !important;
+    color: var(--premium-highlight-text) !important;
+  }
+
+  body.dark-mode [class*="shadow"] {
+    --tw-shadow-color: rgba(0, 0, 0, 0.65);
+  }
+
+  body.dark-mode .bg-white,
+  body.dark-mode .bg-\[\#FFFFFF\],
+  body.dark-mode .bg-\[\#F7F7F5\],
+  body.dark-mode .bg-\[\#fcfcfc\],
+  body.dark-mode .bg-\[rgba\(0\,0\,0\,0\.03\)\],
+  body.dark-mode .bg-white\/50 {
+    border-color: var(--card-border) !important;
+  }
+
+  body.dark-mode .bg-white:not(section):not(main),
+  body.dark-mode .bg-\[\#FFFFFF\]:not(section):not(main),
+  body.dark-mode .bg-\[\#F7F7F5\]:not(section):not(main),
+  body.dark-mode .bg-white\/50,
+  body.dark-mode .bg-\[rgba\(0\,0\,0\,0\.03\)\] {
+    background:
+      linear-gradient(145deg, rgba(255, 244, 226, 0.055), rgba(255, 244, 226, 0.018)),
+      var(--card-bg) !important;
+    box-shadow: var(--premium-shadow) !important;
+  }
+
+  body.dark-mode .hover\:shadow-lg:hover,
+  body.dark-mode .hover\:shadow-xl:hover,
+  body.dark-mode .hover\:shadow-md:hover,
+  body.dark-mode .group:hover .group-hover\:shadow-md {
+    box-shadow: var(--premium-shadow-strong) !important;
+  }
+
+  body.dark-mode input,
+  body.dark-mode textarea,
+  body.dark-mode select {
+    background-color: var(--card-bg-soft);
+    border-color: var(--card-border);
     color: var(--site-text) !important;
   }
 
-  body.dark-mode .tape-label {
-    background-color: var(--site-accent-bg) !important;
-    color: var(--site-text) !important;
+  body.dark-mode input::placeholder,
+  body.dark-mode textarea::placeholder {
+    color: var(--muted-text);
   }
 
-  body.dark-mode .dark-mode-logo {
-    filter: brightness(0) invert(1) !important;
-  }
+
 
   /* Flush image scaling */
   img,
@@ -319,6 +398,7 @@ body.dark-mode {
    TABLET BREAKPOINT: 1024px and below
    ============================================ */
 @media (max-width: 1024px) {
+
   /* Reduce section padding on tablet */
   section {
     padding-left: 24px;
@@ -355,13 +435,16 @@ body.dark-mode {
    TABLET BREAKPOINT: 768px and below
    ============================================ */
 @media (max-width: 768px) {
-  html, body {
+
+  html,
+  body {
     overflow-x: hidden;
     position: relative;
   }
 
   /* Standardize touch targets */
-  button, a {
+  button,
+  a {
     min-height: 44px;
     display: inline-flex;
     align-items: center;
@@ -442,13 +525,13 @@ body.dark-mode {
   }
 
   /* Cards full width */
-  .grid > div[class*="rounded-"]:not(.featured-results-grid > div):not(.results-stats-grid > div) {
+  .grid>div[class*="rounded-"]:not(.featured-results-grid > div):not(.results-stats-grid > div) {
     width: 100%;
   }
 
   /* Timeline adjustments */
-  .space-y-20 > div,
-  .space-y-32 > div {
+  .space-y-20>div,
+  .space-y-32>div {
     padding-left: 60px;
   }
 
@@ -519,7 +602,9 @@ body.dark-mode {
   }
 
   /* Input font size to prevent zoom */
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     font-size: 16px;
   }
 
@@ -534,6 +619,7 @@ body.dark-mode {
    MOBILE BREAKPOINT: 480px and below
    ============================================ */
 @media (max-width: 480px) {
+
   /* Further reduce padding */
   section {
     padding-left: 16px;
@@ -576,11 +662,18 @@ body.dark-mode {
   }
 
   /* Service cards padding */
-  .p-8, .p-10, .p-12, .p-14, .p-16 {
+  .p-8,
+  .p-10,
+  .p-12,
+  .p-14,
+  .p-16 {
     padding: 24px;
   }
 
-  .md\:p-10, .md\:p-14, .md\:p-16, .md\:p-20 {
+  .md\:p-10,
+  .md\:p-14,
+  .md\:p-16,
+  .md\:p-20 {
     padding: 24px;
   }
 
@@ -590,8 +683,8 @@ body.dark-mode {
   }
 
   /* Timeline adjustments */
-  .space-y-20 > div,
-  .space-y-32 > div {
+  .space-y-20>div,
+  .space-y-32>div {
     padding-left: 50px;
   }
 
@@ -628,12 +721,13 @@ body.dark-mode {
     width: 100%;
   }
 
-  .flex-col.sm\:flex-row.items-center > * {
+  .flex-col.sm\:flex-row.items-center>* {
     width: 100%;
   }
 
   /* Table cells padding */
-  td, th {
+  td,
+  th {
     padding: 12px 16px;
   }
 
@@ -685,6 +779,7 @@ body.dark-mode {
    MOBILE BREAKPOINT: 375px and below
    ============================================ */
 @media (max-width: 375px) {
+
   /* Compact padding */
   section {
     padding-left: 12px;
@@ -727,13 +822,15 @@ body.dark-mode {
   }
 
   /* Smaller buttons */
-  button, .button {
+  button,
+  .button {
     padding: 10px 16px;
     font-size: 14px;
   }
 
   /* Compact cards */
-  .p-6, .p-8 {
+  .p-6,
+  .p-8 {
     padding: 16px;
   }
 
@@ -812,7 +909,9 @@ body.dark-mode {
   }
 
   /* Form inputs */
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     padding: 10px 12px;
   }
 
@@ -823,7 +922,8 @@ body.dark-mode {
   }
 
   /* Trust badges */
-  .h-9, .h-11 {
+  .h-9,
+  .h-11 {
     height: 32px;
     padding-left: 8px;
     padding-right: 8px;
@@ -839,6 +939,7 @@ body.dark-mode {
    MOBILE BREAKPOINT: 320px (iPhone SE)
    ============================================ */
 @media (max-width: 320px) {
+
   /* Minimal padding */
   section {
     padding-left: 10px;
@@ -874,18 +975,23 @@ body.dark-mode {
   }
 
   /* Compact buttons */
-  button, .button {
+  button,
+  .button {
     padding: 8px 12px;
     font-size: 13px;
     min-height: 40px;
   }
 
   /* Smaller cards */
-  .rounded-2xl, .rounded-\[18px\], .rounded-\[16px\] {
+  .rounded-2xl,
+  .rounded-\[18px\],
+  .rounded-\[16px\] {
     border-radius: 12px;
   }
 
-  .p-6, .p-8, .p-10 {
+  .p-6,
+  .p-8,
+  .p-10 {
     padding: 12px;
   }
 
@@ -933,13 +1039,14 @@ body.dark-mode {
   }
 
   /* Timeline */
-  .space-y-20 > div,
-  .space-y-32 > div {
+  .space-y-20>div,
+  .space-y-32>div {
     padding-left: 40px;
   }
 
   /* Stats */
-  .text-2xl, .text-3xl {
+  .text-2xl,
+  .text-3xl {
     font-size: 1.25rem;
   }
 
@@ -967,18 +1074,23 @@ body.dark-mode {
   }
 
   /* Table cells */
-  td, th {
+  td,
+  th {
     padding: 8px 10px;
     font-size: 12px;
   }
 
   /* Form sections */
-  .p-8, .md\:p-10, .md\:p-12 {
+  .p-8,
+  .md\:p-10,
+  .md\:p-12 {
     padding: 16px;
   }
 
   /* Input fields */
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     padding: 8px 10px;
     font-size: 14px;
   }
@@ -998,6 +1110,7 @@ body.dark-mode {
    TOUCH DEVICE OPTIMIZATIONS
    ============================================ */
 @media (hover: none) and (pointer: coarse) {
+
   /* Disable cursor effects on touch devices */
   .cursor-follower,
   .sprinkle-trail {
@@ -1005,7 +1118,11 @@ body.dark-mode {
   }
 
   /* Increase touch targets */
-  button, a, input, select, textarea {
+  button,
+  a,
+  input,
+  select,
+  textarea {
     min-height: 44px;
     min-width: 44px;
   }
@@ -1021,7 +1138,8 @@ body.dark-mode {
   }
 
   /* Ensure tap highlights are visible */
-  button:active, a:active {
+  button:active,
+  a:active {
     opacity: 0.8;
   }
 }
@@ -1030,8 +1148,11 @@ body.dark-mode {
    SAFARI/IOS SPECIFIC FIXES
    ============================================ */
 @supports (-webkit-touch-callout: none) {
+
   /* iOS input zoom prevention */
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     font-size: 16px;
   }
 
@@ -1046,6 +1167,7 @@ body.dark-mode {
    PRINT STYLES
    ============================================ */
 @media print {
+
   .cursor-follower,
   .sprinkle-trail,
   nav.fixed,

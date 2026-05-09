@@ -350,7 +350,7 @@ const WhyUs = () => {
                                                             <img
                                                                 src={navLogo}
                                                                 alt="TikShop Scale Logo"
-                                                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 max-w-none object-contain dark-mode-logo transition-all duration-300"
+                                                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 max-w-none object-contain transition-all duration-300 dark:brightness-0 dark:invert"
                                                             />
                                                         </div>
                                                         <div className="flex flex-col gap-1">
