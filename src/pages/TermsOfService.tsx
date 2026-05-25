@@ -12,12 +12,20 @@ const TermsOfService = () => {
                             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-6 leading-none">
                                 <TapeLabel className="inline-block px-4 py-1">Terms of Service</TapeLabel>
                             </h1>
-                            <p className="text-lg md:text-xl text-muted-foreground font-medium max-w-2xl mx-auto mb-2">
-                                Please read these terms carefully before using our services.
-                            </p>
-                            <p className="text-sm font-bold text-neutral-900 tracking-widest uppercase">
-                                Effective Date: December 23, 2023
-                            </p>
+                            <div className="flex flex-col items-center gap-1 text-center">
+                                <span className="text-sm font-bold text-neutral-900 tracking-widest uppercase">
+                                    TIKSHOP SCALE
+                                </span>
+                                <a 
+                                    href="https://www.tikshopscale.com" 
+                                    className="text-base text-muted-foreground hover:text-neutral-900 font-medium transition-colors mb-4"
+                                >
+                                    www.tikshopscale.com
+                                </a>
+                                <span className="text-xs sm:text-sm font-bold text-neutral-900 tracking-widest uppercase bg-neutral-100 px-4 py-1.5 rounded-full border border-neutral-200">
+                                    Effective Date: May 12, 2024
+                                </span>
+                            </div>
                         </div>
                     </FadeIn>
                 </div>
@@ -27,164 +35,104 @@ const TermsOfService = () => {
             <section className="relative grid-net">
                 <div className="container max-w-4xl mx-auto px-4 md:px-6">
                     <FadeIn delay={0.1}>
-                        <div className="bg-white/50 backdrop-blur-md rounded-[2.5rem] border border-border/50 p-8 md:p-16 shadow-sm">
+                        <div className="bg-white/50 backdrop-blur-md rounded-[2.5rem] border border-border/50 p-8 md:p-16 shadow-sm space-y-12">
+                            
+                            {/* IMPORTANT DISCLAIMER */}
+                            <div className="bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-900/30 rounded-2xl p-6 text-amber-800 dark:text-amber-200/90 text-sm font-medium leading-relaxed shadow-sm">
+                                <span className="font-extrabold tracking-wider uppercase mr-2 text-amber-900 dark:text-amber-100">
+                                    IMPORTANT DISCLAIMER:
+                                </span>
+                                TikShop Scale is an independent consulting agency. We are <span className="font-bold text-amber-900 dark:text-amber-100">NOT</span> affiliated with, endorsed by, sponsored by, or officially connected to TikTok, TikTok Shop, ByteDance, or any of their subsidiaries or related entities. All third-party brand names, trademarks, and logos referenced on this website belong to their respective owners.
+                            </div>
+
                             <div className="space-y-12">
-                                {/* 1. Agreement to Terms */}
+                                {/* 1. Acceptance of Terms */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">1. Agreement to Terms</h2>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">1. Acceptance of Terms</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        These Terms of Service (“Terms”) govern your use of services provided by TikShop Scale (“Company,” “we,” “us,” or “our”). By engaging our services, you agree to be bound by these Terms.
+                                        By accessing or using the website <a href="https://www.tikshopscale.com" className="text-neutral-900 font-semibold underline hover:opacity-80 transition-opacity">www.tikshopscale.com</a>, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use this website.
                                     </p>
                                 </section>
 
-                                {/* 2. Services */}
+                                {/* 2. About TikShop Scale */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">2. Services</h2>
-                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px] mb-4">
-                                        TikShop Scale provides TikTok Shop related services, which may include:
-                                    </p>
-                                    <ul className="list-disc list-inside text-neutral-500 space-y-2 font-medium text-base md:text-[17px]">
-                                        <li>Store setup and optimization</li>
-                                        <li>Product listing management</li>
-                                        <li>Advertising management</li>
-                                        <li>Influencer and affiliate coordination</li>
-                                        <li>Creative strategy and consulting</li>
-                                        <li>Performance analysis and reporting</li>
-                                    </ul>
-                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px] mt-4">
-                                        Specific services will be outlined in a separate written agreement, proposal, or invoice.
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">2. About TikShop Scale</h2>
+                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
+                                        TikShop Scale is an independent digital marketing and consulting agency. We provide services to brands and sellers who wish to grow their business using TikTok Shop and related platforms. We are a third-party service provider and are <span className="font-semibold text-neutral-800">NOT</span> an official partner, representative, reseller, or affiliate of TikTok, TikTok Shop, or ByteDance.
                                     </p>
                                 </section>
 
-                                {/* 3. Client Responsibilities */}
+                                {/* 3. No Affiliation with TikTok */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">3. Client Responsibilities</h2>
-                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px] mb-4">
-                                        You agree to:
-                                    </p>
-                                    <ul className="list-disc list-inside text-neutral-500 space-y-2 font-medium text-base md:text-[17px]">
-                                        <li>Provide accurate and complete information</li>
-                                        <li>Maintain compliance with TikTok policies</li>
-                                        <li>Ensure products comply with applicable laws</li>
-                                        <li>Grant necessary access to accounts and assets</li>
-                                        <li>Pay all agreed fees on time</li>
-                                    </ul>
-                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px] mt-4">
-                                        You remain solely responsible for your products, claims, fulfillment, and customer service unless otherwise agreed in writing.
-                                    </p>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">3. No Affiliation with TikTok</h2>
+                                    <div className="text-neutral-500 leading-relaxed font-semibold italic text-neutral-800 text-base md:text-[17px] border-l-4 border-neutral-300 pl-4 py-2 bg-neutral-50/50 rounded-r-xl pr-2">
+                                        &ldquo;TikShop Scale is a completely independent entity. Our name reflects the nature of our work helping brands scale on TikTok Shop and is not intended to imply any official relationship with TikTok or ByteDance. We do not represent, speak for, or act on behalf of TikTok in any capacity.&rdquo;
+                                    </div>
                                 </section>
 
-                                {/* 4. Fees and Payment */}
+                                {/* 4. Services */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">4. Fees and Payment</h2>
-                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px] mb-4">
-                                        Fees will be defined in your service agreement.
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">4. Services</h2>
+                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
+                                        Our services include but are not limited to: TikTok Shop account management, content strategy, creator outreach, product listing optimization, advertising management, and general e-commerce consulting. Services are provided under separate client agreements and are subject to those agreement terms.
                                     </p>
-                                    <ul className="list-disc list-inside text-neutral-500 space-y-2 font-medium text-base md:text-[17px]">
-                                        <li>Payments are due as specified in your invoice</li>
-                                        <li>Late payments may result in service suspension</li>
-                                        <li>Fees are non refundable unless otherwise stated</li>
-                                        <li>You are responsible for any third party platform costs, including ad spend</li>
-                                    </ul>
                                 </section>
 
                                 {/* 5. Intellectual Property */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">5. Intellectual Property</h2>
-                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        All content, strategies, frameworks, and proprietary materials created by TikShop Scale remain our intellectual property unless otherwise agreed in writing. Clients retain ownership of their brand assets, trademarks, and products.
-                                    </p>
-                                </section>
-
-                                {/* 6. Confidentiality */}
-                                <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">6. Confidentiality</h2>
-                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        Both parties agree to maintain confidentiality of proprietary business information shared during the course of engagement. Confidential information shall not be disclosed to third parties without consent, except as required by law.
-                                    </p>
-                                </section>
-
-                                {/* 7. No Guarantee of Results */}
-                                <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">7. No Guarantee of Results</h2>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">5. Intellectual Property</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px] mb-4">
-                                        We provide strategy, management, and optimization services. However:
+                                        All original content on this website, including text, graphics, and branding, is the intellectual property of TikShop Scale. You may not reproduce, distribute, or use our content without prior written permission.
                                     </p>
-                                    <ul className="list-disc list-inside text-neutral-500 space-y-2 font-medium text-base md:text-[17px]">
-                                        <li>We do not guarantee specific revenue, sales volume, or profit outcomes</li>
-                                        <li>Performance depends on market conditions, product quality, competition, and platform algorithms</li>
-                                    </ul>
-                                </section>
-
-                                {/* 8. Limitation of Liability */}
-                                <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">8. Limitation of Liability</h2>
-                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px] mb-4">
-                                        To the fullest extent permitted by law:
-                                    </p>
-                                    <ul className="list-disc list-inside text-neutral-500 space-y-2 font-medium text-base md:text-[17px]">
-                                        <li>TikShop Scale shall not be liable for indirect, incidental, or consequential damages</li>
-                                        <li>Total liability shall not exceed the total fees paid to us in the preceding three months</li>
-                                    </ul>
-                                </section>
-
-                                {/* 9. Indemnification */}
-                                <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">9. Indemnification</h2>
-                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px] mb-4">
-                                        You agree to indemnify and hold harmless TikShop Scale from claims arising out of:
-                                    </p>
-                                    <ul className="list-disc list-inside text-neutral-500 space-y-2 font-medium text-base md:text-[17px]">
-                                        <li>Your products</li>
-                                        <li>False advertising claims</li>
-                                        <li>Intellectual property infringement</li>
-                                        <li>Violation of laws or TikTok policies</li>
-                                    </ul>
-                                </section>
-
-                                {/* 10. Termination */}
-                                <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">10. Termination</h2>
-                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px] mb-4">
-                                        Either party may terminate services according to the terms outlined in the service agreement. Upon termination:
-                                    </p>
-                                    <ul className="list-disc list-inside text-neutral-500 space-y-2 font-medium text-base md:text-[17px]">
-                                        <li>Outstanding fees remain due</li>
-                                        <li>Access to accounts may be revoked</li>
-                                        <li>Certain provisions survive termination</li>
-                                    </ul>
-                                </section>
-
-                                {/* 11. Independent Contractor */}
-                                <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">11. Independent Contractor</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        TikShop Scale operates as an independent contractor. Nothing in this agreement creates a partnership, joint venture, or employment relationship.
+                                        Any third-party trademarks referenced on this site (including &ldquo;TikTok&rdquo; and &ldquo;TikTok Shop&rdquo;) are the property of their respective owners. Their mention is solely for descriptive purposes to explain the platforms we work with and does not imply endorsement or affiliation.
                                     </p>
                                 </section>
 
-                                {/* 12. Governing Law */}
+                                {/* 6. Disclaimer of Warranties */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">12. Governing Law</h2>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">6. Disclaimer of Warranties</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        These Terms shall be governed by the laws of United States, without regard to conflict of law principles.
+                                        This website and all content provided on it are offered on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo; basis. TikShop Scale makes no representations or warranties of any kind, express or implied, regarding the accuracy, completeness, or suitability of the content.
                                     </p>
                                 </section>
 
-                                {/* 13. Modifications */}
+                                {/* 7. Limitation of Liability */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">13. Modifications</h2>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">7. Limitation of Liability</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        We reserve the right to update these Terms. Continued use of services after changes constitutes acceptance.
+                                        To the fullest extent permitted by applicable law, TikShop Scale shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of this website or our services.
                                     </p>
                                 </section>
 
-                                {/* 14. Contact */}
+                                {/* 8. Governing Law */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">14. Contact</h2>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">8. Governing Law</h2>
+                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
+                                        These Terms of Service shall be governed by and construed in accordance with the laws of the jurisdiction in which TikShop Scale operates, without regard to conflict of law principles.
+                                    </p>
+                                </section>
+
+                                {/* 9. Changes to Terms */}
+                                <section>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">9. Changes to Terms</h2>
+                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
+                                        We reserve the right to update or modify these Terms of Service at any time. Any changes will be reflected on this page with an updated effective date.
+                                    </p>
+                                </section>
+
+                                {/* Contact Us */}
+                                <section className="pt-8 border-t border-neutral-200">
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">Contact Us</h2>
+                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px] mb-4">
+                                        If you have any questions about this Privacy Policy or our Terms of Service, please contact us at:
+                                    </p>
                                     <div className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        <p className="font-bold text-neutral-900 mb-2">TikShop Scale</p>
-                                        <p>Email: info@tikshopscale.com</p>
+                                        <p className="font-bold text-neutral-900 mb-1">TikShop Scale</p>
+                                        <p className="mb-2">
+                                            <a href="https://www.tikshopscale.com" className="text-neutral-900 font-semibold underline hover:opacity-80 transition-opacity">www.tikshopscale.com</a>
+                                        </p>
+                                        <p>Email: <a href="mailto:info@tikshopscale.com" className="text-neutral-900 font-semibold underline hover:opacity-80 transition-opacity">info@tikshopscale.com</a></p>
                                     </div>
                                 </section>
                             </div>

@@ -12,12 +12,20 @@ const PrivacyPolicy = () => {
                             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-6 leading-none">
                                 <TapeLabel className="inline-block px-4 py-1">Privacy Policy</TapeLabel>
                             </h1>
-                            <p className="text-lg md:text-xl text-muted-foreground font-medium max-w-2xl mx-auto mb-2">
-                                Your privacy and data protection matter to us.
-                            </p>
-                            <p className="text-sm font-bold text-neutral-900 tracking-widest uppercase">
-                                Effective Date: December 23, 2023
-                            </p>
+                            <div className="flex flex-col items-center gap-1 text-center">
+                                <span className="text-sm font-bold text-neutral-900 tracking-widest uppercase">
+                                    TIKSHOP SCALE
+                                </span>
+                                <a 
+                                    href="https://www.tikshopscale.com" 
+                                    className="text-base text-muted-foreground hover:text-neutral-900 font-medium transition-colors mb-4"
+                                >
+                                    www.tikshopscale.com
+                                </a>
+                                <span className="text-xs sm:text-sm font-bold text-neutral-900 tracking-widest uppercase bg-neutral-100 px-4 py-1.5 rounded-full border border-neutral-200">
+                                    Effective Date: May 12, 2024
+                                </span>
+                            </div>
                         </div>
                     </FadeIn>
                 </div>
@@ -27,145 +35,113 @@ const PrivacyPolicy = () => {
             <section className="relative grid-net">
                 <div className="container max-w-4xl mx-auto px-4 md:px-6">
                     <FadeIn delay={0.1}>
-                        <div className="bg-white/50 backdrop-blur-md rounded-[2.5rem] border border-border/50 p-8 md:p-16 shadow-sm">
+                        <div className="bg-white/50 backdrop-blur-md rounded-[2.5rem] border border-border/50 p-8 md:p-16 shadow-sm space-y-12">
+                            
+                            {/* IMPORTANT DISCLAIMER */}
+                            <div className="bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-900/30 rounded-2xl p-6 text-amber-800 dark:text-amber-200/90 text-sm font-medium leading-relaxed shadow-sm">
+                                <span className="font-extrabold tracking-wider uppercase mr-2 text-amber-900 dark:text-amber-100">
+                                    IMPORTANT DISCLAIMER:
+                                </span>
+                                TikShop Scale is an independent consulting agency. We are <span className="font-bold text-amber-900 dark:text-amber-100">NOT</span> affiliated with, endorsed by, sponsored by, or officially connected to TikTok, TikTok Shop, ByteDance, or any of their subsidiaries or related entities. All third-party brand names, trademarks, and logos referenced on this website belong to their respective owners.
+                            </div>
+
                             <div className="space-y-12">
-                                {/* Introduction */}
+                                {/* 1. Who We Are */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">Introduction</h2>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">1. Who We Are</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        TikShop Scale (“Company,” “we,” “us,” or “our”) respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, engage our services, or communicate with us. By using our services, you agree to the terms of this Privacy Policy.
+                                        TikShop Scale (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is an independent digital marketing and consulting agency. We provide growth, content strategy, and TikTok Shop optimization services to brands and businesses. We operate this website at <a href="https://www.tikshopscale.com" className="text-neutral-900 font-semibold underline hover:opacity-80 transition-opacity">www.tikshopscale.com</a> solely to present our services to potential and current clients.
                                     </p>
                                 </section>
 
-                                {/* Information We Collect */}
+                                {/* 2. Information We Collect */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">Information We Collect</h2>
-
-                                    <div className="space-y-8">
-                                        <div>
-                                            <h3 className="font-bold text-neutral-900 mb-3 text-lg">A. Personal Information</h3>
-                                            <ul className="list-disc list-inside text-neutral-500 space-y-2 font-medium">
-                                                <li>Full name</li>
-                                                <li>Business name</li>
-                                                <li>Email address</li>
-                                                <li>Phone number</li>
-                                                <li>Billing and payment information</li>
-                                                <li>Mailing address</li>
-                                            </ul>
-                                        </div>
-
-                                        <div>
-                                            <h3 className="font-bold text-neutral-900 mb-3 text-lg">B. Business & Account Information</h3>
-                                            <ul className="list-disc list-inside text-neutral-500 space-y-2 font-medium">
-                                                <li>TikTok Shop account details</li>
-                                                <li>Store performance data</li>
-                                                <li>Advertising account information</li>
-                                                <li>Sales and analytics data</li>
-                                                <li>Product listings and related content</li>
-                                            </ul>
-                                        </div>
-
-                                        <div>
-                                            <h3 className="font-bold text-neutral-900 mb-3 text-lg">C. Automatically Collected Information</h3>
-                                            <ul className="list-disc list-inside text-neutral-500 space-y-2 font-medium">
-                                                <li>IP address</li>
-                                                <li>Browser type</li>
-                                                <li>Device information</li>
-                                                <li>Usage data</li>
-                                                <li>Cookies and tracking technologies</li>
-                                            </ul>
-                                        </div>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">2. Information We Collect</h2>
+                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px] mb-4">
+                                        We may collect the following types of information when you visit our website or contact us:
+                                    </p>
+                                    <ul className="list-disc list-inside text-neutral-500 space-y-2.5 font-medium text-base md:text-[17px] pl-2 mb-6">
+                                        <li>Name and email address (when you fill out a contact or inquiry form)</li>
+                                        <li>Business name and general business information you choose to share</li>
+                                        <li>IP address and browser/device information (collected automatically via analytics tools)</li>
+                                        <li>Pages visited, time spent on site, and referral sources</li>
+                                    </ul>
+                                    <div className="bg-neutral-50/70 border border-neutral-200/50 rounded-xl p-4 text-neutral-600 font-medium text-[15px] leading-relaxed">
+                                        We do <span className="font-extrabold text-red-600">NOT</span> collect passwords, payment card numbers, government ID numbers, or any sensitive personal data through this website.
                                     </div>
                                 </section>
 
-                                {/* How We Use Your Information */}
+                                {/* 3. How We Use Your Information */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">How We Use Your Information</h2>
-                                    <ul className="list-disc list-inside text-neutral-500 space-y-2 font-medium text-base md:text-[17px]">
-                                        <li>Provide TikTok Shop management and growth services</li>
-                                        <li>Optimize store performance and advertising campaigns</li>
-                                        <li>Communicate regarding services, updates, and billing</li>
-                                        <li>Process payments</li>
-                                        <li>Improve our website and services</li>
-                                        <li>Comply with legal obligations</li>
-                                        <li>Prevent fraud or misuse</li>
-                                    </ul>
-                                </section>
-
-                                {/* How We Share Information */}
-                                <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">How We Share Information</h2>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">3. How We Use Your Information</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px] mb-4">
-                                        We do not sell personal information.
+                                        We use the information we collect only for the following purposes:
                                     </p>
+                                    <ul className="list-disc list-inside text-neutral-500 space-y-2.5 font-medium text-base md:text-[17px] pl-2 mb-6">
+                                        <li>To respond to your inquiries and provide requested services</li>
+                                        <li>To send service related communications (with your consent)</li>
+                                        <li>To improve our website and understand how visitors use it</li>
+                                        <li>To fulfill our legal and contractual obligations</li>
+                                    </ul>
+                                    <div className="bg-neutral-50/70 border border-neutral-200/50 rounded-xl p-4 text-neutral-600 font-medium text-[15px] leading-relaxed">
+                                        We do <span className="font-extrabold text-red-600">NOT</span> sell, rent, or share your personal information with third parties for advertising or marketing purposes.
+                                    </div>
+                                </section>
+
+                                {/* 4. Cookies */}
+                                <section>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">4. Cookies</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        We may share information with service providers, payment processors, legal authorities, and TikTok-related platforms as necessary to perform services.
+                                        Our website may use cookies and similar tracking technologies to improve your browsing experience and analyze site traffic. You may disable cookies in your browser settings at any time; however, some parts of the website may not function as intended if you do so.
                                     </p>
                                 </section>
 
-                                {/* Data Security */}
+                                {/* 5. Third-Party Links */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">Data Security</h2>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">5. Third-Party Links</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        We implement commercially reasonable administrative, technical, and physical safeguards to protect your information. However, no system is 100% secure.
+                                        Our website may contain links to third-party platforms including TikTok, TikTok Shop, or other external websites. We are not responsible for the privacy practices or content of those websites. Visiting those links is governed by their own privacy policies.
                                     </p>
                                 </section>
 
-                                {/* Data Retention */}
+                                {/* 6. Data Security */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">Data Retention</h2>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">6. Data Security</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        We retain information only as long as necessary to fulfill services, legal obligations, resolve disputes, and enforce agreements.
+                                        We take reasonable technical and organizational measures to protect the personal information we collect. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
                                     </p>
                                 </section>
 
-                                {/* Your Rights */}
+                                {/* 7. Your Rights */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">Your Rights</h2>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">7. Your Rights</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        Users may have rights to access, correct, delete, withdraw consent, or object to processing.
-                                        Contact: info@tikshopscale.com
+                                        Depending on your location, you may have the right to access, correct, or delete your personal data. To make such a request, please contact us at the email address listed at the end of this document.
                                     </p>
                                 </section>
 
-                                {/* Cookies */}
+                                {/* 8. Children's Privacy */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">Cookies</h2>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">8. Children's Privacy</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        We use cookies and tracking technologies to enhance user experience and analyze traffic. Users can control cookies via browser settings.
+                                        Our website and services are intended for business clients and are not directed at children under the age of 18. We do not knowingly collect personal information from children.
                                     </p>
                                 </section>
 
-                                {/* Third Party Links */}
+                                {/* 9. Changes to This Policy */}
                                 <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">Third Party Links</h2>
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">9. Changes to This Policy</h2>
                                     <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        We are not responsible for privacy practices of third-party websites linked on our site.
-                                    </p>
-                                </section>
-
-                                {/* Children’s Privacy */}
-                                <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">Children’s Privacy</h2>
-                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        Our services are not intended for individuals under 18. We do not knowingly collect data from minors.
-                                    </p>
-                                </section>
-
-                                {/* Changes to This Policy */}
-                                <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">Changes to This Policy</h2>
-                                    <p className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
-                                        We may update this Privacy Policy periodically with a revised effective date.
+                                        We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date. Continued use of our website after changes constitutes acceptance of the updated policy.
                                     </p>
                                 </section>
 
                                 {/* Contact Information */}
-                                <section>
-                                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-neutral-900 mb-6 uppercase">Contact Information</h2>
+                                <section className="pt-8 border-t border-neutral-200">
+                                    <h2 className="text-xl md:text-2xl font-black tracking-tight text-neutral-900 mb-4 uppercase">Contact Information</h2>
                                     <div className="text-neutral-500 leading-relaxed font-medium text-base md:text-[17px]">
                                         <p className="font-bold text-neutral-900 mb-2">TikShop Scale</p>
-                                        <p>Email: info@tikshopscale.com</p>
+                                        <p>Email: <a href="mailto:info@tikshopscale.com" className="text-neutral-900 font-semibold underline hover:opacity-80 transition-opacity">info@tikshopscale.com</a></p>
                                     </div>
                                 </section>
                             </div>

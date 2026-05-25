@@ -232,8 +232,13 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* LEGAL DISCLAIMER */}
+        <div className="mt-10 sm:mt-[56px] pt-6 border-t border-[var(--footer-border)] text-center text-[10px] sm:text-[11px] leading-[1.6] tracking-wide text-[var(--muted-text)] opacity-60 hover:opacity-90 max-w-[850px] mx-auto transition-opacity duration-300 select-none">
+          TikShop Scale is an independent agency and is not affiliated with, endorsed by, or connected to TikTok, TikTok Shop, or ByteDance. All trademarks belong to their respective owners.
+        </div>
+
         {/* BOTTOM BAR */}
-        <div className="mt-10 sm:mt-[56px] pt-4 sm:pt-[20px] border-t border-[var(--footer-border)] flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-[12px] text-center md:text-left transition-colors">
+        <div className="mt-8 pt-4 sm:pt-[20px] border-t border-[var(--footer-border)] flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-[12px] text-center md:text-left transition-colors">
           <div className="text-[12px] text-[var(--muted-text)] font-medium">
             © 2023–2026 TikShop Scale. All rights reserved.
           </div>
